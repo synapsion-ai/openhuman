@@ -42,7 +42,7 @@ const messages: TranslationMap = {
   'nav.agentWorld': 'Tiny.Place',
   'nav.wallet': 'Кошелёк',
   'agentWorld.description':
-    'Tiny.Place — это социальная сеть для ИИ-агентов. Используйте OpenHuman, чтобы взаимодействовать, находить и публиковать задания, торговать и расти вместе.',
+    'Tiny.Place — это социальная сеть для ИИ-агентов. Используйте Sionix, чтобы взаимодействовать, находить и публиковать задания, торговать и расти вместе.',
   'agentWorld.feed': 'Лента',
   'agentWorld.ledger': 'Реестр',
   'agentWorld.jobs': 'Вакансии',
@@ -309,8 +309,8 @@ const messages: TranslationMap = {
   'clearData.failed': 'Не удалось очистить данные и выйти. Попробуй ещё раз.',
   'clearData.failedLogout': 'Не удалось выйти. Попробуй ещё раз.',
   'clearData.failedPersist': 'Не удалось сбросить состояние приложения. Попробуй ещё раз.',
-  'welcome.logoAlt': 'OpenHuman',
-  'welcome.title': 'Добро пожаловать в OpenHuman',
+  'welcome.logoAlt': 'Sionix',
+  'welcome.title': 'Добро пожаловать в Sionix',
   'welcome.subtitle': 'Твой персональный суперинтеллект. Приватный, простой и невероятно мощный.',
   'welcome.connectPrompt': 'Настроить RPC URL (дополнительно)',
   'welcome.selectRuntime': 'Выбрать среду выполнения',
@@ -319,7 +319,7 @@ const messages: TranslationMap = {
   'welcome.clearAppDataWarning':
     'Это удалит локально сохранённые секреты и аккаунты на этом устройстве. Ваш облачный аккаунт не затрагивается — вы можете войти снова сразу после этого.',
   'welcome.resetErrorFallback':
-    'Не удалось очистить данные приложения. Закройте и снова откройте OpenHuman, затем повторите попытку.',
+    'Не удалось очистить данные приложения. Закройте и снова откройте Sionix, затем повторите попытку.',
   'welcome.signingIn': 'Выполняете вход...',
   'welcome.termsIntro': 'Продолжая, вы соглашаетесь с',
   'welcome.termsOfUse': 'Условиями',
@@ -338,7 +338,7 @@ const messages: TranslationMap = {
     'Ваш ассистент готов, когда вы будете готовы. Напишите что-нибудь ниже, чтобы начать.',
   'home.statusBackendOnly': 'Переподключение к серверу… агент скоро снова будет доступен.',
   'home.statusCoreUnreachable':
-    'Локальный процесс OpenHuman не отвечает. Возможно, он завис или не запустился.',
+    'Локальный процесс Sionix не отвечает. Возможно, он завис или не запустился.',
   'home.statusInternetOffline':
     'Нет подключения к интернету. Проверь сеть или перезапусти приложение.',
   'home.restartCore': 'Перезапустить ядро',
@@ -411,7 +411,7 @@ const messages: TranslationMap = {
   'skills.channels': 'Сообщения',
   'skills.explorer.emptyCta': 'Установить по URL',
   'skills.explorer.emptyDescription':
-    'Установите пакет SKILL.md или поместите папки в стиле Hermes в ~/.openhuman/skills.',
+    'Установите пакет SKILL.md или поместите папки в стиле Hermes в ~/.Sionix/skills.',
   'skills.explorer.emptyTitle': 'Навыки не найдены',
   'skills.explorer.installFromUrl': 'Установить по URL',
   'skills.explorer.newSkill': 'Новый навык',
@@ -659,13 +659,13 @@ const messages: TranslationMap = {
   'rewards.referrals': 'Рефералы',
   'rewards.coupons': 'Активировать',
   'rewards.localUnavailable':
-    'Локальный вход не приносит награды, купоны или реферальный кредит. Выйдите и войдите с аккаунтом OpenHuman, если хотите, чтобы награды начислялись.',
+    'Локальный вход не приносит награды, купоны или реферальный кредит. Выйдите и войдите с аккаунтом Sionix, если хотите, чтобы награды начислялись.',
   'rewards.localUnavailableCta': 'Открыть настройки аккаунта',
   'rewards.credits': 'Кредиты',
   'rewards.referralCode': 'Твой реферальный код',
   'rewards.copyCode': 'Скопировать код',
   'rewards.share': 'Поделиться',
-  'onboarding.welcome': 'Привет. Я OpenHuman.',
+  'onboarding.welcome': 'Привет. Я Sionix.',
   'onboarding.welcomeDesc':
     'Твой суперинтеллектуальный AI-ассистент, работающий прямо на твоём компьютере. Приватный, простой и невероятно мощный.',
   'onboarding.context': 'Сбор контекста',
@@ -677,14 +677,14 @@ const messages: TranslationMap = {
   'onboarding.referral': 'Реферал',
   'onboarding.referralDesc': 'Введи реферальный код, если он у тебя есть.',
   'onboarding.finish': 'Завершить настройку',
-  'onboarding.finishDesc': 'Всё готово! Начни пользоваться OpenHuman.',
+  'onboarding.finishDesc': 'Всё готово! Начни пользоваться Sionix.',
   'onboarding.skip': 'Пропустить',
   'onboarding.getStarted': 'Начать',
-  'onboarding.runtimeChoice.title': 'Как ты хочешь запустить OpenHuman?',
+  'onboarding.runtimeChoice.title': 'Как ты хочешь запустить Sionix?',
   'onboarding.runtimeChoice.subtitle':
     'Выбери подходящий вариант. Изменить можно позже в Настройках.',
   'onboarding.runtimeChoice.cloud.title': 'Просто',
-  'onboarding.runtimeChoice.cloud.tagline': 'Пусть OpenHuman сам обо всём позаботится.',
+  'onboarding.runtimeChoice.cloud.tagline': 'Пусть Sionix сам обо всём позаботится.',
   'onboarding.runtimeChoice.cloud.f1': 'Встроенная безопасность',
   'onboarding.runtimeChoice.cloud.f2': 'Сжатие токенов для экономии ресурсов',
   'onboarding.runtimeChoice.cloud.f3': 'Одна подписка — все модели включены',
@@ -740,7 +740,7 @@ const messages: TranslationMap = {
   'onboarding.custom.stepperMemory': 'Память',
   'onboarding.custom.stepCounter': 'Шаг {n} из {total}',
   'onboarding.custom.defaultTitle': 'По умолчанию',
-  'onboarding.custom.defaultSubtitle': 'Пусть OpenHuman сам управляет этим.',
+  'onboarding.custom.defaultSubtitle': 'Пусть Sionix сам управляет этим.',
   'onboarding.custom.configureTitle': 'Настроить',
   'onboarding.custom.configureSubtitle': 'Я сам выберу, что использовать.',
   'onboarding.custom.progressAriaLabel': 'Прогресс настройки',
@@ -754,39 +754,39 @@ const messages: TranslationMap = {
   'onboarding.custom.inference.subtitle':
     'Какая языковая модель будет отвечать на вопросы и запускать агентов?',
   'onboarding.custom.inference.defaultDesc':
-    'OpenHuman автоматически выбирает подходящую модель. Без ключей и настроек.',
+    'Sionix автоматически выбирает подходящую модель. Без ключей и настроек.',
   'onboarding.custom.inference.configureDesc':
     'Используй свой ключ OpenAI или Anthropic для всех текстовых задач.',
   'onboarding.custom.voice.title': 'Голос',
   'onboarding.custom.voice.subtitle': 'Распознавание и синтез речи для голосового режима.',
   'onboarding.custom.voice.defaultDesc':
-    'OpenHuman поставляется с управляемым STT/TTS, который работает сразу. Ничего настраивать не нужно.',
+    'Sionix поставляется с управляемым STT/TTS, который работает сразу. Ничего настраивать не нужно.',
   'onboarding.custom.voice.configureDesc':
     'Используй свой ElevenLabs / OpenAI Whisper / другой сервис. Настрой в Настройки › Голос.',
   'onboarding.custom.oauth.title': 'Подключения (OAuth)',
   'onboarding.custom.oauth.subtitle': 'Gmail, Slack, Notion и другие сервисы, требующие OAuth.',
   'onboarding.custom.oauth.defaultDesc':
-    'OpenHuman использует управляемое рабочее пространство Composio. Один клик для подключения каждого сервиса.',
+    'Sionix использует управляемое рабочее пространство Composio. Один клик для подключения каждого сервиса.',
   'onboarding.custom.oauth.configureDesc':
     'Используй свой аккаунт Composio / API-ключ. Настрой в Настройки › Подключения.',
   'onboarding.custom.search.title': 'Поиск в интернете',
-  'onboarding.custom.search.subtitle': 'Как OpenHuman ищет информацию в интернете.',
+  'onboarding.custom.search.subtitle': 'Как Sionix ищет информацию в интернете.',
   'onboarding.custom.search.defaultDesc':
-    'OpenHuman использует управляемый поисковый бэкенд. Ключи не нужны.',
+    'Sionix использует управляемый поисковый бэкенд. Ключи не нужны.',
   'onboarding.custom.search.configureDesc':
     'Используй свой ключ поискового провайдера (Tavily, Brave и др.). Настрой в Настройки › Инструменты.',
   'onboarding.custom.embeddings.title': 'Embeddings',
   'onboarding.custom.embeddings.subtitle':
-    'Как OpenHuman создаёт векторные эмбеддинги для семантического поиска в памяти.',
+    'Как Sionix создаёт векторные эмбеддинги для семантического поиска в памяти.',
   'onboarding.custom.embeddings.defaultDesc':
-    'OpenHuman использует управляемый сервис эмбеддингов. API-ключ не требуется.',
+    'Sionix использует управляемый сервис эмбеддингов. API-ключ не требуется.',
   'onboarding.custom.embeddings.configureDesc':
     'Используйте собственного провайдера эмбеддингов (OpenAI, Voyage, Ollama и др.).',
   'onboarding.custom.memory.title': 'Память',
   'onboarding.custom.memory.subtitle':
-    'Как OpenHuman запоминает контекст, предпочтения и предыдущие разговоры.',
+    'Как Sionix запоминает контекст, предпочтения и предыдущие разговоры.',
   'onboarding.custom.memory.defaultDesc':
-    'OpenHuman автоматически управляет хранением и извлечением воспоминаний. Ничего настраивать не нужно.',
+    'Sionix автоматически управляет хранением и извлечением воспоминаний. Ничего настраивать не нужно.',
   'onboarding.custom.memory.configureDesc':
     'Просматривай, экспортируй или очищай память самостоятельно. Настрой в Настройки › Память.',
   'accounts.addAccount': 'Добавить аккаунт',
@@ -923,7 +923,7 @@ const messages: TranslationMap = {
   'misc.downloading': 'Загрузка...',
   'misc.installing': 'Установка...',
   'misc.beta':
-    'OpenHuman находится в стадии раннего бета-тестирования. Делись отзывами и сообщай об ошибках — каждый репорт помогает нам двигаться быстрее.',
+    'Sionix находится в стадии раннего бета-тестирования. Делись отзывами и сообщай об ошибках — каждый репорт помогает нам двигаться быстрее.',
   'misc.betaFeedback': 'Отправить отзыв',
   'mnemonic.title': 'Фраза восстановления',
   'mnemonic.warning': 'Запиши эти слова по порядку и храни в надёжном месте.',
@@ -947,11 +947,11 @@ const messages: TranslationMap = {
   'privacy.anonymizedAnalytics': 'Аналитика продукта',
   'privacy.shareAnonymizedData': 'Отправлять аналитику продукта и диагностику',
   'privacy.shareAnonymizedDataDesc':
-    'Помоги улучшить OpenHuman, отправляя ограниченные по приватности отчёты о сбоях и события использования, включая стабильный ID аккаунта и метаданные версии приложения. Сообщения, ключи кошелька, API-ключи и токены сессии никогда не собираются.',
+    'Помоги улучшить Sionix, отправляя ограниченные по приватности отчёты о сбоях и события использования, включая стабильный ID аккаунта и метаданные версии приложения. Сообщения, ключи кошелька, API-ключи и токены сессии никогда не собираются.',
   'privacy.meetingFollowUps': 'Действия после встреч',
   'privacy.autoHandoffMeet': 'Автоматически передавать транскрипты Google Meet оркестратору',
   'privacy.autoHandoffMeetDesc':
-    'Когда звонок в Google Meet заканчивается, оркестратор OpenHuman может прочитать транскрипт и выполнить действия: составить сообщения, запланировать задачи или опубликовать итоги в Slack. По умолчанию выключено.',
+    'Когда звонок в Google Meet заканчивается, оркестратор Sionix может прочитать транскрипт и выполнить действия: составить сообщения, запланировать задачи или опубликовать итоги в Slack. По умолчанию выключено.',
   'privacy.analyticsDisclaimer':
     'При включении аналитика продукта и диагностика могут включать ограниченные по приватности отчёты о сбоях и события использования, стабильный ID аккаунта и метаданные версии приложения. Сообщения, ключи кошелька, API-ключи и токены сессии никогда не собираются. Этот параметр можно изменить в любое время.',
   'settings.about.version': 'Версия',
@@ -1043,18 +1043,18 @@ const messages: TranslationMap = {
     'Отправьте сообщение агенту — использование токена при следующем вызове провайдера заполнит диаграмму в течение примерно 10 секунд.',
   'settings.search.title': 'Поисковая система',
   'settings.search.menuDesc':
-    'По умолчанию используется поиск, управляемый OpenHuman, или подключите собственного провайдера с помощью ключа API.',
+    'По умолчанию используется поиск, управляемый Sionix, или подключите собственного провайдера с помощью ключа API.',
   'settings.search.description':
-    'Выберите поисковую систему, которую использует агент, или полностью отключите инструменты поиска. Управляемый режим использует серверную часть OpenHuman (настройка не требуется). Parallel, Brave и Querit работают напрямую с вашего устройства, используя ваш API-ключ.',
+    'Выберите поисковую систему, которую использует агент, или полностью отключите инструменты поиска. Управляемый режим использует серверную часть Sionix (настройка не требуется). Parallel, Brave и Querit работают напрямую с вашего устройства, используя ваш API-ключ.',
   'settings.search.engineAria': 'Поисковая система',
   'settings.search.engineDisabledLabel': 'Disabled',
   'settings.search.engineDisabledDesc':
     'Удалить инструменты поиска из контекста агента и списка доступных инструментов.',
-  'settings.search.engineManagedLabel': 'OpenHuman Управляемый',
+  'settings.search.engineManagedLabel': 'Sionix Управляемый',
   'settings.search.engineManagedDesc':
-    'По умолчанию. Маршрутизируется через серверную часть OpenHuman — ключ API не ​​требуется.',
+    'По умолчанию. Маршрутизируется через серверную часть Sionix — ключ API не ​​требуется.',
   'settings.search.localManagedUnavailable':
-    'Поиск OpenHuman Managed недоступен для локальных пользователей. Добавьте свой ключ API Parallel или Brave, чтобы включить веб-поиск.',
+    'Поиск Sionix Managed недоступен для локальных пользователей. Добавьте свой ключ API Parallel или Brave, чтобы включить веб-поиск.',
   'settings.search.engineParallelLabel': 'Параллельно',
   'settings.search.engineParallelDesc':
     'Direct Parallel API: инструменты поиска, извлечения, общения, исследования, обогащения и набора данных.',
@@ -1163,14 +1163,14 @@ const messages: TranslationMap = {
     'Хранится в зашифрованном виде в локальной таблице секретов MCP. Никогда не регистрировался и не отправлялся модели.',
   'devices.betaBadge': 'Бета-версия',
   'devices.betaText':
-    'Эта функция находится в стадии бета-тестирования. Подключите iPhone к этому OpenHuman для использования в качестве удалённого клиента.',
+    'Эта функция находится в стадии бета-тестирования. Подключите iPhone к этому Sionix для использования в качестве удалённого клиента.',
   'devices.comingSoonDescription':
     'Сопряжение устройств скоро появится. Эта страница будет местом для подключения iPhone и управления подключёнными устройствами.',
   'devices.title': 'Устройства',
   'devices.pairIphone': 'Сопряжение с iPhone',
   'devices.noPaired': 'Нет сопряженных устройств',
   'devices.emptyState':
-    'Отсканируйте QR-код на своём iPhone, чтобы подключить его к текущей сессии OpenHuman.',
+    'Отсканируйте QR-код на своём iPhone, чтобы подключить его к текущей сессии Sionix.',
   'devices.devicePairedTitle': 'Устройство сопряжено.',
   'devices.devicePairedMessage': 'iPhone успешно подключен.',
   'devices.deviceRevokedTitle': 'Устройство отозвано.',
@@ -1191,7 +1191,7 @@ const messages: TranslationMap = {
   'devices.pairModal.title': 'Сопряжение с iPhone',
   'devices.pairModal.loading': 'Генерация кода сопряжения…',
   'devices.pairModal.instructions':
-    'Откройте приложение OpenHuman на iPhone и отсканируйте этот код.',
+    'Откройте приложение Sionix на iPhone и отсканируйте этот код.',
   'devices.pairModal.expiresIn': 'Срок действия кода истекает через ~{count} минуту.',
   'devices.pairModal.expiresInPlural': 'Срок действия кода истекает через ~{count} минут.',
   'devices.pairModal.showDetails': 'Показать подробности',
@@ -1440,7 +1440,7 @@ const messages: TranslationMap = {
   'mcp.connectAuth.schemeRaw': 'Нет',
   'mcp.connectAuth.reconnectFailed': 'Учётные данные сохранены, но подключиться не удалось.',
   'mcp.connectAuth.oauthHint':
-    'Этот сервер использует OAuth. Войдите через браузер, чтобы авторизовать OpenHuman.',
+    'Этот сервер использует OAuth. Войдите через браузер, чтобы авторизовать Sionix.',
   'mcp.connectAuth.signIn': 'Войти через браузер',
   'mcp.connectAuth.oauthWaiting': 'Ожидание входа…',
   'mcp.connectAuth.oauthOrToken':
@@ -1455,7 +1455,7 @@ const messages: TranslationMap = {
   'autonomy.title': 'Автономия агента.',
   'autonomy.maxActionsLabel': 'Максимальное количество действий в час.',
   'autonomy.maxActionsHelp':
-    'Максимальное количество действий инструментов, которое агент может выполнить за скользящий час. Новое значение применяется к следующему чату. Задания cron и слушатели каналов сохраняют текущий лимит до перезапуска OpenHuman.',
+    'Максимальное количество действий инструментов, которое агент может выполнить за скользящий час. Новое значение применяется к следующему чату. Задания cron и слушатели каналов сохраняют текущий лимит до перезапуска Sionix.',
   'autonomy.statusSaving': 'Сохранение…',
   'autonomy.statusSaved': 'Сохранено.',
   'autonomy.statusFailed': 'Ошибка',
@@ -1510,7 +1510,7 @@ const messages: TranslationMap = {
   'settings.billing.browserNotOpen': 'Если браузер не открылся, используй кнопку выше.',
   'settings.billing.browserOpenFailed': 'Браузер не открылся автоматически. Используй кнопку выше.',
   'settings.tools.chooseCapabilities':
-    'Выбери, какие возможности OpenHuman может использовать от твоего имени.',
+    'Выбери, какие возможности Sionix может использовать от твоего имени.',
   'settings.tools.saveChanges': 'Сохранить изменения',
   'settings.tools.preferencesSaved': 'Настройки сохранены',
   'settings.tools.saveFailed': 'Не удалось сохранить настройки. Попробуй ещё раз.',
@@ -1782,8 +1782,8 @@ const messages: TranslationMap = {
   'voice.providers.piperPreset.alanMedium': 'ГБ · Алан (мужчина)',
   'voice.providers.piperPreset.jennyDiocoMedium': 'ГБ · Дженни Диоко (женщина)',
   'voice.providers.piperPreset.northernEnglishMaleMedium': 'ГБ · Северный английский (мужчина)',
-  'voice.providers.chip.cloud': 'OpenHuman (управляемый)',
-  'voice.providers.chip.cloudAria': 'Управляемый провайдер OpenHuman всегда включён',
+  'voice.providers.chip.cloud': 'Sionix (управляемый)',
+  'voice.providers.chip.cloudAria': 'Управляемый провайдер Sionix всегда включён',
   'voice.providers.chip.whisper': 'Whisper (локальный)',
   'voice.providers.chip.enableWhisper': 'Включить локальный Whisper STT',
   'voice.providers.chip.disableWhisper': 'Отключить локальный Whisper STT',
@@ -1832,7 +1832,7 @@ const messages: TranslationMap = {
   'voice.externalProviders.add': 'Add',
   'pttSettings.title': 'Нажми и говори',
   'pttSettings.description':
-    'Удерживайте клавишу, чтобы говорить с OpenHuman, пока вы находитесь в другом приложении. При отпускании запись отправляется; если включён параметр «Озвучивать ответы», OpenHuman озвучит ответ.',
+    'Удерживайте клавишу, чтобы говорить с Sionix, пока вы находитесь в другом приложении. При отпускании запись отправляется; если включён параметр «Озвучивать ответы», Sionix озвучит ответ.',
   'pttSettings.shortcutLabel': 'Сочетание клавиш',
   'pttSettings.shortcutPlaceholder': 'Нажмите клавишу (например, F13)',
   'pttSettings.shortcutUnsetHint':
@@ -1845,11 +1845,11 @@ const messages: TranslationMap = {
     'Выберите обычную клавишу (например, F13) — сочетания только из модификаторов не работают для «нажми и говори».',
   'pttSettings.errorEmpty': 'Выберите клавишу для назначения.',
   'pttSettings.errorAccessibility':
-    'macOS требует разрешения «Универсальный доступ» для этого сочетания. Откройте Системные настройки → Конфиденциальность и безопасность → Универсальный доступ и включите OpenHuman.',
+    'macOS требует разрешения «Универсальный доступ» для этого сочетания. Откройте Системные настройки → Конфиденциальность и безопасность → Универсальный доступ и включите Sionix.',
   'pttSettings.errorShortcutInUse':
     'Это сочетание уже использует другое приложение. Выберите другое.',
   'pttSettings.errorUnsupportedWayland':
-    'Сессии Wayland пока не поддерживают глобальные сочетания клавиш в OpenHuman — перейдите на сессию X11 или используйте встроенный переключатель диктовки.',
+    'Сессии Wayland пока не поддерживают глобальные сочетания клавиш в Sionix — перейдите на сессию X11 или используйте встроенный переключатель диктовки.',
   'pttSettings.exclusiveFullscreenHint':
     'В играх с эксклюзивным полноэкранным режимом наложение не отобразится — вы услышите только звуковой сигнал. Переключитесь на оконный полноэкранный режим, чтобы видеть наложение.',
   'pttOverlay.listening': 'Слушаю…',
@@ -2094,7 +2094,7 @@ const messages: TranslationMap = {
   'chat.attachment.unsupportedType':
     'Неподдерживаемый тип файла. Используйте изображение (PNG, JPEG, WebP, GIF, BMP) или файл PDF, TXT либо Markdown.',
   'chat.attachment.imageNotSupported':
-    'Эта модель не может читать изображения. Вы можете использовать уровень «Рассуждение» от OpenHuman, чтобы прикрепить изображение.',
+    'Эта модель не может читать изображения. Вы можете использовать уровень «Рассуждение» от Sionix, чтобы прикрепить изображение.',
   'chat.attachment.readFailed': 'Не удалось прочитать файл',
   'memory.searchAria': 'Поиск в памяти',
   'memory.searchPlaceholder': 'Поиск записей памяти...',
@@ -2464,9 +2464,9 @@ const messages: TranslationMap = {
   'bootCheck.chooseCoreMode': 'Выбрать среду выполнения',
   'bootCheck.connectToCore': 'Подключиться к среде выполнения',
   'bootCheck.desktopDescription':
-    'OpenHuman нужна среда выполнения для работы. Выбери, где она должна находиться.',
+    'Sionix нужна среда выполнения для работы. Выбери, где она должна находиться.',
   'bootCheck.webDescription':
-    'В браузере OpenHuman подключается к среде выполнения под твоим управлением. Введи URL и токен авторизации, или скачай настольное приложение для локального запуска.',
+    'В браузере Sionix подключается к среде выполнения под твоим управлением. Введи URL и токен авторизации, или скачай настольное приложение для локального запуска.',
   'bootCheck.preferDesktop': 'Хочешь держать всё на своём устройстве?',
   'bootCheck.downloadDesktop': 'Скачать настольное приложение',
   'bootCheck.localRecommended': 'Запустить локально (рекомендуется)',
@@ -2492,7 +2492,7 @@ const messages: TranslationMap = {
   'bootCheck.quit': 'Выйти',
   'bootCheck.legacyDetected': 'Обнаружена устаревшая фоновая среда',
   'bootCheck.legacyDescription':
-    'На этом устройстве уже запущен отдельно установленный демон OpenHuman. Нужно его убрать, прежде чем встроенная среда сможет взять управление.',
+    'На этом устройстве уже запущен отдельно установленный демон Sionix. Нужно его убрать, прежде чем встроенная среда сможет взять управление.',
   'bootCheck.removing': 'Удаление…',
   'bootCheck.removeContinue': 'Удалить и продолжить',
   'bootCheck.localNeedsRestart': 'Требуется перезапуск локальной среды',
@@ -2514,7 +2514,7 @@ const messages: TranslationMap = {
   'bootCheck.actionFailed': 'Что-то пошло не так. Попробуй ещё раз.',
   'bootCheck.portConflictTitle': 'Не удалось запустить движок приложения',
   'bootCheck.portConflictBody':
-    'Другой процесс использует сетевой порт, необходимый OpenHuman. Попробуем устранить это автоматически.',
+    'Другой процесс использует сетевой порт, необходимый Sionix. Попробуем устранить это автоматически.',
   'bootCheck.portConflictFixButton': 'Исправить автоматически',
   'bootCheck.portConflictFixing': 'Исправление…',
   'bootCheck.portConflictFixFailed':
@@ -2570,7 +2570,7 @@ const messages: TranslationMap = {
   'composio.reconnect': 'Переподключить',
   'composio.expiredAuthorization': 'Срок действия авторизации {name} истек',
   'composio.expiredDescription':
-    'Повторно подключитесь, чтобы повторно включить инструменты {name}. OpenHuman будет держать эту интеграцию недоступной, пока вы не обновите доступ к OAuth.',
+    'Повторно подключитесь, чтобы повторно включить инструменты {name}. Sionix будет держать эту интеграцию недоступной, пока вы не обновите доступ к OAuth.',
   'composio.envVarOverrides': 'задана, она переопределяет этот параметр.',
   'composio.previewBadge': 'Предварительный просмотр',
   'composio.previewTooltip':
@@ -2621,7 +2621,7 @@ const messages: TranslationMap = {
   'accounts.webviewHost.timeoutHint': 'Подсказка по таймауту',
   'app.connectionBadge.composio': 'Composio',
   'app.connectionBadge.messaging': 'Мессенджеры',
-  'app.connectionIndicator.connected': 'Подключено к OpenHuman AI 🚀',
+  'app.connectionIndicator.connected': 'Подключено к Sionix AI 🚀',
   'app.connectionIndicator.connecting': 'Подключение',
   'app.connectionIndicator.coreOffline': 'Ядро офлайн',
   'app.connectionIndicator.disconnected': 'Отключено',
@@ -2636,69 +2636,69 @@ const messages: TranslationMap = {
   'app.errorFallback.tryRecover': 'Попробовать восстановить',
   'app.localAiDownload.installing': 'Установка...',
   'app.localAiDownload.preparing': 'Подготовка...',
-  'app.openhumanLink.accounts.continueWith': 'Продолжить со входом через {label}',
-  'app.openhumanLink.accounts.done': 'Готово',
-  'app.openhumanLink.accounts.intro': 'Введение',
-  'app.openhumanLink.accounts.webviewNote': 'Примечание о Webview',
-  'app.openhumanLink.billing.openDashboard': 'Открыть панель',
-  'app.openhumanLink.billing.stayOnTrial': 'Остаться на пробном периоде',
-  'app.openhumanLink.billing.trialCredit': 'Кредиты за регистрацию',
-  'app.openhumanLink.billing.trialDesc':
+  'app.SionixLink.accounts.continueWith': 'Продолжить со входом через {label}',
+  'app.SionixLink.accounts.done': 'Готово',
+  'app.SionixLink.accounts.intro': 'Введение',
+  'app.SionixLink.accounts.webviewNote': 'Примечание о Webview',
+  'app.SionixLink.billing.openDashboard': 'Открыть панель',
+  'app.SionixLink.billing.stayOnTrial': 'Остаться на пробном периоде',
+  'app.SionixLink.billing.trialCredit': 'Кредиты за регистрацию',
+  'app.SionixLink.billing.trialDesc':
     'Предложения кредитов могут зависеть от акции и соответствия аккаунта условиям.',
-  'app.openhumanLink.defaultBody':
+  'app.SionixLink.defaultBody':
     'Ещё не готово во всплывающем окне. Откройте полную страницу настроек, когда понадобится.',
-  'app.openhumanLink.discord.intro': 'Введение',
-  'app.openhumanLink.discord.openInvite': 'Открыть приглашение',
-  'app.openhumanLink.discord.perk1': 'Преимущество 1',
-  'app.openhumanLink.discord.perk2': 'Преимущество 2',
-  'app.openhumanLink.discord.perk3': 'Преимущество 3',
-  'app.openhumanLink.discord.perk4': 'Преимущество 4',
-  'app.openhumanLink.discordReport.intro':
+  'app.SionixLink.discord.intro': 'Введение',
+  'app.SionixLink.discord.openInvite': 'Открыть приглашение',
+  'app.SionixLink.discord.perk1': 'Преимущество 1',
+  'app.SionixLink.discord.perk2': 'Преимущество 2',
+  'app.SionixLink.discord.perk3': 'Преимущество 3',
+  'app.SionixLink.discord.perk4': 'Преимущество 4',
+  'app.SionixLink.discordReport.intro':
     'Приносим извинения — что-то пошло не так с нашей стороны. Мы стараемся фиксировать такие ошибки автоматически, но если вы поделитесь подробностями в Discord, мы исправим их быстрее.',
-  'app.openhumanLink.discordReport.openDiscord': 'Открыть Discord',
-  'app.openhumanLink.done': 'Готово',
-  'app.openhumanLink.notifications.desktopOnly':
+  'app.SionixLink.discordReport.openDiscord': 'Открыть Discord',
+  'app.SionixLink.done': 'Готово',
+  'app.SionixLink.notifications.desktopOnly':
     'Нативные уведомления доступны только в настольном приложении (выполните `pnpm dev:app`).',
-  'app.openhumanLink.notifications.permissionOff':
-    'Разрешение на уведомления отключено. Включите OpenHuman в Системных настройках → Уведомления, затем повторите попытку.',
-  'app.openhumanLink.notifications.triggerFailed':
-    'OpenHuman не удалось вызвать системное уведомление. Проверьте настройки уведомлений операционной системы и повторите попытку.',
-  'app.openhumanLink.notifications.welcomeBody':
+  'app.SionixLink.notifications.permissionOff':
+    'Разрешение на уведомления отключено. Включите Sionix в Системных настройках → Уведомления, затем повторите попытку.',
+  'app.SionixLink.notifications.triggerFailed':
+    'Sionix не удалось вызвать системное уведомление. Проверьте настройки уведомлений операционной системы и повторите попытку.',
+  'app.SionixLink.notifications.welcomeBody':
     'Вы будете получать оповещения здесь, когда что-то потребует вашего внимания.',
-  'app.openhumanLink.notifications.welcomeTitle': 'OpenHuman готов к работе',
-  'app.openhumanLink.status.closed': 'Закрыто',
-  'app.openhumanLink.status.connected': 'Подключено',
-  'app.openhumanLink.status.error': 'Ошибка',
-  'app.openhumanLink.status.loading': 'Загрузка…',
-  'app.openhumanLink.status.needsSignIn': 'Требуется вход',
-  'app.openhumanLink.status.timedOut': 'Время истекло',
-  'app.openhumanLink.loadingChannelSetup': 'Загрузка настроек канала',
-  'app.openhumanLink.maybeLater': 'Может, потом',
-  'app.openhumanLink.notifications.asking': 'Запрос у ОС…',
-  'app.openhumanLink.notifications.blocked': 'Заблокировано',
-  'app.openhumanLink.notifications.blockedStep1': 'Заблокировано, шаг 1',
-  'app.openhumanLink.notifications.blockedStep2': 'Заблокировано, шаг 2',
-  'app.openhumanLink.notifications.blockedStep3': 'Заблокировано, шаг 3',
-  'app.openhumanLink.notifications.intro': 'Введение',
-  'app.openhumanLink.notifications.promptHint': 'Подсказка',
-  'app.openhumanLink.notifications.retry': 'Повторить тестовое уведомление',
-  'app.openhumanLink.notifications.send': 'Отправить тестовое уведомление',
-  'app.openhumanLink.notifications.sendFailed': 'Не удалось отправить: {error}',
-  'app.openhumanLink.notifications.sent':
-    'Тестовое уведомление отправлено. Если вы его не получили, откройте «Системные настройки» → «Уведомления» → OpenHuman, включите «Разрешить уведомления» и установите стиль баннера «Постоянный».',
-  'app.openhumanLink.skipForNow': 'Пропустить',
-  'app.openhumanLink.telegramUnavailable': 'Telegram недоступен',
-  'app.openhumanLink.title.accounts': 'Подключи свои приложения',
-  'app.openhumanLink.title.billing': 'Оплата и кредиты',
-  'app.openhumanLink.title.discord': 'Вступи в сообщество',
-  'app.openhumanLink.title.discordReport': 'Сообщить об ошибке',
-  'app.openhumanLink.title.messaging': 'Подключи канал связи',
-  'app.openhumanLink.title.notifications': 'Разрешить уведомления',
+  'app.SionixLink.notifications.welcomeTitle': 'Sionix готов к работе',
+  'app.SionixLink.status.closed': 'Закрыто',
+  'app.SionixLink.status.connected': 'Подключено',
+  'app.SionixLink.status.error': 'Ошибка',
+  'app.SionixLink.status.loading': 'Загрузка…',
+  'app.SionixLink.status.needsSignIn': 'Требуется вход',
+  'app.SionixLink.status.timedOut': 'Время истекло',
+  'app.SionixLink.loadingChannelSetup': 'Загрузка настроек канала',
+  'app.SionixLink.maybeLater': 'Может, потом',
+  'app.SionixLink.notifications.asking': 'Запрос у ОС…',
+  'app.SionixLink.notifications.blocked': 'Заблокировано',
+  'app.SionixLink.notifications.blockedStep1': 'Заблокировано, шаг 1',
+  'app.SionixLink.notifications.blockedStep2': 'Заблокировано, шаг 2',
+  'app.SionixLink.notifications.blockedStep3': 'Заблокировано, шаг 3',
+  'app.SionixLink.notifications.intro': 'Введение',
+  'app.SionixLink.notifications.promptHint': 'Подсказка',
+  'app.SionixLink.notifications.retry': 'Повторить тестовое уведомление',
+  'app.SionixLink.notifications.send': 'Отправить тестовое уведомление',
+  'app.SionixLink.notifications.sendFailed': 'Не удалось отправить: {error}',
+  'app.SionixLink.notifications.sent':
+    'Тестовое уведомление отправлено. Если вы его не получили, откройте «Системные настройки» → «Уведомления» → Sionix, включите «Разрешить уведомления» и установите стиль баннера «Постоянный».',
+  'app.SionixLink.skipForNow': 'Пропустить',
+  'app.SionixLink.telegramUnavailable': 'Telegram недоступен',
+  'app.SionixLink.title.accounts': 'Подключи свои приложения',
+  'app.SionixLink.title.billing': 'Оплата и кредиты',
+  'app.SionixLink.title.discord': 'Вступи в сообщество',
+  'app.SionixLink.title.discordReport': 'Сообщить об ошибке',
+  'app.SionixLink.title.messaging': 'Подключи канал связи',
+  'app.SionixLink.title.notifications': 'Разрешить уведомления',
   'app.persistRehydration.body': 'Текст',
   'app.persistRehydration.heading': 'Заголовок',
   'app.persistRehydration.resetCta': 'Сброс…',
   'app.persistRehydration.resetting': 'Сброс…',
-  'app.routeLoading.initializing': 'Инициализация OpenHuman...',
+  'app.routeLoading.initializing': 'Инициализация Sionix...',
   'app.update.currentlyOn': '{version}',
   'app.update.errorFallback': 'Что-то пошло не так при обновлении.',
   'app.update.header.default': 'Обновление',
@@ -2752,7 +2752,7 @@ const messages: TranslationMap = {
   'chat.approval.fallback': 'Агент хочет выполнить действие, требующее вашего одобрения.',
   'chat.approval.title': 'Требуется одобрение',
   'chat.approval.tool': 'Инструмент:',
-  'channels.authMode.managed_dm': 'Войдите с помощью OpenHuman',
+  'channels.authMode.managed_dm': 'Войдите с помощью Sionix',
   'channels.authMode.oauth': 'OAuth Вход в систему',
   'channels.authMode.bot_token': 'Используйте свой собственный токен бота',
   'channels.authMode.api_key': 'Используйте свой собственный ключ API',
@@ -2765,9 +2765,9 @@ const messages: TranslationMap = {
   'channels.discord.authMode.bot_token.description':
     'Предоставьте свой собственный токен бота Discord.',
   'channels.discord.authMode.oauth.description':
-    'Установите бот OpenHuman на свой сервер Discord через OAuth.',
+    'Установите бот Sionix на свой сервер Discord через OAuth.',
   'channels.discord.authMode.managed_dm.description':
-    'Свяжите свою личную учетную запись Discord с ботом OpenHuman.',
+    'Свяжите свою личную учетную запись Discord с ботом Sionix.',
   'channels.discord.fields.bot_token.label': 'Токен бота',
   'channels.discord.fields.bot_token.placeholder': 'Ваш токен бота Discord',
   'channels.discord.fields.guild_id.label': 'Идентификатор сервера (гильдии)',
@@ -2775,7 +2775,7 @@ const messages: TranslationMap = {
   'channels.telegram.displayName': 'Telegram',
   'channels.telegram.description': 'Отправка и получение сообщений через Telegram.',
   'channels.telegram.authMode.managed_dm.description':
-    'Отправьте сообщение боту OpenHuman Telegram напрямую.',
+    'Отправьте сообщение боту Sionix Telegram напрямую.',
   'channels.telegram.authMode.bot_token.description':
     'Предоставьте свой собственный токен бота Telegram от @BotFather.',
   'channels.telegram.fields.bot_token.label': 'Токен бота',
@@ -2829,16 +2829,16 @@ const messages: TranslationMap = {
   'iosPair.error.connectionFailed':
     'Не удалось подключиться. Убедитесь, что десктопное приложение запущено, и повторите попытку.',
   'iosPair.error.invalidQr':
-    'Неверный QR-код. Убедитесь, что вы сканируете код сопряжения OpenHuman.',
+    'Неверный QR-код. Убедитесь, что вы сканируете код сопряжения Sionix.',
   'iosPair.error.unreachableDesktop':
     'Не удалось подключиться к рабочему столу. Убедитесь, что оба устройства в сети, и повторите попытку.',
   'iosPair.expired': 'QR code истек. Попросите рабочий стол повторно сгенерировать код.',
   'iosPair.instructions':
-    'Откройте OpenHuman на рабочем столе, перейдите в Настройки > Устройства и нажмите «Привязать телефон», чтобы показать QR-код.',
+    'Откройте Sionix на рабочем столе, перейдите в Настройки > Устройства и нажмите «Привязать телефон», чтобы показать QR-код.',
   'iosPair.retryScan': 'Повторить сканирование',
   'iosPair.scanQrCode': 'Сканирование QR code',
   'iosPair.scannerOpening': 'Открытие сканера...',
-  'iosPair.step.openDesktop': 'Откройте OpenHuman на рабочем столе',
+  'iosPair.step.openDesktop': 'Откройте Sionix на рабочем столе',
   'iosPair.step.openSettings': 'Перейдите в «Настройки» > «Устройства»',
   'iosPair.step.showQr': 'Нажмите «Подключить телефон», чтобы отобразить QR',
   'iosPair.title': 'Сопряжение с рабочим столом',
@@ -2873,7 +2873,7 @@ const messages: TranslationMap = {
   'composio.connect.permissionsDefault': 'Чтение + запись включены по умолчанию',
   'composio.connect.permissionsNote': 'может раскрыть',
   'composio.connect.permissionsNoteSuffix':
-    'Собственные права агента OpenHuman настраиваются ниже переключателями чтения, записи и администратора.',
+    'Собственные права агента Sionix настраиваются ниже переключателями чтения, записи и администратора.',
   'composio.connect.reopenBrowser': 'Открыть браузер снова',
   'composio.connect.requestingUrl': 'Запрос URL подключения…',
   'composio.connect.requiredFieldEmpty': 'Это поле обязательно для заполнения.',
@@ -2979,7 +2979,7 @@ const messages: TranslationMap = {
   'daemon.serviceBlockingGate.retryFailed':
     'Повтор не удался. Скачай последнюю версию и попробуй снова.',
   'daemon.serviceBlockingGate.retrying': 'Повтор...',
-  'daemon.serviceBlockingGate.title': 'Ядро OpenHuman недоступно',
+  'daemon.serviceBlockingGate.title': 'Ядро Sionix недоступно',
   'home.banners.discordSubtitle': 'Подзаголовок Discord',
   'home.banners.discordTitle': 'Вступи в наш Discord',
   'home.banners.earlyBirdDismiss': 'Закрыть баннер',
@@ -3015,7 +3015,7 @@ const messages: TranslationMap = {
   'intelligence.diagram.skillInstallCommand': 'npx skills add yizhiyanhua-ai/fireworks-tech-graph',
   'intelligence.diagram.promptExample':
     'Создай архитектурную диаграмму текущего роя в тёмном терминальном стиле',
-  'intelligence.diagram.imageAlt': 'Последняя сгенерированная архитектурная диаграмма OpenHuman',
+  'intelligence.diagram.imageAlt': 'Последняя сгенерированная архитектурная диаграмма Sionix',
   'intelligence.diagram.refreshesEvery': 'Обновляется каждые {seconds} с',
   'intelligence.memoryText.entityTypePrefix': 'Тип сущности',
   'intelligence.screenDebug.active': 'Активно',
@@ -3251,10 +3251,10 @@ const messages: TranslationMap = {
     'Первый запуск может занять 30–60 секунд, пока мы прогреваем локальную модель и инструменты. Вы можете перейти в чат в любой момент — построение профиля продолжится в фоне.',
   'onboarding.contextGathering.stillWorkingTitle': 'Профиль ещё составляется…',
   'onboarding.contextGathering.title': 'Сбор контекста',
-  'openhuman.team_list_teams': 'Список команд',
+  'Sionix.team_list_teams': 'Список команд',
   'overlay.ariaAttention': 'Сообщение',
   'overlay.ariaCompanion': 'Спутник активен',
-  'overlay.ariaOrb': 'Оверлей OpenHuman',
+  'overlay.ariaOrb': 'Оверлей Sionix',
   'overlay.ariaVoiceActive': 'Голосовой ввод активен',
   'overlay.companion.error': 'Ошибка',
   'overlay.companion.listening': 'Слушает…',
@@ -3332,7 +3332,7 @@ const messages: TranslationMap = {
   'rewards.community.roleAssigned': 'Роль назначена',
   'rewards.community.roleAssignmentCount': 'Назначено ролей: {assigned} из {unlocked}',
   'rewards.community.roleClaimDesc':
-    'Вы разблокировали роли Discord, но ещё не присоединились к серверу OpenHuman. Присоединитесь, чтобы они назначились автоматически.',
+    'Вы разблокировали роли Discord, но ещё не присоединились к серверу Sionix. Присоединитесь, чтобы они назначились автоматически.',
   'rewards.community.roleClaimTitle': 'Получите свои роли в Discord',
   'rewards.community.roleJoinToClaim': 'Присоединиться к серверу',
   'rewards.community.rolePending': 'Синхронизация роли…',
@@ -3465,7 +3465,7 @@ const messages: TranslationMap = {
   'settings.ai.claudeCode.fullAccessOff':
     'Принимать только правки — автоматически применяет правки файлов, ограничивает команды и сеть.',
   'settings.ai.claudeCode.sandboxNoteMac':
-    'В macOS каталог ~/.openhuman остаётся защищённым песочницей в обоих режимах.',
+    'В macOS каталог ~/.Sionix остаётся защищённым песочницей в обоих режимах.',
   'settings.ai.claudeCode.sandboxNoteOther':
     'Полный доступ не ограничен на этой платформе — включайте его только если доверяете рабочему пространству.',
   'settings.ai.claudeCode.enableToCheck': 'Включите Claude Code, чтобы проверить вход.',
@@ -3553,7 +3553,7 @@ const messages: TranslationMap = {
   'settings.ai.noSpendRows': 'Строки расходов не загружены.',
   'settings.ai.topHours': 'Максимальное количество часов',
   'settings.ai.noHourlySpend': 'Почасовых затрат пока нет.',
-  'settings.ai.openhumanDefault': 'OpenHuman (по умолчанию)',
+  'settings.ai.SionixDefault': 'Sionix (по умолчанию)',
   'settings.ai.localModelResolved': 'Ollama · {model}',
   'settings.ai.customRoutingForWorkload': 'Пользовательская маршрутизация для {label}',
   'settings.ai.loadingModels': 'Загрузка моделей...',
@@ -3612,12 +3612,12 @@ const messages: TranslationMap = {
   'settings.ai.composioSyncScans': 'Composio синхронизируют сканирование',
   'settings.ai.totalBackgroundApiReadBudget': 'Общий бюджет чтения API',
   'settings.ai.memoryWorkerPolls': 'Опросы работников памяти',
-  'settings.ai.defaultProviderName': 'OpenHuman',
+  'settings.ai.defaultProviderName': 'Sionix',
   'settings.ai.routing.managed': 'Управляемый',
   'settings.ai.routing.managedDesc':
-    'OpenHuman выполнит все логические выводы в облаке, выберет лучшую модель для задачи, оптимизирует затраты и сохранит самые безопасные настройки маршрутизации по умолчанию.',
+    'Sionix выполнит все логические выводы в облаке, выберет лучшую модель для задачи, оптимизирует затраты и сохранит самые безопасные настройки маршрутизации по умолчанию.',
   'settings.ai.routing.managedMsg':
-    'OpenHuman будет обрабатывать все выводы для каждой рабочей нагрузки и автоматически выбирать лучший маршрут с точки зрения стоимости, качества и безопасности.',
+    'Sionix будет обрабатывать все выводы для каждой рабочей нагрузки и автоматически выбирать лучший маршрут с точки зрения стоимости, качества и безопасности.',
   'settings.ai.routing.useYourOwn': 'Используйте свои собственные модели',
   'settings.ai.routing.useYourOwnDesc':
     'Выберите одного поставщика + модель и направляйте через него всю рабочую нагрузку. Это просто, но может быть неэффективно, поскольку легкий и тяжелый вывод используют один и тот же маршрут.',
@@ -3807,16 +3807,16 @@ const messages: TranslationMap = {
   'settings.composio.confirmSwitch': 'Понятно, переключить на «Прямой»',
   'settings.composio.confirmTitle': '⚠️ Переключение на прямой режим',
   'settings.composio.confirmWarning':
-    'Ваши существующие интеграции (Gmail, Slack, GitHub и т. д., привязанные через OpenHuman) не будут видны — они находятся в управляемом OpenHuman тенанте Composio.',
+    'Ваши существующие интеграции (Gmail, Slack, GitHub и т. д., привязанные через Sionix) не будут видны — они находятся в управляемом Sionix тенанте Composio.',
   'settings.composio.intro':
     'Composio интегрирует 250+ внешних приложений как инструменты, которые может вызывать ваш агент. Выберите способ маршрутизации этих вызовов.',
   'settings.composio.title': 'Composio',
   'settings.composio.modeDirect': 'Прямой (собственный API-ключ)',
   'settings.composio.modeDirectDesc':
     'Вызовы идут напрямую на backend.composio.dev. Суверенно и подходит для офлайн. Выполнение инструментов работает синхронно; вебхуки триггеров в реальном времени пока не маршрутизируются в прямом режиме (см. отдельную задачу).',
-  'settings.composio.modeManaged': 'Управляемый (OpenHuman управляет за тебя)',
+  'settings.composio.modeManaged': 'Управляемый (Sionix управляет за тебя)',
   'settings.composio.modeManagedDesc':
-    'OpenHuman проксирует вызовы инструментов через наш бэкенд (рекомендуется). Авторизация брокеруется; вам не нужно вставлять API-ключ Composio. Вебхуки полностью маршрутизируются.',
+    'Sionix проксирует вызовы инструментов через наш бэкенд (рекомендуется). Авторизация брокеруется; вам не нужно вставлять API-ключ Composio. Вебхуки полностью маршрутизируются.',
   'settings.composio.routingMode': 'Режим маршрутизации',
   'settings.composio.saveErrorNoKey':
     'Не удалось сохранить. Прямой режим требует непустой API-ключ.',
@@ -3972,7 +3972,7 @@ const messages: TranslationMap = {
   'settings.localModel.download.running': 'Выполнение...',
   'settings.localModel.download.runningPrompt': 'Выполнение запроса',
   'settings.localModel.download.summaryHelper':
-    'Вызовы `openhuman.inference_summarize` через ядро Rust',
+    'Вызовы `Sionix.inference_summarize` через ядро Rust',
   'settings.localModel.download.summarizePlaceholder':
     'Вставь текст для суммаризации локальной моделью...',
   'settings.localModel.download.testCustomPrompt': 'Тест произвольного запроса',
@@ -4048,7 +4048,7 @@ const messages: TranslationMap = {
   'settings.localModel.status.ollamaDiagnostics': 'Диагностика Ollama',
   'settings.localModel.status.ollamaNotInstalled': 'Среда выполнения Ollama недоступна',
   'settings.localModel.status.ollamaNotInstalledDesc':
-    'OpenHuman теперь рассматривает Ollama как внешнюю среду инференса. Запустите собственный сервер Ollama, загрузите нужные модели и направьте маршрутизацию нагрузки на него.',
+    'Sionix теперь рассматривает Ollama как внешнюю среду инференса. Запустите собственный сервер Ollama, загрузите нужные модели и направьте маршрутизацию нагрузки на него.',
   'settings.localModel.status.progress': 'Прогресс',
   'settings.localModel.status.provider': 'Провайдер',
   'settings.localModel.status.retryBootstrap': 'Повторить Bootstrap',
@@ -4077,7 +4077,7 @@ const messages: TranslationMap = {
     'Настройка режимов аутентификации Telegram/Discord и маршрутизации канала по умолчанию',
   'settings.developerMenu.tools.title': 'Инструменты',
   'settings.developerMenu.tools.desc':
-    'Включайте или отключайте возможности, которые OpenHuman может использовать от вашего имени',
+    'Включайте или отключайте возможности, которые Sionix может использовать от вашего имени',
   'settings.developerMenu.agentChat.title': 'Чат агента',
   'settings.developerMenu.agentChat.desc':
     'Тестируйте разговор агента с переопределениями модели и температуры',
@@ -4257,7 +4257,7 @@ const messages: TranslationMap = {
     'Настройка параметров AI-триажа для триггеров интеграций Composio',
   'settings.developerMenu.mcpServer.title': 'MCP Сервер',
   'settings.developerMenu.mcpServer.desc':
-    'Настройка внешних клиентов MCP для подключения к серверу OpenHuman',
+    'Настройка внешних клиентов MCP для подключения к серверу Sionix',
   'settings.developerMenu.autonomy.title': 'Автономия агента',
   'settings.developerMenu.autonomy.desc':
     'Ограничения частоты действий инструментов и пороги безопасности',
@@ -4270,7 +4270,7 @@ const messages: TranslationMap = {
   'settings.mcpServer.title': 'MCP',
   'settings.mcpServer.toolsSectionTitle': 'Доступные инструменты',
   'settings.mcpServer.toolsSectionDesc':
-    'Инструменты, предоставляемые через сервер MCP stdio при запуске openhuman-core mcp',
+    'Инструменты, предоставляемые через сервер MCP stdio при запуске Sionix-core mcp',
   'settings.mcpServer.configSectionTitle': 'Конфигурация клиента',
   'settings.mcpServer.configSectionDesc':
     'Выберите клиент MCP для создания правильного фрагмента конфигурации.',
@@ -4278,7 +4278,7 @@ const messages: TranslationMap = {
   'settings.mcpServer.copied': 'Скопировано!',
   'settings.mcpServer.openConfigFile': 'Открыть файл конфигурации.',
   'settings.mcpServer.binaryPathNotFound':
-    'Двоичный файл OpenHuman не найден. При запуске из исходного кода выполните сборку с помощью: Cargo build --bin openhuman-core',
+    'Двоичный файл Sionix не найден. При запуске из исходного кода выполните сборку с помощью: Cargo build --bin Sionix-core',
   'settings.mcpServer.openConfigError': 'Не удалось открыть файл конфигурации',
   'settings.mcpServer.clientClaudeDesktop': 'Claude Рабочий стол',
   'settings.mcpServer.clientCursor': 'Курсор',
@@ -4321,7 +4321,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.timeout.invalid':
     'Введите целое число секунд в пределах допустимого диапазона',
   'settings.agentAccess.timeout.envOverride':
-    'Переменная окружения OPENHUMAN_TOOL_TIMEOUT_SECS переопределяет эту настройку, поэтому изменения здесь не вступят в силу, пока она не будет сброшена.',
+    'Переменная окружения Sionix_TOOL_TIMEOUT_SECS переопределяет эту настройку, поэтому изменения здесь не вступят в силу, пока она не будет сброшена.',
   'settings.agentAccess.grantedFolders': 'Предоставленные папки',
   'settings.agentAccess.alwaysAllow': 'Всегда разрешенные инструменты',
   'settings.agentAccess.alwaysAllowDesc':
@@ -4348,7 +4348,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDir.cancel': 'Отмена',
   'settings.agentAccess.actionDir.placeholder': 'Абсолютный путь, напр. /Users/you/Projects',
   'settings.agentAccess.actionDir.envLocked':
-    'Задано переменной OPENHUMAN_ACTION_DIR. Измените переменную окружения, чтобы переопределить.',
+    'Задано переменной Sionix_ACTION_DIR. Измените переменную окружения, чтобы переопределить.',
   'settings.agentAccess.actionDir.saved': 'Каталог действий обновлён.',
   'settings.agentAccess.internalState': 'Внутреннее состояние',
   'settings.agentAccess.agentBlocked': 'заблокировано для агента',
@@ -4361,9 +4361,9 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDirEmptyError': 'Путь не может быть пустым.',
   'settings.agentAccess.actionDirSaveError': 'Не удалось обновить песочницу действий.',
   'settings.agentAccess.actionDirEnvOverrideError':
-    'OPENHUMAN_ACTION_DIR установлена — снимите переменную окружения, чтобы изменить это в Настройках.',
+    'Sionix_ACTION_DIR установлена — снимите переменную окружения, чтобы изменить это в Настройках.',
   'settings.agentAccess.actionDirEnvOverrideNote':
-    'Переопределено OPENHUMAN_ACTION_DIR — снимите переменную окружения, чтобы управлять этим в Настройках.',
+    'Переопределено Sionix_ACTION_DIR — снимите переменную окружения, чтобы управлять этим в Настройках.',
   'settings.agentAccess.approvalHistory': 'История одобрений',
   'settings.agentAccess.approvalHistoryDesc':
     'Просмотр прошлых решений Одобрить / Отклонить, запрошенных агентом.',
@@ -4500,7 +4500,7 @@ const messages: TranslationMap = {
   'settings.mascot.characterPreview': 'Предварительный просмотр',
   'settings.mascot.characterStates': 'содержит',
   'settings.mascot.characterVisemes': 'виземы',
-  'settings.mascot.colorAria': 'OpenHuman цвет',
+  'settings.mascot.colorAria': 'Sionix цвет',
   'settings.mascot.colorDesc': 'Описание цвета',
   'settings.mascot.colorHeading': 'Цвет',
   'settings.mascot.colorBlack': 'Черный',
@@ -4510,15 +4510,15 @@ const messages: TranslationMap = {
   'settings.mascot.primaryColor': 'Основной цвет',
   'settings.mascot.secondaryColor': 'Вторичный цвет',
   'settings.mascot.colorYellow': 'Желтый',
-  'settings.mascot.libraryUnavailable': 'OpenHuman библиотека недоступна',
-  'settings.mascot.title': 'OpenHuman',
-  'settings.mascot.loadingLibrary': 'Загрузка библиотеки OpenHuman…',
+  'settings.mascot.libraryUnavailable': 'Sionix библиотека недоступна',
+  'settings.mascot.title': 'Sionix',
+  'settings.mascot.loadingLibrary': 'Загрузка библиотеки Sionix…',
   'settings.mascot.loadDetailError': 'Не удалось загрузить талисман.',
   'settings.mascot.loadLibraryError': 'Не удалось загрузить библиотеку талисманов.',
-  'settings.mascot.localDefault': 'Локальный OpenHuman (по умолчанию)',
+  'settings.mascot.localDefault': 'Локальный Sionix (по умолчанию)',
   'settings.mascot.menuTitle': 'Маскот',
   'settings.mascot.menuDesc': 'Выберите цвет маскота, используемый во всем приложении',
-  'settings.mascot.noCharacters': 'Персонажи OpenHuman пока недоступны',
+  'settings.mascot.noCharacters': 'Персонажи Sionix пока недоступны',
   'settings.mascot.noColorVariants': 'Нет цветовых вариантов',
   'settings.mascot.voice.current': 'текущий',
   'settings.mascot.voice.customDesc':
@@ -4572,7 +4572,7 @@ const messages: TranslationMap = {
     'Разумное значение по умолчанию — хорошая непрерывность без лишних трат токенов на каждом запуске.',
   'settings.memoryWindow.balanced.label': 'Сбалансированный',
   'settings.memoryWindow.description':
-    'Сколько запомненного контекста OpenHuman добавляет в каждый новый запуск агента. Более широкие окна дают ощущение лучшей памяти о прошлых разговорах, но используют больше токенов — и стоят дороже — на каждом запуске.',
+    'Сколько запомненного контекста Sionix добавляет в каждый новый запуск агента. Более широкие окна дают ощущение лучшей памяти о прошлых разговорах, но используют больше токенов — и стоят дороже — на каждом запуске.',
   'settings.memoryWindow.extended.badge': 'Больше контекста',
   'settings.memoryWindow.extended.hint':
     'Больше долгосрочной памяти на каждый запуск. Выше расход токенов за ход.',
@@ -4697,9 +4697,9 @@ const messages: TranslationMap = {
   'skills.create.name': 'Название',
   'skills.create.namePlaceholder': 'напр. Trade Journal',
   'skills.create.scope': 'Область',
-  'skills.create.scopeProjectHint': '/.openhuman/skills/',
+  'skills.create.scopeProjectHint': '/.Sionix/skills/',
   'skills.create.scopeUserHint':
-    'Записывается в ~/.openhuman/skills/<slug>/SKILL.md — доступно во всех рабочих пространствах.',
+    'Записывается в ~/.Sionix/skills/<slug>/SKILL.md — доступно во всех рабочих пространствах.',
   'skills.create.slugLabel': 'Slug',
   'skills.create.subtitle': 'SKILL.md',
   'skills.create.tags': 'Теги',
@@ -4746,7 +4746,7 @@ const messages: TranslationMap = {
     'Работают только прямые ссылки `.md`. Для GitHub ссылка на файл (github.com/owner/repo/blob/.../SKILL.md) — корни дерева и репо не установлены.',
   'skills.install.errors.unsupportedUrlTitle': 'Форма URL не поддерживается.',
   'skills.install.errors.writeFailedHint':
-    'Каталог навыков рабочей области не был доступен для записи. Проверьте разрешения файловой системы для `<workspace>/.openhuman/skills/`.',
+    'Каталог навыков рабочей области не был доступен для записи. Проверьте разрешения файловой системы для `<workspace>/.Sionix/skills/`.',
   'skills.install.errors.writeFailedTitle': 'Не удалось записать SKILL.md.',
   'skills.install.fetchLog': 'Получить лог',
   'skills.install.fetchingPrefix': 'Получение',
@@ -4778,17 +4778,17 @@ const messages: TranslationMap = {
   'skills.install.urlPlaceholder': 'https://raw.githubusercontent.com/owner/repo/main/SKILL.md',
   'skills.meetingBots.bannerDesc': 'Описание баннера',
   'skills.meetingBots.bannerTitle': 'Заголовок баннера',
-  'skills.meetingBots.busyTitle': 'OpenHuman занят',
+  'skills.meetingBots.busyTitle': 'Sionix занят',
   'skills.meetingBots.comingSoon': 'Скоро',
-  'skills.meetingBots.couldNotStartTitle': 'Не удалось запустить OpenHuman',
+  'skills.meetingBots.couldNotStartTitle': 'Не удалось запустить Sionix',
   'skills.meetingBots.displayName': 'Отображаемое имя',
-  'skills.meetingBots.failedToStart': 'Не удалось запустить OpenHuman.',
+  'skills.meetingBots.failedToStart': 'Не удалось запустить Sionix.',
   'skills.meetingBots.joiningMessage': 'Он должен появиться как участник через несколько секунд.',
-  'skills.meetingBots.joiningTitle': 'OpenHuman подключается к встрече',
+  'skills.meetingBots.joiningTitle': 'Sionix подключается к встрече',
   'skills.meetingBots.meetingLink': 'Ссылка на встречу',
-  'skills.meetingBots.modalAriaLabel': 'Отправить OpenHuman на встречу',
+  'skills.meetingBots.modalAriaLabel': 'Отправить Sionix на встречу',
   'skills.meetingBots.modalDesc': 'Описание окна',
-  'skills.meetingBots.modalTitle': 'Отправить OpenHuman на встречу',
+  'skills.meetingBots.modalTitle': 'Отправить Sionix на встречу',
   'skills.meetingBots.newBadge': 'Новое',
   'skills.meetingBots.platformComingSoon': 'Поддержка {label} скоро появится.',
   'skills.meetingBots.platformHints.gmeet': 'meet.google.com/abc-defg-hij',
@@ -4819,7 +4819,7 @@ const messages: TranslationMap = {
   'skills.meetingBots.respondToParticipantDesc':
     'Введите своё точное отображаемое имя из встречи. Бот реагирует только когда вы произносите его имя (фраза активации).',
   'skills.meetingBots.wakePhrase': 'Фраза активации',
-  'skills.meetingBots.wakePhraseHint': 'Hey OpenHuman',
+  'skills.meetingBots.wakePhraseHint': 'Hey Sionix',
   'skills.meetingBots.wakePhraseDesc': 'Участник должен произнести это, прежде чем бот ответит.',
   'skills.meetingBots.activeMode': 'Отвечать, когда я обращаюсь',
   'skills.meetingBots.activeModeDesc':
@@ -4973,7 +4973,7 @@ const messages: TranslationMap = {
   'chat.parentThread': 'родительский поток',
   'chat.removeReaction': 'Удалить {emoji}',
   'settings.composio.loading': 'Загрузка…',
-  'settings.mascot.noCharactersAvailable': 'Персонажи OpenHuman пока недоступны',
+  'settings.mascot.noCharactersAvailable': 'Персонажи Sionix пока недоступны',
   'skills.uninstall.confirmTitle': 'Удалить {name}?',
   'conversations.taskKanban.blocked': 'Заблокировано',
   'conversations.taskKanban.done': 'Готово',
@@ -4997,7 +4997,7 @@ const messages: TranslationMap = {
   'settings.localModel.download.manageExternal':
     'Управляйте этой моделью во внешней среде выполнения.',
   'settings.localModel.status.manageOllamaExternal':
-    'Управляйте процессом Ollama и загрузкой моделей вне OpenHuman, затем повторите диагностику.',
+    'Управляйте процессом Ollama и загрузкой моделей вне Sionix, затем повторите диагностику.',
   'settings.localModel.status.ollamaDocs': 'Документация Ollama',
   'settings.localModel.status.thenRetry':
     'для инструкций по настройке, затем повторите, когда среда выполнения станет доступна.',
@@ -5012,7 +5012,7 @@ const messages: TranslationMap = {
     'Настройка режимов аутентификации Telegram/Discord и маршрутизации каналов по умолчанию',
   'devOptions.menuTools': 'Инструменты',
   'devOptions.menuToolsDesc':
-    'Включение или отключение возможностей, которые OpenHuman может использовать от вашего имени',
+    'Включение или отключение возможностей, которые Sionix может использовать от вашего имени',
   'devOptions.menuAgentChat': 'Чат агента',
   'devOptions.menuAgentChatDesc':
     'Диалог агента тестирования с переопределением модели и температуры',
@@ -5495,7 +5495,7 @@ const messages: TranslationMap = {
 
   'keyring.consent.title': 'Безопасное хранилище недоступно',
   'keyring.consent.description':
-    'Связка ключей вашей операционной системы недоступна. OpenHuman необходимо ваше разрешение на хранение секретов в локальном зашифрованном хранилище.',
+    'Связка ключей вашей операционной системы недоступна. Sionix необходимо ваше разрешение на хранение секретов в локальном зашифрованном хранилище.',
   'keyring.consent.reasonPrefix': 'Причина:',
   'keyring.consent.showDetails': 'Что это значит?',
   'keyring.consent.hideDetails': 'Скрыть подробности',
@@ -5536,7 +5536,7 @@ const messages: TranslationMap = {
   'memory.health.remediation.budget_exhausted':
     'Эмбеддинги памяти исчерпали управляемый бюджет. Настройте локальные эмбеддинги Ollama (Настройки → ИИ → Эмбеддинги) или добавьте свой ключ API для эмбеддингов, чтобы продолжить построение памяти.',
   'memory.health.remediation.auth_missing':
-    'Учётные данные для эмбеддингов не найдены. Войдите в OpenHuman или настройте локальные эмбеддинги Ollama в разделе Настройки → ИИ → Эмбеддинги.',
+    'Учётные данные для эмбеддингов не найдены. Войдите в Sionix или настройте локальные эмбеддинги Ollama в разделе Настройки → ИИ → Эмбеддинги.',
   'memory.health.remediation.auth_invalid':
     'Ваши учётные данные для эмбеддингов отклонены. Пройдите аутентификацию заново или переключитесь на локальные эмбеддинги Ollama в разделе Настройки → ИИ → Эмбеддинги.',
   'memory.health.remediation.embeddings_unconfigured':
@@ -5627,11 +5627,11 @@ const messages: TranslationMap = {
   'onboarding.custom.vault.subtitle':
     'Подтвердите, куда записываются заметки памяти, как считываются исходные данные и исправно ли работает конвейер хранилища.',
   'onboarding.custom.vault.defaultDesc':
-    'Использовать настройки памяти по умолчанию, управляемые OpenHuman. Путь к хранилищу и состояние синхронизации можно проверить позже.',
+    'Использовать настройки памяти по умолчанию, управляемые Sionix. Путь к хранилищу и состояние синхронизации можно проверить позже.',
   'onboarding.custom.vault.configureDesc':
     'Проверьте владельца хранилища, выполните проверки состояния и настройте параметры памяти прямо сейчас.',
   'onboarding.custom.vault.localDisabledReason':
-    'Управляемая настройка требует входа в OpenHuman и недоступна в локальном режиме.',
+    'Управляемая настройка требует входа в Sionix и недоступна в локальном режиме.',
   'onboarding.custom.vault.exitError':
     'Не удалось завершить настройку. Пожалуйста, попробуйте ещё раз.',
   'vaultHealth.title': 'Контрольный список состояния хранилища',
@@ -5652,9 +5652,9 @@ const messages: TranslationMap = {
   'vaultHealth.existsLabel': 'Путь к хранилищу рабочего пространства существует',
   'vaultHealth.existsRecovery':
     'Папка хранилища отсутствует. Запустите синхронизацию или создайте эту папку, затем обновите контрольный список.',
-  'vaultHealth.writableLabel': 'Хранилище доступно для записи OpenHuman',
+  'vaultHealth.writableLabel': 'Хранилище доступно для записи Sionix',
   'vaultHealth.writableRecovery':
-    'OpenHuman пока не может записывать в это хранилище. Предоставьте права на запись и обновите страницу.',
+    'Sionix пока не может записывать в это хранилище. Предоставьте права на запись и обновите страницу.',
   'vaultHealth.obsidianLabel': 'Хранилище зарегистрировано в Obsidian',
   'vaultHealth.obsidianRecovery':
     'В Obsidian выберите «Открыть папку как хранилище» для этого пути, затем обновите контрольный список.',
@@ -5670,13 +5670,13 @@ const messages: TranslationMap = {
   'memoryData.howItWorks': 'Как работает хранение памяти',
   'memoryData.workspaceVault': 'Хранилище рабочего пространства · запись',
   'memoryData.workspaceVaultDesc':
-    'OpenHuman записывает сгенерированные заметки памяти в memory_tree/content.',
+    'Sionix записывает сгенерированные заметки памяти в memory_tree/content.',
   'memoryData.connectedSources': 'Подключённые источники · чтение',
   'memoryData.connectedSourcesDesc':
     'Папки, почтовые ящики, чаты и репозитории импортируются для индексирования памяти — исходные файлы никогда не перезаписываются.',
   'memoryData.internalFiles': 'Внутренние файлы дерева памяти',
   'memoryData.internalFilesDesc':
-    'Индексы, состояние очереди и сводки управляются OpenHuman для поддержания исправного восстановления и синхронизации.',
+    'Индексы, состояние очереди и сводки управляются Sionix для поддержания исправного восстановления и синхронизации.',
   'memoryData.windowError': 'Окно памяти',
   'memoryData.windowUpdated': 'Окно памяти обновлено',
   'memoryData.windowUpdatedMsg': 'Установлено значение {window}.',
@@ -5692,10 +5692,10 @@ const messages: TranslationMap = {
   // Security banner (approval-gate host-aware boot state)
   'security.approvalGateDisabled.title': 'Шлюз одобрения отключён',
   'security.approvalGateDisabled.body':
-    'В вашей среде установлено OPENHUMAN_APPROVAL_GATE=0. Инструменты с внешним эффектом будут запускаться без запроса подтверждения.',
+    'В вашей среде установлено Sionix_APPROVAL_GATE=0. Инструменты с внешним эффектом будут запускаться без запроса подтверждения.',
   'security.approvalGateOverrideIgnored.title': 'Переопределение заблокировано',
   'security.approvalGateOverrideIgnored.body':
-    'Обнаружено переопределение OPENHUMAN_APPROVAL_GATE=0, но оно проигнорировано: настольное приложение всегда держит шлюз одобрения включённым.',
+    'Обнаружено переопределение Sionix_APPROVAL_GATE=0, но оно проигнорировано: настольное приложение всегда держит шлюз одобрения включённым.',
 
   // Run queue
   'runQueue.mode.interrupt': 'Прервать',

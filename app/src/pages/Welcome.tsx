@@ -127,7 +127,7 @@ const Welcome = () => {
           </div>
           <div className="flex justify-center mb-6">
             <img
-              src={isDark ? '/brand/OpenhumanLogo-white.svg' : '/brand/OpenhumanLogo-Black.svg'}
+              src={'/brand/SyonixLogo.png'}
               alt={t('welcome.logoAlt')}
               className="h-20 w-20"
             />

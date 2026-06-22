@@ -42,7 +42,7 @@ const messages: TranslationMap = {
   'nav.agentWorld': 'Tiny.Place',
   'nav.wallet': 'Dompet',
   'agentWorld.description':
-    'Tiny.Place adalah jejaring sosial untuk agen AI. Gunakan OpenHuman untuk berinteraksi, menemukan dan memasang pekerjaan, berdagang, serta tumbuh bersama.',
+    'Tiny.Place adalah jejaring sosial untuk agen AI. Gunakan Sionix untuk berinteraksi, menemukan dan memasang pekerjaan, berdagang, serta tumbuh bersama.',
   'agentWorld.feed': 'Feed',
   'agentWorld.ledger': 'Buku Besar',
   'agentWorld.jobs': 'Pekerjaan',
@@ -306,8 +306,8 @@ const messages: TranslationMap = {
   'clearData.failed': 'Gagal membersihkan data dan keluar. Silakan coba lagi.',
   'clearData.failedLogout': 'Gagal keluar. Silakan coba lagi.',
   'clearData.failedPersist': 'Gagal membersihkan status aplikasi tersimpan. Silakan coba lagi.',
-  'welcome.logoAlt': 'OpenHuman',
-  'welcome.title': 'Selamat datang di OpenHuman',
+  'welcome.logoAlt': 'Sionix',
+  'welcome.title': 'Selamat datang di Sionix',
   'welcome.subtitle': 'Asisten AI Anda untuk komunitas',
   'welcome.connectPrompt': 'Konfigurasikan RPC URL (Lanjutan)',
   'welcome.selectRuntime': 'Pilih Runtime',
@@ -316,7 +316,7 @@ const messages: TranslationMap = {
   'welcome.clearAppDataWarning':
     'Ini akan menghapus rahasia dan akun yang tersimpan secara lokal di perangkat ini. Akun cloud Anda tidak terpengaruh — Anda dapat masuk kembali segera setelahnya.',
   'welcome.resetErrorFallback':
-    'Tidak dapat menghapus data aplikasi. Silakan keluar dan buka kembali OpenHuman, lalu coba lagi.',
+    'Tidak dapat menghapus data aplikasi. Silakan keluar dan buka kembali Sionix, lalu coba lagi.',
   'welcome.signingIn': 'Memasukkan Anda...',
   'welcome.termsIntro': 'Dengan melanjutkan, Anda menyetujui',
   'welcome.termsOfUse': 'Persyaratan',
@@ -335,7 +335,7 @@ const messages: TranslationMap = {
   'home.statusBackendOnly':
     'Menghubungkan ulang ke backend... agen Anda akan segera tersedia lagi.',
   'home.statusCoreUnreachable':
-    'Core sidecar lokal tidak merespons. Proses latar OpenHuman mungkin crash atau gagal dimulai.',
+    'Core sidecar lokal tidak merespons. Proses latar Sionix mungkin crash atau gagal dimulai.',
   'home.statusInternetOffline':
     'Perangkat Anda sedang offline. Periksa jaringan atau mulai ulang aplikasi untuk menyambung lagi.',
   'home.restartCore': 'Mulai Ulang Core',
@@ -408,7 +408,7 @@ const messages: TranslationMap = {
   'skills.channels': 'Pesan',
   'skills.explorer.emptyCta': 'Instal dari URL',
   'skills.explorer.emptyDescription':
-    'Instal paket SKILL.md atau letakkan folder bergaya Hermes di ~/.openhuman/skills.',
+    'Instal paket SKILL.md atau letakkan folder bergaya Hermes di ~/.Sionix/skills.',
   'skills.explorer.emptyTitle': 'Tidak ada skill ditemukan',
   'skills.explorer.installFromUrl': 'Instal dari URL',
   'skills.explorer.newSkill': 'Skill baru',
@@ -657,13 +657,13 @@ const messages: TranslationMap = {
   'rewards.referrals': 'Referral',
   'rewards.coupons': 'Tukarkan',
   'rewards.localUnavailable':
-    'Login lokal tidak mendapatkan reward, kupon, atau kredit referral. Keluar lalu lanjutkan dengan masuk menggunakan akun OpenHuman jika Anda ingin reward dihitung.',
+    'Login lokal tidak mendapatkan reward, kupon, atau kredit referral. Keluar lalu lanjutkan dengan masuk menggunakan akun Sionix jika Anda ingin reward dihitung.',
   'rewards.localUnavailableCta': 'Buka Pengaturan Akun',
   'rewards.credits': 'Kredit',
   'rewards.referralCode': 'Kode referral Anda',
   'rewards.copyCode': 'Salin kode',
   'rewards.share': 'Bagikan',
-  'onboarding.welcome': 'Hai. Saya OpenHuman.',
+  'onboarding.welcome': 'Hai. Saya Sionix.',
   'onboarding.welcomeDesc':
     'Asisten AI super cerdas yang berjalan di komputer Anda. Privat, sederhana, dan sangat kuat.',
   'onboarding.context': 'Pengumpulan Konteks',
@@ -675,14 +675,14 @@ const messages: TranslationMap = {
   'onboarding.referral': 'Rujukan',
   'onboarding.referralDesc': 'Gunakan kode referral jika Anda memilikinya.',
   'onboarding.finish': 'Selesaikan Pengaturan',
-  'onboarding.finishDesc': 'Semua siap! Mulai gunakan OpenHuman.',
+  'onboarding.finishDesc': 'Semua siap! Mulai gunakan Sionix.',
   'onboarding.skip': 'Lewati',
   'onboarding.getStarted': 'Mulai',
-  'onboarding.runtimeChoice.title': 'Bagaimana Anda ingin menjalankan OpenHuman?',
+  'onboarding.runtimeChoice.title': 'Bagaimana Anda ingin menjalankan Sionix?',
   'onboarding.runtimeChoice.subtitle':
     'Pilih pengaturan yang paling sesuai untuk Anda. Anda dapat mengubahnya nanti di Pengaturan.',
   'onboarding.runtimeChoice.cloud.title': 'Sederhana',
-  'onboarding.runtimeChoice.cloud.tagline': 'Biarkan OpenHuman mengelola segalanya untuk Anda.',
+  'onboarding.runtimeChoice.cloud.tagline': 'Biarkan Sionix mengelola segalanya untuk Anda.',
   'onboarding.runtimeChoice.cloud.f1': 'Keamanan bawaan',
   'onboarding.runtimeChoice.cloud.f2': 'Kompresi token untuk memaksimalkan penggunaan Anda',
   'onboarding.runtimeChoice.cloud.f3': 'Satu langganan, semua model sudah termasuk',
@@ -736,7 +736,7 @@ const messages: TranslationMap = {
   'onboarding.custom.stepperMemory': 'Memori',
   'onboarding.custom.stepCounter': 'Langkah {n} dari {total}',
   'onboarding.custom.defaultTitle': 'Bawaan',
-  'onboarding.custom.defaultSubtitle': 'Biarkan OpenHuman mengelolanya untuk Anda.',
+  'onboarding.custom.defaultSubtitle': 'Biarkan Sionix mengelolanya untuk Anda.',
   'onboarding.custom.configureTitle': 'Konfigurasi',
   'onboarding.custom.configureSubtitle': 'Saya akan memilih apa yang digunakan.',
   'onboarding.custom.progressAriaLabel': 'Progres orientasi',
@@ -750,40 +750,40 @@ const messages: TranslationMap = {
   'onboarding.custom.inference.subtitle':
     'Model bahasa mana yang harus menjawab pertanyaan dan menjalankan agen Anda?',
   'onboarding.custom.inference.defaultDesc':
-    'OpenHuman mengarahkan setiap beban kerja ke model default yang masuk akal. Tidak perlu key, tidak perlu pengaturan.',
+    'Sionix mengarahkan setiap beban kerja ke model default yang masuk akal. Tidak perlu key, tidak perlu pengaturan.',
   'onboarding.custom.inference.configureDesc':
     'Bawa key OpenAI atau Anthropic Anda sendiri. Kami menggunakannya untuk setiap beban kerja berbasis teks.',
   'onboarding.custom.voice.title': 'Suara',
   'onboarding.custom.voice.subtitle': 'Speech-to-text dan text-to-speech untuk mode suara.',
   'onboarding.custom.voice.defaultDesc':
-    'OpenHuman dilengkapi dengan STT/TTS terkelola yang langsung berfungsi. Tidak ada yang perlu dikonfigurasi.',
+    'Sionix dilengkapi dengan STT/TTS terkelola yang langsung berfungsi. Tidak ada yang perlu dikonfigurasi.',
   'onboarding.custom.voice.configureDesc':
     'Gunakan ElevenLabs / OpenAI Whisper / dll. milik Anda sendiri. Konfigurasi di Pengaturan › Suara.',
   'onboarding.custom.oauth.title': 'Koneksi (OAuth)',
   'onboarding.custom.oauth.subtitle':
     'Gmail, Slack, Notion, dan layanan terhubung lainnya yang memerlukan OAuth.',
   'onboarding.custom.oauth.defaultDesc':
-    'OpenHuman menjalankan workspace Composio terkelola. Satu klik untuk menghubungkan setiap layanan nanti.',
+    'Sionix menjalankan workspace Composio terkelola. Satu klik untuk menghubungkan setiap layanan nanti.',
   'onboarding.custom.oauth.configureDesc':
     'Bawa akun Composio / API key Anda sendiri. Konfigurasi di Pengaturan › Koneksi.',
   'onboarding.custom.search.title': 'Pencarian Web',
-  'onboarding.custom.search.subtitle': 'Cara OpenHuman mencari web atas nama Anda.',
+  'onboarding.custom.search.subtitle': 'Cara Sionix mencari web atas nama Anda.',
   'onboarding.custom.search.defaultDesc':
-    'OpenHuman menggunakan backend pencarian terkelola. Tidak perlu key.',
+    'Sionix menggunakan backend pencarian terkelola. Tidak perlu key.',
   'onboarding.custom.search.configureDesc':
     'Bawa key penyedia pencarian Anda sendiri (Tavily, Brave, dll.). Konfigurasi di Pengaturan › Alat.',
   'onboarding.custom.embeddings.title': 'Embeddings',
   'onboarding.custom.embeddings.subtitle':
-    'Cara OpenHuman menghasilkan embedding vektor untuk pencarian memori semantik.',
+    'Cara Sionix menghasilkan embedding vektor untuk pencarian memori semantik.',
   'onboarding.custom.embeddings.defaultDesc':
-    'OpenHuman menggunakan layanan embedding terkelola. Tidak perlu API key.',
+    'Sionix menggunakan layanan embedding terkelola. Tidak perlu API key.',
   'onboarding.custom.embeddings.configureDesc':
     'Gunakan penyedia embedding Anda sendiri (OpenAI, Voyage, Ollama, dll.).',
   'onboarding.custom.memory.title': 'Memori',
   'onboarding.custom.memory.subtitle':
-    'Cara OpenHuman mengingat konteks, preferensi, dan percakapan sebelumnya.',
+    'Cara Sionix mengingat konteks, preferensi, dan percakapan sebelumnya.',
   'onboarding.custom.memory.defaultDesc':
-    'OpenHuman mengelola penyimpanan dan pengambilan memori secara otomatis. Tidak ada yang perlu diatur.',
+    'Sionix mengelola penyimpanan dan pengambilan memori secara otomatis. Tidak ada yang perlu diatur.',
   'onboarding.custom.memory.configureDesc':
     'Periksa, ekspor, atau hapus memori sendiri. Konfigurasi di Pengaturan › Memori.',
   'accounts.addAccount': 'Tambah Akun',
@@ -939,11 +939,11 @@ const messages: TranslationMap = {
   'privacy.anonymizedAnalytics': 'Analitik Produk',
   'privacy.shareAnonymizedData': 'Bagikan Analitik Produk dan Diagnostik',
   'privacy.shareAnonymizedDataDesc':
-    'Bantu meningkatkan OpenHuman dengan membagikan laporan crash dan peristiwa penggunaan yang dibatasi privasi, termasuk ID akun stabil dan metadata versi aplikasi. Pesan, kunci dompet, kunci API, dan token sesi tidak pernah dikumpulkan.',
+    'Bantu meningkatkan Sionix dengan membagikan laporan crash dan peristiwa penggunaan yang dibatasi privasi, termasuk ID akun stabil dan metadata versi aplikasi. Pesan, kunci dompet, kunci API, dan token sesi tidak pernah dikumpulkan.',
   'privacy.meetingFollowUps': 'Tindak lanjut rapat',
   'privacy.autoHandoffMeet': 'Serahkan transkrip Google Meet otomatis ke orchestrator',
   'privacy.autoHandoffMeetDesc':
-    'Saat panggilan Google Meet berakhir, orchestrator OpenHuman dapat membaca transkrip dan mengambil tindakan seperti menyusun pesan, menjadwalkan tindak lanjut, atau memposting ringkasan ke workspace Slack yang terhubung. Nonaktif secara default.',
+    'Saat panggilan Google Meet berakhir, orchestrator Sionix dapat membaca transkrip dan mengambil tindakan seperti menyusun pesan, menjadwalkan tindak lanjut, atau memposting ringkasan ke workspace Slack yang terhubung. Nonaktif secara default.',
   'privacy.analyticsDisclaimer':
     'Saat aktif, Analitik Produk dan Diagnostik dapat menyertakan laporan crash dan peristiwa penggunaan yang dibatasi privasi, ID akun stabil, dan metadata versi aplikasi. Pesan, kunci dompet, kunci API, dan token sesi tidak pernah dikumpulkan. Pengaturan ini bisa diubah kapan saja.',
   'settings.about.version': 'Versi',
@@ -1035,18 +1035,18 @@ const messages: TranslationMap = {
     'Kirim pesan agen - penggunaan token dari panggilan penyedia berikutnya akan mengisi bagan dalam waktu ~10.',
   'settings.search.title': 'Mesin pencari',
   'settings.search.menuDesc':
-    'Baku bagi OpenHuman- mengatur pencarian atau menghubungkan penyedia anda sendiri dengan kunci API.',
+    'Baku bagi Sionix- mengatur pencarian atau menghubungkan penyedia anda sendiri dengan kunci API.',
   'settings.search.description':
-    'Pilih mesin pencari yang digunakan agen, atau nonaktifkan alat pencarian sepenuhnya. Managed menggunakan backend OpenHuman (tanpa pengaturan). Parallel, Brave, dan Querit berjalan langsung dari mesin Anda menggunakan kunci API Anda.',
+    'Pilih mesin pencari yang digunakan agen, atau nonaktifkan alat pencarian sepenuhnya. Managed menggunakan backend Sionix (tanpa pengaturan). Parallel, Brave, dan Querit berjalan langsung dari mesin Anda menggunakan kunci API Anda.',
   'settings.search.engineAria': 'Mesin pencari',
   'settings.search.engineDisabledLabel': 'Disabled',
   'settings.search.engineDisabledDesc':
     'Hapus alat pencarian dari konteks agen dan daftar alat yang tersedia.',
-  'settings.search.engineManagedLabel': 'OpenHuman Dikelola',
+  'settings.search.engineManagedLabel': 'Sionix Dikelola',
   'settings.search.engineManagedDesc':
-    'Baku. Diarahkan melalui backend OpenHuman — tidak diperlukan kunci API.',
+    'Baku. Diarahkan melalui backend Sionix — tidak diperlukan kunci API.',
   'settings.search.localManagedUnavailable':
-    'Pencarian OpenHuman Managed tidak tersedia untuk pengguna lokal. Tambahkan API key Parallel atau Brave Anda sendiri untuk mengaktifkan pencarian web.',
+    'Pencarian Sionix Managed tidak tersedia untuk pengguna lokal. Tambahkan API key Parallel atau Brave Anda sendiri untuk mengaktifkan pencarian web.',
   'settings.search.engineParallelLabel': 'Parallel',
   'settings.search.engineParallelDesc':
     'Parallel Langsung API: pencarian, ekstrak, percakapan, penelitian, perkaya, alat dataset.',
@@ -1154,14 +1154,14 @@ const messages: TranslationMap = {
     'Terenkripsi di meja rahasia MCP lokal. Tidak pernah log atau dikirim ke model.',
   'devices.betaBadge': 'Beta',
   'devices.betaText':
-    'Fitur ini sedang dalam versi beta. Pasangkan ponsel iOS dengan OpenHuman ini untuk menggunakannya sebagai klien jarak jauh.',
+    'Fitur ini sedang dalam versi beta. Pasangkan ponsel iOS dengan Sionix ini untuk menggunakannya sebagai klien jarak jauh.',
   'devices.comingSoonDescription':
     'Pemasangan perangkat akan segera hadir. Halaman ini akan menjadi tempat untuk memasangkan iPhone dan mengelola perangkat yang terhubung.',
   'devices.title': 'Perangkat',
   'devices.pairIphone': 'Pasangkan iPhone',
   'devices.noPaired': 'Tidak ada perangkat yang dipasangkan',
   'devices.emptyState':
-    'Pindai kode QR di iPhone Anda untuk menghubungkannya ke sesi OpenHuman ini.',
+    'Pindai kode QR di iPhone Anda untuk menghubungkannya ke sesi Sionix ini.',
   'devices.devicePairedTitle': 'Perangkat yang dipasangkan',
   'devices.devicePairedMessage': 'iPhone berhasil tersambung.',
   'devices.deviceRevokedTitle': 'Perangkat dicabut',
@@ -1182,7 +1182,7 @@ const messages: TranslationMap = {
   'devices.loadFailed': 'Gagal memuat perangkat: {message}',
   'devices.pairModal.title': 'Pasangkan iPhone',
   'devices.pairModal.loading': 'Membuat kode penyandingan…',
-  'devices.pairModal.instructions': 'Buka aplikasi OpenHuman di iPhone Anda dan pindai kode ini.',
+  'devices.pairModal.instructions': 'Buka aplikasi Sionix di iPhone Anda dan pindai kode ini.',
   'devices.pairModal.expiresIn': 'Masa berlaku kode akan habis dalam ~{count} menit',
   'devices.pairModal.expiresInPlural': 'Masa berlaku kode akan habis dalam ~{count} menit',
   'devices.pairModal.showDetails': 'Tampilkan detailnya',
@@ -1430,7 +1430,7 @@ const messages: TranslationMap = {
   'mcp.connectAuth.schemeRaw': 'Tidak ada',
   'mcp.connectAuth.reconnectFailed': 'Kredensial tersimpan, tetapi koneksi gagal.',
   'mcp.connectAuth.oauthHint':
-    'Server ini menggunakan OAuth. Masuk melalui browser Anda untuk mengizinkan OpenHuman.',
+    'Server ini menggunakan OAuth. Masuk melalui browser Anda untuk mengizinkan Sionix.',
   'mcp.connectAuth.signIn': 'Masuk dengan browser',
   'mcp.connectAuth.oauthWaiting': 'Menunggu proses masuk…',
   'mcp.connectAuth.oauthOrToken':
@@ -1445,7 +1445,7 @@ const messages: TranslationMap = {
   'autonomy.title': 'Otonomi agen',
   'autonomy.maxActionsLabel': 'Tindakan maksimal per jam',
   'autonomy.maxActionsHelp':
-    'Jumlah maksimum tindakan alat yang dapat dijalankan agen per jam bergulir. Nilai baru berlaku untuk obrolan berikutnya. Pekerjaan cron dan pendengar saluran tetap menggunakan batas saat ini sampai Anda me-restart OpenHuman.',
+    'Jumlah maksimum tindakan alat yang dapat dijalankan agen per jam bergulir. Nilai baru berlaku untuk obrolan berikutnya. Pekerjaan cron dan pendengar saluran tetap menggunakan batas saat ini sampai Anda me-restart Sionix.',
   'autonomy.statusSaving': 'Menyimpan…',
   'autonomy.statusSaved': 'Tersimpan.',
   'autonomy.statusFailed': 'Gagal',
@@ -1501,7 +1501,7 @@ const messages: TranslationMap = {
   'settings.billing.browserOpenFailed':
     'Browser tidak dapat dibuka otomatis. Gunakan tombol di atas.',
   'settings.tools.chooseCapabilities':
-    'Pilih kemampuan yang dapat digunakan OpenHuman atas nama Anda.',
+    'Pilih kemampuan yang dapat digunakan Sionix atas nama Anda.',
   'settings.tools.saveChanges': 'Simpan Perubahan',
   'settings.tools.preferencesSaved': 'Preferensi tersimpan',
   'settings.tools.saveFailed': 'Gagal menyimpan preferensi. Coba lagi.',
@@ -1772,8 +1772,8 @@ const messages: TranslationMap = {
   'voice.providers.piperPreset.alanMedium': 'GB · Alan (pria)',
   'voice.providers.piperPreset.jennyDiocoMedium': 'GB · Jenny Dioco (wanita)',
   'voice.providers.piperPreset.northernEnglishMaleMedium': 'GB · Bahasa Inggris Utara (pria)',
-  'voice.providers.chip.cloud': 'OpenHuman (Terkelola)',
-  'voice.providers.chip.cloudAria': 'Penyedia terkelola OpenHuman selalu aktif',
+  'voice.providers.chip.cloud': 'Sionix (Terkelola)',
+  'voice.providers.chip.cloudAria': 'Penyedia terkelola Sionix selalu aktif',
   'voice.providers.chip.whisper': 'Whisper (Lokal)',
   'voice.providers.chip.enableWhisper': 'Aktifkan Whisper STT lokal',
   'voice.providers.chip.disableWhisper': 'Nonaktifkan Whisper STT lokal',
@@ -1822,7 +1822,7 @@ const messages: TranslationMap = {
   'voice.externalProviders.add': 'Add',
   'pttSettings.title': 'Tekan untuk bicara',
   'pttSettings.description':
-    'Tahan sebuah tombol untuk berbicara dengan OpenHuman saat kamu sedang di aplikasi lain. Lepas tombol untuk mengirim; jika «Bacakan balasan» aktif, OpenHuman akan menyuarakan balasannya.',
+    'Tahan sebuah tombol untuk berbicara dengan Sionix saat kamu sedang di aplikasi lain. Lepas tombol untuk mengirim; jika «Bacakan balasan» aktif, Sionix akan menyuarakan balasannya.',
   'pttSettings.shortcutLabel': 'Pintasan',
   'pttSettings.shortcutPlaceholder': 'Tekan sebuah tombol (mis. F13)',
   'pttSettings.shortcutUnsetHint':
@@ -1835,10 +1835,10 @@ const messages: TranslationMap = {
     'Pilih tombol biasa (mis. F13) — pintasan hanya pengubah tidak berfungsi untuk tekan untuk bicara.',
   'pttSettings.errorEmpty': 'Pilih tombol untuk diikat.',
   'pttSettings.errorAccessibility':
-    'macOS memerlukan izin Aksesibilitas untuk pintasan ini. Buka Pengaturan Sistem → Privasi & Keamanan → Aksesibilitas lalu aktifkan OpenHuman.',
+    'macOS memerlukan izin Aksesibilitas untuk pintasan ini. Buka Pengaturan Sistem → Privasi & Keamanan → Aksesibilitas lalu aktifkan Sionix.',
   'pttSettings.errorShortcutInUse': 'Aplikasi lain sudah memakai pintasan ini. Pilih yang lain.',
   'pttSettings.errorUnsupportedWayland':
-    'Sesi Wayland belum mendukung pintasan global di OpenHuman — beralihlah ke sesi X11 atau gunakan tombol dikte di dalam aplikasi.',
+    'Sesi Wayland belum mendukung pintasan global di Sionix — beralihlah ke sesi X11 atau gunakan tombol dikte di dalam aplikasi.',
   'pttSettings.exclusiveFullscreenHint':
     'Pada game layar penuh eksklusif, lapisan tidak akan tampil — kamu hanya akan mendengar nada. Beralihlah ke layar penuh tanpa bingkai untuk melihat lapisan.',
   'pttOverlay.listening': 'Mendengarkan…',
@@ -2079,7 +2079,7 @@ const messages: TranslationMap = {
   'chat.attachment.unsupportedType':
     'Jenis file tidak didukung. Gunakan gambar (PNG, JPEG, WebP, GIF, BMP) atau file PDF, TXT, atau Markdown.',
   'chat.attachment.imageNotSupported':
-    'Model ini tidak dapat membaca gambar. Anda dapat menggunakan tingkat Penalaran OpenHuman untuk melampirkan gambar Anda.',
+    'Model ini tidak dapat membaca gambar. Anda dapat menggunakan tingkat Penalaran Sionix untuk melampirkan gambar Anda.',
   'chat.attachment.readFailed': 'Tidak dapat membaca file',
   'memory.searchAria': 'Cari memori',
   'memory.searchPlaceholder': 'Cari entri memori...',
@@ -2446,9 +2446,9 @@ const messages: TranslationMap = {
   'bootCheck.chooseCoreMode': 'Pilih Runtime',
   'bootCheck.connectToCore': 'Hubungkan ke Runtime Anda',
   'bootCheck.desktopDescription':
-    'OpenHuman memerlukan runtime untuk berpikir. Pilih di mana runtime harus berada.',
+    'Sionix memerlukan runtime untuk berpikir. Pilih di mana runtime harus berada.',
   'bootCheck.webDescription':
-    'Di web, OpenHuman terhubung ke runtime yang Anda kendalikan. Masukkan URL dan token autentikasi di bawah, atau ambil aplikasi desktop untuk menjalankannya langsung di mesin Anda.',
+    'Di web, Sionix terhubung ke runtime yang Anda kendalikan. Masukkan URL dan token autentikasi di bawah, atau ambil aplikasi desktop untuk menjalankannya langsung di mesin Anda.',
   'bootCheck.preferDesktop': 'Lebih suka menyimpan semuanya di perangkat Anda sendiri?',
   'bootCheck.downloadDesktop': 'Dapatkan Aplikasi Desktop',
   'bootCheck.localRecommended': 'Jalankan Secara Lokal (Direkomendasikan)',
@@ -2475,7 +2475,7 @@ const messages: TranslationMap = {
   'bootCheck.quit': 'Keluar',
   'bootCheck.legacyDetected': 'Runtime Latar Belakang Lama Terdeteksi',
   'bootCheck.legacyDescription':
-    'Daemon OpenHuman yang diinstal terpisah sudah berjalan di perangkat ini. Kami perlu membersihkannya sebelum runtime bawaan dapat mengambil alih.',
+    'Daemon Sionix yang diinstal terpisah sudah berjalan di perangkat ini. Kami perlu membersihkannya sebelum runtime bawaan dapat mengambil alih.',
   'bootCheck.removing': 'Menghapus...',
   'bootCheck.removeContinue': 'Hapus dan Lanjutkan',
   'bootCheck.localNeedsRestart': 'Runtime Lokal Perlu Dimulai Ulang',
@@ -2497,7 +2497,7 @@ const messages: TranslationMap = {
   'bootCheck.actionFailed': 'Terjadi kesalahan. Silakan coba lagi.',
   'bootCheck.portConflictTitle': 'Tidak dapat memulai mesin aplikasi',
   'bootCheck.portConflictBody':
-    'Proses lain sedang menggunakan port jaringan yang dibutuhkan OpenHuman. Kami akan mencoba memperbaikinya secara otomatis.',
+    'Proses lain sedang menggunakan port jaringan yang dibutuhkan Sionix. Kami akan mencoba memperbaikinya secara otomatis.',
   'bootCheck.portConflictFixButton': 'Perbaiki Otomatis',
   'bootCheck.portConflictFixing': 'Memperbaiki…',
   'bootCheck.portConflictFixFailed':
@@ -2552,7 +2552,7 @@ const messages: TranslationMap = {
   'composio.reconnect': 'Hubungkan ulang',
   'composio.expiredAuthorization': '{name} otorisasi kedaluwarsa',
   'composio.expiredDescription':
-    'Sambungkan kembali untuk mengaktifkan kembali alat {name}. OpenHuman akan membuat integrasi ini tidak tersedia sampai Anda menyegarkan akses OAuth.',
+    'Sambungkan kembali untuk mengaktifkan kembali alat {name}. Sionix akan membuat integrasi ini tidak tersedia sampai Anda menyegarkan akses OAuth.',
   'composio.envVarOverrides': 'diatur, itu menggantikan pengaturan ini.',
   'composio.previewBadge': 'Pratinjau',
   'composio.previewTooltip':
@@ -2604,7 +2604,7 @@ const messages: TranslationMap = {
   'accounts.webviewHost.timeoutHint': 'Petunjuk waktu habis',
   'app.connectionBadge.composio': 'Composio',
   'app.connectionBadge.messaging': 'Pesan',
-  'app.connectionIndicator.connected': 'Terhubung ke OpenHuman AI 🚀',
+  'app.connectionIndicator.connected': 'Terhubung ke Sionix AI 🚀',
   'app.connectionIndicator.connecting': 'Menghubungkan',
   'app.connectionIndicator.coreOffline': 'Core tidak online',
   'app.connectionIndicator.disconnected': 'Terputus',
@@ -2619,69 +2619,69 @@ const messages: TranslationMap = {
   'app.errorFallback.tryRecover': 'Coba pulihkan',
   'app.localAiDownload.installing': 'Menginstal...',
   'app.localAiDownload.preparing': 'Mempersiapkan...',
-  'app.openhumanLink.accounts.continueWith': 'Lanjutkan dengan masuk {label}',
-  'app.openhumanLink.accounts.done': 'Selesai',
-  'app.openhumanLink.accounts.intro': 'Pengantar',
-  'app.openhumanLink.accounts.webviewNote': 'Catatan webview',
-  'app.openhumanLink.billing.openDashboard': 'Buka dashboard',
-  'app.openhumanLink.billing.stayOnTrial': 'Tetap di trial',
-  'app.openhumanLink.billing.trialCredit': 'Kredit pendaftaran',
-  'app.openhumanLink.billing.trialDesc':
+  'app.SionixLink.accounts.continueWith': 'Lanjutkan dengan masuk {label}',
+  'app.SionixLink.accounts.done': 'Selesai',
+  'app.SionixLink.accounts.intro': 'Pengantar',
+  'app.SionixLink.accounts.webviewNote': 'Catatan webview',
+  'app.SionixLink.billing.openDashboard': 'Buka dashboard',
+  'app.SionixLink.billing.stayOnTrial': 'Tetap di trial',
+  'app.SionixLink.billing.trialCredit': 'Kredit pendaftaran',
+  'app.SionixLink.billing.trialDesc':
     'Penawaran kredit dapat berbeda menurut promosi dan kelayakan akun.',
-  'app.openhumanLink.defaultBody':
+  'app.SionixLink.defaultBody':
     't siap di popup belum. Buka halaman pengaturan lengkap jika Anda',
-  'app.openhumanLink.discord.intro': 'Pengantar',
-  'app.openhumanLink.discord.openInvite': 'Buka undangan',
-  'app.openhumanLink.discord.perk1': 'Keuntungan 1',
-  'app.openhumanLink.discord.perk2': 'Keuntungan 2',
-  'app.openhumanLink.discord.perk3': 'Keuntungan 3',
-  'app.openhumanLink.discord.perk4': 'Keuntungan 4',
-  'app.openhumanLink.discordReport.intro':
+  'app.SionixLink.discord.intro': 'Pengantar',
+  'app.SionixLink.discord.openInvite': 'Buka undangan',
+  'app.SionixLink.discord.perk1': 'Keuntungan 1',
+  'app.SionixLink.discord.perk2': 'Keuntungan 2',
+  'app.SionixLink.discord.perk3': 'Keuntungan 3',
+  'app.SionixLink.discord.perk4': 'Keuntungan 4',
+  'app.SionixLink.discordReport.intro':
     'Mohon maaf — terjadi kesalahan di pihak kami. Kami berusaha mencatat error ini secara otomatis, tetapi membagikan detailnya di Discord membantu kami memperbaikinya lebih cepat.',
-  'app.openhumanLink.discordReport.openDiscord': 'Buka Discord',
-  'app.openhumanLink.done': 'Selesai',
-  'app.openhumanLink.notifications.desktopOnly':
+  'app.SionixLink.discordReport.openDiscord': 'Buka Discord',
+  'app.SionixLink.done': 'Selesai',
+  'app.SionixLink.notifications.desktopOnly':
     'Notifikasi native hanya tersedia di aplikasi desktop (jalankan `pnpm dev:app`).',
-  'app.openhumanLink.notifications.permissionOff':
-    'Izin notifikasi nonaktif. Aktifkan OpenHuman di Pengaturan Sistem → Notifikasi, lalu coba lagi.',
-  'app.openhumanLink.notifications.triggerFailed':
-    'OpenHuman tidak dapat memicu notifikasi sistem. Periksa pengaturan notifikasi OS dan coba lagi.',
-  'app.openhumanLink.notifications.welcomeBody':
+  'app.SionixLink.notifications.permissionOff':
+    'Izin notifikasi nonaktif. Aktifkan Sionix di Pengaturan Sistem → Notifikasi, lalu coba lagi.',
+  'app.SionixLink.notifications.triggerFailed':
+    'Sionix tidak dapat memicu notifikasi sistem. Periksa pengaturan notifikasi OS dan coba lagi.',
+  'app.SionixLink.notifications.welcomeBody':
     'Anda akan menerima pemberitahuan di sini saat ada hal yang memerlukan perhatian Anda.',
-  'app.openhumanLink.notifications.welcomeTitle': 'OpenHuman siap digunakan',
-  'app.openhumanLink.status.closed': 'Tertutup',
-  'app.openhumanLink.status.connected': 'Terhubung',
-  'app.openhumanLink.status.error': 'Kesalahan',
-  'app.openhumanLink.status.loading': 'Memuat…',
-  'app.openhumanLink.status.needsSignIn': 'Perlu masuk',
-  'app.openhumanLink.status.timedOut': 'Waktu habis',
-  'app.openhumanLink.loadingChannelSetup': 'Memuat pengaturan kanal',
-  'app.openhumanLink.maybeLater': 'Mungkin nanti',
-  'app.openhumanLink.notifications.asking': 'Menanyakan ke OS Anda...',
-  'app.openhumanLink.notifications.blocked': 'Diblokir',
-  'app.openhumanLink.notifications.blockedStep1': 'Langkah 1 diblokir',
-  'app.openhumanLink.notifications.blockedStep2': 'Langkah 2 diblokir',
-  'app.openhumanLink.notifications.blockedStep3': 'Langkah 3 diblokir',
-  'app.openhumanLink.notifications.intro': 'Pengantar',
-  'app.openhumanLink.notifications.promptHint': 'Petunjuk prompt',
-  'app.openhumanLink.notifications.retry': 'Coba ulang notifikasi tes',
-  'app.openhumanLink.notifications.send': 'Kirim notifikasi tes',
-  'app.openhumanLink.notifications.sendFailed': 'Tidak bisa mengirim: {error}',
-  'app.openhumanLink.notifications.sent':
-    'Notifikasi uji telah dikirim. Jika Anda tidak menerimanya, buka System Settings → Notifications → OpenHuman, aktifkan Allow Notifications, dan atur Banner Style ke Persistent.',
-  'app.openhumanLink.skipForNow': 'Lewati untuk sekarang',
-  'app.openhumanLink.telegramUnavailable': 'Telegram tidak tersedia',
-  'app.openhumanLink.title.accounts': 'Hubungkan aplikasi Anda',
-  'app.openhumanLink.title.billing': 'Tagihan & kredit',
-  'app.openhumanLink.title.discord': 'Bergabung ke komunitas',
-  'app.openhumanLink.title.discordReport': 'Laporkan error ini',
-  'app.openhumanLink.title.messaging': 'Hubungkan kanal chat',
-  'app.openhumanLink.title.notifications': 'Izinkan notifikasi',
+  'app.SionixLink.notifications.welcomeTitle': 'Sionix siap digunakan',
+  'app.SionixLink.status.closed': 'Tertutup',
+  'app.SionixLink.status.connected': 'Terhubung',
+  'app.SionixLink.status.error': 'Kesalahan',
+  'app.SionixLink.status.loading': 'Memuat…',
+  'app.SionixLink.status.needsSignIn': 'Perlu masuk',
+  'app.SionixLink.status.timedOut': 'Waktu habis',
+  'app.SionixLink.loadingChannelSetup': 'Memuat pengaturan kanal',
+  'app.SionixLink.maybeLater': 'Mungkin nanti',
+  'app.SionixLink.notifications.asking': 'Menanyakan ke OS Anda...',
+  'app.SionixLink.notifications.blocked': 'Diblokir',
+  'app.SionixLink.notifications.blockedStep1': 'Langkah 1 diblokir',
+  'app.SionixLink.notifications.blockedStep2': 'Langkah 2 diblokir',
+  'app.SionixLink.notifications.blockedStep3': 'Langkah 3 diblokir',
+  'app.SionixLink.notifications.intro': 'Pengantar',
+  'app.SionixLink.notifications.promptHint': 'Petunjuk prompt',
+  'app.SionixLink.notifications.retry': 'Coba ulang notifikasi tes',
+  'app.SionixLink.notifications.send': 'Kirim notifikasi tes',
+  'app.SionixLink.notifications.sendFailed': 'Tidak bisa mengirim: {error}',
+  'app.SionixLink.notifications.sent':
+    'Notifikasi uji telah dikirim. Jika Anda tidak menerimanya, buka System Settings → Notifications → Sionix, aktifkan Allow Notifications, dan atur Banner Style ke Persistent.',
+  'app.SionixLink.skipForNow': 'Lewati untuk sekarang',
+  'app.SionixLink.telegramUnavailable': 'Telegram tidak tersedia',
+  'app.SionixLink.title.accounts': 'Hubungkan aplikasi Anda',
+  'app.SionixLink.title.billing': 'Tagihan & kredit',
+  'app.SionixLink.title.discord': 'Bergabung ke komunitas',
+  'app.SionixLink.title.discordReport': 'Laporkan error ini',
+  'app.SionixLink.title.messaging': 'Hubungkan kanal chat',
+  'app.SionixLink.title.notifications': 'Izinkan notifikasi',
   'app.persistRehydration.body': 'Isi',
   'app.persistRehydration.heading': 'Judul',
   'app.persistRehydration.resetCta': 'Mereset...',
   'app.persistRehydration.resetting': 'Mereset...',
-  'app.routeLoading.initializing': 'Menginisialisasi OpenHuman...',
+  'app.routeLoading.initializing': 'Menginisialisasi Sionix...',
   'app.update.currentlyOn': '{version}',
   'app.update.errorFallback': 'Terjadi kesalahan saat memperbarui.',
   'app.update.header.default': 'Perbarui',
@@ -2738,7 +2738,7 @@ const messages: TranslationMap = {
   'chat.approval.fallback': 'Agen ingin melakukan tindakan yang membutuhkan persetujuanmu.',
   'chat.approval.title': 'Perlu persetujuan',
   'chat.approval.tool': 'Alat:',
-  'channels.authMode.managed_dm': 'Masuk dengan OpenHuman',
+  'channels.authMode.managed_dm': 'Masuk dengan Sionix',
   'channels.authMode.oauth': 'OAuth Masuk',
   'channels.authMode.bot_token': 'Gunakan Token Bot Anda sendiri',
   'channels.authMode.api_key': 'Gunakan Kunci API Anda sendiri',
@@ -2750,9 +2750,9 @@ const messages: TranslationMap = {
   'channels.discord.description': 'Mengirim dan menerima pesan melalui Discord.',
   'channels.discord.authMode.bot_token.description': 'Berikan token bot Discord Anda sendiri.',
   'channels.discord.authMode.oauth.description':
-    'Instal bot OpenHuman ke server Discord Anda melalui OAuth.',
+    'Instal bot Sionix ke server Discord Anda melalui OAuth.',
   'channels.discord.authMode.managed_dm.description':
-    'Tautkan akun Discord pribadi Anda ke bot OpenHuman.',
+    'Tautkan akun Discord pribadi Anda ke bot Sionix.',
   'channels.discord.fields.bot_token.label': 'Token Bot',
   'channels.discord.fields.bot_token.placeholder': 'Token bot Discord Anda',
   'channels.discord.fields.guild_id.label': 'ID Server (Guild)',
@@ -2760,7 +2760,7 @@ const messages: TranslationMap = {
   'channels.telegram.displayName': 'Telegram',
   'channels.telegram.description': 'Mengirim dan menerima pesan melalui Telegram.',
   'channels.telegram.authMode.managed_dm.description':
-    'Kirim pesan langsung ke bot OpenHuman Telegram.',
+    'Kirim pesan langsung ke bot Sionix Telegram.',
   'channels.telegram.authMode.bot_token.description':
     'Berikan token Bot Telegram Anda sendiri dari @Botfather.',
   'channels.telegram.fields.bot_token.label': 'Token Bot',
@@ -2811,16 +2811,16 @@ const messages: TranslationMap = {
   'iosPair.error.camera': 'Pemindaian kamera gagal. Periksa izin kamera dan coba lagi.',
   'iosPair.error.connectionFailed':
     'Koneksi gagal. Pastikan aplikasi desktop sedang berjalan dan coba lagi.',
-  'iosPair.error.invalidQr': 'Kode QR tidak valid. Pastikan Anda memindai kode pairing OpenHuman.',
+  'iosPair.error.invalidQr': 'Kode QR tidak valid. Pastikan Anda memindai kode pairing Sionix.',
   'iosPair.error.unreachableDesktop':
     'Tidak dapat menjangkau desktop. Pastikan kedua perangkat online dan coba lagi.',
   'iosPair.expired': 'QR code kedaluwarsa. Minta desktop untuk membuat ulang kode.',
   'iosPair.instructions':
-    'Buka OpenHuman di desktop Anda, buka Pengaturan > Perangkat, dan ketuk "Pasangkan ponsel" untuk menampilkan kode QR.',
+    'Buka Sionix di desktop Anda, buka Pengaturan > Perangkat, dan ketuk "Pasangkan ponsel" untuk menampilkan kode QR.',
   'iosPair.retryScan': 'Coba pindai lagi',
   'iosPair.scanQrCode': 'Pindai QR code',
   'iosPair.scannerOpening': 'Pemindai terbuka...',
-  'iosPair.step.openDesktop': 'Buka OpenHuman di desktop',
+  'iosPair.step.openDesktop': 'Buka Sionix di desktop',
   'iosPair.step.openSettings': 'Buka Pengaturan > Perangkat',
   'iosPair.step.showQr': 'Ketuk "Pasangkan ponsel" untuk menampilkan QR',
   'iosPair.title': 'Pasangkan dengan desktop Anda',
@@ -2855,7 +2855,7 @@ const messages: TranslationMap = {
   'composio.connect.permissionsDefault': 'Baca + Tulis diaktifkan secara default',
   'composio.connect.permissionsNote': 'dapat mengekspos',
   'composio.connect.permissionsNoteSuffix':
-    'Izin agen milik OpenHuman dikendalikan di bawah sebagai sakelar read, write, dan admin.',
+    'Izin agen milik Sionix dikendalikan di bawah sebagai sakelar read, write, dan admin.',
   'composio.connect.reopenBrowser': 'Buka ulang browser',
   'composio.connect.requestingUrl': 'Meminta URL koneksi...',
   'composio.connect.requiredFieldEmpty': 'Bidang ini wajib diisi.',
@@ -2961,7 +2961,7 @@ const messages: TranslationMap = {
   'daemon.serviceBlockingGate.retryFailed':
     'Coba ulang gagal. Unduh build aplikasi terbaru dan coba lagi.',
   'daemon.serviceBlockingGate.retrying': 'Mencoba ulang...',
-  'daemon.serviceBlockingGate.title': 'Core OpenHuman tidak tersedia',
+  'daemon.serviceBlockingGate.title': 'Core Sionix tidak tersedia',
   'home.banners.discordSubtitle': 'Subtitle Discord',
   'home.banners.discordTitle': 'Bergabung ke Discord Kami',
   'home.banners.earlyBirdDismiss': 'Abaikan banner early bird',
@@ -2997,7 +2997,7 @@ const messages: TranslationMap = {
   'intelligence.diagram.skillInstallCommand': 'npx skills add yizhiyanhua-ai/fireworks-tech-graph',
   'intelligence.diagram.promptExample':
     'Buat diagram arsitektur swarm saat ini dalam gaya terminal gelap',
-  'intelligence.diagram.imageAlt': 'Diagram arsitektur OpenHuman terbaru yang dihasilkan',
+  'intelligence.diagram.imageAlt': 'Diagram arsitektur Sionix terbaru yang dihasilkan',
   'intelligence.diagram.refreshesEvery': 'Diperbarui setiap {seconds}d',
   'intelligence.memoryText.entityTypePrefix': 'Tipe entitas',
   'intelligence.screenDebug.active': 'Aktif',
@@ -3229,10 +3229,10 @@ const messages: TranslationMap = {
     'Peluncuran pertama bisa memakan waktu 30–60 detik sementara kami menyiapkan model dan alat lokal Anda. Anda bisa melanjutkan ke chat kapan saja — pembuatan profil tetap berjalan di latar belakang.',
   'onboarding.contextGathering.stillWorkingTitle': 'Masih membangun profil Anda…',
   'onboarding.contextGathering.title': 'Pengumpulan Konteks',
-  'openhuman.team_list_teams': 'Daftar tim',
+  'Sionix.team_list_teams': 'Daftar tim',
   'overlay.ariaAttention': 'Pesan perhatian',
   'overlay.ariaCompanion': 'Pendamping aktif',
-  'overlay.ariaOrb': 'Overlay OpenHuman',
+  'overlay.ariaOrb': 'Overlay Sionix',
   'overlay.ariaVoiceActive': 'Input suara aktif',
   'overlay.companion.error': 'Kesalahan',
   'overlay.companion.listening': 'Mendengarkan…',
@@ -3311,7 +3311,7 @@ const messages: TranslationMap = {
   'rewards.community.roleAssigned': 'Role ditetapkan',
   'rewards.community.roleAssignmentCount': '{assigned} dari {unlocked} role ditetapkan',
   'rewards.community.roleClaimDesc':
-    'Kamu telah membuka role Discord tetapi belum bergabung ke server OpenHuman. Bergabunglah agar role ditetapkan secara otomatis.',
+    'Kamu telah membuka role Discord tetapi belum bergabung ke server Sionix. Bergabunglah agar role ditetapkan secara otomatis.',
   'rewards.community.roleClaimTitle': 'Klaim role Discord kamu',
   'rewards.community.roleJoinToClaim': 'Gabung server untuk klaim',
   'rewards.community.rolePending': 'Menyinkronkan role…',
@@ -3443,7 +3443,7 @@ const messages: TranslationMap = {
   'settings.ai.claudeCode.fullAccessOff':
     'Hanya terima suntingan — menerapkan suntingan berkas secara otomatis, membatasi perintah & jaringan.',
   'settings.ai.claudeCode.sandboxNoteMac':
-    'Di macOS, ~/.openhuman tetap dilindungi oleh sandbox di kedua mode.',
+    'Di macOS, ~/.Sionix tetap dilindungi oleh sandbox di kedua mode.',
   'settings.ai.claudeCode.sandboxNoteOther':
     'Akses penuh tidak dibatasi di platform ini — aktifkan hanya jika Anda mempercayai ruang kerja.',
   'settings.ai.claudeCode.enableToCheck': 'Aktifkan Claude Code untuk memeriksa status masuk.',
@@ -3530,7 +3530,7 @@ const messages: TranslationMap = {
   'settings.ai.noSpendRows': 'Tidak ada baris pembelanjaan yang dimuat.',
   'settings.ai.topHours': 'Jam sibuk',
   'settings.ai.noHourlySpend': 'Belum ada pembelanjaan per jam.',
-  'settings.ai.openhumanDefault': 'OpenHuman (baku)',
+  'settings.ai.SionixDefault': 'Sionix (baku)',
   'settings.ai.localModelResolved': 'Ollama',
   'settings.ai.customRoutingForWorkload': 'Perutean khusus untuk {label}',
   'settings.ai.loadingModels': 'Memuat model...',
@@ -3589,12 +3589,12 @@ const messages: TranslationMap = {
   'settings.ai.composioSyncScans': 'Composio pemindaian sinkronisasi',
   'settings.ai.totalBackgroundApiReadBudget': 'Total bg API anggaran baca',
   'settings.ai.memoryWorkerPolls': 'Jajak pendapat pekerja memori',
-  'settings.ai.defaultProviderName': 'OpenHuman',
+  'settings.ai.defaultProviderName': 'Sionix',
   'settings.ai.routing.managed': 'Terkelola',
   'settings.ai.routing.managedDesc':
-    'OpenHuman akan menjalankan semua kesimpulan di awan, memilih model terbaik untuk tugas ini, mengoptimalkan biaya, dan menjaga standar routing teraman.',
+    'Sionix akan menjalankan semua kesimpulan di awan, memilih model terbaik untuk tugas ini, mengoptimalkan biaya, dan menjaga standar routing teraman.',
   'settings.ai.routing.managedMsg':
-    'OpenHuman akan menangani semua inferensi untuk setiap beban kerja dan secara otomatis memilih rute terbaik untuk biaya, kualitas, dan keamanan.',
+    'Sionix akan menangani semua inferensi untuk setiap beban kerja dan secara otomatis memilih rute terbaik untuk biaya, kualitas, dan keamanan.',
   'settings.ai.routing.useYourOwn': 'Gunakan Model Anda Sendiri',
   'settings.ai.routing.useYourOwnDesc':
     'Pilih satu model + penyedia dan setiap beban kerja di dalamnya. Ini sederhana, tetapi dapat tidak efisien karena inferensi ringan dan kelas berat semua berbagi rute yang sama.',
@@ -3783,16 +3783,16 @@ const messages: TranslationMap = {
   'settings.composio.confirmSwitch': 'Saya mengerti, beralih ke Direct',
   'settings.composio.confirmTitle': '⚠️ Beralih ke mode Direct',
   'settings.composio.confirmWarning':
-    'Integrasi Anda yang sudah ada (Gmail, Slack, GitHub, dll. yang terhubung melalui OpenHuman) tidak akan terlihat — mereka berada di tenant Composio yang dikelola OpenHuman.',
+    'Integrasi Anda yang sudah ada (Gmail, Slack, GitHub, dll. yang terhubung melalui Sionix) tidak akan terlihat — mereka berada di tenant Composio yang dikelola Sionix.',
   'settings.composio.intro':
     'Composio mengintegrasikan 250+ aplikasi eksternal sebagai tool yang dapat dipanggil agen Anda. Pilih cara pemanggilan tool tersebut dirutekan.',
   'settings.composio.title': 'Composio',
   'settings.composio.modeDirect': 'Langsung (bawa API key Anda sendiri)',
   'settings.composio.modeDirectDesc':
     'Panggilan langsung ke backend.composio.dev. Berdaulat / ramah offline. Eksekusi tool berjalan sinkron; webhook trigger real-time belum dirutekan dalam mode direct (isu lanjutan).',
-  'settings.composio.modeManaged': 'Terkelola (OpenHuman menanganinya untuk Anda)',
+  'settings.composio.modeManaged': 'Terkelola (Sionix menanganinya untuk Anda)',
   'settings.composio.modeManagedDesc':
-    'OpenHuman mem-proxy pemanggilan tool melalui backend kami (disarankan). Autentikasi dibrokerkan; Anda tidak perlu menempel API key Composio. Webhook dirutekan sepenuhnya.',
+    'Sionix mem-proxy pemanggilan tool melalui backend kami (disarankan). Autentikasi dibrokerkan; Anda tidak perlu menempel API key Composio. Webhook dirutekan sepenuhnya.',
   'settings.composio.routingMode': 'Mode routing',
   'settings.composio.saveErrorNoKey':
     'Gagal menyimpan. Mode Direct memerlukan API key yang tidak kosong.',
@@ -3948,7 +3948,7 @@ const messages: TranslationMap = {
   'settings.localModel.download.running': 'Menjalankan...',
   'settings.localModel.download.runningPrompt': 'Menjalankan prompt',
   'settings.localModel.download.summaryHelper':
-    'Panggilan `openhuman.inference_summarize` melalui Rust core',
+    'Panggilan `Sionix.inference_summarize` melalui Rust core',
   'settings.localModel.download.summarizePlaceholder':
     'Tempel teks untuk diringkas dengan model lokal...',
   'settings.localModel.download.testCustomPrompt': 'Tes Prompt Kustom',
@@ -4023,7 +4023,7 @@ const messages: TranslationMap = {
   'settings.localModel.status.ollamaDiagnostics': 'Diagnostik Ollama',
   'settings.localModel.status.ollamaNotInstalled': 'Runtime Ollama tidak tersedia',
   'settings.localModel.status.ollamaNotInstalledDesc':
-    'OpenHuman kini memperlakukan Ollama sebagai runtime inferensi eksternal. Jalankan server Ollama Anda sendiri, tarik model yang diinginkan, lalu arahkan routing workload ke sana.',
+    'Sionix kini memperlakukan Ollama sebagai runtime inferensi eksternal. Jalankan server Ollama Anda sendiri, tarik model yang diinginkan, lalu arahkan routing workload ke sana.',
   'settings.localModel.status.progress': 'Progres',
   'settings.localModel.status.provider': 'Penyedia',
   'settings.localModel.status.retryBootstrap': 'Coba Ulang Bootstrap',
@@ -4052,7 +4052,7 @@ const messages: TranslationMap = {
     'Atur mode autentikasi Telegram/Discord dan routing kanal default',
   'settings.developerMenu.tools.title': 'Alat',
   'settings.developerMenu.tools.desc':
-    'Aktifkan atau nonaktifkan kemampuan yang bisa digunakan OpenHuman atas nama Anda',
+    'Aktifkan atau nonaktifkan kemampuan yang bisa digunakan Sionix atas nama Anda',
   'settings.developerMenu.agentChat.title': 'Chat Agen',
   'settings.developerMenu.agentChat.desc':
     'Uji percakapan agen dengan override model dan temperatur',
@@ -4232,7 +4232,7 @@ const messages: TranslationMap = {
     'Atur pengaturan triase AI untuk pemicu integrasi Composio',
   'settings.developerMenu.mcpServer.title': 'Server MCP',
   'settings.developerMenu.mcpServer.desc':
-    'Konfigurasikan klien MCP eksternal untuk terhubung ke OpenHuman',
+    'Konfigurasikan klien MCP eksternal untuk terhubung ke Sionix',
   'settings.developerMenu.autonomy.title': 'Otonomi agen',
   'settings.developerMenu.autonomy.desc': 'Batas laju aksi alat dan ambang keamanan',
   'settings.developerMenu.autocomplete.title': 'Pelengkap otomatis',
@@ -4243,7 +4243,7 @@ const messages: TranslationMap = {
   'settings.mcpServer.title': 'Server MCP',
   'settings.mcpServer.toolsSectionTitle': 'Alat yang tersedia',
   'settings.mcpServer.toolsSectionDesc':
-    'Alat yang diekspos melalui server stdio MCP saat menjalankan openhuman-core mcp',
+    'Alat yang diekspos melalui server stdio MCP saat menjalankan Sionix-core mcp',
   'settings.mcpServer.configSectionTitle': 'Konfigurasi Klien',
   'settings.mcpServer.configSectionDesc':
     'Pilih klien MCP Anda untuk membuat cuplikan konfigurasi yang tepat',
@@ -4251,7 +4251,7 @@ const messages: TranslationMap = {
   'settings.mcpServer.copied': 'Tersalin!',
   'settings.mcpServer.openConfigFile': 'Buka File Konfigurasi',
   'settings.mcpServer.binaryPathNotFound':
-    'Binary OpenHuman tidak ditemukan. Jika menjalankan dari source, build dengan: cargo build --bin openhuman-core',
+    'Binary Sionix tidak ditemukan. Jika menjalankan dari source, build dengan: cargo build --bin Sionix-core',
   'settings.mcpServer.openConfigError': 'Gagal membuka file konfigurasi',
   'settings.mcpServer.clientClaudeDesktop': 'Claude Desktop',
   'settings.mcpServer.clientCursor': 'Kursor',
@@ -4294,7 +4294,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.timeout.invalid':
     'Masukkan bilangan bulat detik dalam rentang yang diizinkan',
   'settings.agentAccess.timeout.envOverride':
-    'Variabel lingkungan OPENHUMAN_TOOL_TIMEOUT_SECS menggantikan pengaturan ini, sehingga perubahan di sini tidak berpengaruh hingga variabel tersebut dihapus.',
+    'Variabel lingkungan Sionix_TOOL_TIMEOUT_SECS menggantikan pengaturan ini, sehingga perubahan di sini tidak berpengaruh hingga variabel tersebut dihapus.',
   'settings.agentAccess.grantedFolders': 'Folder yang diberikan',
   'settings.agentAccess.alwaysAllow': 'Selalu-diperbolehkan alat',
   'settings.agentAccess.alwaysAllowDesc':
@@ -4321,7 +4321,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDir.cancel': 'Batal',
   'settings.agentAccess.actionDir.placeholder': 'Jalur absolut, mis. /Users/you/Projects',
   'settings.agentAccess.actionDir.envLocked':
-    'Disetel oleh OPENHUMAN_ACTION_DIR. Ubah variabel lingkungan untuk menggantinya.',
+    'Disetel oleh Sionix_ACTION_DIR. Ubah variabel lingkungan untuk menggantinya.',
   'settings.agentAccess.actionDir.saved': 'Direktori aksi diperbarui.',
   'settings.agentAccess.internalState': 'Status internal',
   'settings.agentAccess.agentBlocked': 'diblokir untuk agen',
@@ -4334,9 +4334,9 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDirEmptyError': 'Jalur tidak boleh kosong.',
   'settings.agentAccess.actionDirSaveError': 'Tidak dapat memperbarui sandbox tindakan.',
   'settings.agentAccess.actionDirEnvOverrideError':
-    'OPENHUMAN_ACTION_DIR sudah diatur — hapus variabel env untuk mengedit ini dari Pengaturan.',
+    'Sionix_ACTION_DIR sudah diatur — hapus variabel env untuk mengedit ini dari Pengaturan.',
   'settings.agentAccess.actionDirEnvOverrideNote':
-    'Ditimpa oleh OPENHUMAN_ACTION_DIR — hapus variabel env untuk mengelola dari Pengaturan.',
+    'Ditimpa oleh Sionix_ACTION_DIR — hapus variabel env untuk mengelola dari Pengaturan.',
   'settings.agentAccess.approvalHistory': 'Riwayat persetujuan',
   'settings.agentAccess.approvalHistoryDesc':
     'Tinjau keputusan Setuju / Tolak yang diminta oleh agen sebelumnya.',
@@ -4471,7 +4471,7 @@ const messages: TranslationMap = {
   'settings.mascot.characterPreview': 'Pratinjau',
   'settings.mascot.characterStates': 'status',
   'settings.mascot.characterVisemes': 'visem',
-  'settings.mascot.colorAria': 'Warna OpenHuman',
+  'settings.mascot.colorAria': 'Warna Sionix',
   'settings.mascot.colorDesc': 'Deskripsi warna',
   'settings.mascot.colorHeading': 'Judul warna',
   'settings.mascot.colorBlack': 'Hitam',
@@ -4481,15 +4481,15 @@ const messages: TranslationMap = {
   'settings.mascot.primaryColor': 'Warna primer',
   'settings.mascot.secondaryColor': 'Warna sekunder',
   'settings.mascot.colorYellow': 'Kuning',
-  'settings.mascot.libraryUnavailable': 'Library OpenHuman tidak tersedia',
-  'settings.mascot.title': 'OpenHuman',
-  'settings.mascot.loadingLibrary': 'Memuat perpustakaan OpenHuman...',
+  'settings.mascot.libraryUnavailable': 'Library Sionix tidak tersedia',
+  'settings.mascot.title': 'Sionix',
+  'settings.mascot.loadingLibrary': 'Memuat perpustakaan Sionix...',
   'settings.mascot.loadDetailError': 'Tidak dapat memuat maskot.',
   'settings.mascot.loadLibraryError': 'Tidak dapat memuat perpustakaan maskot.',
-  'settings.mascot.localDefault': 'OpenHuman Lokal (default)',
+  'settings.mascot.localDefault': 'Sionix Lokal (default)',
   'settings.mascot.menuTitle': 'Maskot',
   'settings.mascot.menuDesc': 'Pilih warna maskot yang digunakan di seluruh aplikasi',
-  'settings.mascot.noCharacters': 'Belum ada karakter OpenHuman yang tersedia',
+  'settings.mascot.noCharacters': 'Belum ada karakter Sionix yang tersedia',
   'settings.mascot.noColorVariants': 'Tidak ada varian warna',
   'settings.mascot.voice.current': 'saat ini',
   'settings.mascot.voice.customDesc':
@@ -4542,7 +4542,7 @@ const messages: TranslationMap = {
     'Default yang masuk akal — kontinuitas yang baik tanpa membakar token tambahan di setiap run.',
   'settings.memoryWindow.balanced.label': 'Seimbang',
   'settings.memoryWindow.description':
-    'Seberapa banyak konteks yang diingat OpenHuman dimasukkan ke setiap run agen baru. Jendela yang lebih besar terasa lebih sadar akan percakapan sebelumnya, tetapi menggunakan lebih banyak token — dan biaya lebih mahal — di setiap run.',
+    'Seberapa banyak konteks yang diingat Sionix dimasukkan ke setiap run agen baru. Jendela yang lebih besar terasa lebih sadar akan percakapan sebelumnya, tetapi menggunakan lebih banyak token — dan biaya lebih mahal — di setiap run.',
   'settings.memoryWindow.extended.badge': 'Lebih banyak konteks',
   'settings.memoryWindow.extended.hint':
     'Lebih banyak memori jangka panjang yang dimasukkan ke setiap run. Biaya token per giliran lebih tinggi.',
@@ -4666,9 +4666,9 @@ const messages: TranslationMap = {
   'skills.create.name': 'Nama',
   'skills.create.namePlaceholder': 'mis. Jurnal Trading',
   'skills.create.scope': 'Cakupan',
-  'skills.create.scopeProjectHint': '/.openhuman/skills/',
+  'skills.create.scopeProjectHint': '/.Sionix/skills/',
   'skills.create.scopeUserHint':
-    'Ditulis ke ~/.openhuman/skills/<slug>/SKILL.md — tersedia di semua workspace.',
+    'Ditulis ke ~/.Sionix/skills/<slug>/SKILL.md — tersedia di semua workspace.',
   'skills.create.slugLabel': 'Label slug',
   'skills.create.subtitle': 'SKILL.md',
   'skills.create.tags': 'Tag',
@@ -4715,7 +4715,7 @@ const messages: TranslationMap = {
     'Hanya tautan `.md` langsung yang berfungsi. Untuk GitHub, tautan ke file (github.com/owner/repo/blob/.../SKILL.md) - akar pohon dan repo tidak diinstal.',
   'skills.install.errors.unsupportedUrlTitle': 'formulir URL tidak didukung',
   'skills.install.errors.writeFailedHint':
-    'Direktori keterampilan ruang kerja tidak dapat ditulis. Periksa izin sistem file untuk `<workspace>/.openhuman/skills/`.',
+    'Direktori keterampilan ruang kerja tidak dapat ditulis. Periksa izin sistem file untuk `<workspace>/.Sionix/skills/`.',
   'skills.install.errors.writeFailedTitle': 'Tidak dapat menulis SKILL.md',
   'skills.install.fetchLog': 'Ambil log',
   'skills.install.fetchingPrefix': 'Mengambil',
@@ -4748,17 +4748,17 @@ const messages: TranslationMap = {
   'skills.install.urlPlaceholder': 'https://raw.githubusercontent.com/owner/repo/main/SKILL.md',
   'skills.meetingBots.bannerDesc': 'Deskripsi banner',
   'skills.meetingBots.bannerTitle': 'Judul banner',
-  'skills.meetingBots.busyTitle': 'OpenHuman sedang sibuk',
+  'skills.meetingBots.busyTitle': 'Sionix sedang sibuk',
   'skills.meetingBots.comingSoon': 'Segera hadir',
-  'skills.meetingBots.couldNotStartTitle': 'Tidak bisa memulai OpenHuman',
+  'skills.meetingBots.couldNotStartTitle': 'Tidak bisa memulai Sionix',
   'skills.meetingBots.displayName': 'Nama tampilan',
-  'skills.meetingBots.failedToStart': 'Gagal memulai OpenHuman.',
+  'skills.meetingBots.failedToStart': 'Gagal memulai Sionix.',
   'skills.meetingBots.joiningMessage': 'Seharusnya muncul sebagai peserta dalam beberapa detik.',
-  'skills.meetingBots.joiningTitle': 'OpenHuman bergabung ke rapat',
+  'skills.meetingBots.joiningTitle': 'Sionix bergabung ke rapat',
   'skills.meetingBots.meetingLink': 'Tautan rapat',
-  'skills.meetingBots.modalAriaLabel': 'Kirim OpenHuman ke rapat',
+  'skills.meetingBots.modalAriaLabel': 'Kirim Sionix ke rapat',
   'skills.meetingBots.modalDesc': 'Deskripsi modal',
-  'skills.meetingBots.modalTitle': 'Kirim OpenHuman ke rapat',
+  'skills.meetingBots.modalTitle': 'Kirim Sionix ke rapat',
   'skills.meetingBots.newBadge': 'Lencana baru',
   'skills.meetingBots.platformComingSoon': '{label} dukungan akan segera hadir.',
   'skills.meetingBots.platformHints.gmeet': 'meet.google.com/abc-defg-hij',
@@ -4790,7 +4790,7 @@ const messages: TranslationMap = {
   'skills.meetingBots.respondToParticipantDesc':
     'Masukkan nama tampilan Anda yang tepat dari rapat. Bot hanya merespons ketika Anda menyebut namanya (frasa bangun).',
   'skills.meetingBots.wakePhrase': 'Frasa Bangun',
-  'skills.meetingBots.wakePhraseHint': 'Hey OpenHuman',
+  'skills.meetingBots.wakePhraseHint': 'Hey Sionix',
   'skills.meetingBots.wakePhraseDesc': 'Peserta harus mengucapkan ini sebelum bot merespons.',
   'skills.meetingBots.activeMode': 'Tanggapi saat saya menyapa',
   'skills.meetingBots.activeModeDesc':
@@ -4945,7 +4945,7 @@ const messages: TranslationMap = {
   'chat.parentThread': 'thread induk',
   'chat.removeReaction': 'Hapus {emoji}',
   'settings.composio.loading': 'Memuat…',
-  'settings.mascot.noCharactersAvailable': 'Belum ada karakter OpenHuman yang tersedia',
+  'settings.mascot.noCharactersAvailable': 'Belum ada karakter Sionix yang tersedia',
   'skills.uninstall.confirmTitle': 'Copot {name}?',
   'conversations.taskKanban.blocked': 'Terhambat',
   'conversations.taskKanban.done': 'Selesai',
@@ -4968,7 +4968,7 @@ const messages: TranslationMap = {
   'settings.composio.notYetRouted': 'belum dirutekan',
   'settings.localModel.download.manageExternal': 'Kelola model ini di runtime eksternal Anda.',
   'settings.localModel.status.manageOllamaExternal':
-    'Kelola proses Ollama dan unduhan model di luar OpenHuman, lalu jalankan ulang diagnostik.',
+    'Kelola proses Ollama dan unduhan model di luar Sionix, lalu jalankan ulang diagnostik.',
   'settings.localModel.status.ollamaDocs': 'Dokumentasi Ollama',
   'settings.localModel.status.thenRetry':
     'untuk instruksi pengaturan, lalu coba lagi setelah runtime Anda dapat dijangkau.',
@@ -4981,7 +4981,7 @@ const messages: TranslationMap = {
     'Konfigurasikan mode autentikasi Telegram/Discord dan routing channel bawaan',
   'devOptions.menuTools': 'Alat',
   'devOptions.menuToolsDesc':
-    'Aktifkan atau nonaktifkan kemampuan yang dapat digunakan OpenHuman atas nama Anda',
+    'Aktifkan atau nonaktifkan kemampuan yang dapat digunakan Sionix atas nama Anda',
   'devOptions.menuAgentChat': 'Obrolan Agen',
   'devOptions.menuAgentChatDesc': 'Uji percakapan agen dengan override model dan suhu',
   'devOptions.menuCronJobs': 'Pekerjaan Cron',
@@ -5456,7 +5456,7 @@ const messages: TranslationMap = {
 
   'keyring.consent.title': 'Penyimpanan aman tidak tersedia',
   'keyring.consent.description':
-    'Keychain sistem operasi Anda tidak dapat diakses. OpenHuman memerlukan izin Anda untuk menyimpan rahasia menggunakan penyimpanan lokal terenkripsi.',
+    'Keychain sistem operasi Anda tidak dapat diakses. Sionix memerlukan izin Anda untuk menyimpan rahasia menggunakan penyimpanan lokal terenkripsi.',
   'keyring.consent.reasonPrefix': 'Alasan:',
   'keyring.consent.showDetails': 'Apa artinya ini?',
   'keyring.consent.hideDetails': 'Sembunyikan detail',
@@ -5496,7 +5496,7 @@ const messages: TranslationMap = {
   'memory.health.remediation.budget_exhausted':
     'Embedding memori mencapai batas anggaran terkelola. Siapkan embedding Ollama lokal (Pengaturan → AI → Sematan) atau tambahkan kunci API embedding Anda sendiri untuk terus membangun memori.',
   'memory.health.remediation.auth_missing':
-    'Kredensial embedding tidak ditemukan. Masuk ke OpenHuman, atau siapkan embedding Ollama lokal di Pengaturan → AI → Sematan.',
+    'Kredensial embedding tidak ditemukan. Masuk ke Sionix, atau siapkan embedding Ollama lokal di Pengaturan → AI → Sematan.',
   'memory.health.remediation.auth_invalid':
     'Kredensial embedding Anda ditolak. Autentikasi ulang, atau beralih ke embedding Ollama lokal di Pengaturan → AI → Sematan.',
   'memory.health.remediation.embeddings_unconfigured':
@@ -5587,11 +5587,11 @@ const messages: TranslationMap = {
   'onboarding.custom.vault.subtitle':
     'Konfirmasi di mana catatan memori ditulis, bagaimana data sumber dibaca, dan apakah pipeline vault Anda sehat.',
   'onboarding.custom.vault.defaultDesc':
-    'Gunakan default memori yang dikelola OpenHuman. Jalur vault dan kondisi sinkronisasi tetap dapat ditinjau nanti.',
+    'Gunakan default memori yang dikelola Sionix. Jalur vault dan kondisi sinkronisasi tetap dapat ditinjau nanti.',
   'onboarding.custom.vault.configureDesc':
     'Tinjau kepemilikan vault, jalankan pemeriksaan kesehatan, dan sesuaikan kontrol memori sekarang.',
   'onboarding.custom.vault.localDisabledReason':
-    'Pengaturan terkelola memerlukan masuk OpenHuman dan tidak tersedia dalam mode lokal.',
+    'Pengaturan terkelola memerlukan masuk Sionix dan tidak tersedia dalam mode lokal.',
   'onboarding.custom.vault.exitError': 'Tidak dapat menyelesaikan orientasi. Silakan coba lagi.',
   'vaultHealth.title': 'Daftar Periksa Kesehatan Vault',
   'vaultHealth.setupTitle': 'Kesehatan pengaturan vault',
@@ -5611,9 +5611,9 @@ const messages: TranslationMap = {
   'vaultHealth.existsLabel': 'Jalur vault ruang kerja ada',
   'vaultHealth.existsRecovery':
     'Folder vault tidak ditemukan. Mulai sinkronisasi atau buat folder ini, lalu segarkan daftar periksa ini.',
-  'vaultHealth.writableLabel': 'Vault dapat ditulis oleh OpenHuman',
+  'vaultHealth.writableLabel': 'Vault dapat ditulis oleh Sionix',
   'vaultHealth.writableRecovery':
-    'OpenHuman belum dapat menulis ke vault ini. Berikan izin tulis dan segarkan.',
+    'Sionix belum dapat menulis ke vault ini. Berikan izin tulis dan segarkan.',
   'vaultHealth.obsidianLabel': 'Vault terdaftar di Obsidian',
   'vaultHealth.obsidianRecovery':
     'Di Obsidian, pilih "Buka folder sebagai vault" untuk jalur ini, lalu segarkan daftar periksa ini.',
@@ -5629,13 +5629,13 @@ const messages: TranslationMap = {
   'memoryData.howItWorks': 'Cara kerja penyimpanan memori',
   'memoryData.workspaceVault': 'Vault ruang kerja · tulis',
   'memoryData.workspaceVaultDesc':
-    'OpenHuman menulis catatan memori yang dihasilkan ke memory_tree/content.',
+    'Sionix menulis catatan memori yang dihasilkan ke memory_tree/content.',
   'memoryData.connectedSources': 'Sumber terhubung · baca',
   'memoryData.connectedSourcesDesc':
     'Folder, kotak surat, obrolan, dan repositori diimpor untuk pengindeksan memori — file aslinya tidak pernah ditulis ulang.',
   'memoryData.internalFiles': 'File pohon memori internal',
   'memoryData.internalFilesDesc':
-    'Indeks, status antrean, dan ringkasan dikelola oleh OpenHuman agar pemanggilan dan sinkronisasi tetap sehat.',
+    'Indeks, status antrean, dan ringkasan dikelola oleh Sionix agar pemanggilan dan sinkronisasi tetap sehat.',
   'memoryData.windowError': 'Jendela memori',
   'memoryData.windowUpdated': 'Jendela memori diperbarui',
   'memoryData.windowUpdatedMsg': 'Diatur ke {window}.',
@@ -5651,10 +5651,10 @@ const messages: TranslationMap = {
   // Security banner (approval-gate host-aware boot state)
   'security.approvalGateDisabled.title': 'Gerbang persetujuan dinonaktifkan',
   'security.approvalGateDisabled.body':
-    'OPENHUMAN_APPROVAL_GATE=0 disetel di lingkungan Anda. Alat dengan efek eksternal akan berjalan tanpa meminta konfirmasi.',
+    'Sionix_APPROVAL_GATE=0 disetel di lingkungan Anda. Alat dengan efek eksternal akan berjalan tanpa meminta konfirmasi.',
   'security.approvalGateOverrideIgnored.title': 'Override diblokir',
   'security.approvalGateOverrideIgnored.body':
-    'Override OPENHUMAN_APPROVAL_GATE=0 terdeteksi tetapi diabaikan: aplikasi desktop selalu menjaga gerbang persetujuan tetap aktif.',
+    'Override Sionix_APPROVAL_GATE=0 terdeteksi tetapi diabaikan: aplikasi desktop selalu menjaga gerbang persetujuan tetap aktif.',
 
   // Run queue
   'runQueue.mode.interrupt': 'Interupsi',

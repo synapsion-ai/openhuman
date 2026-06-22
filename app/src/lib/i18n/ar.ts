@@ -42,7 +42,7 @@ const messages: TranslationMap = {
   'nav.agentWorld': 'Tiny.Place',
   'nav.wallet': 'المحفظة',
   'agentWorld.description':
-    'Tiny.Place شبكة اجتماعية لوكلاء الذكاء الاصطناعي. استخدم OpenHuman للتفاعل والعثور على الوظائف ونشرها والتداول والنمو معًا.',
+    'Tiny.Place شبكة اجتماعية لوكلاء الذكاء الاصطناعي. استخدم Sionix للتفاعل والعثور على الوظائف ونشرها والتداول والنمو معًا.',
   'agentWorld.feed': 'التغذية',
   'agentWorld.ledger': 'السجل',
   'agentWorld.jobs': 'الوظائف',
@@ -301,8 +301,8 @@ const messages: TranslationMap = {
   'clearData.failed': 'فشل مسح البيانات وتسجيل الخروج. يرجى المحاولة مرة أخرى.',
   'clearData.failedLogout': 'فشل تسجيل الخروج. يرجى المحاولة مرة أخرى.',
   'clearData.failedPersist': 'فشل مسح حالة التطبيق المحفوظة. يرجى المحاولة مرة أخرى.',
-  'welcome.logoAlt': 'OpenHuman',
-  'welcome.title': 'مرحبًا بك في OpenHuman',
+  'welcome.logoAlt': 'Sionix',
+  'welcome.title': 'مرحبًا بك في Sionix',
   'welcome.subtitle': 'مساعدك الذكي الشخصي. خاص وبسيط وبالغ القوة.',
   'welcome.connectPrompt': 'ضبط عنوان URL للـ RPC (متقدم)',
   'welcome.selectRuntime': 'اختر بيئة التشغيل',
@@ -311,7 +311,7 @@ const messages: TranslationMap = {
   'welcome.clearAppDataWarning':
     'سيؤدي هذا إلى مسح الأسرار والحسابات المخزنة محلياً على هذا الجهاز. حسابك السحابي غير متأثر — يمكنك تسجيل الدخول مجدداً فوراً بعد ذلك.',
   'welcome.resetErrorFallback':
-    'تعذّر مسح بيانات التطبيق. يرجى إنهاء OpenHuman وإعادة فتحه، ثم حاول مجدداً.',
+    'تعذّر مسح بيانات التطبيق. يرجى إنهاء Sionix وإعادة فتحه، ثم حاول مجدداً.',
   'welcome.signingIn': 'تسجيل دخولك...',
   'welcome.termsIntro': 'من خلال المتابعة، فإنك توافق على',
   'welcome.termsOfUse': 'الشروط',
@@ -329,7 +329,7 @@ const messages: TranslationMap = {
   'home.statusOk': 'مساعدك جاهز متى كنت مستعدًا. اكتب شيئًا في الأسفل للبدء.',
   'home.statusBackendOnly': 'جارٍ إعادة الاتصال بالخادم… سيتوفر وكيلك قريبًا.',
   'home.statusCoreUnreachable':
-    'العملية الأساسية المحلية لا تستجيب. قد تكون عملية OpenHuman في الخلفية قد تعطلت أو فشلت في البدء.',
+    'العملية الأساسية المحلية لا تستجيب. قد تكون عملية Sionix في الخلفية قد تعطلت أو فشلت في البدء.',
   'home.statusInternetOffline':
     'جهازك غير متصل بالإنترنت حاليًا. تحقق من شبكتك أو أعد تشغيل التطبيق لإعادة الاتصال.',
   'home.restartCore': 'إعادة تشغيل النواة',
@@ -401,7 +401,7 @@ const messages: TranslationMap = {
   'skills.channels': 'المراسلة',
   'skills.explorer.emptyCta': 'التثبيت من رابط',
   'skills.explorer.emptyDescription':
-    'ثبّت حزمة SKILL.md أو ضع مجلدات بنمط Hermes داخل ~/.openhuman/skills.',
+    'ثبّت حزمة SKILL.md أو ضع مجلدات بنمط Hermes داخل ~/.Sionix/skills.',
   'skills.explorer.emptyTitle': 'لم يتم العثور على مهارات',
   'skills.explorer.installFromUrl': 'التثبيت من رابط',
   'skills.explorer.newSkill': 'مهارة جديدة',
@@ -640,13 +640,13 @@ const messages: TranslationMap = {
   'rewards.referrals': 'الإحالات',
   'rewards.coupons': 'استرداد',
   'rewards.localUnavailable':
-    'تسجيل الدخول المحلي لا يمنح مكافآت أو قسائم أو رصيد إحالة. لكسب المكافآت، سجّل الخروج ثم تابِع بتسجيل الدخول باستخدام حساب OpenHuman.',
+    'تسجيل الدخول المحلي لا يمنح مكافآت أو قسائم أو رصيد إحالة. لكسب المكافآت، سجّل الخروج ثم تابِع بتسجيل الدخول باستخدام حساب Sionix.',
   'rewards.localUnavailableCta': 'افتح إعدادات الحساب',
   'rewards.credits': 'الرصيد',
   'rewards.referralCode': 'رمز الإحالة الخاص بك',
   'rewards.copyCode': 'نسخ الرمز',
   'rewards.share': 'مشاركة',
-  'onboarding.welcome': 'مرحبًا. أنا OpenHuman.',
+  'onboarding.welcome': 'مرحبًا. أنا Sionix.',
   'onboarding.welcomeDesc': 'مساعدك الذكي الفائق الذي يعمل على جهازك. خاص وبسيط وبالغ القوة.',
   'onboarding.context': 'جمع السياق',
   'onboarding.contextDesc': 'اربط الأدوات والخدمات التي تستخدمها يوميًا.',
@@ -657,14 +657,14 @@ const messages: TranslationMap = {
   'onboarding.referral': 'الإحالة',
   'onboarding.referralDesc': 'أدخل رمز إحالة إن كان لديك واحد.',
   'onboarding.finish': 'إتمام الإعداد',
-  'onboarding.finishDesc': 'انتهيت! ابدأ استخدام OpenHuman.',
+  'onboarding.finishDesc': 'انتهيت! ابدأ استخدام Sionix.',
   'onboarding.skip': 'تخطي',
   'onboarding.getStarted': 'ابدأ الآن',
-  'onboarding.runtimeChoice.title': 'كيف تريد تشغيل OpenHuman؟',
+  'onboarding.runtimeChoice.title': 'كيف تريد تشغيل Sionix؟',
   'onboarding.runtimeChoice.subtitle':
     'اختر الإعداد الأنسب لك. يمكنك تغيير هذا لاحقًا في الإعدادات.',
   'onboarding.runtimeChoice.cloud.title': 'بسيط',
-  'onboarding.runtimeChoice.cloud.tagline': 'دع OpenHuman يدير كل شيء نيابةً عنك.',
+  'onboarding.runtimeChoice.cloud.tagline': 'دع Sionix يدير كل شيء نيابةً عنك.',
   'onboarding.runtimeChoice.cloud.f1': 'أمان مدمج',
   'onboarding.runtimeChoice.cloud.f2': 'ضغط الرموز لتمديد استخدامك',
   'onboarding.runtimeChoice.cloud.f3': 'اشتراك واحد يشمل جميع النماذج',
@@ -717,7 +717,7 @@ const messages: TranslationMap = {
   'onboarding.custom.stepperMemory': 'الذاكرة',
   'onboarding.custom.stepCounter': 'الخطوة {n} من {total}',
   'onboarding.custom.defaultTitle': 'افتراضي',
-  'onboarding.custom.defaultSubtitle': 'دع OpenHuman يديره نيابةً عنك.',
+  'onboarding.custom.defaultSubtitle': 'دع Sionix يديره نيابةً عنك.',
   'onboarding.custom.configureTitle': 'ضبط',
   'onboarding.custom.configureSubtitle': 'سأختار ما يُستخدم بنفسي.',
   'onboarding.custom.progressAriaLabel': 'تقدم الإعداد الأولي',
@@ -730,37 +730,37 @@ const messages: TranslationMap = {
   'onboarding.custom.inference.title': 'الاستدلال (النص)',
   'onboarding.custom.inference.subtitle': 'أي نموذج لغوي يجب أن يُجيب على أسئلتك ويشغّل وكلاءك؟',
   'onboarding.custom.inference.defaultDesc':
-    'يُوجّه OpenHuman كل عبء عمل إلى نموذج افتراضي مناسب. بدون مفاتيح أو إعداد.',
+    'يُوجّه Sionix كل عبء عمل إلى نموذج افتراضي مناسب. بدون مفاتيح أو إعداد.',
   'onboarding.custom.inference.configureDesc':
     'استخدم مفتاحك الخاص من OpenAI أو Anthropic. سنستخدمه لجميع أعباء العمل النصية.',
   'onboarding.custom.voice.title': 'الصوت',
   'onboarding.custom.voice.subtitle': 'تحويل الكلام إلى نص والنص إلى كلام لوضع الصوت.',
   'onboarding.custom.voice.defaultDesc':
-    'يأتي OpenHuman مع STT/TTS مُدار يعمل تلقائيًا. لا شيء يحتاج إلى إعداد.',
+    'يأتي Sionix مع STT/TTS مُدار يعمل تلقائيًا. لا شيء يحتاج إلى إعداد.',
   'onboarding.custom.voice.configureDesc':
     'استخدم ElevenLabs / OpenAI Whisper / إلخ. اضبطه من الإعدادات › الصوت.',
   'onboarding.custom.oauth.title': 'الاتصالات (OAuth)',
   'onboarding.custom.oauth.subtitle': 'Gmail وSlack وNotion وخدمات أخرى متصلة تحتاج إلى OAuth.',
   'onboarding.custom.oauth.defaultDesc':
-    'يشغّل OpenHuman مساحة عمل Composio مُدارة. نقرة واحدة لتوصيل كل خدمة لاحقًا.',
+    'يشغّل Sionix مساحة عمل Composio مُدارة. نقرة واحدة لتوصيل كل خدمة لاحقًا.',
   'onboarding.custom.oauth.configureDesc':
     'استخدم حساب Composio الخاص بك / مفتاح API. اضبطه من الإعدادات › الاتصالات.',
   'onboarding.custom.search.title': 'البحث على الويب',
-  'onboarding.custom.search.subtitle': 'كيف يبحث OpenHuman على الويب نيابةً عنك.',
-  'onboarding.custom.search.defaultDesc': 'يستخدم OpenHuman خادم بحث مُدار. لا حاجة لمفاتيح.',
+  'onboarding.custom.search.subtitle': 'كيف يبحث Sionix على الويب نيابةً عنك.',
+  'onboarding.custom.search.defaultDesc': 'يستخدم Sionix خادم بحث مُدار. لا حاجة لمفاتيح.',
   'onboarding.custom.search.configureDesc':
     'استخدم مفتاح مزود البحث الخاص بك (Tavily أو Brave إلخ). اضبطه من الإعدادات › الأدوات.',
   'onboarding.custom.embeddings.title': 'Embeddings',
   'onboarding.custom.embeddings.subtitle':
-    'كيف يُولِّد OpenHuman تضمينات المتجهات للبحث الدلالي في الذاكرة.',
+    'كيف يُولِّد Sionix تضمينات المتجهات للبحث الدلالي في الذاكرة.',
   'onboarding.custom.embeddings.defaultDesc':
-    'يستخدم OpenHuman خدمة تضمين مُدارة. لا حاجة لمفتاح API.',
+    'يستخدم Sionix خدمة تضمين مُدارة. لا حاجة لمفتاح API.',
   'onboarding.custom.embeddings.configureDesc':
     'استخدم موفر التضمين الخاص بك (OpenAI أو Voyage أو Ollama وغيرها).',
   'onboarding.custom.memory.title': 'الذاكرة',
-  'onboarding.custom.memory.subtitle': 'كيف يتذكر OpenHuman سياقك وتفضيلاتك ومحادثاتك السابقة.',
+  'onboarding.custom.memory.subtitle': 'كيف يتذكر Sionix سياقك وتفضيلاتك ومحادثاتك السابقة.',
   'onboarding.custom.memory.defaultDesc':
-    'يدير OpenHuman تخزين الذاكرة واسترجاعها تلقائيًا. لا شيء يحتاج إلى إعداد.',
+    'يدير Sionix تخزين الذاكرة واسترجاعها تلقائيًا. لا شيء يحتاج إلى إعداد.',
   'onboarding.custom.memory.configureDesc':
     'افحص الذاكرة أو صدّرها أو امسحها بنفسك. اضبطها من الإعدادات › الذاكرة.',
   'accounts.addAccount': 'إضافة حساب',
@@ -897,7 +897,7 @@ const messages: TranslationMap = {
   'misc.downloading': 'جارٍ التنزيل...',
   'misc.installing': 'جارٍ التثبيت...',
   'misc.beta':
-    'OpenHuman في مرحلة تجريبية مبكرة. لا تتردد في مشاركة ملاحظاتك أو الإبلاغ عن أي أخطاء تواجهها — كل تقرير يساعدنا على الإنجاز بشكل أسرع.',
+    'Sionix في مرحلة تجريبية مبكرة. لا تتردد في مشاركة ملاحظاتك أو الإبلاغ عن أي أخطاء تواجهها — كل تقرير يساعدنا على الإنجاز بشكل أسرع.',
   'misc.betaFeedback': 'إرسال ملاحظات',
   'mnemonic.title': 'عبارة الاسترداد',
   'mnemonic.warning': 'اكتب هذه الكلمات بالترتيب واحفظها في مكان آمن.',
@@ -920,11 +920,11 @@ const messages: TranslationMap = {
   'privacy.anonymizedAnalytics': 'تحليلات المنتج',
   'privacy.shareAnonymizedData': 'مشاركة تحليلات المنتج والتشخيصات',
   'privacy.shareAnonymizedDataDesc':
-    'ساعد في تحسين OpenHuman من خلال مشاركة تقارير أعطال وأحداث استخدام محدودة الخصوصية، بما في ذلك معرّف حساب ثابت وبيانات إصدار التطبيق. لا تُجمع الرسائل أو مفاتيح المحافظ أو مفاتيح API أو رموز الجلسات أبدًا.',
+    'ساعد في تحسين Sionix من خلال مشاركة تقارير أعطال وأحداث استخدام محدودة الخصوصية، بما في ذلك معرّف حساب ثابت وبيانات إصدار التطبيق. لا تُجمع الرسائل أو مفاتيح المحافظ أو مفاتيح API أو رموز الجلسات أبدًا.',
   'privacy.meetingFollowUps': 'متابعات الاجتماعات',
   'privacy.autoHandoffMeet': 'تسليم نسخ Google Meet تلقائيًا إلى المنسق',
   'privacy.autoHandoffMeetDesc':
-    'عند انتهاء مكالمة Google Meet، يمكن لمنسق OpenHuman قراءة النسخة المكتوبة واتخاذ إجراءات كصياغة الرسائل أو جدولة المتابعات أو نشر الملخصات في مساحة عمل Slack المتصلة. معطّل افتراضيًا.',
+    'عند انتهاء مكالمة Google Meet، يمكن لمنسق Sionix قراءة النسخة المكتوبة واتخاذ إجراءات كصياغة الرسائل أو جدولة المتابعات أو نشر الملخصات في مساحة عمل Slack المتصلة. معطّل افتراضيًا.',
   'privacy.analyticsDisclaimer':
     'عند التفعيل، قد تتضمن تحليلات المنتج والتشخيصات تقارير أعطال وأحداث استخدام محدودة الخصوصية، ومعرّف حساب ثابتًا، وبيانات إصدار التطبيق. لا تُجمع الرسائل أو مفاتيح المحافظ أو مفاتيح API أو رموز الجلسات أبدًا. يمكنك تغيير هذا الإعداد في أي وقت.',
   'settings.about.version': 'الإصدار',
@@ -1015,15 +1015,15 @@ const messages: TranslationMap = {
   'settings.search.title': 'محرك البحث',
   'settings.search.menuDesc': 'تخلف عن البحث أو التنصت على مزودك الخاص بمفتاح اكسوكس',
   'settings.search.description':
-    'اختر محرك البحث الذي يستخدمه الوكيل، أو عطّل أدوات البحث بالكامل. يستخدم الوضع المُدار واجهة خلفية OpenHuman (بدون إعداد). تعمل محركات Parallel وBrave وQuerit مباشرةً من جهازك باستخدام مفتاح API الخاص بك.',
+    'اختر محرك البحث الذي يستخدمه الوكيل، أو عطّل أدوات البحث بالكامل. يستخدم الوضع المُدار واجهة خلفية Sionix (بدون إعداد). تعمل محركات Parallel وBrave وQuerit مباشرةً من جهازك باستخدام مفتاح API الخاص بك.',
   'settings.search.engineAria': 'محرك البحث',
   'settings.search.engineDisabledLabel': 'Disabled',
   'settings.search.engineDisabledDesc': 'أزل أدوات البحث من سياق الوكيل وقائمة الأدوات المتاحة.',
-  'settings.search.engineManagedLabel': 'OpenHuman مُدار',
+  'settings.search.engineManagedLabel': 'Sionix مُدار',
   'settings.search.engineManagedDesc':
     'خطأ تم سحبها من خلال الركيزة الخلفية - لا حاجة لمفتاح Xqx0xx.',
   'settings.search.localManagedUnavailable':
-    'بحث OpenHuman المُدار غير متاح للمستخدمين المحليين. أضف مفتاح Parallel أو Brave الخاص بك لتفعيل البحث على الويب.',
+    'بحث Sionix المُدار غير متاح للمستخدمين المحليين. أضف مفتاح Parallel أو Brave الخاص بك لتفعيل البحث على الويب.',
   'settings.search.engineParallelLabel': 'Parallel',
   'settings.search.engineParallelDesc':
     'واجهة برمجية متوازية مباشرة: أدوات البحث والاستخراج والمحادثة والبحث المتعمق والإثراء ومجموعات البيانات.',
@@ -1129,13 +1129,13 @@ const messages: TranslationMap = {
   'mcp.setup.secretDialog.privacyNote': 'مسروقة في طاولة الأسرار لم أسجل أو أرسل إلى نموذج',
   'devices.betaBadge': 'تجريبي',
   'devices.betaText':
-    'هذه الميزة في مرحلة تجريبية حالياً. اربط هواتف iOS بـ OpenHuman لاستخدامها كعميل بعيد.',
+    'هذه الميزة في مرحلة تجريبية حالياً. اربط هواتف iOS بـ Sionix لاستخدامها كعميل بعيد.',
   'devices.comingSoonDescription':
     'إقران الأجهزة قريبًا. ستكون هذه الصفحة مخصصة لإقران أجهزة iPhone وإدارة الأجهزة المتصلة.',
   'devices.title': 'الأجهزة',
   'devices.pairIphone': 'إقران iPhone',
   'devices.noPaired': 'لا توجد أجهزة مقترنة',
-  'devices.emptyState': 'قم بمسح QR code على جهاز iPhone الخاص بك لتوصيله بجلسة OpenHuman هذه.',
+  'devices.emptyState': 'قم بمسح QR code على جهاز iPhone الخاص بك لتوصيله بجلسة Sionix هذه.',
   'devices.devicePairedTitle': 'تم إقران الجهاز',
   'devices.devicePairedMessage': 'تم توصيل iPhone بنجاح.',
   'devices.deviceRevokedTitle': 'تم إبطال الجهاز',
@@ -1156,7 +1156,7 @@ const messages: TranslationMap = {
   'devices.loadFailed': 'فشل تحميل الأجهزة: {message}',
   'devices.pairModal.title': 'إقران iPhone',
   'devices.pairModal.loading': 'إنشاء رمز الاقتران...',
-  'devices.pairModal.instructions': 'افتح تطبيق OpenHuman على iPhone وامسح هذا الرمز.',
+  'devices.pairModal.instructions': 'افتح تطبيق Sionix على iPhone وامسح هذا الرمز.',
   'devices.pairModal.expiresIn': 'تنتهي صلاحية الرمز خلال ~{count} دقيقة',
   'devices.pairModal.expiresInPlural': 'تنتهي صلاحية الرمز خلال ~{count} دقيقة',
   'devices.pairModal.showDetails': 'إظهار التفاصيل',
@@ -1396,7 +1396,7 @@ const messages: TranslationMap = {
   'mcp.connectAuth.schemeRaw': 'بدون',
   'mcp.connectAuth.reconnectFailed': 'تم حفظ بيانات الاعتماد، لكن فشل الاتصال.',
   'mcp.connectAuth.oauthHint':
-    'يستخدم هذا الخادم OAuth. سجّل الدخول عبر متصفحك للسماح لـ OpenHuman.',
+    'يستخدم هذا الخادم OAuth. سجّل الدخول عبر متصفحك للسماح لـ Sionix.',
   'mcp.connectAuth.signIn': 'تسجيل الدخول عبر المتصفح',
   'mcp.connectAuth.oauthWaiting': 'في انتظار تسجيل الدخول…',
   'mcp.connectAuth.oauthOrToken':
@@ -1412,7 +1412,7 @@ const messages: TranslationMap = {
   'autonomy.title': 'استقلالية الوكيل',
   'autonomy.maxActionsLabel': 'الحد الأقصى للإجراءات في الساعة',
   'autonomy.maxActionsHelp':
-    'الحد الأقصى لإجراءات الأداة التي يمكن للوكيل تنفيذها في كل ساعة متجددة. تسري القيمة الجديدة على محادثتك التالية. تحتفظ المهام المجدولة ومستمعو القنوات بحدودهم الحالية حتى تعيد تشغيل OpenHuman.',
+    'الحد الأقصى لإجراءات الأداة التي يمكن للوكيل تنفيذها في كل ساعة متجددة. تسري القيمة الجديدة على محادثتك التالية. تحتفظ المهام المجدولة ومستمعو القنوات بحدودهم الحالية حتى تعيد تشغيل Sionix.',
   'autonomy.statusSaving': 'جارٍ الحفظ...',
   'autonomy.statusSaved': 'تم الحفظ.',
   'autonomy.statusFailed': 'فشل',
@@ -1467,7 +1467,7 @@ const messages: TranslationMap = {
   'settings.billing.browserNotOpen': 'إذا لم يفتح متصفحك، استخدم الزر أعلاه.',
   'settings.billing.browserOpenFailed': 'تعذّر فتح المتصفح تلقائيًا. استخدم الزر أعلاه.',
   'settings.tools.chooseCapabilities':
-    'اختر الإمكانات التي يمكن لـ OpenHuman استخدامها نيابةً عنك.',
+    'اختر الإمكانات التي يمكن لـ Sionix استخدامها نيابةً عنك.',
   'settings.tools.saveChanges': 'حفظ التغييرات',
   'settings.tools.preferencesSaved': 'تم حفظ التفضيلات',
   'settings.tools.saveFailed': 'فشل حفظ التفضيلات. حاول مرة أخرى.',
@@ -1729,8 +1729,8 @@ const messages: TranslationMap = {
   'voice.providers.piperPreset.alanMedium': 'GB · Alan (ذكر)',
   'voice.providers.piperPreset.jennyDiocoMedium': 'GB · Jenny Dioco (أنثى)',
   'voice.providers.piperPreset.northernEnglishMaleMedium': 'GB · اللغة الإنجليزية الشمالية (ذكر)',
-  'voice.providers.chip.cloud': 'OpenHuman (مُدار)',
-  'voice.providers.chip.cloudAria': 'موفر OpenHuman المُدار مُفعَّل دائماً',
+  'voice.providers.chip.cloud': 'Sionix (مُدار)',
+  'voice.providers.chip.cloudAria': 'موفر Sionix المُدار مُفعَّل دائماً',
   'voice.providers.chip.whisper': 'Whisper (محلي)',
   'voice.providers.chip.enableWhisper': 'تفعيل Whisper STT المحلي',
   'voice.providers.chip.disableWhisper': 'تعطيل Whisper STT المحلي',
@@ -1778,7 +1778,7 @@ const messages: TranslationMap = {
   'voice.externalProviders.add': 'Add',
   'pttSettings.title': 'اضغط للتحدث',
   'pttSettings.description':
-    'اضغط مفتاحًا باستمرار للتحدث إلى OpenHuman أثناء وجودك في تطبيق آخر. تحرير المفتاح يُرسل التسجيل؛ إذا كان «قراءة الردود» مفعَّلًا، ينطق OpenHuman الرد بصوت عالٍ.',
+    'اضغط مفتاحًا باستمرار للتحدث إلى Sionix أثناء وجودك في تطبيق آخر. تحرير المفتاح يُرسل التسجيل؛ إذا كان «قراءة الردود» مفعَّلًا، ينطق Sionix الرد بصوت عالٍ.',
   'pttSettings.shortcutLabel': 'اختصار المفتاح',
   'pttSettings.shortcutPlaceholder': 'اضغط مفتاحًا (مثل F13)',
   'pttSettings.shortcutUnsetHint': 'اضغط للتحدث متوقف — اختر اختصارًا لتفعيله.',
@@ -1790,10 +1790,10 @@ const messages: TranslationMap = {
     'اختر مفتاحًا عاديًا (مثل F13) — الاختصارات المكونة من مفاتيح تعديل فقط لا تعمل مع اضغط للتحدث.',
   'pttSettings.errorEmpty': 'اختر مفتاحًا للربط.',
   'pttSettings.errorAccessibility':
-    'يحتاج macOS إلى إذن إمكانية الوصول لهذا الاختصار. افتح إعدادات النظام ← الخصوصية والأمان ← إمكانية الوصول وفعّل OpenHuman.',
+    'يحتاج macOS إلى إذن إمكانية الوصول لهذا الاختصار. افتح إعدادات النظام ← الخصوصية والأمان ← إمكانية الوصول وفعّل Sionix.',
   'pttSettings.errorShortcutInUse': 'يستخدم تطبيق آخر هذا الاختصار بالفعل. اختر اختصارًا مختلفًا.',
   'pttSettings.errorUnsupportedWayland':
-    'جلسات Wayland لا تدعم بعد الاختصارات العامة في OpenHuman — انتقل إلى جلسة X11 أو استخدم زر الإملاء داخل التطبيق.',
+    'جلسات Wayland لا تدعم بعد الاختصارات العامة في Sionix — انتقل إلى جلسة X11 أو استخدم زر الإملاء داخل التطبيق.',
   'pttSettings.exclusiveFullscreenHint':
     'في ألعاب وضع ملء الشاشة الحصري لن يظهر التراكب — ستسمع التنبيه الصوتي فقط. انتقل إلى وضع ملء الشاشة بلا إطار لرؤية التراكب.',
   'pttOverlay.listening': 'يستمع…',
@@ -2032,7 +2032,7 @@ const messages: TranslationMap = {
   'chat.attachment.unsupportedType':
     'نوع ملف غير مدعوم. استخدم صورة (PNG أو JPEG أو WebP أو GIF أو BMP) أو ملف PDF أو TXT أو Markdown.',
   'chat.attachment.imageNotSupported':
-    'لا يمكن لهذا النموذج قراءة الصور. يمكنك استخدام مستوى التفكير من OpenHuman لإرفاق صورتك.',
+    'لا يمكن لهذا النموذج قراءة الصور. يمكنك استخدام مستوى التفكير من Sionix لإرفاق صورتك.',
   'chat.attachment.readFailed': 'تعذر قراءة الملف',
   'memory.searchAria': 'البحث في الذاكرة',
   'memory.searchPlaceholder': 'البحث في إدخالات الذاكرة...',
@@ -2393,9 +2393,9 @@ const messages: TranslationMap = {
     'هذا عنوان HTTP عادي على مضيف عام — لن تكون حركة البيانات مشفّرة. استخدم HTTPS ما لم تكن تثق بهذه الشبكة.',
   'bootCheck.chooseCoreMode': 'اختر بيئة التشغيل',
   'bootCheck.connectToCore': 'اتصل ببيئة تشغيلك',
-  'bootCheck.desktopDescription': 'يحتاج OpenHuman إلى بيئة تشغيل للعمل. اختر مكانها.',
+  'bootCheck.desktopDescription': 'يحتاج Sionix إلى بيئة تشغيل للعمل. اختر مكانها.',
   'bootCheck.webDescription':
-    'على الويب، يتصل OpenHuman ببيئة تشغيل تتحكم فيها. أدخل عنوان URL الخاص بها ورمز المصادقة أدناه، أو احصل على تطبيق سطح المكتب لتشغيلها مباشرة على جهازك.',
+    'على الويب، يتصل Sionix ببيئة تشغيل تتحكم فيها. أدخل عنوان URL الخاص بها ورمز المصادقة أدناه، أو احصل على تطبيق سطح المكتب لتشغيلها مباشرة على جهازك.',
   'bootCheck.preferDesktop': 'تفضّل إبقاء كل شيء على جهازك؟',
   'bootCheck.downloadDesktop': 'احصل على تطبيق سطح المكتب',
   'bootCheck.localRecommended': 'التشغيل محليًا (موصى به)',
@@ -2421,7 +2421,7 @@ const messages: TranslationMap = {
   'bootCheck.quit': 'خروج',
   'bootCheck.legacyDetected': 'تم اكتشاف بيئة تشغيل خلفية قديمة',
   'bootCheck.legacyDescription':
-    'خدمة OpenHuman مثبّتة بشكل منفصل تعمل بالفعل على هذا الجهاز. نحتاج إلى إزالتها قبل أن تتولى بيئة التشغيل المدمجة.',
+    'خدمة Sionix مثبّتة بشكل منفصل تعمل بالفعل على هذا الجهاز. نحتاج إلى إزالتها قبل أن تتولى بيئة التشغيل المدمجة.',
   'bootCheck.removing': 'جارٍ الإزالة…',
   'bootCheck.removeContinue': 'إزالة ومتابعة',
   'bootCheck.localNeedsRestart': 'بيئة التشغيل المحلية تحتاج إلى إعادة تشغيل',
@@ -2443,7 +2443,7 @@ const messages: TranslationMap = {
   'bootCheck.actionFailed': 'حدث خطأ ما. يرجى المحاولة مرة أخرى.',
   'bootCheck.portConflictTitle': 'تعذّر تشغيل محرّك التطبيق',
   'bootCheck.portConflictBody':
-    'هناك عملية أخرى تستخدم منفذ الشبكة الذي يحتاجه OpenHuman. سنحاول إصلاح ذلك تلقائيًا.',
+    'هناك عملية أخرى تستخدم منفذ الشبكة الذي يحتاجه Sionix. سنحاول إصلاح ذلك تلقائيًا.',
   'bootCheck.portConflictFixButton': 'إصلاح تلقائي',
   'bootCheck.portConflictFixing': 'جارٍ الإصلاح…',
   'bootCheck.portConflictFixFailed':
@@ -2498,7 +2498,7 @@ const messages: TranslationMap = {
   'composio.reconnect': 'إعادة الاتصال',
   'composio.expiredAuthorization': '{name} انتهت صلاحية الترخيص',
   'composio.expiredDescription':
-    'أعد الاتصال لإعادة تمكين أدوات {name}. OpenHuman سيبقي هذا التكامل غير متاح حتى تقوم بتحديث وصول OAuth.',
+    'أعد الاتصال لإعادة تمكين أدوات {name}. Sionix سيبقي هذا التكامل غير متاح حتى تقوم بتحديث وصول OAuth.',
   'composio.envVarOverrides': 'محدد، فإنه يتجاوز هذا الإعداد.',
   'composio.previewBadge': 'معاينة',
   'composio.previewTooltip':
@@ -2549,7 +2549,7 @@ const messages: TranslationMap = {
   'accounts.webviewHost.timeoutHint': 'تلميح انتهاء المهلة',
   'app.connectionBadge.composio': 'Composio',
   'app.connectionBadge.messaging': 'المراسلة',
-  'app.connectionIndicator.connected': 'متصل بـ OpenHuman AI 🚀',
+  'app.connectionIndicator.connected': 'متصل بـ Sionix AI 🚀',
   'app.connectionIndicator.connecting': 'جارٍ الاتصال',
   'app.connectionIndicator.coreOffline': 'النواة غير متصلة',
   'app.connectionIndicator.disconnected': 'غير متصل',
@@ -2564,67 +2564,67 @@ const messages: TranslationMap = {
   'app.errorFallback.tryRecover': 'محاولة الاسترداد',
   'app.localAiDownload.installing': 'جارٍ التثبيت...',
   'app.localAiDownload.preparing': 'جارٍ التحضير...',
-  'app.openhumanLink.accounts.continueWith': 'متابعة باستخدام تسجيل الدخول عبر {label}',
-  'app.openhumanLink.accounts.done': 'تم',
-  'app.openhumanLink.accounts.intro': 'مقدمة',
-  'app.openhumanLink.accounts.webviewNote': 'ملاحظة العرض',
-  'app.openhumanLink.billing.openDashboard': 'فتح لوحة التحكم',
-  'app.openhumanLink.billing.stayOnTrial': 'البقاء في النسخة التجريبية',
-  'app.openhumanLink.billing.trialCredit': 'رصيد التسجيل',
-  'app.openhumanLink.billing.trialDesc': 'قد تختلف عروض الرصيد حسب العرض الترويجي وأهلية الحساب.',
-  'app.openhumanLink.defaultBody':
+  'app.SionixLink.accounts.continueWith': 'متابعة باستخدام تسجيل الدخول عبر {label}',
+  'app.SionixLink.accounts.done': 'تم',
+  'app.SionixLink.accounts.intro': 'مقدمة',
+  'app.SionixLink.accounts.webviewNote': 'ملاحظة العرض',
+  'app.SionixLink.billing.openDashboard': 'فتح لوحة التحكم',
+  'app.SionixLink.billing.stayOnTrial': 'البقاء في النسخة التجريبية',
+  'app.SionixLink.billing.trialCredit': 'رصيد التسجيل',
+  'app.SionixLink.billing.trialDesc': 'قد تختلف عروض الرصيد حسب العرض الترويجي وأهلية الحساب.',
+  'app.SionixLink.defaultBody':
     'غير جاهز في النافذة المنبثقة بعد. افتح صفحة الإعدادات الكاملة عند الحاجة',
-  'app.openhumanLink.discord.intro': 'مقدمة',
-  'app.openhumanLink.discord.openInvite': 'فتح الدعوة',
-  'app.openhumanLink.discord.perk1': 'ميزة 1',
-  'app.openhumanLink.discord.perk2': 'ميزة 2',
-  'app.openhumanLink.discord.perk3': 'ميزة 3',
-  'app.openhumanLink.discord.perk4': 'ميزة 4',
-  'app.openhumanLink.discordReport.intro':
+  'app.SionixLink.discord.intro': 'مقدمة',
+  'app.SionixLink.discord.openInvite': 'فتح الدعوة',
+  'app.SionixLink.discord.perk1': 'ميزة 1',
+  'app.SionixLink.discord.perk2': 'ميزة 2',
+  'app.SionixLink.discord.perk3': 'ميزة 3',
+  'app.SionixLink.discord.perk4': 'ميزة 4',
+  'app.SionixLink.discordReport.intro':
     'نعتذر — حدث خطأ من جانبنا. نحاول تسجيل هذه الأخطاء تلقائيًا، لكن مشاركة التفاصيل على Discord تساعدنا على إصلاحها بشكل أسرع.',
-  'app.openhumanLink.discordReport.openDiscord': 'فتح Discord',
-  'app.openhumanLink.done': 'تم',
-  'app.openhumanLink.notifications.desktopOnly':
+  'app.SionixLink.discordReport.openDiscord': 'فتح Discord',
+  'app.SionixLink.done': 'تم',
+  'app.SionixLink.notifications.desktopOnly':
     'الإشعارات الأصلية متاحة فقط في تطبيق سطح المكتب (شغّل `pnpm dev:app`).',
-  'app.openhumanLink.notifications.permissionOff':
-    'إذن الإشعارات معطّل. فعّل OpenHuman في إعدادات النظام → الإشعارات، ثم أعد المحاولة.',
-  'app.openhumanLink.notifications.triggerFailed':
-    'تعذّر على OpenHuman إطلاق إشعار النظام. تحقّق من إعدادات إشعارات نظام التشغيل وأعد المحاولة.',
-  'app.openhumanLink.notifications.welcomeBody': 'ستصلك تنبيهات هنا عندما يتطلب أمر ما انتباهك.',
-  'app.openhumanLink.notifications.welcomeTitle': 'OpenHuman جاهز للعمل',
-  'app.openhumanLink.status.closed': 'مغلق',
-  'app.openhumanLink.status.connected': 'متصل',
-  'app.openhumanLink.status.error': 'خطأ',
-  'app.openhumanLink.status.loading': 'جارٍ التحميل…',
-  'app.openhumanLink.status.needsSignIn': 'يتطلب تسجيل الدخول',
-  'app.openhumanLink.status.timedOut': 'انتهت المهلة',
-  'app.openhumanLink.loadingChannelSetup': 'جارٍ تحميل إعداد القناة',
-  'app.openhumanLink.maybeLater': 'ربما لاحقًا',
-  'app.openhumanLink.notifications.asking': 'جارٍ الاستفسار من نظام التشغيل…',
-  'app.openhumanLink.notifications.blocked': 'محظور',
-  'app.openhumanLink.notifications.blockedStep1': 'الخطوة الأولى من الحظر',
-  'app.openhumanLink.notifications.blockedStep2': 'الخطوة الثانية من الحظر',
-  'app.openhumanLink.notifications.blockedStep3': 'الخطوة الثالثة من الحظر',
-  'app.openhumanLink.notifications.intro': 'مقدمة',
-  'app.openhumanLink.notifications.promptHint': 'تلميح الطلب',
-  'app.openhumanLink.notifications.retry': 'إعادة إرسال إشعار اختبار',
-  'app.openhumanLink.notifications.send': 'إرسال إشعار اختبار',
-  'app.openhumanLink.notifications.sendFailed': 'تعذّر الإرسال: {error}',
-  'app.openhumanLink.notifications.sent':
-    'تم إرسال إشعار اختباري. إذا لم تستلمه، انتقل إلى إعدادات النظام ← الإشعارات ← OpenHuman، فعّل "السماح بالإشعارات"، واضبط نمط الشعار على "مستمر".',
-  'app.openhumanLink.skipForNow': 'تخطي في الوقت الحالي',
-  'app.openhumanLink.telegramUnavailable': 'Telegram غير متاح',
-  'app.openhumanLink.title.accounts': 'ربط تطبيقاتك',
-  'app.openhumanLink.title.billing': 'الفوترة والرصيد',
-  'app.openhumanLink.title.discord': 'الانضمام إلى المجتمع',
-  'app.openhumanLink.title.discordReport': 'الإبلاغ عن هذا الخطأ',
-  'app.openhumanLink.title.messaging': 'ربط قناة محادثة',
-  'app.openhumanLink.title.notifications': 'السماح بالإشعارات',
+  'app.SionixLink.notifications.permissionOff':
+    'إذن الإشعارات معطّل. فعّل Sionix في إعدادات النظام → الإشعارات، ثم أعد المحاولة.',
+  'app.SionixLink.notifications.triggerFailed':
+    'تعذّر على Sionix إطلاق إشعار النظام. تحقّق من إعدادات إشعارات نظام التشغيل وأعد المحاولة.',
+  'app.SionixLink.notifications.welcomeBody': 'ستصلك تنبيهات هنا عندما يتطلب أمر ما انتباهك.',
+  'app.SionixLink.notifications.welcomeTitle': 'Sionix جاهز للعمل',
+  'app.SionixLink.status.closed': 'مغلق',
+  'app.SionixLink.status.connected': 'متصل',
+  'app.SionixLink.status.error': 'خطأ',
+  'app.SionixLink.status.loading': 'جارٍ التحميل…',
+  'app.SionixLink.status.needsSignIn': 'يتطلب تسجيل الدخول',
+  'app.SionixLink.status.timedOut': 'انتهت المهلة',
+  'app.SionixLink.loadingChannelSetup': 'جارٍ تحميل إعداد القناة',
+  'app.SionixLink.maybeLater': 'ربما لاحقًا',
+  'app.SionixLink.notifications.asking': 'جارٍ الاستفسار من نظام التشغيل…',
+  'app.SionixLink.notifications.blocked': 'محظور',
+  'app.SionixLink.notifications.blockedStep1': 'الخطوة الأولى من الحظر',
+  'app.SionixLink.notifications.blockedStep2': 'الخطوة الثانية من الحظر',
+  'app.SionixLink.notifications.blockedStep3': 'الخطوة الثالثة من الحظر',
+  'app.SionixLink.notifications.intro': 'مقدمة',
+  'app.SionixLink.notifications.promptHint': 'تلميح الطلب',
+  'app.SionixLink.notifications.retry': 'إعادة إرسال إشعار اختبار',
+  'app.SionixLink.notifications.send': 'إرسال إشعار اختبار',
+  'app.SionixLink.notifications.sendFailed': 'تعذّر الإرسال: {error}',
+  'app.SionixLink.notifications.sent':
+    'تم إرسال إشعار اختباري. إذا لم تستلمه، انتقل إلى إعدادات النظام ← الإشعارات ← Sionix، فعّل "السماح بالإشعارات"، واضبط نمط الشعار على "مستمر".',
+  'app.SionixLink.skipForNow': 'تخطي في الوقت الحالي',
+  'app.SionixLink.telegramUnavailable': 'Telegram غير متاح',
+  'app.SionixLink.title.accounts': 'ربط تطبيقاتك',
+  'app.SionixLink.title.billing': 'الفوترة والرصيد',
+  'app.SionixLink.title.discord': 'الانضمام إلى المجتمع',
+  'app.SionixLink.title.discordReport': 'الإبلاغ عن هذا الخطأ',
+  'app.SionixLink.title.messaging': 'ربط قناة محادثة',
+  'app.SionixLink.title.notifications': 'السماح بالإشعارات',
   'app.persistRehydration.body': 'المحتوى',
   'app.persistRehydration.heading': 'العنوان',
   'app.persistRehydration.resetCta': 'جارٍ إعادة الضبط…',
   'app.persistRehydration.resetting': 'جارٍ إعادة الضبط…',
-  'app.routeLoading.initializing': 'جارٍ تهيئة OpenHuman...',
+  'app.routeLoading.initializing': 'جارٍ تهيئة Sionix...',
   'app.update.currentlyOn': '{version}',
   'app.update.errorFallback': 'حدث خطأ أثناء التحديث.',
   'app.update.header.default': 'تحديث',
@@ -2677,7 +2677,7 @@ const messages: TranslationMap = {
   'chat.approval.fallback': 'العميل يريد القيام بعمل يحتاج إلى موافقتك',
   'chat.approval.title': 'الموافقة المطلوبة',
   'chat.approval.tool': 'Tool:',
-  'channels.authMode.managed_dm': 'قم بتسجيل الدخول باستخدام OpenHuman',
+  'channels.authMode.managed_dm': 'قم بتسجيل الدخول باستخدام Sionix',
   'channels.authMode.oauth': 'OAuth تسجيل الدخول',
   'channels.authMode.bot_token': 'استخدم رمز الروبوت الخاص بك',
   'channels.authMode.api_key': 'استخدم مفتاح API الخاص بك',
@@ -2690,9 +2690,9 @@ const messages: TranslationMap = {
   'channels.discord.authMode.bot_token.description':
     'قم بتوفير رمز الروبوت المميز Discord الخاص بك.',
   'channels.discord.authMode.oauth.description':
-    'قم بتثبيت الروبوت OpenHuman على خادم Discord الخاص بك عبر OAuth.',
+    'قم بتثبيت الروبوت Sionix على خادم Discord الخاص بك عبر OAuth.',
   'channels.discord.authMode.managed_dm.description':
-    'اربط حسابك الشخصي في Discord بالروبوت OpenHuman.',
+    'اربط حسابك الشخصي في Discord بالروبوت Sionix.',
   'channels.discord.fields.bot_token.label': 'رمز الروبوت',
   'channels.discord.fields.bot_token.placeholder': 'رمز الروبوت Discord الخاص بك',
   'channels.discord.fields.guild_id.label': 'معرف الخادم (الرابطة)',
@@ -2700,7 +2700,7 @@ const messages: TranslationMap = {
   'channels.telegram.displayName': 'Telegram',
   'channels.telegram.description': 'إرسال واستقبال الرسائل عبر Telegram.',
   'channels.telegram.authMode.managed_dm.description':
-    'أرسل رسالة إلى الروبوت OpenHuman Telegram مباشرة.',
+    'أرسل رسالة إلى الروبوت Sionix Telegram مباشرة.',
   'channels.telegram.authMode.bot_token.description':
     'قم بتوفير رمز الروبوت Telegram الخاص بك من @BotFather.',
   'channels.telegram.fields.bot_token.label': 'رمز الروبوت',
@@ -2748,16 +2748,16 @@ const messages: TranslationMap = {
   'iosPair.desktopLabel': 'سطح المكتب',
   'iosPair.error.camera': 'فشل فحص الكاميرا. تحقق من أذونات الكاميرا وحاول مرة أخرى.',
   'iosPair.error.connectionFailed': 'فشل الاتصال. تأكد من تشغيل تطبيق سطح المكتب وحاول مجدداً.',
-  'iosPair.error.invalidQr': 'رمز QR غير صالح. تأكد من مسح رمز إقران OpenHuman.',
+  'iosPair.error.invalidQr': 'رمز QR غير صالح. تأكد من مسح رمز إقران Sionix.',
   'iosPair.error.unreachableDesktop':
     'تعذّر الوصول إلى سطح المكتب. تأكد من اتصال كلا الجهازين بالإنترنت وحاول مجدداً.',
   'iosPair.expired': 'QR code انتهت صلاحيته. اطلب من سطح المكتب إعادة إنشاء الرمز.',
   'iosPair.instructions':
-    'افتح OpenHuman على سطح المكتب، اذهب إلى الإعدادات > الأجهزة، واضغط «إقران الهاتف» لعرض رمز QR.',
+    'افتح Sionix على سطح المكتب، اذهب إلى الإعدادات > الأجهزة، واضغط «إقران الهاتف» لعرض رمز QR.',
   'iosPair.retryScan': 'أعد محاولة المسح',
   'iosPair.scanQrCode': 'المسح الضوئي QR code',
   'iosPair.scannerOpening': 'فتح الماسح الضوئي...',
-  'iosPair.step.openDesktop': 'افتح OpenHuman على سطح المكتب',
+  'iosPair.step.openDesktop': 'افتح Sionix على سطح المكتب',
   'iosPair.step.openSettings': 'انتقل إلى الإعدادات > الأجهزة',
   'iosPair.step.showQr': 'اضغط على "إقران الهاتف" لإظهار QR',
   'iosPair.title': 'الإقران مع سطح المكتب',
@@ -2792,7 +2792,7 @@ const messages: TranslationMap = {
   'composio.connect.permissionsDefault': 'القراءة والكتابة مفعّلتان افتراضيًا',
   'composio.connect.permissionsNote': 'قد يكشف',
   'composio.connect.permissionsNoteSuffix':
-    'أذونات وكيل OpenHuman الخاصة يتم التحكم بها أدناه عبر مفاتيح القراءة والكتابة والإدارة.',
+    'أذونات وكيل Sionix الخاصة يتم التحكم بها أدناه عبر مفاتيح القراءة والكتابة والإدارة.',
   'composio.connect.reopenBrowser': 'إعادة فتح المتصفح',
   'composio.connect.requestingUrl': 'جارٍ طلب عنوان URL للاتصال…',
   'composio.connect.requiredFieldEmpty': 'هذا الحقل مطلوب.',
@@ -2896,7 +2896,7 @@ const messages: TranslationMap = {
   'daemon.serviceBlockingGate.retryFailed':
     'فشلت إعادة المحاولة. نزّل أحدث إصدار للتطبيق وحاول مرة أخرى.',
   'daemon.serviceBlockingGate.retrying': 'جارٍ إعادة المحاولة...',
-  'daemon.serviceBlockingGate.title': 'نواة OpenHuman غير متاحة',
+  'daemon.serviceBlockingGate.title': 'نواة Sionix غير متاحة',
   'home.banners.discordSubtitle': 'وصف Discord',
   'home.banners.discordTitle': 'انضم إلى Discord',
   'home.banners.earlyBirdDismiss': 'إغلاق لافتة المبكر',
@@ -2930,7 +2930,7 @@ const messages: TranslationMap = {
     'أنشئ مخطط بنية من المنسق وسيتجدد هذا اللوح تلقائياً من نقطة النهاية المحلية المُهيأة.',
   'intelligence.diagram.skillInstallCommand': 'npx skills add yizhiyanhua-ai/fireworks-tech-graph',
   'intelligence.diagram.promptExample': 'أنشئ مخطط بنية للسرب الحالي بأسلوب المحطة الداكنة',
-  'intelligence.diagram.imageAlt': 'أحدث مخطط بنية OpenHuman المُولَّد',
+  'intelligence.diagram.imageAlt': 'أحدث مخطط بنية Sionix المُولَّد',
   'intelligence.diagram.refreshesEvery': 'يتجدد كل {seconds} ثانية',
   'intelligence.memoryText.entityTypePrefix': 'نوع الكيان',
   'intelligence.screenDebug.active': 'نشط',
@@ -3153,10 +3153,10 @@ const messages: TranslationMap = {
     'قد يستغرق التشغيل الأول 30–60 ثانية أثناء تهيئة نموذجك المحلي والأدوات. يمكنك المتابعة إلى المحادثة في أي وقت — يستمر بناء الملف الشخصي في الخلفية.',
   'onboarding.contextGathering.stillWorkingTitle': 'لا يزال العمل جاريًا على ملفك الشخصي…',
   'onboarding.contextGathering.title': 'جمع السياق',
-  'openhuman.team_list_teams': 'قائمة الفرق',
+  'Sionix.team_list_teams': 'قائمة الفرق',
   'overlay.ariaAttention': 'رسالة انتباه',
   'overlay.ariaCompanion': 'الرفيق نشط',
-  'overlay.ariaOrb': 'تراكب OpenHuman',
+  'overlay.ariaOrb': 'تراكب Sionix',
   'overlay.ariaVoiceActive': 'إدخال الصوت نشط',
   'overlay.companion.error': 'خطأ',
   'overlay.companion.listening': 'يستمع…',
@@ -3232,7 +3232,7 @@ const messages: TranslationMap = {
   'rewards.community.roleAssigned': 'تم تعيين الرتبة',
   'rewards.community.roleAssignmentCount': 'تم تعيين {assigned} من {unlocked} رتبة',
   'rewards.community.roleClaimDesc':
-    'لقد فتحت رتب Discord لكنك لم تنضم بعد إلى خادم OpenHuman. انضم ليتم تعيينها تلقائيًا.',
+    'لقد فتحت رتب Discord لكنك لم تنضم بعد إلى خادم Sionix. انضم ليتم تعيينها تلقائيًا.',
   'rewards.community.roleClaimTitle': 'احصل على رتب Discord الخاصة بك',
   'rewards.community.roleJoinToClaim': 'انضم إلى الخادم للحصول عليها',
   'rewards.community.rolePending': 'جارٍ مزامنة الرتبة…',
@@ -3363,7 +3363,7 @@ const messages: TranslationMap = {
   'settings.ai.claudeCode.fullAccessOff':
     'قبول التعديلات فقط — يطبّق تعديلات الملفات تلقائيًا ويقيّد الأوامر والشبكة.',
   'settings.ai.claudeCode.sandboxNoteMac':
-    'على نظام macOS، يظل ~/.openhuman محميًا بواسطة البيئة المعزولة في كلا الوضعين.',
+    'على نظام macOS، يظل ~/.Sionix محميًا بواسطة البيئة المعزولة في كلا الوضعين.',
   'settings.ai.claudeCode.sandboxNoteOther':
     'الوصول الكامل غير مقيّد على هذه المنصة — فعّله فقط إذا كنت تثق بمساحة العمل.',
   'settings.ai.claudeCode.enableToCheck': 'فعّل Claude Code للتحقق من تسجيل الدخول.',
@@ -3447,7 +3447,7 @@ const messages: TranslationMap = {
   'settings.ai.noSpendRows': 'لم يتم تحميل صفوف إنفاق.',
   'settings.ai.topHours': 'أعلى الساعات',
   'settings.ai.noHourlySpend': 'لا يوجد إنفاق بالساعة حتى الآن.',
-  'settings.ai.openhumanDefault': 'OpenHuman (افتراضي)',
+  'settings.ai.SionixDefault': 'Sionix (افتراضي)',
   'settings.ai.localModelResolved': 'Xqx1xxxxxx',
   'settings.ai.customRoutingForWorkload': 'التوجيه المخصص لـ {label}',
   'settings.ai.loadingModels': 'جارٍ تحميل النماذج...',
@@ -3506,7 +3506,7 @@ const messages: TranslationMap = {
   'settings.ai.composioSyncScans': 'Composio عمليات مسح المزامنة',
   'settings.ai.totalBackgroundApiReadBudget': 'إجمالي bg API ميزانية القراءة',
   'settings.ai.memoryWorkerPolls': 'استطلاعات عاملي الذاكرة',
-  'settings.ai.defaultProviderName': 'OpenHuman',
+  'settings.ai.defaultProviderName': 'Sionix',
   'settings.ai.routing.managed': 'المُدارة',
   'settings.ai.routing.managedDesc':
     '(Xqx0xx) سيحقق كل شيء في السحابة، ويختار أفضل نموذج للمهمة، ويرفع التكاليف إلى أقصى حد، ويحتفظ بأمن التخلف عن الدفع.',
@@ -3696,16 +3696,16 @@ const messages: TranslationMap = {
   'settings.composio.confirmSwitch': 'أفهم، التبديل إلى المباشر',
   'settings.composio.confirmTitle': '⚠️ التبديل إلى الوضع المباشر',
   'settings.composio.confirmWarning':
-    'تكاملاتك الحالية (Gmail، Slack، GitHub، إلخ المرتبطة عبر OpenHuman) لن تكون مرئية — فهي موجودة في مستأجر Composio المُدار من OpenHuman.',
+    'تكاملاتك الحالية (Gmail، Slack، GitHub، إلخ المرتبطة عبر Sionix) لن تكون مرئية — فهي موجودة في مستأجر Composio المُدار من Sionix.',
   'settings.composio.intro':
     'يُدمج Composio أكثر من 250 تطبيقًا خارجيًا كأدوات يمكن للوكيل استدعاؤها. اختر كيفية توجيه هذه الاستدعاءات.',
   'settings.composio.title': 'Composio',
   'settings.composio.modeDirect': 'مباشر (استخدم مفتاح API الخاص بك)',
   'settings.composio.modeDirectDesc':
     'تذهب الاستدعاءات إلى backend.composio.dev مباشرةً. سيادي / مناسب للعمل دون اتصال. تنفيذ الأدوات يعمل بشكل متزامن؛ مشغّلات الـ webhooks الفورية لم تُوجَّه بعد في الوضع المباشر (مشكلة متابعة).',
-  'settings.composio.modeManaged': 'مُدار (OpenHuman يتولى الأمر نيابةً عنك)',
+  'settings.composio.modeManaged': 'مُدار (Sionix يتولى الأمر نيابةً عنك)',
   'settings.composio.modeManagedDesc':
-    'يقوم OpenHuman بتمرير استدعاءات الأدوات عبر خادمنا الخلفي (موصى به). تتم وساطة المصادقة؛ لن تلصق مفتاح Composio API. الـ webhooks مُوجَّهة بالكامل.',
+    'يقوم Sionix بتمرير استدعاءات الأدوات عبر خادمنا الخلفي (موصى به). تتم وساطة المصادقة؛ لن تلصق مفتاح Composio API. الـ webhooks مُوجَّهة بالكامل.',
   'settings.composio.routingMode': 'وضع التوجيه',
   'settings.composio.saveErrorNoKey': 'فشل الحفظ. الوضع المباشر يتطلب مفتاح API غير فارغ.',
   'settings.composio.saving': 'جارٍ الحفظ…',
@@ -3859,7 +3859,7 @@ const messages: TranslationMap = {
   'settings.localModel.download.running': 'جارٍ التشغيل...',
   'settings.localModel.download.runningPrompt': 'جارٍ تشغيل الطلب',
   'settings.localModel.download.summaryHelper':
-    'يستدعي `openhuman.inference_summarize` عبر Rust core',
+    'يستدعي `Sionix.inference_summarize` عبر Rust core',
   'settings.localModel.download.summarizePlaceholder': 'الصق النص لتلخيصه بالنموذج المحلي...',
   'settings.localModel.download.testCustomPrompt': 'اختبار طلب مخصص',
   'settings.localModel.download.testEmbeddings': 'اختبار التضمينات',
@@ -3934,7 +3934,7 @@ const messages: TranslationMap = {
   'settings.localModel.status.ollamaDiagnostics': 'تشخيص Ollama',
   'settings.localModel.status.ollamaNotInstalled': 'وقت تشغيل Ollama غير متاح',
   'settings.localModel.status.ollamaNotInstalledDesc':
-    'يعامل OpenHuman الآن Ollama كوقت تشغيل استدلال خارجي. شغّل خادم Ollama الخاص بك، وحمّل النماذج التي تريدها، ووجّه توجيه الأحمال إليه.',
+    'يعامل Sionix الآن Ollama كوقت تشغيل استدلال خارجي. شغّل خادم Ollama الخاص بك، وحمّل النماذج التي تريدها، ووجّه توجيه الأحمال إليه.',
   'settings.localModel.status.progress': 'التقدم',
   'settings.localModel.status.provider': 'المزود',
   'settings.localModel.status.retryBootstrap': 'إعادة محاولة التمهيد',
@@ -3962,7 +3962,7 @@ const messages: TranslationMap = {
     'تكوين أوضاع مصادقة Telegram/Discord وتوجيه القناة الافتراضي',
   'settings.developerMenu.tools.title': 'الأدوات',
   'settings.developerMenu.tools.desc':
-    'تفعيل أو تعطيل الإمكانات التي يمكن لـ OpenHuman استخدامها نيابةً عنك',
+    'تفعيل أو تعطيل الإمكانات التي يمكن لـ Sionix استخدامها نيابةً عنك',
   'settings.developerMenu.agentChat.title': 'دردشة الوكيل',
   'settings.developerMenu.agentChat.desc': 'اختبار محادثة الوكيل مع تجاوزات النموذج ودرجة الحرارة',
   'settings.developerMenu.devWorkflow.title': 'سير عمل المطور',
@@ -4135,7 +4135,7 @@ const messages: TranslationMap = {
   'settings.developerMenu.integrationTriggers.desc':
     'تكوين إعدادات فرز الذكاء الاصطناعي لمشغلات تكامل Composio',
   'settings.developerMenu.mcpServer.title': 'MCP الخادم',
-  'settings.developerMenu.mcpServer.desc': 'تكوين عملاء MCP الخارجيين للاتصال بـ OpenHuman',
+  'settings.developerMenu.mcpServer.desc': 'تكوين عملاء MCP الخارجيين للاتصال بـ Sionix',
   'settings.developerMenu.autonomy.title': 'استقلالية الوكيل',
   'settings.developerMenu.autonomy.desc': 'حدود معدل إجراءات الأدوات وعتبات الأمان',
   'settings.developerMenu.autocomplete.title': 'الإكمال التلقائي',
@@ -4146,14 +4146,14 @@ const messages: TranslationMap = {
   'settings.mcpServer.title': 'Xqx0x',
   'settings.mcpServer.toolsSectionTitle': 'الأدوات المتاحة',
   'settings.mcpServer.toolsSectionDesc':
-    'الأدوات التي يتم كشفها عبر خادم MCP stdio عند تشغيل mcp openhuman-core',
+    'الأدوات التي يتم كشفها عبر خادم MCP stdio عند تشغيل mcp Sionix-core',
   'settings.mcpServer.configSectionTitle': 'تكوين العميل',
   'settings.mcpServer.configSectionDesc': 'حدد عميل MCP الخاص بك لإنشاء مقتطف التكوين الصحيح',
   'settings.mcpServer.copySnippet': 'انسخ إلى الحافظة',
   'settings.mcpServer.copied': 'تم النسخ!',
   'settings.mcpServer.openConfigFile': 'فتح ملف التكوين',
   'settings.mcpServer.binaryPathNotFound':
-    'OpenHuman لم يتم العثور على الثنائي. في حالة التشغيل من المصدر، قم بالإنشاء باستخدام: cargo build --bin openhuman-core',
+    'Sionix لم يتم العثور على الثنائي. في حالة التشغيل من المصدر، قم بالإنشاء باستخدام: cargo build --bin Sionix-core',
   'settings.mcpServer.openConfigError': 'فشل في فتح ملف التكوين',
   'settings.mcpServer.clientClaudeDesktop': 'Claude Desktop',
   'settings.mcpServer.clientCursor': 'المؤشر',
@@ -4194,7 +4194,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.timeout.unit': 'ثوانٍ',
   'settings.agentAccess.timeout.invalid': 'أدخل عدداً صحيحاً من الثواني ضمن النطاق المسموح به',
   'settings.agentAccess.timeout.envOverride':
-    'متغير البيئة OPENHUMAN_TOOL_TIMEOUT_SECS يتجاوز هذا الإعداد، لذا لن يكون للتغييرات هنا أي تأثير حتى يتم إلغاء ضبطه.',
+    'متغير البيئة Sionix_TOOL_TIMEOUT_SECS يتجاوز هذا الإعداد، لذا لن يكون للتغييرات هنا أي تأثير حتى يتم إلغاء ضبطه.',
   'settings.agentAccess.grantedFolders': 'الملفات الممنوحة',
   'settings.agentAccess.alwaysAllow': 'الأدوات المتدنية دائما',
   'settings.agentAccess.alwaysAllowDesc':
@@ -4220,7 +4220,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDir.cancel': 'إلغاء',
   'settings.agentAccess.actionDir.placeholder': 'مسار مطلق، مثل /Users/you/Projects',
   'settings.agentAccess.actionDir.envLocked':
-    'محدد بواسطة OPENHUMAN_ACTION_DIR. غيّر متغير البيئة للتجاوز.',
+    'محدد بواسطة Sionix_ACTION_DIR. غيّر متغير البيئة للتجاوز.',
   'settings.agentAccess.actionDir.saved': 'تم تحديث دليل الإجراءات.',
   'settings.agentAccess.internalState': 'الحالة الداخلية',
   'settings.agentAccess.agentBlocked': 'محظور على الوكيل',
@@ -4233,9 +4233,9 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDirEmptyError': 'لا يمكن أن يكون المسار فارغًا.',
   'settings.agentAccess.actionDirSaveError': 'تعذّر تحديث صندوق الإجراءات.',
   'settings.agentAccess.actionDirEnvOverrideError':
-    'تم ضبط OPENHUMAN_ACTION_DIR — قم بإلغاء متغير البيئة لتعديل هذا من الإعدادات.',
+    'تم ضبط Sionix_ACTION_DIR — قم بإلغاء متغير البيئة لتعديل هذا من الإعدادات.',
   'settings.agentAccess.actionDirEnvOverrideNote':
-    'تم تجاوزه بواسطة OPENHUMAN_ACTION_DIR — قم بإلغاء متغير البيئة لإدارته من الإعدادات.',
+    'تم تجاوزه بواسطة Sionix_ACTION_DIR — قم بإلغاء متغير البيئة لإدارته من الإعدادات.',
   'settings.agentAccess.approvalHistory': 'سجل الموافقات',
   'settings.agentAccess.approvalHistoryDesc':
     'مراجعة قرارات الموافقة / الرفض السابقة التي طلبها الوكيل.',
@@ -4368,7 +4368,7 @@ const messages: TranslationMap = {
   'settings.mascot.characterPreview': 'معاينة',
   'settings.mascot.characterStates': 'تنص على',
   'settings.mascot.characterVisemes': 'vimeses',
-  'settings.mascot.colorAria': 'OpenHuman اللون',
+  'settings.mascot.colorAria': 'Sionix اللون',
   'settings.mascot.colorDesc': 'وصف اللون',
   'settings.mascot.colorHeading': 'عنوان اللون',
   'settings.mascot.colorBlack': 'أسود',
@@ -4378,15 +4378,15 @@ const messages: TranslationMap = {
   'settings.mascot.primaryColor': 'اللون الابتدائي',
   'settings.mascot.secondaryColor': 'اللون الثانوي',
   'settings.mascot.colorYellow': 'أصفر',
-  'settings.mascot.libraryUnavailable': 'مكتبة OpenHuman غير متاحة',
-  'settings.mascot.title': 'OpenHuman',
-  'settings.mascot.loadingLibrary': 'جارٍ تحميل مكتبة OpenHuman…',
+  'settings.mascot.libraryUnavailable': 'مكتبة Sionix غير متاحة',
+  'settings.mascot.title': 'Sionix',
+  'settings.mascot.loadingLibrary': 'جارٍ تحميل مكتبة Sionix…',
   'settings.mascot.loadDetailError': 'تعذر تحميل التميمة.',
   'settings.mascot.loadLibraryError': 'تعذر تحميل مكتبة التميمة.',
-  'settings.mascot.localDefault': 'OpenHuman المحلي (افتراضي)',
+  'settings.mascot.localDefault': 'Sionix المحلي (افتراضي)',
   'settings.mascot.menuTitle': 'التميمة',
   'settings.mascot.menuDesc': 'اختر لون التميمة المستخدم في جميع أنحاء التطبيق',
-  'settings.mascot.noCharacters': 'لا توجد شخصيات OpenHuman متاحة بعد',
+  'settings.mascot.noCharacters': 'لا توجد شخصيات Sionix متاحة بعد',
   'settings.mascot.noColorVariants': 'لا توجد ألوان متاحة',
   'settings.mascot.voice.current': 'الحالي',
   'settings.mascot.voice.customDesc':
@@ -4437,7 +4437,7 @@ const messages: TranslationMap = {
     'افتراضي معقول — استمرارية جيدة دون استهلاك رموز إضافية في كل تشغيل.',
   'settings.memoryWindow.balanced.label': 'متوازن',
   'settings.memoryWindow.description':
-    'مقدار السياق المحفوظ الذي يحقنه OpenHuman في كل تشغيل وكيل جديد. النوافذ الأكبر تشعر بإدراك أكثر للمحادثات السابقة لكنها تستخدم رموزًا أكثر — وتكلّف أكثر — في كل تشغيل.',
+    'مقدار السياق المحفوظ الذي يحقنه Sionix في كل تشغيل وكيل جديد. النوافذ الأكبر تشعر بإدراك أكثر للمحادثات السابقة لكنها تستخدم رموزًا أكثر — وتكلّف أكثر — في كل تشغيل.',
   'settings.memoryWindow.extended.badge': 'سياق أكثر',
   'settings.memoryWindow.extended.hint':
     'حقن ذاكرة طويلة المدى أكثر في كل تشغيل. تكلفة رموز أعلى لكل دور.',
@@ -4558,9 +4558,9 @@ const messages: TranslationMap = {
   'skills.create.name': 'الاسم',
   'skills.create.namePlaceholder': 'مثال: يومية التداول',
   'skills.create.scope': 'النطاق',
-  'skills.create.scopeProjectHint': '/.openhuman/skills/',
+  'skills.create.scopeProjectHint': '/.Sionix/skills/',
   'skills.create.scopeUserHint':
-    'مكتوب في ~/.openhuman/skills/<slug>/SKILL.md — متاح في جميع مساحات العمل.',
+    'مكتوب في ~/.Sionix/skills/<slug>/SKILL.md — متاح في جميع مساحات العمل.',
   'skills.create.slugLabel': 'تسمية المعرف',
   'skills.create.subtitle': 'SKILL.md',
   'skills.create.tags': 'الوسوم',
@@ -4606,7 +4606,7 @@ const messages: TranslationMap = {
     'تعمل فقط الروابط المباشرة `.md`. بالنسبة إلى GitHub، قم بالارتباط بملف (github.com/owner/repo/blob/.../SKILL.md) - لم يتم تثبيت جذور الشجرة والريبو.',
   'skills.install.errors.unsupportedUrlTitle': 'URL النموذج غير مدعوم',
   'skills.install.errors.writeFailedHint':
-    'دليل مهارات مساحة العمل غير قابل للكتابة. تحقق من أذونات نظام الملفات لـ `<workspace>/.openhuman/skills/`.',
+    'دليل مهارات مساحة العمل غير قابل للكتابة. تحقق من أذونات نظام الملفات لـ `<workspace>/.Sionix/skills/`.',
   'skills.install.errors.writeFailedTitle': 'تعذر كتابة SKILL.md',
   'skills.install.fetchLog': 'جلب السجل',
   'skills.install.fetchingPrefix': 'جلب',
@@ -4638,17 +4638,17 @@ const messages: TranslationMap = {
   'skills.install.urlPlaceholder': 'https://raw.githubusercontent.com/owner/repo/main/SKILL.md',
   'skills.meetingBots.bannerDesc': 'وصف اللافتة',
   'skills.meetingBots.bannerTitle': 'عنوان اللافتة',
-  'skills.meetingBots.busyTitle': 'OpenHuman مشغول',
+  'skills.meetingBots.busyTitle': 'Sionix مشغول',
   'skills.meetingBots.comingSoon': 'قريبًا',
-  'skills.meetingBots.couldNotStartTitle': 'تعذّر بدء OpenHuman',
+  'skills.meetingBots.couldNotStartTitle': 'تعذّر بدء Sionix',
   'skills.meetingBots.displayName': 'الاسم المعروض',
-  'skills.meetingBots.failedToStart': 'فشل تشغيل OpenHuman.',
+  'skills.meetingBots.failedToStart': 'فشل تشغيل Sionix.',
   'skills.meetingBots.joiningMessage': 'يجب أن يظهر كمشارك في غضون ثوانٍ.',
-  'skills.meetingBots.joiningTitle': 'OpenHuman ينضم إلى الاجتماع',
+  'skills.meetingBots.joiningTitle': 'Sionix ينضم إلى الاجتماع',
   'skills.meetingBots.meetingLink': 'رابط الاجتماع',
-  'skills.meetingBots.modalAriaLabel': 'إرسال OpenHuman إلى اجتماع',
+  'skills.meetingBots.modalAriaLabel': 'إرسال Sionix إلى اجتماع',
   'skills.meetingBots.modalDesc': 'وصف النافذة',
-  'skills.meetingBots.modalTitle': 'إرسال OpenHuman إلى اجتماع',
+  'skills.meetingBots.modalTitle': 'إرسال Sionix إلى اجتماع',
   'skills.meetingBots.newBadge': 'شارة جديدة',
   'skills.meetingBots.platformComingSoon': '{label} الدعم قريبًا.',
   'skills.meetingBots.platformHints.gmeet': 'meet.google.com/abc-defg-hij',
@@ -4679,7 +4679,7 @@ const messages: TranslationMap = {
   'skills.meetingBots.respondToParticipantDesc':
     'أدخل اسمك الظاهر بالضبط في الاجتماع. لن يستجيب البوت إلا عندما تنطق باسمه (عبارة التنشيط).',
   'skills.meetingBots.wakePhrase': 'عبارة التنشيط',
-  'skills.meetingBots.wakePhraseHint': 'مرحباً OpenHuman',
+  'skills.meetingBots.wakePhraseHint': 'مرحباً Sionix',
   'skills.meetingBots.wakePhraseDesc': 'يجب أن يقول المشارك هذا قبل أن يرد البوت.',
   'skills.meetingBots.activeMode': 'الرد عندما أناديه',
   'skills.meetingBots.activeModeDesc':
@@ -4832,7 +4832,7 @@ const messages: TranslationMap = {
   'chat.parentThread': 'الموضوع الأصلي',
   'chat.removeReaction': 'إزالة {emoji}',
   'settings.composio.loading': 'جارٍ التحميل…',
-  'settings.mascot.noCharactersAvailable': 'لا توجد شخصيات OpenHuman متاحة بعد',
+  'settings.mascot.noCharactersAvailable': 'لا توجد شخصيات Sionix متاحة بعد',
   'skills.uninstall.confirmTitle': 'إلغاء تثبيت {name}؟',
   'conversations.taskKanban.blocked': 'محظور',
   'conversations.taskKanban.done': 'مكتمل',
@@ -4856,7 +4856,7 @@ const messages: TranslationMap = {
   'settings.localModel.download.manageExternal':
     'إدارة هذا النموذج في وقت التشغيل الخارجي الخاص بك.',
   'settings.localModel.status.manageOllamaExternal':
-    'أدِر عملية Ollama وعمليات تحميل النماذج خارج OpenHuman، ثم أعد تشغيل التشخيصات.',
+    'أدِر عملية Ollama وعمليات تحميل النماذج خارج Sionix، ثم أعد تشغيل التشخيصات.',
   'settings.localModel.status.ollamaDocs': 'وثائق Ollama',
   'settings.localModel.status.thenRetry':
     'للحصول على تعليمات الإعداد، ثم أعد المحاولة عندما يصبح وقت التشغيل قابلاً للوصول.',
@@ -4868,7 +4868,7 @@ const messages: TranslationMap = {
   'devOptions.menuMessaging': 'قنوات المراسلة',
   'devOptions.menuMessagingDesc': 'تكوين أوضاع المصادقة Telegram/Discord وتوجيه القناة الافتراضية',
   'devOptions.menuTools': 'الأدوات',
-  'devOptions.menuToolsDesc': 'تمكين أو تعطيل الإمكانات التي يمكن أن يستخدمها OpenHuman نيابة عنك',
+  'devOptions.menuToolsDesc': 'تمكين أو تعطيل الإمكانات التي يمكن أن يستخدمها Sionix نيابة عنك',
   'devOptions.menuAgentChat': 'دردشة الوكيل',
   'devOptions.menuAgentChatDesc': 'محادثة وكيل الاختبار مع تجاوزات النموذج ودرجة الحرارة',
   'devOptions.menuCronJobs': 'وظائف Cron',
@@ -5332,7 +5332,7 @@ const messages: TranslationMap = {
 
   'keyring.consent.title': 'التخزين الآمن غير متاح',
   'keyring.consent.description':
-    'سلسلة مفاتيح نظام التشغيل غير متاحة. يحتاج OpenHuman إلى إذنك لتخزين الأسرار باستخدام التخزين المشفّر المحلي بدلاً من ذلك.',
+    'سلسلة مفاتيح نظام التشغيل غير متاحة. يحتاج Sionix إلى إذنك لتخزين الأسرار باستخدام التخزين المشفّر المحلي بدلاً من ذلك.',
   'keyring.consent.reasonPrefix': 'السبب:',
   'keyring.consent.showDetails': 'ماذا يعني هذا؟',
   'keyring.consent.hideDetails': 'إخفاء التفاصيل',
@@ -5372,7 +5372,7 @@ const messages: TranslationMap = {
   'memory.health.remediation.budget_exhausted':
     'استنفدت تضمينات الذاكرة الميزانية المُدارة. أعدّ تضمينات Ollama المحلية (الإعدادات → الذكاء الاصطناعي → التضمينات) أو أضف مفتاح API الخاص بك للتضمينات لمواصلة بناء الذاكرة.',
   'memory.health.remediation.auth_missing':
-    'لم يتم العثور على بيانات اعتماد التضمينات. سجّل الدخول إلى OpenHuman، أو أعدّ تضمينات Ollama المحلية في الإعدادات → الذكاء الاصطناعي → التضمينات.',
+    'لم يتم العثور على بيانات اعتماد التضمينات. سجّل الدخول إلى Sionix، أو أعدّ تضمينات Ollama المحلية في الإعدادات → الذكاء الاصطناعي → التضمينات.',
   'memory.health.remediation.auth_invalid':
     'تم رفض بيانات اعتماد التضمينات الخاصة بك. أعد المصادقة، أو بدّل إلى تضمينات Ollama المحلية في الإعدادات → الذكاء الاصطناعي → التضمينات.',
   'memory.health.remediation.embeddings_unconfigured':
@@ -5457,11 +5457,11 @@ const messages: TranslationMap = {
   'onboarding.custom.vault.subtitle':
     'تأكيد موضع كتابة ملاحظات الذاكرة، وكيفية قراءة البيانات المصدر، وسلامة مسار الخزينة.',
   'onboarding.custom.vault.defaultDesc':
-    'استخدم الإعدادات الافتراضية لذاكرة OpenHuman المُدارة. يمكن مراجعة مسار الخزينة وصحة المزامنة لاحقًا.',
+    'استخدم الإعدادات الافتراضية لذاكرة Sionix المُدارة. يمكن مراجعة مسار الخزينة وصحة المزامنة لاحقًا.',
   'onboarding.custom.vault.configureDesc':
     'راجع ملكية الخزينة، وشغّل فحوصات الصحة، واضبط عناصر التحكم في الذاكرة الآن.',
   'onboarding.custom.vault.localDisabledReason':
-    'يتطلب الإعداد المُدار تسجيل الدخول إلى OpenHuman وغير متاح في الوضع المحلي.',
+    'يتطلب الإعداد المُدار تسجيل الدخول إلى Sionix وغير متاح في الوضع المحلي.',
   'onboarding.custom.vault.exitError': 'تعذّر إتمام الإعداد. يُرجى المحاولة مجددًا.',
   'vaultHealth.title': 'قائمة فحص صحة الخزينة',
   'vaultHealth.setupTitle': 'صحة إعداد الخزينة',
@@ -5481,9 +5481,9 @@ const messages: TranslationMap = {
   'vaultHealth.existsLabel': 'مسار خزينة مساحة العمل موجود',
   'vaultHealth.existsRecovery':
     'مجلد الخزينة مفقود. ابدأ مزامنة أو أنشئ هذا المجلد، ثم حدّث هذه القائمة.',
-  'vaultHealth.writableLabel': 'الخزينة قابلة للكتابة بواسطة OpenHuman',
+  'vaultHealth.writableLabel': 'الخزينة قابلة للكتابة بواسطة Sionix',
   'vaultHealth.writableRecovery':
-    'لا يستطيع OpenHuman الكتابة في هذه الخزينة بعد. امنح أذونات الكتابة ثم حدّث.',
+    'لا يستطيع Sionix الكتابة في هذه الخزينة بعد. امنح أذونات الكتابة ثم حدّث.',
   'vaultHealth.obsidianLabel': 'الخزينة مسجّلة في Obsidian',
   'vaultHealth.obsidianRecovery':
     'في Obsidian، اختر "فتح المجلد كخزينة" لهذا المسار، ثم حدّث هذه القائمة.',
@@ -5499,13 +5499,13 @@ const messages: TranslationMap = {
   'memoryData.howItWorks': 'كيف يعمل تخزين الذاكرة',
   'memoryData.workspaceVault': 'خزينة مساحة العمل · كتابة',
   'memoryData.workspaceVaultDesc':
-    'يكتب OpenHuman ملاحظات الذاكرة المُولَّدة إلى memory_tree/content.',
+    'يكتب Sionix ملاحظات الذاكرة المُولَّدة إلى memory_tree/content.',
   'memoryData.connectedSources': 'المصادر المتصلة · قراءة',
   'memoryData.connectedSourcesDesc':
     'تُستورد المجلدات وصناديق البريد والمحادثات والمستودعات لفهرسة الذاكرة — ولا تُعاد كتابة ملفاتها الأصلية أبدًا.',
   'memoryData.internalFiles': 'ملفات شجرة الذاكرة الداخلية',
   'memoryData.internalFilesDesc':
-    'تُدار الفهارس وحالة قائمة الانتظار والملخصات بواسطة OpenHuman للحفاظ على سلامة الاسترجاع والمزامنة.',
+    'تُدار الفهارس وحالة قائمة الانتظار والملخصات بواسطة Sionix للحفاظ على سلامة الاسترجاع والمزامنة.',
   'memoryData.windowError': 'نافذة الذاكرة',
   'memoryData.windowUpdated': 'تم تحديث نافذة الذاكرة',
   'memoryData.windowUpdatedMsg': 'تم الضبط على {window}.',
@@ -5521,10 +5521,10 @@ const messages: TranslationMap = {
   // Security banner (approval-gate host-aware boot state)
   'security.approvalGateDisabled.title': 'تم تعطيل بوابة الموافقة',
   'security.approvalGateDisabled.body':
-    'تم تعيين OPENHUMAN_APPROVAL_GATE=0 في بيئتك. ستعمل الأدوات ذات التأثير الخارجي دون طلب تأكيد.',
+    'تم تعيين Sionix_APPROVAL_GATE=0 في بيئتك. ستعمل الأدوات ذات التأثير الخارجي دون طلب تأكيد.',
   'security.approvalGateOverrideIgnored.title': 'تم حظر التجاوز',
   'security.approvalGateOverrideIgnored.body':
-    'تم اكتشاف تجاوز OPENHUMAN_APPROVAL_GATE=0 لكنه تم تجاهله: يحافظ تطبيق سطح المكتب دائمًا على تفعيل بوابة الموافقة.',
+    'تم اكتشاف تجاوز Sionix_APPROVAL_GATE=0 لكنه تم تجاهله: يحافظ تطبيق سطح المكتب دائمًا على تفعيل بوابة الموافقة.',
 
   // Run queue
   'runQueue.mode.interrupt': 'مقاطعة',

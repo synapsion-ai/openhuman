@@ -42,7 +42,7 @@ const messages: TranslationMap = {
   'nav.agentWorld': 'Tiny.Place',
   'nav.wallet': 'ওয়ালেট',
   'agentWorld.description':
-    'Tiny.Place হলো এআই এজেন্টদের জন্য একটি সোশ্যাল নেটওয়ার্ক। যোগাযোগ করতে, কাজ খুঁজতে ও পোস্ট করতে, লেনদেন করতে এবং একসাথে বেড়ে উঠতে OpenHuman ব্যবহার করুন।',
+    'Tiny.Place হলো এআই এজেন্টদের জন্য একটি সোশ্যাল নেটওয়ার্ক। যোগাযোগ করতে, কাজ খুঁজতে ও পোস্ট করতে, লেনদেন করতে এবং একসাথে বেড়ে উঠতে Sionix ব্যবহার করুন।',
   'agentWorld.feed': 'ফিড',
   'agentWorld.ledger': 'লেজার',
   'agentWorld.jobs': 'চাকরি',
@@ -303,8 +303,8 @@ const messages: TranslationMap = {
   'clearData.failed': 'ডেটা মুছতে ও লগ আউট করতে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।',
   'clearData.failedLogout': 'লগ আউট করতে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।',
   'clearData.failedPersist': 'অ্যাপ স্টেট মুছতে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।',
-  'welcome.logoAlt': 'OpenHuman',
-  'welcome.title': 'OpenHuman-এ স্বাগতম',
+  'welcome.logoAlt': 'Sionix',
+  'welcome.title': 'Sionix-এ স্বাগতম',
   'welcome.subtitle':
     'আপনার ব্যক্তিগত AI সুপার ইন্টেলিজেন্স। ব্যক্তিগত, সহজ এবং অত্যন্ত শক্তিশালী।',
   'welcome.connectPrompt': 'RPC URL কনফিগার করুন (অ্যাডভান্সড)',
@@ -314,7 +314,7 @@ const messages: TranslationMap = {
   'welcome.clearAppDataWarning':
     'এটি এই ডিভাইসে স্থানীয়ভাবে সংরক্ষিত সিক্রেট এবং অ্যাকাউন্ট মুছে দেয়। আপনার ক্লাউড অ্যাকাউন্ট প্রভাবিত হয় না — আপনি এরপরই আবার সাইন ইন করতে পারবেন।',
   'welcome.resetErrorFallback':
-    'অ্যাপ ডেটা মুছতে পারেনি। OpenHuman বন্ধ করে আবার খুলুন, তারপর আবার চেষ্টা করুন।',
+    'অ্যাপ ডেটা মুছতে পারেনি। Sionix বন্ধ করে আবার খুলুন, তারপর আবার চেষ্টা করুন।',
   'welcome.signingIn': 'আপনাকে সাইন ইন করা হচ্ছে...',
   'welcome.termsIntro': 'চালিয়ে যাওয়ার মাধ্যমে, আপনি',
   'welcome.termsOfUse': 'শর্তাবলীতে সম্মত হন',
@@ -332,7 +332,7 @@ const messages: TranslationMap = {
   'home.statusOk': 'আপনার সহকারী প্রস্তুত। শুরু করতে নিচে কিছু লিখুন।',
   'home.statusBackendOnly': 'ব্যাকএন্ডে পুনরায় সংযোগ হচ্ছে… আপনার এজেন্ট শীঘ্রই আবার পাওয়া যাবে।',
   'home.statusCoreUnreachable':
-    'লোকাল কোর সাইডকার সাড়া দিচ্ছে না। OpenHuman ব্যাকগ্রাউন্ড প্রসেস ক্র্যাশ হয়েছে বা শুরু হয়নি।',
+    'লোকাল কোর সাইডকার সাড়া দিচ্ছে না। Sionix ব্যাকগ্রাউন্ড প্রসেস ক্র্যাশ হয়েছে বা শুরু হয়নি।',
   'home.statusInternetOffline':
     'আপনার ডিভাইস এখন অফলাইনে। নেটওয়ার্ক পরীক্ষা করুন বা অ্যাপ রিস্টার্ট করুন।',
   'home.restartCore': 'কোর রিস্টার্ট',
@@ -405,7 +405,7 @@ const messages: TranslationMap = {
   'skills.channels': 'মেসেজিং',
   'skills.explorer.emptyCta': 'URL থেকে ইনস্টল করুন',
   'skills.explorer.emptyDescription':
-    'একটি SKILL.md প্যাকেজ ইনস্টল করুন বা Hermes-ধাঁচের ফোল্ডার ~/.openhuman/skills-এ রাখুন।',
+    'একটি SKILL.md প্যাকেজ ইনস্টল করুন বা Hermes-ধাঁচের ফোল্ডার ~/.Sionix/skills-এ রাখুন।',
   'skills.explorer.emptyTitle': 'কোনো স্কিল পাওয়া যায়নি',
   'skills.explorer.installFromUrl': 'URL থেকে ইনস্টল করুন',
   'skills.explorer.newSkill': 'নতুন স্কিল',
@@ -654,13 +654,13 @@ const messages: TranslationMap = {
   'rewards.referrals': 'রেফারেল',
   'rewards.coupons': 'রিডিম',
   'rewards.localUnavailable':
-    'লোকাল লগইনে কোনো রিওয়ার্ড, কুপন বা রেফারেল ক্রেডিট মেলে না। রিওয়ার্ড পেতে লগ আউট করে একটি OpenHuman অ্যাকাউন্ট দিয়ে সাইন ইন করুন।',
+    'লোকাল লগইনে কোনো রিওয়ার্ড, কুপন বা রেফারেল ক্রেডিট মেলে না। রিওয়ার্ড পেতে লগ আউট করে একটি Sionix অ্যাকাউন্ট দিয়ে সাইন ইন করুন।',
   'rewards.localUnavailableCta': 'অ্যাকাউন্ট সেটিংস খুলুন',
   'rewards.credits': 'ক্রেডিট',
   'rewards.referralCode': 'আপনার রেফারেল কোড',
   'rewards.copyCode': 'কোড কপি করুন',
   'rewards.share': 'শেয়ার',
-  'onboarding.welcome': 'হ্যালো। আমি OpenHuman।',
+  'onboarding.welcome': 'হ্যালো। আমি Sionix।',
   'onboarding.welcomeDesc':
     'আপনার সুপার-ইন্টেলিজেন্ট AI অ্যাসিস্ট্যান্ট যা আপনার কম্পিউটারে চলে। ব্যক্তিগত, সহজ এবং অত্যন্ত শক্তিশালী।',
   'onboarding.context': 'কন্টেক্সট সংগ্রহ',
@@ -672,14 +672,14 @@ const messages: TranslationMap = {
   'onboarding.referral': 'রেফারেল',
   'onboarding.referralDesc': 'যদি রেফারেল কোড থাকে তা প্রয়োগ করুন।',
   'onboarding.finish': 'সেটআপ সম্পন্ন',
-  'onboarding.finishDesc': 'সব প্রস্তুত! OpenHuman ব্যবহার শুরু করুন।',
+  'onboarding.finishDesc': 'সব প্রস্তুত! Sionix ব্যবহার শুরু করুন।',
   'onboarding.skip': 'এড়িয়ে যান',
   'onboarding.getStarted': 'শুরু করুন',
-  'onboarding.runtimeChoice.title': 'আপনি কীভাবে OpenHuman চালাতে চান?',
+  'onboarding.runtimeChoice.title': 'আপনি কীভাবে Sionix চালাতে চান?',
   'onboarding.runtimeChoice.subtitle':
     'আপনার জন্য উপযুক্ত সেটআপ বেছে নিন। পরে সেটিংসে পরিবর্তন করা যাবে।',
   'onboarding.runtimeChoice.cloud.title': 'সহজ',
-  'onboarding.runtimeChoice.cloud.tagline': 'OpenHuman সব কিছু পরিচালনা করবে।',
+  'onboarding.runtimeChoice.cloud.tagline': 'Sionix সব কিছু পরিচালনা করবে।',
   'onboarding.runtimeChoice.cloud.f1': 'বিল্ট-ইন নিরাপত্তা',
   'onboarding.runtimeChoice.cloud.f2': 'ব্যবহার আরও দীর্ঘ করতে টোকেন কম্প্রেশন',
   'onboarding.runtimeChoice.cloud.f3': 'একটি সাবস্ক্রিপশনে সব মডেল',
@@ -732,7 +732,7 @@ const messages: TranslationMap = {
   'onboarding.custom.stepperMemory': 'মেমোরি',
   'onboarding.custom.stepCounter': 'ধাপ {n} / {total}',
   'onboarding.custom.defaultTitle': 'ডিফল্ট',
-  'onboarding.custom.defaultSubtitle': 'OpenHuman আপনার হয়ে পরিচালনা করবে।',
+  'onboarding.custom.defaultSubtitle': 'Sionix আপনার হয়ে পরিচালনা করবে।',
   'onboarding.custom.configureTitle': 'কনফিগার',
   'onboarding.custom.configureSubtitle': 'আমি কী ব্যবহার করব তা বেছে নেব।',
   'onboarding.custom.progressAriaLabel': 'অনবোর্ডিং অগ্রগতি',
@@ -746,40 +746,40 @@ const messages: TranslationMap = {
   'onboarding.custom.inference.subtitle':
     'কোন ল্যাঙ্গুয়েজ মডেল আপনার প্রশ্নের উত্তর দেবে এবং এজেন্ট চালাবে?',
   'onboarding.custom.inference.defaultDesc':
-    'OpenHuman প্রতিটি ওয়ার্কলোড একটি সেন্সিবল ডিফল্ট মডেলে রুট করে। কোনো কী বা সেটআপ নেই।',
+    'Sionix প্রতিটি ওয়ার্কলোড একটি সেন্সিবল ডিফল্ট মডেলে রুট করে। কোনো কী বা সেটআপ নেই।',
   'onboarding.custom.inference.configureDesc':
     'নিজের OpenAI বা Anthropic কী আনুন। আমরা সব টেক্সট-ভিত্তিক কাজে এটি ব্যবহার করি।',
   'onboarding.custom.voice.title': 'ভয়েস',
   'onboarding.custom.voice.subtitle': 'ভয়েস মোডের জন্য স্পিচ-টু-টেক্সট এবং টেক্সট-টু-স্পিচ।',
   'onboarding.custom.voice.defaultDesc':
-    'OpenHuman ম্যানেজড STT/TTS সহ আসে যা সরাসরি কাজ করে। কিছু সেটআপ করতে হবে না।',
+    'Sionix ম্যানেজড STT/TTS সহ আসে যা সরাসরি কাজ করে। কিছু সেটআপ করতে হবে না।',
   'onboarding.custom.voice.configureDesc':
     'নিজের ElevenLabs / OpenAI Whisper / ইত্যাদি ব্যবহার করুন। Settings › Voice-এ কনফিগার করুন।',
   'onboarding.custom.oauth.title': 'সংযোগ (OAuth)',
   'onboarding.custom.oauth.subtitle':
     'Gmail, Slack, Notion এবং OAuth প্রয়োজন এমন অন্যান্য সংযুক্ত সার্ভিস।',
   'onboarding.custom.oauth.defaultDesc':
-    'OpenHuman একটি ম্যানেজড Composio ওয়ার্কস্পেস চালায়। পরে প্রতিটি সার্ভিস সংযুক্ত করতে এক ক্লিক।',
+    'Sionix একটি ম্যানেজড Composio ওয়ার্কস্পেস চালায়। পরে প্রতিটি সার্ভিস সংযুক্ত করতে এক ক্লিক।',
   'onboarding.custom.oauth.configureDesc':
     'নিজের Composio অ্যাকাউন্ট / API কী আনুন। Settings › Connections-এ কনফিগার করুন।',
   'onboarding.custom.search.title': 'ওয়েব সার্চ',
-  'onboarding.custom.search.subtitle': 'OpenHuman আপনার হয়ে কীভাবে ওয়েব সার্চ করে।',
+  'onboarding.custom.search.subtitle': 'Sionix আপনার হয়ে কীভাবে ওয়েব সার্চ করে।',
   'onboarding.custom.search.defaultDesc':
-    'OpenHuman ম্যানেজড সার্চ ব্যাকএন্ড ব্যবহার করে। কোনো কী লাগে না।',
+    'Sionix ম্যানেজড সার্চ ব্যাকএন্ড ব্যবহার করে। কোনো কী লাগে না।',
   'onboarding.custom.search.configureDesc':
     'নিজের সার্চ প্রোভাইডার কী আনুন (Tavily, Brave ইত্যাদি)। Settings › Tools-এ কনফিগার করুন।',
   'onboarding.custom.embeddings.title': 'Embeddings',
   'onboarding.custom.embeddings.subtitle':
-    'OpenHuman কীভাবে সিমান্টিক মেমোরি অনুসন্ধানের জন্য ভেক্টর এম্বেডিং তৈরি করে।',
+    'Sionix কীভাবে সিমান্টিক মেমোরি অনুসন্ধানের জন্য ভেক্টর এম্বেডিং তৈরি করে।',
   'onboarding.custom.embeddings.defaultDesc':
-    'OpenHuman একটি পরিচালিত এম্বেডিং সেবা ব্যবহার করে। কোনো API কী প্রয়োজন নেই।',
+    'Sionix একটি পরিচালিত এম্বেডিং সেবা ব্যবহার করে। কোনো API কী প্রয়োজন নেই।',
   'onboarding.custom.embeddings.configureDesc':
     'আপনার নিজস্ব এম্বেডিং প্রোভাইডার ব্যবহার করুন (OpenAI, Voyage, Ollama, ইত্যাদি)।',
   'onboarding.custom.memory.title': 'মেমোরি',
   'onboarding.custom.memory.subtitle':
-    'OpenHuman কীভাবে আপনার কন্টেক্সট, পছন্দ ও পূর্ববর্তী কথোপকথন মনে রাখে।',
+    'Sionix কীভাবে আপনার কন্টেক্সট, পছন্দ ও পূর্ববর্তী কথোপকথন মনে রাখে।',
   'onboarding.custom.memory.defaultDesc':
-    'OpenHuman স্বয়ংক্রিয়ভাবে মেমোরি স্টোরেজ ও রিট্রিভাল পরিচালনা করে। কিছু সেটআপ করতে হবে না।',
+    'Sionix স্বয়ংক্রিয়ভাবে মেমোরি স্টোরেজ ও রিট্রিভাল পরিচালনা করে। কিছু সেটআপ করতে হবে না।',
   'onboarding.custom.memory.configureDesc':
     'মেমোরি নিজে পরীক্ষা, এক্সপোর্ট বা মুছুন। Settings › Memory-এ কনফিগার করুন।',
   'accounts.addAccount': 'অ্যাকাউন্ট যোগ করুন',
@@ -912,7 +912,7 @@ const messages: TranslationMap = {
   'misc.downloading': 'ডাউনলোড হচ্ছে...',
   'misc.installing': 'ইনস্টল হচ্ছে...',
   'misc.beta':
-    'OpenHuman এখন আর্লি বেটায় আছে। যেকোনো মতামত বা বাগ রিপোর্ট করুন — প্রতিটি রিপোর্ট আমাদের দ্রুত এগিয়ে যেতে সাহায্য করে।',
+    'Sionix এখন আর্লি বেটায় আছে। যেকোনো মতামত বা বাগ রিপোর্ট করুন — প্রতিটি রিপোর্ট আমাদের দ্রুত এগিয়ে যেতে সাহায্য করে।',
   'misc.betaFeedback': 'ফিডব্যাক পাঠান',
   'mnemonic.title': 'রিকভারি ফ্রেজ',
   'mnemonic.warning': 'এই শব্দগুলো ক্রমানুসারে লিখে নিরাপদ স্থানে সংরক্ষণ করুন।',
@@ -936,11 +936,11 @@ const messages: TranslationMap = {
   'privacy.anonymizedAnalytics': 'প্রোডাক্ট অ্যানালিটিক্স',
   'privacy.shareAnonymizedData': 'প্রোডাক্ট অ্যানালিটিক্স ও ডায়াগনস্টিকস শেয়ার করুন',
   'privacy.shareAnonymizedDataDesc':
-    'গোপনীয়তা-সীমিত ক্র্যাশ রিপোর্ট ও ব্যবহার ইভেন্ট শেয়ার করে OpenHuman উন্নত করতে সাহায্য করুন, যার মধ্যে স্থিতিশীল অ্যাকাউন্ট ID ও অ্যাপ সংস্করণ মেটাডেটা থাকে। বার্তা, ওয়ালেট কী, API কী বা সেশন টোকেন কখনো সংগ্রহ করা হয় না।',
+    'গোপনীয়তা-সীমিত ক্র্যাশ রিপোর্ট ও ব্যবহার ইভেন্ট শেয়ার করে Sionix উন্নত করতে সাহায্য করুন, যার মধ্যে স্থিতিশীল অ্যাকাউন্ট ID ও অ্যাপ সংস্করণ মেটাডেটা থাকে। বার্তা, ওয়ালেট কী, API কী বা সেশন টোকেন কখনো সংগ্রহ করা হয় না।',
   'privacy.meetingFollowUps': 'মিটিং ফলো-আপ',
   'privacy.autoHandoffMeet': 'Google Meet ট্রান্সক্রিপ্ট স্বয়ংক্রিয়ভাবে অর্কেস্ট্রেটরে পাঠান',
   'privacy.autoHandoffMeetDesc':
-    'Google Meet কল শেষ হলে, OpenHuman-এর অর্কেস্ট্রেটর ট্রান্সক্রিপ্ট পড়তে এবং বার্তা ড্রাফট করা, ফলো-আপ নির্ধারণ করা বা সংযুক্ত Slack ওয়ার্কস্পেসে সারসংক্ষেপ পোস্ট করার মতো কাজ করতে পারে। ডিফল্টে বন্ধ।',
+    'Google Meet কল শেষ হলে, Sionix-এর অর্কেস্ট্রেটর ট্রান্সক্রিপ্ট পড়তে এবং বার্তা ড্রাফট করা, ফলো-আপ নির্ধারণ করা বা সংযুক্ত Slack ওয়ার্কস্পেসে সারসংক্ষেপ পোস্ট করার মতো কাজ করতে পারে। ডিফল্টে বন্ধ।',
   'privacy.analyticsDisclaimer':
     'সক্রিয় থাকলে, প্রোডাক্ট অ্যানালিটিক্স ও ডায়াগনস্টিকসে গোপনীয়তা-সীমিত ক্র্যাশ রিপোর্ট ও ব্যবহার ইভেন্ট, স্থিতিশীল অ্যাকাউন্ট ID এবং অ্যাপ সংস্করণ মেটাডেটা থাকতে পারে। বার্তা, ওয়ালেট কী, API কী বা সেশন টোকেন কখনো সংগ্রহ করা হয় না। যেকোনো সময় এই সেটিং পরিবর্তন করা যাবে।',
   'settings.about.version': 'ভার্সন',
@@ -1031,15 +1031,15 @@ const messages: TranslationMap = {
   'settings.search.menuDesc':
     'Xqx1q1x - নিজ হাতে অনুসন্ধান অথবা তার নিজের উপলব্ধকারীর সাথে যোগাযোগ স্থাপন করুন। Xqxqxkey কী- র সাথে একযোগে কাজ করার জন্য',
   'settings.search.description':
-    'এজেন্ট যে সার্চ ইঞ্জিন ব্যবহার করে তা বেছে নিন, অথবা সার্চ টুলগুলো সম্পূর্ণভাবে নিষ্ক্রিয় করুন। Managed OpenHuman-এর ব্যাকএন্ড ব্যবহার করে (কোনো সেটআপ নেই)। Parallel, Brave, এবং Querit আপনার API কী ব্যবহার করে সরাসরি আপনার মেশিন থেকে চলে।',
+    'এজেন্ট যে সার্চ ইঞ্জিন ব্যবহার করে তা বেছে নিন, অথবা সার্চ টুলগুলো সম্পূর্ণভাবে নিষ্ক্রিয় করুন। Managed Sionix-এর ব্যাকএন্ড ব্যবহার করে (কোনো সেটআপ নেই)। Parallel, Brave, এবং Querit আপনার API কী ব্যবহার করে সরাসরি আপনার মেশিন থেকে চলে।',
   'settings.search.engineAria': 'সার্চ ইঞ্জিন',
   'settings.search.engineDisabledLabel': 'Disabled',
   'settings.search.engineDisabledDesc':
     'এজেন্ট প্রেক্ষাপট এবং উপলব্ধ টুল তালিকা থেকে সার্চ টুলগুলি সরিয়ে দিন।',
-  'settings.search.engineManagedLabel': 'OpenHuman পরিচালিত',
+  'settings.search.engineManagedLabel': 'Sionix পরিচালিত',
   'settings.search.engineManagedDesc': 'ডিফল্ট xqx1x ব্যাক-এন্ড দ্বারা রুট',
   'settings.search.localManagedUnavailable':
-    'লোকাল ব্যবহারকারীদের জন্য OpenHuman Managed সার্চ উপলভ্য নয়। ওয়েব সার্চ চালু করতে আপনার নিজের Parallel বা Brave API key যোগ করুন।',
+    'লোকাল ব্যবহারকারীদের জন্য Sionix Managed সার্চ উপলভ্য নয়। ওয়েব সার্চ চালু করতে আপনার নিজের Parallel বা Brave API key যোগ করুন।',
   'settings.search.engineParallelLabel': 'Parallel',
   'settings.search.engineParallelDesc':
     'সরাসরি xqxxxxxxxxxxxxqx; অনুসন্ধান, চ্যাট, গবেষণা, সমৃদ্ধ টুল।',
@@ -1147,13 +1147,13 @@ const messages: TranslationMap = {
     'স্থানীয় xqxqx গোপন টেবিলের মধ্যে সংরক্ষণ করা হয়েছে। কোনো অস্বীকৃত অথবা কোনো মডেল পাঠানো হয়নি।',
   'devices.betaBadge': 'বিটা',
   'devices.betaText':
-    'এই ফিচারটি এখন বেটায় আছে। iOS ফোনকে রিমোট ক্লায়েন্ট হিসেবে ব্যবহার করতে এই OpenHuman-এর সাথে পেয়ার করুন।',
+    'এই ফিচারটি এখন বেটায় আছে। iOS ফোনকে রিমোট ক্লায়েন্ট হিসেবে ব্যবহার করতে এই Sionix-এর সাথে পেয়ার করুন।',
   'devices.comingSoonDescription':
     'ডিভাইস পেয়ারিং শীঘ্রই আসছে। এই পেজে iPhone পেয়ারিং এবং সংযুক্ত ডিভাইস ম্যানেজ করা যাবে।',
   'devices.title': 'ডিভাইস',
   'devices.pairIphone': 'পেয়ার iPhone',
   'devices.noPaired': 'কোনো পেয়ার করা ডিভাইস নেই',
-  'devices.emptyState': 'এই OpenHuman সেশনে সংযোগ করতে আপনার iPhone এ একটি QR code স্ক্যান করুন।',
+  'devices.emptyState': 'এই Sionix সেশনে সংযোগ করতে আপনার iPhone এ একটি QR code স্ক্যান করুন।',
   'devices.devicePairedTitle': 'ডিভাইস পেয়ার করা',
   'devices.devicePairedMessage': 'iPhone সফলভাবে সংযুক্ত হয়েছে৷',
   'devices.deviceRevokedTitle': 'ডিভাইস প্রত্যাহার করা হয়েছে',
@@ -1174,7 +1174,7 @@ const messages: TranslationMap = {
   'devices.pairModal.title': 'পেয়ার iPhone',
   'devices.pairModal.loading': 'পেয়ারিং কোড তৈরি করা হচ্ছে...',
   'devices.pairModal.instructions':
-    'আপনার iPhone-এ OpenHuman অ্যাপ খুলুন এবং এই কোডটি স্ক্যান করুন।',
+    'আপনার iPhone-এ Sionix অ্যাপ খুলুন এবং এই কোডটি স্ক্যান করুন।',
   'devices.pairModal.expiresIn': 'কোডের মেয়াদ ~{count} মিনিটে শেষ হবে',
   'devices.pairModal.expiresInPlural': 'কোডের মেয়াদ ~{count} মিনিটে শেষ হবে',
   'devices.pairModal.showDetails': 'বিবরণ দেখান',
@@ -1422,7 +1422,7 @@ const messages: TranslationMap = {
   'mcp.connectAuth.schemeRaw': 'কোনোটি নয়',
   'mcp.connectAuth.reconnectFailed': 'শংসাপত্র সংরক্ষণ করা হয়েছে, কিন্তু সংযোগ ব্যর্থ হয়েছে।',
   'mcp.connectAuth.oauthHint':
-    'এই সার্ভারটি OAuth ব্যবহার করে। OpenHuman-কে অনুমোদন দিতে আপনার ব্রাউজারের মাধ্যমে সাইন ইন করুন।',
+    'এই সার্ভারটি OAuth ব্যবহার করে। Sionix-কে অনুমোদন দিতে আপনার ব্রাউজারের মাধ্যমে সাইন ইন করুন।',
   'mcp.connectAuth.signIn': 'ব্রাউজার দিয়ে সাইন ইন করুন',
   'mcp.connectAuth.oauthWaiting': 'সাইন-ইনের জন্য অপেক্ষা করা হচ্ছে…',
   'mcp.connectAuth.oauthOrToken':
@@ -1439,7 +1439,7 @@ const messages: TranslationMap = {
   'autonomy.title': 'এজেন্ট স্বায়ত্তশাসন',
   'autonomy.maxActionsLabel': 'প্রতি ঘণ্টায় সর্বাধিক অ্যাকশন',
   'autonomy.maxActionsHelp':
-    'একজন এজেন্ট প্রতি ঘণ্টায় সর্বোচ্চ কতটি টুল অ্যাকশন চালাতে পারবে। নতুন মান আপনার পরবর্তী চ্যাটে প্রযোজ্য হবে। Cron জব এবং চ্যানেল লিসেনার OpenHuman পুনরায় চালু না করা পর্যন্ত বর্তমান সীমা বজায় রাখবে।',
+    'একজন এজেন্ট প্রতি ঘণ্টায় সর্বোচ্চ কতটি টুল অ্যাকশন চালাতে পারবে। নতুন মান আপনার পরবর্তী চ্যাটে প্রযোজ্য হবে। Cron জব এবং চ্যানেল লিসেনার Sionix পুনরায় চালু না করা পর্যন্ত বর্তমান সীমা বজায় রাখবে।',
   'autonomy.statusSaving': 'সংরক্ষণ করা হচ্ছে...',
   'autonomy.statusSaved': 'সংরক্ষিত।',
   'autonomy.statusFailed': 'ব্যর্থ হয়েছে',
@@ -1495,7 +1495,7 @@ const messages: TranslationMap = {
   'settings.billing.browserOpenFailed':
     'ব্রাউজার স্বয়ংক্রিয়ভাবে খোলা যায়নি। উপরের বাটন ব্যবহার করুন।',
   'settings.tools.chooseCapabilities':
-    'OpenHuman আপনার হয়ে কোন ক্যাপাবিলিটিগুলো ব্যবহার করতে পারবে তা বেছে নিন।',
+    'Sionix আপনার হয়ে কোন ক্যাপাবিলিটিগুলো ব্যবহার করতে পারবে তা বেছে নিন।',
   'settings.tools.saveChanges': 'পরিবর্তন সংরক্ষণ করুন',
   'settings.tools.preferencesSaved': 'পছন্দ সংরক্ষিত',
   'settings.tools.saveFailed': 'পছন্দ সংরক্ষণ ব্যর্থ। আবার চেষ্টা করুন।',
@@ -1769,8 +1769,8 @@ const messages: TranslationMap = {
   'voice.providers.piperPreset.alanMedium': 'GB · অ্যালান (পুরুষ)',
   'voice.providers.piperPreset.jennyDiocoMedium': 'GB · জেনি ডিওকো (মহিলা)',
   'voice.providers.piperPreset.northernEnglishMaleMedium': 'GB · উত্তর ইংরেজি (পুরুষ)',
-  'voice.providers.chip.cloud': 'OpenHuman (পরিচালিত)',
-  'voice.providers.chip.cloudAria': 'OpenHuman পরিচালিত প্রোভাইডার সর্বদা সক্রিয়',
+  'voice.providers.chip.cloud': 'Sionix (পরিচালিত)',
+  'voice.providers.chip.cloudAria': 'Sionix পরিচালিত প্রোভাইডার সর্বদা সক্রিয়',
   'voice.providers.chip.whisper': 'Whisper (স্থানীয়)',
   'voice.providers.chip.enableWhisper': 'স্থানীয় Whisper STT সক্রিয় করুন',
   'voice.providers.chip.disableWhisper': 'স্থানীয় Whisper STT নিষ্ক্রিয় করুন',
@@ -1819,7 +1819,7 @@ const messages: TranslationMap = {
   'voice.externalProviders.add': 'Add',
   'pttSettings.title': 'চাপ দিয়ে কথা বলুন',
   'pttSettings.description':
-    'অন্য একটি অ্যাপে থাকার সময় OpenHuman-এর সাথে কথা বলতে একটি কী চেপে ধরে রাখুন। কী ছেড়ে দিলে রেকর্ডিং পাঠানো হয়; «উত্তর পড়ে শোনাও» চালু থাকলে OpenHuman উত্তরটি জোরে পড়ে শোনায়।',
+    'অন্য একটি অ্যাপে থাকার সময় Sionix-এর সাথে কথা বলতে একটি কী চেপে ধরে রাখুন। কী ছেড়ে দিলে রেকর্ডিং পাঠানো হয়; «উত্তর পড়ে শোনাও» চালু থাকলে Sionix উত্তরটি জোরে পড়ে শোনায়।',
   'pttSettings.shortcutLabel': 'হটকি',
   'pttSettings.shortcutPlaceholder': 'একটি কী চাপুন (যেমন F13)',
   'pttSettings.shortcutUnsetHint':
@@ -1832,11 +1832,11 @@ const messages: TranslationMap = {
     'একটি সাধারণ কী বেছে নিন (যেমন F13) — শুধু মডিফায়ার নিয়ে গঠিত শর্টকাট চাপ দিয়ে কথা বলুনের জন্য কাজ করে না।',
   'pttSettings.errorEmpty': 'বাঁধার জন্য একটি কী বেছে নিন।',
   'pttSettings.errorAccessibility':
-    'এই শর্টকাটের জন্য macOS-এর অ্যাক্সেসিবিলিটি অনুমতি দরকার। System Settings → Privacy & Security → Accessibility খুলুন এবং OpenHuman চালু করুন।',
+    'এই শর্টকাটের জন্য macOS-এর অ্যাক্সেসিবিলিটি অনুমতি দরকার। System Settings → Privacy & Security → Accessibility খুলুন এবং Sionix চালু করুন।',
   'pttSettings.errorShortcutInUse':
     'অন্য একটি অ্যাপ ইতিমধ্যে এই শর্টকাট ব্যবহার করছে। ভিন্ন একটি বেছে নিন।',
   'pttSettings.errorUnsupportedWayland':
-    'Wayland সেশন এখনও OpenHuman-এ গ্লোবাল শর্টকাট সমর্থন করে না — একটি X11 সেশনে চলে যান অথবা অ্যাপের ভেতরের ডিকটেশন টগল ব্যবহার করুন।',
+    'Wayland সেশন এখনও Sionix-এ গ্লোবাল শর্টকাট সমর্থন করে না — একটি X11 সেশনে চলে যান অথবা অ্যাপের ভেতরের ডিকটেশন টগল ব্যবহার করুন।',
   'pttSettings.exclusiveFullscreenHint':
     'এক্সক্লুসিভ ফুলস্ক্রিন গেমে ওভারলে রেন্ডার হবে না — আপনি শুধু সাউন্ড সংকেতটি শুনতে পাবেন। ওভারলে দেখতে বর্ডারলেস ফুলস্ক্রিনে যান।',
   'pttOverlay.listening': 'শুনছে…',
@@ -2079,7 +2079,7 @@ const messages: TranslationMap = {
   'chat.attachment.unsupportedType':
     'অসমর্থিত ফাইল প্রকার। একটি ছবি (PNG, JPEG, WebP, GIF, BMP) অথবা একটি PDF, TXT, বা Markdown ফাইল ব্যবহার করুন।',
   'chat.attachment.imageNotSupported':
-    'এই মডেলটি ছবি পড়তে পারে না। আপনার ছবি সংযুক্ত করতে আপনি OpenHuman যুক্তি স্তর ব্যবহার করতে পারেন।',
+    'এই মডেলটি ছবি পড়তে পারে না। আপনার ছবি সংযুক্ত করতে আপনি Sionix যুক্তি স্তর ব্যবহার করতে পারেন।',
   'chat.attachment.readFailed': 'ফাইল পড়া যায়নি',
   'memory.searchAria': 'মেমোরি খুঁজুন',
   'memory.searchPlaceholder': 'মেমোরি এন্ট্রি খুঁজুন...',
@@ -2446,9 +2446,9 @@ const messages: TranslationMap = {
   'bootCheck.chooseCoreMode': 'একটি রানটাইম বেছে নিন',
   'bootCheck.connectToCore': 'আপনার রানটাইমে সংযুক্ত হন',
   'bootCheck.desktopDescription':
-    'OpenHuman চিন্তা করতে একটি রানটাইম প্রয়োজন। এটি কোথায় থাকবে তা বেছে নিন।',
+    'Sionix চিন্তা করতে একটি রানটাইম প্রয়োজন। এটি কোথায় থাকবে তা বেছে নিন।',
   'bootCheck.webDescription':
-    'ওয়েবে, OpenHuman আপনার নিয়ন্ত্রণে একটি রানটাইমে সংযুক্ত হয়। নিচে এর URL ও অথ টোকেন দিন, অথবা সরাসরি আপনার মেশিনে চালাতে ডেস্কটপ অ্যাপ নিন।',
+    'ওয়েবে, Sionix আপনার নিয়ন্ত্রণে একটি রানটাইমে সংযুক্ত হয়। নিচে এর URL ও অথ টোকেন দিন, অথবা সরাসরি আপনার মেশিনে চালাতে ডেস্কটপ অ্যাপ নিন।',
   'bootCheck.preferDesktop': 'সব নিজের ডিভাইসে রাখতে চান?',
   'bootCheck.downloadDesktop': 'ডেস্কটপ অ্যাপ নিন',
   'bootCheck.localRecommended': 'লোকালি চালান (প্রস্তাবিত)',
@@ -2474,7 +2474,7 @@ const messages: TranslationMap = {
   'bootCheck.quit': 'প্রস্থান',
   'bootCheck.legacyDetected': 'লেগ্যাসি ব্যাকগ্রাউন্ড রানটাইম শনাক্ত হয়েছে',
   'bootCheck.legacyDescription':
-    'এই ডিভাইসে আলাদাভাবে ইনস্টল করা একটি OpenHuman ডেমন ইতিমধ্যে চলছে। বিল্ট-ইন রানটাইম নিয়ন্ত্রণ নেওয়ার আগে এটি সরাতে হবে।',
+    'এই ডিভাইসে আলাদাভাবে ইনস্টল করা একটি Sionix ডেমন ইতিমধ্যে চলছে। বিল্ট-ইন রানটাইম নিয়ন্ত্রণ নেওয়ার আগে এটি সরাতে হবে।',
   'bootCheck.removing': 'সরানো হচ্ছে…',
   'bootCheck.removeContinue': 'সরান ও চালিয়ে যান',
   'bootCheck.localNeedsRestart': 'লোকাল রানটাইম রিস্টার্ট প্রয়োজন',
@@ -2496,7 +2496,7 @@ const messages: TranslationMap = {
   'bootCheck.actionFailed': 'কিছু একটা ভুল হয়েছে। আবার চেষ্টা করুন।',
   'bootCheck.portConflictTitle': 'অ্যাপ ইঞ্জিন চালু করা যায়নি',
   'bootCheck.portConflictBody':
-    'অন্য একটি প্রক্রিয়া OpenHuman-এর প্রয়োজনীয় নেটওয়ার্ক পোর্ট ব্যবহার করছে। আমরা স্বয়ংক্রিয়ভাবে এটি ঠিক করার চেষ্টা করব।',
+    'অন্য একটি প্রক্রিয়া Sionix-এর প্রয়োজনীয় নেটওয়ার্ক পোর্ট ব্যবহার করছে। আমরা স্বয়ংক্রিয়ভাবে এটি ঠিক করার চেষ্টা করব।',
   'bootCheck.portConflictFixButton': 'স্বয়ংক্রিয়ভাবে ঠিক করুন',
   'bootCheck.portConflictFixing': 'ঠিক করা হচ্ছে…',
   'bootCheck.portConflictFixFailed':
@@ -2551,7 +2551,7 @@ const messages: TranslationMap = {
   'composio.reconnect': 'পুনঃসংযোগ',
   'composio.expiredAuthorization': '{name} অনুমোদনের মেয়াদ শেষ',
   'composio.expiredDescription':
-    'পুনরায় সংযোগ করতে PH__0 টুল পুনরায় সংযুক্ত করুন। আপনি OAuth অ্যাক্সেস রিফ্রেশ না করা পর্যন্ত OpenHuman এই ইন্টিগ্রেশনটি অনুপলব্ধ রাখবে৷',
+    'পুনরায় সংযোগ করতে PH__0 টুল পুনরায় সংযুক্ত করুন। আপনি OAuth অ্যাক্সেস রিফ্রেশ না করা পর্যন্ত Sionix এই ইন্টিগ্রেশনটি অনুপলব্ধ রাখবে৷',
   'composio.envVarOverrides': 'সেট থাকলে, এই সেটিং ওভাররাইড করে।',
   'composio.previewBadge': 'পূর্বরূপ',
   'composio.previewTooltip':
@@ -2602,7 +2602,7 @@ const messages: TranslationMap = {
   'accounts.webviewHost.timeoutHint': 'টাইমআউট হিন্ট',
   'app.connectionBadge.composio': 'Composio',
   'app.connectionBadge.messaging': 'মেসেজিং',
-  'app.connectionIndicator.connected': 'OpenHuman AI-এ সংযুক্ত 🚀',
+  'app.connectionIndicator.connected': 'Sionix AI-এ সংযুক্ত 🚀',
   'app.connectionIndicator.connecting': 'সংযোগ হচ্ছে',
   'app.connectionIndicator.coreOffline': 'কোর অফলাইন',
   'app.connectionIndicator.disconnected': 'সংযোগ বিচ্ছিন্ন',
@@ -2617,68 +2617,68 @@ const messages: TranslationMap = {
   'app.errorFallback.tryRecover': 'পুনরুদ্ধার চেষ্টা করুন',
   'app.localAiDownload.installing': 'ইনস্টল হচ্ছে...',
   'app.localAiDownload.preparing': 'প্রস্তুত হচ্ছে...',
-  'app.openhumanLink.accounts.continueWith': '{label} সাইন-ইন দিয়ে চালিয়ে যান',
-  'app.openhumanLink.accounts.done': 'সম্পন্ন',
-  'app.openhumanLink.accounts.intro': 'ভূমিকা',
-  'app.openhumanLink.accounts.webviewNote': 'Webview নোট',
-  'app.openhumanLink.billing.openDashboard': 'ড্যাশবোর্ড খুলুন',
-  'app.openhumanLink.billing.stayOnTrial': 'ট্রায়ালে থাকুন',
-  'app.openhumanLink.billing.trialCredit': 'সাইনআপ ক্রেডিট',
-  'app.openhumanLink.billing.trialDesc':
+  'app.SionixLink.accounts.continueWith': '{label} সাইন-ইন দিয়ে চালিয়ে যান',
+  'app.SionixLink.accounts.done': 'সম্পন্ন',
+  'app.SionixLink.accounts.intro': 'ভূমিকা',
+  'app.SionixLink.accounts.webviewNote': 'Webview নোট',
+  'app.SionixLink.billing.openDashboard': 'ড্যাশবোর্ড খুলুন',
+  'app.SionixLink.billing.stayOnTrial': 'ট্রায়ালে থাকুন',
+  'app.SionixLink.billing.trialCredit': 'সাইনআপ ক্রেডিট',
+  'app.SionixLink.billing.trialDesc':
     'প্রোমোশন ও অ্যাকাউন্টের যোগ্যতার ওপর ক্রেডিট অফার ভিন্ন হতে পারে।',
-  'app.openhumanLink.defaultBody': 'পপআপে এখনো প্রস্তুত নয়। সম্পূর্ণ সেটিংস পেজ খুলুন যখন',
-  'app.openhumanLink.discord.intro': 'ভূমিকা',
-  'app.openhumanLink.discord.openInvite': 'আমন্ত্রণ খুলুন',
-  'app.openhumanLink.discord.perk1': 'সুবিধা ১',
-  'app.openhumanLink.discord.perk2': 'সুবিধা ২',
-  'app.openhumanLink.discord.perk3': 'সুবিধা ৩',
-  'app.openhumanLink.discord.perk4': 'সুবিধা ৪',
-  'app.openhumanLink.discordReport.intro':
+  'app.SionixLink.defaultBody': 'পপআপে এখনো প্রস্তুত নয়। সম্পূর্ণ সেটিংস পেজ খুলুন যখন',
+  'app.SionixLink.discord.intro': 'ভূমিকা',
+  'app.SionixLink.discord.openInvite': 'আমন্ত্রণ খুলুন',
+  'app.SionixLink.discord.perk1': 'সুবিধা ১',
+  'app.SionixLink.discord.perk2': 'সুবিধা ২',
+  'app.SionixLink.discord.perk3': 'সুবিধা ৩',
+  'app.SionixLink.discord.perk4': 'সুবিধা ৪',
+  'app.SionixLink.discordReport.intro':
     'দুঃখিত — আমাদের দিক থেকে কিছু ভুল হয়েছে। আমরা এগুলো স্বয়ংক্রিয়ভাবে লগ করার চেষ্টা করি, তবে Discord-এ বিবরণ শেয়ার করলে আমরা দ্রুত সমাধান করতে পারি।',
-  'app.openhumanLink.discordReport.openDiscord': 'Discord খুলুন',
-  'app.openhumanLink.done': 'সম্পন্ন',
-  'app.openhumanLink.notifications.desktopOnly':
+  'app.SionixLink.discordReport.openDiscord': 'Discord খুলুন',
+  'app.SionixLink.done': 'সম্পন্ন',
+  'app.SionixLink.notifications.desktopOnly':
     'নেটিভ বিজ্ঞপ্তি শুধুমাত্র ডেস্কটপ অ্যাপে উপলব্ধ (`pnpm dev:app` চালান)।',
-  'app.openhumanLink.notifications.permissionOff':
-    'বিজ্ঞপ্তির অনুমতি বন্ধ আছে। সিস্টেম সেটিংস → বিজ্ঞপ্তি-তে OpenHuman সক্রিয় করুন, তারপর পুনরায় চেষ্টা করুন।',
-  'app.openhumanLink.notifications.triggerFailed':
-    'OpenHuman একটি সিস্টেম বিজ্ঞপ্তি চালু করতে পারেনি। OS-এর বিজ্ঞপ্তি সেটিংস যাচাই করুন এবং পুনরায় চেষ্টা করুন।',
-  'app.openhumanLink.notifications.welcomeBody':
+  'app.SionixLink.notifications.permissionOff':
+    'বিজ্ঞপ্তির অনুমতি বন্ধ আছে। সিস্টেম সেটিংস → বিজ্ঞপ্তি-তে Sionix সক্রিয় করুন, তারপর পুনরায় চেষ্টা করুন।',
+  'app.SionixLink.notifications.triggerFailed':
+    'Sionix একটি সিস্টেম বিজ্ঞপ্তি চালু করতে পারেনি। OS-এর বিজ্ঞপ্তি সেটিংস যাচাই করুন এবং পুনরায় চেষ্টা করুন।',
+  'app.SionixLink.notifications.welcomeBody':
     'যখন কোনো কিছুতে আপনার মনোযোগ প্রয়োজন হবে, তখন আপনি এখানে পিং পাবেন।',
-  'app.openhumanLink.notifications.welcomeTitle': 'OpenHuman ব্যবহারের জন্য প্রস্তুত',
-  'app.openhumanLink.status.closed': 'বন্ধ',
-  'app.openhumanLink.status.connected': 'সংযুক্ত',
-  'app.openhumanLink.status.error': 'ত্রুটি',
-  'app.openhumanLink.status.loading': 'লোড হচ্ছে…',
-  'app.openhumanLink.status.needsSignIn': 'সাইন-ইন প্রয়োজন',
-  'app.openhumanLink.status.timedOut': 'সময় শেষ',
-  'app.openhumanLink.loadingChannelSetup': 'চ্যানেল সেটআপ লোড হচ্ছে',
-  'app.openhumanLink.maybeLater': 'হয়তো পরে',
-  'app.openhumanLink.notifications.asking': 'OS-এ জিজ্ঞেস করছে…',
-  'app.openhumanLink.notifications.blocked': 'ব্লক করা',
-  'app.openhumanLink.notifications.blockedStep1': 'ব্লক করা ধাপ ১',
-  'app.openhumanLink.notifications.blockedStep2': 'ব্লক করা ধাপ ২',
-  'app.openhumanLink.notifications.blockedStep3': 'ব্লক করা ধাপ ৩',
-  'app.openhumanLink.notifications.intro': 'ভূমিকা',
-  'app.openhumanLink.notifications.promptHint': 'প্রম্পট হিন্ট',
-  'app.openhumanLink.notifications.retry': 'পরীক্ষা বিজ্ঞপ্তি আবার চেষ্টা করুন',
-  'app.openhumanLink.notifications.send': 'পরীক্ষা বিজ্ঞপ্তি পাঠান',
-  'app.openhumanLink.notifications.sendFailed': 'পাঠানো যায়নি: {error}',
-  'app.openhumanLink.notifications.sent':
-    'টেস্ট নোটিফিকেশন পাঠানো হয়েছে। যদি না পেয়ে থাকেন, System Settings → Notifications → OpenHuman-এ যান, Allow Notifications চালু করুন, এবং Banner Style-কে Persistent-এ সেট করুন।',
-  'app.openhumanLink.skipForNow': 'এখনের জন্য এড়িয়ে যান',
-  'app.openhumanLink.telegramUnavailable': 'Telegram পাওয়া যাচ্ছে না',
-  'app.openhumanLink.title.accounts': 'আপনার অ্যাপ সংযুক্ত করুন',
-  'app.openhumanLink.title.billing': 'বিলিং ও ক্রেডিট',
-  'app.openhumanLink.title.discord': 'কমিউনিটিতে যোগ দিন',
-  'app.openhumanLink.title.discordReport': 'এই ত্রুটি রিপোর্ট করুন',
-  'app.openhumanLink.title.messaging': 'একটি চ্যাট চ্যানেল সংযুক্ত করুন',
-  'app.openhumanLink.title.notifications': 'বিজ্ঞপ্তির অনুমতি দিন',
+  'app.SionixLink.notifications.welcomeTitle': 'Sionix ব্যবহারের জন্য প্রস্তুত',
+  'app.SionixLink.status.closed': 'বন্ধ',
+  'app.SionixLink.status.connected': 'সংযুক্ত',
+  'app.SionixLink.status.error': 'ত্রুটি',
+  'app.SionixLink.status.loading': 'লোড হচ্ছে…',
+  'app.SionixLink.status.needsSignIn': 'সাইন-ইন প্রয়োজন',
+  'app.SionixLink.status.timedOut': 'সময় শেষ',
+  'app.SionixLink.loadingChannelSetup': 'চ্যানেল সেটআপ লোড হচ্ছে',
+  'app.SionixLink.maybeLater': 'হয়তো পরে',
+  'app.SionixLink.notifications.asking': 'OS-এ জিজ্ঞেস করছে…',
+  'app.SionixLink.notifications.blocked': 'ব্লক করা',
+  'app.SionixLink.notifications.blockedStep1': 'ব্লক করা ধাপ ১',
+  'app.SionixLink.notifications.blockedStep2': 'ব্লক করা ধাপ ২',
+  'app.SionixLink.notifications.blockedStep3': 'ব্লক করা ধাপ ৩',
+  'app.SionixLink.notifications.intro': 'ভূমিকা',
+  'app.SionixLink.notifications.promptHint': 'প্রম্পট হিন্ট',
+  'app.SionixLink.notifications.retry': 'পরীক্ষা বিজ্ঞপ্তি আবার চেষ্টা করুন',
+  'app.SionixLink.notifications.send': 'পরীক্ষা বিজ্ঞপ্তি পাঠান',
+  'app.SionixLink.notifications.sendFailed': 'পাঠানো যায়নি: {error}',
+  'app.SionixLink.notifications.sent':
+    'টেস্ট নোটিফিকেশন পাঠানো হয়েছে। যদি না পেয়ে থাকেন, System Settings → Notifications → Sionix-এ যান, Allow Notifications চালু করুন, এবং Banner Style-কে Persistent-এ সেট করুন।',
+  'app.SionixLink.skipForNow': 'এখনের জন্য এড়িয়ে যান',
+  'app.SionixLink.telegramUnavailable': 'Telegram পাওয়া যাচ্ছে না',
+  'app.SionixLink.title.accounts': 'আপনার অ্যাপ সংযুক্ত করুন',
+  'app.SionixLink.title.billing': 'বিলিং ও ক্রেডিট',
+  'app.SionixLink.title.discord': 'কমিউনিটিতে যোগ দিন',
+  'app.SionixLink.title.discordReport': 'এই ত্রুটি রিপোর্ট করুন',
+  'app.SionixLink.title.messaging': 'একটি চ্যাট চ্যানেল সংযুক্ত করুন',
+  'app.SionixLink.title.notifications': 'বিজ্ঞপ্তির অনুমতি দিন',
   'app.persistRehydration.body': 'বডি',
   'app.persistRehydration.heading': 'শিরোনাম',
   'app.persistRehydration.resetCta': 'রিসেট হচ্ছে…',
   'app.persistRehydration.resetting': 'রিসেট হচ্ছে…',
-  'app.routeLoading.initializing': 'OpenHuman শুরু হচ্ছে...',
+  'app.routeLoading.initializing': 'Sionix শুরু হচ্ছে...',
   'app.update.currentlyOn': '{version}',
   'app.update.errorFallback': 'আপডেটের সময় কিছু একটা ভুল হয়েছে।',
   'app.update.header.default': 'আপডেট',
@@ -2732,7 +2732,7 @@ const messages: TranslationMap = {
   'chat.approval.fallback': 'এজেন্ট এমন কাজ করতে চায় যা আপনার অনুমোদন প্রয়োজন.',
   'chat.approval.title': 'অনুমোদন প্রয়োজন',
   'chat.approval.tool': 'টুল:',
-  'channels.authMode.managed_dm': 'OpenHuman দিয়ে লগইন করুন',
+  'channels.authMode.managed_dm': 'Sionix দিয়ে লগইন করুন',
   'channels.authMode.oauth': 'OAuth সাইন-ইন করুন',
   'channels.authMode.bot_token': 'আপনার নিজের বট টোকেন ব্যবহার করুন',
   'channels.authMode.api_key': 'আপনার নিজস্ব API কী ব্যবহার করুন',
@@ -2744,16 +2744,16 @@ const messages: TranslationMap = {
   'channels.discord.description': 'Discord এর মাধ্যমে বার্তা পাঠান এবং গ্রহণ করুন।',
   'channels.discord.authMode.bot_token.description': 'আপনার নিজস্ব Discord বট টোকেন প্রদান করুন।',
   'channels.discord.authMode.oauth.description':
-    'OAuth এর মাধ্যমে আপনার Discord সার্ভারে OpenHuman বট ইনস্টল করুন।',
+    'OAuth এর মাধ্যমে আপনার Discord সার্ভারে Sionix বট ইনস্টল করুন।',
   'channels.discord.authMode.managed_dm.description':
-    'আপনার ব্যক্তিগত Discord অ্যাকাউন্টটি OpenHuman বটের সাথে লিঙ্ক করুন।',
+    'আপনার ব্যক্তিগত Discord অ্যাকাউন্টটি Sionix বটের সাথে লিঙ্ক করুন।',
   'channels.discord.fields.bot_token.label': 'বট টোকেন',
   'channels.discord.fields.bot_token.placeholder': 'আপনার Discord বট টোকেন',
   'channels.discord.fields.guild_id.label': 'সার্ভার (গিল্ড) আইডি',
   'channels.discord.fields.guild_id.placeholder': 'ঐচ্ছিক: একটি নির্দিষ্ট সার্ভারে সীমাবদ্ধ',
   'channels.telegram.displayName': 'Telegram',
   'channels.telegram.description': 'Telegram এর মাধ্যমে বার্তা পাঠান এবং গ্রহণ করুন।',
-  'channels.telegram.authMode.managed_dm.description': 'সরাসরি OpenHuman Telegram বটকে মেসেজ করুন।',
+  'channels.telegram.authMode.managed_dm.description': 'সরাসরি Sionix Telegram বটকে মেসেজ করুন।',
   'channels.telegram.authMode.bot_token.description':
     '@BotFather থেকে আপনার নিজস্ব Telegram বট টোকেন প্রদান করুন।',
   'channels.telegram.fields.bot_token.label': 'বট টোকেন',
@@ -2807,16 +2807,16 @@ const messages: TranslationMap = {
   'iosPair.error.connectionFailed':
     'সংযোগ ব্যর্থ হয়েছে। নিশ্চিত করুন ডেস্কটপ অ্যাপটি চলছে এবং আবার চেষ্টা করুন।',
   'iosPair.error.invalidQr':
-    'অবৈধ QR কোড। নিশ্চিত করুন আপনি একটি OpenHuman পেয়ারিং কোড স্ক্যান করছেন।',
+    'অবৈধ QR কোড। নিশ্চিত করুন আপনি একটি Sionix পেয়ারিং কোড স্ক্যান করছেন।',
   'iosPair.error.unreachableDesktop':
     'ডেস্কটপে পৌঁছানো যায়নি। নিশ্চিত করুন উভয় ডিভাইস অনলাইনে আছে এবং আবার চেষ্টা করুন।',
   'iosPair.expired': 'QR code মেয়াদ শেষ হয়েছে। কোডটি পুনরায় তৈরি করতে ডেস্কটপকে বলুন।',
   'iosPair.instructions':
-    'আপনার ডেস্কটপে OpenHuman খুলুন, Settings > Devices-এ যান, এবং QR কোড দেখাতে "Pair phone" ট্যাপ করুন।',
+    'আপনার ডেস্কটপে Sionix খুলুন, Settings > Devices-এ যান, এবং QR কোড দেখাতে "Pair phone" ট্যাপ করুন।',
   'iosPair.retryScan': 'পুনরায় স্ক্যান করার চেষ্টা করুন',
   'iosPair.scanQrCode': 'স্ক্যান QR code',
   'iosPair.scannerOpening': 'স্ক্যানার খোলা হচ্ছে...',
-  'iosPair.step.openDesktop': 'ডেস্কটপে OpenHuman খুলুন',
+  'iosPair.step.openDesktop': 'ডেস্কটপে Sionix খুলুন',
   'iosPair.step.openSettings': 'সেটিংস > ডিভাইসগুলিতে যান',
   'iosPair.step.showQr': 'QR',
   'iosPair.title': 'আপনার ডেস্কটপের সাথে পেয়ার করুন',
@@ -2851,7 +2851,7 @@ const messages: TranslationMap = {
   'composio.connect.permissionsDefault': 'পড়া + লেখা ডিফল্টে সক্রিয়',
   'composio.connect.permissionsNote': 'প্রকাশ করতে পারে',
   'composio.connect.permissionsNoteSuffix':
-    'OpenHuman-এর নিজস্ব এজেন্ট অনুমতি নিচে read, write, এবং admin টগল হিসেবে নিয়ন্ত্রিত।',
+    'Sionix-এর নিজস্ব এজেন্ট অনুমতি নিচে read, write, এবং admin টগল হিসেবে নিয়ন্ত্রিত।',
   'composio.connect.reopenBrowser': 'ব্রাউজার আবার খুলুন',
   'composio.connect.requestingUrl': 'সংযোগ URL অনুরোধ হচ্ছে…',
   'composio.connect.requiredFieldEmpty': 'এই ফিল্ডটি আবশ্যক।',
@@ -2956,7 +2956,7 @@ const messages: TranslationMap = {
   'daemon.serviceBlockingGate.retryFailed':
     'আবার চেষ্টা ব্যর্থ। সর্বশেষ অ্যাপ বিল্ড ডাউনলোড করে আবার চেষ্টা করুন।',
   'daemon.serviceBlockingGate.retrying': 'আবার চেষ্টা হচ্ছে...',
-  'daemon.serviceBlockingGate.title': 'OpenHuman কোর পাওয়া যাচ্ছে না',
+  'daemon.serviceBlockingGate.title': 'Sionix কোর পাওয়া যাচ্ছে না',
   'home.banners.discordSubtitle': 'Discord সাবটাইটেল',
   'home.banners.discordTitle': 'আমাদের Discord-এ যোগ দিন',
   'home.banners.earlyBirdDismiss': 'আর্লি বার্ড ব্যানার বাদ দিন',
@@ -2992,7 +2992,7 @@ const messages: TranslationMap = {
   'intelligence.diagram.skillInstallCommand': 'npx skills add yizhiyanhua-ai/fireworks-tech-graph',
   'intelligence.diagram.promptExample':
     'ডার্ক টার্মিনাল স্টাইলে বর্তমান swarm-এর একটি আর্কিটেকচার ডায়াগ্রাম তৈরি করুন',
-  'intelligence.diagram.imageAlt': 'সর্বশেষ তৈরি OpenHuman আর্কিটেকচার ডায়াগ্রাম',
+  'intelligence.diagram.imageAlt': 'সর্বশেষ তৈরি Sionix আর্কিটেকচার ডায়াগ্রাম',
   'intelligence.diagram.refreshesEvery': 'প্রতি {seconds}s-এ রিফ্রেশ হয়',
   'intelligence.memoryText.entityTypePrefix': 'এনটিটি ধরন',
   'intelligence.screenDebug.active': 'সক্রিয়',
@@ -3224,10 +3224,10 @@ const messages: TranslationMap = {
     'আমরা আপনার লোকাল মডেল এবং টুলস প্রস্তুত করছি, প্রথম লঞ্চ ৩০–৬০ সেকেন্ড সময় নিতে পারে। আপনি যেকোনো সময় চ্যাটে যেতে পারেন — প্রোফাইল তৈরি ব্যাকগ্রাউন্ডে চলতে থাকবে।',
   'onboarding.contextGathering.stillWorkingTitle': 'এখনও আপনার প্রোফাইলে কাজ চলছে…',
   'onboarding.contextGathering.title': 'কন্টেক্সট সংগ্রহ',
-  'openhuman.team_list_teams': 'টিম তালিকা',
+  'Sionix.team_list_teams': 'টিম তালিকা',
   'overlay.ariaAttention': 'মনোযোগের বার্তা',
   'overlay.ariaCompanion': 'কম্প্যানিয়ন সক্রিয়',
-  'overlay.ariaOrb': 'OpenHuman ওভারলে',
+  'overlay.ariaOrb': 'Sionix ওভারলে',
   'overlay.ariaVoiceActive': 'ভয়েস ইনপুট সক্রিয়',
   'overlay.companion.error': 'ত্রুটি',
   'overlay.companion.listening': 'শুনছে…',
@@ -3304,7 +3304,7 @@ const messages: TranslationMap = {
   'rewards.community.roleAssigned': 'রোল বরাদ্দ হয়েছে',
   'rewards.community.roleAssignmentCount': '{unlocked}টির মধ্যে {assigned}টি রোল বরাদ্দ হয়েছে',
   'rewards.community.roleClaimDesc':
-    'আপনি Discord রোল আনলক করেছেন কিন্তু এখনও OpenHuman সার্ভারে যোগ দেননি। যোগ দিন যাতে সেগুলি স্বয়ংক্রিয়ভাবে বরাদ্দ হয়।',
+    'আপনি Discord রোল আনলক করেছেন কিন্তু এখনও Sionix সার্ভারে যোগ দেননি। যোগ দিন যাতে সেগুলি স্বয়ংক্রিয়ভাবে বরাদ্দ হয়।',
   'rewards.community.roleClaimTitle': 'আপনার Discord রোল দাবি করুন',
   'rewards.community.roleJoinToClaim': 'দাবি করতে সার্ভারে যোগ দিন',
   'rewards.community.rolePending': 'রোল সিঙ্ক হচ্ছে…',
@@ -3436,7 +3436,7 @@ const messages: TranslationMap = {
   'settings.ai.claudeCode.fullAccessOff':
     'শুধু সম্পাদনা গ্রহণ করুন — ফাইল সম্পাদনা স্বয়ংক্রিয়ভাবে প্রয়োগ করে, কমান্ড ও নেটওয়ার্ক নিয়ন্ত্রণ করে।',
   'settings.ai.claudeCode.sandboxNoteMac':
-    'macOS-এ, উভয় মোডেই ~/.openhuman স্যান্ডবক্স দ্বারা সুরক্ষিত থাকে।',
+    'macOS-এ, উভয় মোডেই ~/.Sionix স্যান্ডবক্স দ্বারা সুরক্ষিত থাকে।',
   'settings.ai.claudeCode.sandboxNoteOther':
     'এই প্ল্যাটফর্মে সম্পূর্ণ অ্যাক্সেস সীমাবদ্ধ নয় — ওয়ার্কস্পেসে আস্থা থাকলেই কেবল সক্রিয় করুন।',
   'settings.ai.claudeCode.enableToCheck': 'সাইন-ইন যাচাই করতে Claude Code সক্রিয় করুন।',
@@ -3520,7 +3520,7 @@ const messages: TranslationMap = {
   'settings.ai.noSpendRows': 'কোনো খরচ সারি লোড করা হয়নি।',
   'settings.ai.topHours': 'সেরা ঘন্টা',
   'settings.ai.noHourlySpend': 'এখনও কোন ঘন্টা খরচ নেই.',
-  'settings.ai.openhumanDefault': 'OpenHuman (ডিফল্ট)',
+  'settings.ai.SionixDefault': 'Sionix (ডিফল্ট)',
   'settings.ai.localModelResolved': 'Ollama · {model}',
   'settings.ai.customRoutingForWorkload': '{label} এর জন্য কাস্টম রাউটিং',
   'settings.ai.loadingModels': 'মডেল লোড হচ্ছে...',
@@ -3579,7 +3579,7 @@ const messages: TranslationMap = {
   'settings.ai.composioSyncScans': 'Composio সিঙ্ক স্ক্যান',
   'settings.ai.totalBackgroundApiReadBudget': 'মোট bg API পঠিত বাজেট',
   'settings.ai.memoryWorkerPolls': 'মেমরি কর্মী পোল',
-  'settings.ai.defaultProviderName': 'OpenHuman',
+  'settings.ai.defaultProviderName': 'Sionix',
   'settings.ai.routing.managed': 'পরিচালিত',
   'settings.ai.routing.managedDesc':
     'xq0xqx সমস্ত প্রকার মেঘে রান করা হবে, কর্মের জন্য সেরা মডেল নির্বাচন করুন, খরচের জন্য ব্যবহারযোগ্য ডিফল্ট মান নির্বাচন করুন।',
@@ -3773,16 +3773,16 @@ const messages: TranslationMap = {
   'settings.composio.confirmSwitch': 'আমি বুঝেছি, Direct-এ স্যুইচ করুন',
   'settings.composio.confirmTitle': '⚠️ Direct মোডে স্যুইচ হচ্ছে',
   'settings.composio.confirmWarning':
-    'OpenHuman-এর মাধ্যমে লিঙ্ক করা আপনার বিদ্যমান ইন্টিগ্রেশনগুলি (Gmail, Slack, GitHub ইত্যাদি) দৃশ্যমান হবে না — সেগুলি OpenHuman-পরিচালিত Composio টেন্যান্টে থাকে।',
+    'Sionix-এর মাধ্যমে লিঙ্ক করা আপনার বিদ্যমান ইন্টিগ্রেশনগুলি (Gmail, Slack, GitHub ইত্যাদি) দৃশ্যমান হবে না — সেগুলি Sionix-পরিচালিত Composio টেন্যান্টে থাকে।',
   'settings.composio.intro':
     'Composio ২৫০+ বহিরাগত অ্যাপকে টুল হিসেবে ইন্টিগ্রেট করে যা আপনার এজেন্ট কল করতে পারে। এই টুল কলগুলি কীভাবে রুট হবে তা নির্বাচন করুন।',
   'settings.composio.title': 'Composio',
   'settings.composio.modeDirect': 'ডাইরেক্ট (নিজের API কী আনুন)',
   'settings.composio.modeDirectDesc':
     'কলগুলি সরাসরি backend.composio.dev-এ যায়। সার্বভৌম / অফলাইন-বান্ধব। টুল এক্সিকিউশন সিঙ্ক্রোনাসভাবে কাজ করে; রিয়েল-টাইম ট্রিগার webhooks এখনও direct মোডে রুট করা হয় না (ফলো-আপ ইস্যু)।',
-  'settings.composio.modeManaged': 'ম্যানেজড (OpenHuman আপনার হয়ে পরিচালনা করে)',
+  'settings.composio.modeManaged': 'ম্যানেজড (Sionix আপনার হয়ে পরিচালনা করে)',
   'settings.composio.modeManagedDesc':
-    'OpenHuman আমাদের ব্যাকএন্ডের মাধ্যমে টুল কল প্রক্সি করে (প্রস্তাবিত)। অথ ব্রোকার করা হয়; আপনি কখনও Composio API key পেস্ট করেন না। Webhooks সম্পূর্ণরূপে রুট করা।',
+    'Sionix আমাদের ব্যাকএন্ডের মাধ্যমে টুল কল প্রক্সি করে (প্রস্তাবিত)। অথ ব্রোকার করা হয়; আপনি কখনও Composio API key পেস্ট করেন না। Webhooks সম্পূর্ণরূপে রুট করা।',
   'settings.composio.routingMode': 'রুটিং মোড',
   'settings.composio.saveErrorNoKey': 'সংরক্ষণ ব্যর্থ। Direct মোডের জন্য একটি API key প্রয়োজন।',
   'settings.composio.saving': 'সংরক্ষণ হচ্ছে…',
@@ -3937,7 +3937,7 @@ const messages: TranslationMap = {
   'settings.localModel.download.running': 'চলছে...',
   'settings.localModel.download.runningPrompt': 'প্রম্পট চলছে',
   'settings.localModel.download.summaryHelper':
-    'রাস্ট কোরের মাধ্যমে `openhuman.inference_summarize` কল করে',
+    'রাস্ট কোরের মাধ্যমে `Sionix.inference_summarize` কল করে',
   'settings.localModel.download.summarizePlaceholder':
     'লোকাল মডেল দিয়ে সারসংক্ষেপের জন্য টেক্সট পেস্ট করুন...',
   'settings.localModel.download.testCustomPrompt': 'কাস্টম প্রম্পট পরীক্ষা করুন',
@@ -4012,7 +4012,7 @@ const messages: TranslationMap = {
   'settings.localModel.status.ollamaDiagnostics': 'Ollama ডায়াগনস্টিক্স',
   'settings.localModel.status.ollamaNotInstalled': 'Ollama রানটাইম অনুপলব্ধ',
   'settings.localModel.status.ollamaNotInstalledDesc':
-    'OpenHuman এখন Ollama-কে একটি বাহ্যিক ইনফারেন্স রানটাইম হিসেবে গণ্য করে। আপনার নিজের Ollama সার্ভার শুরু করুন, যে মডেলগুলি চান টানুন, এবং ওয়ার্কলোড রাউটিং সেদিকে নির্দেশ করুন।',
+    'Sionix এখন Ollama-কে একটি বাহ্যিক ইনফারেন্স রানটাইম হিসেবে গণ্য করে। আপনার নিজের Ollama সার্ভার শুরু করুন, যে মডেলগুলি চান টানুন, এবং ওয়ার্কলোড রাউটিং সেদিকে নির্দেশ করুন।',
   'settings.localModel.status.progress': 'অগ্রগতি',
   'settings.localModel.status.provider': 'প্রোভাইডার',
   'settings.localModel.status.retryBootstrap': 'বুটস্ট্র্যাপ আবার চেষ্টা করুন',
@@ -4041,7 +4041,7 @@ const messages: TranslationMap = {
     'Telegram/Discord অথেন্টিকেশন মোড এবং ডিফল্ট চ্যানেল রাউটিং কনফিগার করুন',
   'settings.developerMenu.tools.title': 'টুলস',
   'settings.developerMenu.tools.desc':
-    'OpenHuman আপনার পক্ষ থেকে যে সক্ষমতাগুলি ব্যবহার করতে পারে সেগুলি চালু বা বন্ধ করুন',
+    'Sionix আপনার পক্ষ থেকে যে সক্ষমতাগুলি ব্যবহার করতে পারে সেগুলি চালু বা বন্ধ করুন',
   'settings.developerMenu.agentChat.title': 'এজেন্ট চ্যাট',
   'settings.developerMenu.agentChat.desc':
     'মডেল এবং টেম্পারেচার ওভাররাইডসহ এজেন্ট কথোপকথন পরীক্ষা করুন',
@@ -4218,7 +4218,7 @@ const messages: TranslationMap = {
     'Composio ইন্টিগ্রেশন ট্রিগারের জন্য AI ট্রায়াজ সেটিংস কনফিগার করুন',
   'settings.developerMenu.mcpServer.title': 'MCP লাইব্রেরি অনুপলব্ধ',
   'settings.developerMenu.mcpServer.desc':
-    'বাহ্যিক MCP ক্লায়েন্টগুলিকে OpenHuman-এ সংযুক্ত করতে কনফিগার করুন',
+    'বাহ্যিক MCP ক্লায়েন্টগুলিকে Sionix-এ সংযুক্ত করতে কনফিগার করুন',
   'settings.developerMenu.autonomy.title': 'এজেন্ট স্বায়ত্তশাসন',
   'settings.developerMenu.autonomy.desc': 'টুল অ্যাকশনের রেট সীমা এবং নিরাপত্তা থ্রেশহোল্ড',
   'settings.developerMenu.autocomplete.title': 'স্বয়ংসম্পূর্ণ',
@@ -4228,7 +4228,7 @@ const messages: TranslationMap = {
   'settings.mcpServer.title':
     'MCP সার্ভারের সাথে সংযোগ করতে বহিরাগত __BR1__ ক্লায়েন্ট কনফিগার করুন',
   'settings.mcpServer.toolsSectionTitle': 'উপলভ্য টুল',
-  'settings.mcpServer.toolsSectionDesc': 'উপলভ্য টুলস stdio সার্ভার যখন openhuman-core mcp',
+  'settings.mcpServer.toolsSectionDesc': 'উপলভ্য টুলস stdio সার্ভার যখন Sionix-core mcp',
   'settings.mcpServer.configSectionTitle': 'ক্লায়েন্ট কনফিগারেশন চালায়',
   'settings.mcpServer.configSectionDesc':
     'সঠিক কনফিগারেশন স্নিপেট তৈরি করতে আপনার MCP ক্লায়েন্ট নির্বাচন করুন',
@@ -4236,7 +4236,7 @@ const messages: TranslationMap = {
   'settings.mcpServer.copied': 'কপি করা হয়েছে!',
   'settings.mcpServer.openConfigFile': 'কনফিগ ফাইল খুলুন',
   'settings.mcpServer.binaryPathNotFound':
-    'OpenHuman বাইনারি পাওয়া যায়নি। উৎস থেকে চললে, এর সাথে তৈরি করুন: cargo build --bin openhuman-core',
+    'Sionix বাইনারি পাওয়া যায়নি। উৎস থেকে চললে, এর সাথে তৈরি করুন: cargo build --bin Sionix-core',
   'settings.mcpServer.openConfigError': 'কনফিগার ফাইল খুলতে ব্যর্থ',
   'settings.mcpServer.clientClaudeDesktop': 'Claude Desktop',
   'settings.mcpServer.clientCursor': 'কার্সার',
@@ -4279,7 +4279,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.timeout.unit': 'সেকেন্ড',
   'settings.agentAccess.timeout.invalid': 'অনুমোদিত পরিসরের মধ্যে সেকেন্ডের একটি পূর্ণসংখ্যা লিখুন',
   'settings.agentAccess.timeout.envOverride':
-    'OPENHUMAN_TOOL_TIMEOUT_SECS এনভায়রনমেন্ট ভেরিয়েবলটি এই সেটিং ওভাররাইড করছে, তাই এটি আনসেট না করা পর্যন্ত এখানে পরিবর্তনের কোনো প্রভাব পড়বে না।',
+    'Sionix_TOOL_TIMEOUT_SECS এনভায়রনমেন্ট ভেরিয়েবলটি এই সেটিং ওভাররাইড করছে, তাই এটি আনসেট না করা পর্যন্ত এখানে পরিবর্তনের কোনো প্রভাব পড়বে না।',
   'settings.agentAccess.grantedFolders': 'ফোল্ডার',
   'settings.agentAccess.alwaysAllow': 'সর্বদা অপসারণযোগ্য সরঞ্জাম',
   'settings.agentAccess.alwaysAllowDesc':
@@ -4306,7 +4306,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDir.cancel': 'বাতিল',
   'settings.agentAccess.actionDir.placeholder': 'পরম পথ, যেমন /Users/you/Projects',
   'settings.agentAccess.actionDir.envLocked':
-    'OPENHUMAN_ACTION_DIR দ্বারা নির্ধারিত। ওভাররাইড করতে এনভায়রনমেন্ট ভেরিয়েবল পরিবর্তন করুন।',
+    'Sionix_ACTION_DIR দ্বারা নির্ধারিত। ওভাররাইড করতে এনভায়রনমেন্ট ভেরিয়েবল পরিবর্তন করুন।',
   'settings.agentAccess.actionDir.saved': 'অ্যাকশন ডিরেক্টরি আপডেট হয়েছে।',
   'settings.agentAccess.internalState': 'অভ্যন্তরীণ অবস্থা',
   'settings.agentAccess.agentBlocked': 'এজেন্ট-অবরুদ্ধ',
@@ -4319,9 +4319,9 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDirEmptyError': 'পাথ ফাঁকা থাকতে পারবে না।',
   'settings.agentAccess.actionDirSaveError': 'অ্যাকশন স্যান্ডবক্স আপডেট করা যায়নি।',
   'settings.agentAccess.actionDirEnvOverrideError':
-    'OPENHUMAN_ACTION_DIR সেট করা আছে — সেটিংস থেকে সম্পাদনা করতে এনভ ভ্যারিয়েবলটি আনসেট করুন।',
+    'Sionix_ACTION_DIR সেট করা আছে — সেটিংস থেকে সম্পাদনা করতে এনভ ভ্যারিয়েবলটি আনসেট করুন।',
   'settings.agentAccess.actionDirEnvOverrideNote':
-    'OPENHUMAN_ACTION_DIR দ্বারা ওভাররাইড হয়েছে — সেটিংস থেকে পরিচালনা করতে এনভ ভ্যারিয়েবলটি আনসেট করুন।',
+    'Sionix_ACTION_DIR দ্বারা ওভাররাইড হয়েছে — সেটিংস থেকে পরিচালনা করতে এনভ ভ্যারিয়েবলটি আনসেট করুন।',
   'settings.agentAccess.approvalHistory': 'অনুমোদন ইতিহাস',
   'settings.agentAccess.approvalHistoryDesc':
     'এজেন্টের অনুরোধ করা পূর্ববর্তী অনুমোদন/প্রত্যাখ্যান সিদ্ধান্ত পর্যালোচনা করুন।',
@@ -4457,7 +4457,7 @@ const messages: TranslationMap = {
   'settings.mascot.characterPreview': 'পূর্বরূপ',
   'settings.mascot.characterStates': 'স্টেটস',
   'settings.mascot.characterVisemes': 'তুষারপাত',
-  'settings.mascot.colorAria': 'OpenHuman রঙ',
+  'settings.mascot.colorAria': 'Sionix রঙ',
   'settings.mascot.colorDesc': 'রঙের বিবরণ',
   'settings.mascot.colorHeading': 'রঙের শিরোনাম',
   'settings.mascot.colorBlack': 'কালো',
@@ -4467,15 +4467,15 @@ const messages: TranslationMap = {
   'settings.mascot.primaryColor': 'প্রধান রং',
   'settings.mascot.secondaryColor': 'দ্বিতীয় রং',
   'settings.mascot.colorYellow': 'হলুদ',
-  'settings.mascot.libraryUnavailable': 'OpenHuman লাইব্রেরি অনুপলব্ধ',
-  'settings.mascot.title': 'OpenHuman',
-  'settings.mascot.loadingLibrary': 'OpenHuman লাইব্রেরি লোড হচ্ছে…',
+  'settings.mascot.libraryUnavailable': 'Sionix লাইব্রেরি অনুপলব্ধ',
+  'settings.mascot.title': 'Sionix',
+  'settings.mascot.loadingLibrary': 'Sionix লাইব্রেরি লোড হচ্ছে…',
   'settings.mascot.loadDetailError': 'মাসকট লোড করা যায়নি৷',
   'settings.mascot.loadLibraryError': 'মাসকট লাইব্রেরি লোড করা যায়নি।',
-  'settings.mascot.localDefault': 'লোকাল OpenHuman (ডিফল্ট)',
+  'settings.mascot.localDefault': 'লোকাল Sionix (ডিফল্ট)',
   'settings.mascot.menuTitle': 'মাসকট',
   'settings.mascot.menuDesc': 'অ্যাপ জুড়ে ব্যবহৃত মাসকটের রঙ বেছে নিন',
-  'settings.mascot.noCharacters': 'কোনো OpenHuman ক্যারেক্টার এখনও উপলব্ধ নেই',
+  'settings.mascot.noCharacters': 'কোনো Sionix ক্যারেক্টার এখনও উপলব্ধ নেই',
   'settings.mascot.noColorVariants': 'কোনো রঙের ভেরিয়েন্ট নেই',
   'settings.mascot.voice.current': 'বর্তমান',
   'settings.mascot.voice.customDesc':
@@ -4528,7 +4528,7 @@ const messages: TranslationMap = {
     'যৌক্তিক ডিফল্ট — প্রতিটি রানে অতিরিক্ত টোকেন না পুড়িয়ে ভাল ধারাবাহিকতা।',
   'settings.memoryWindow.balanced.label': 'সুষম',
   'settings.memoryWindow.description':
-    'প্রতিটি নতুন এজেন্ট রানে OpenHuman কতটা মনে রাখা প্রসঙ্গ ইনজেক্ট করে। বড় উইন্ডো অতীত কথোপকথন সম্পর্কে বেশি সচেতন মনে হয় কিন্তু প্রতিটি রানে বেশি টোকেন ব্যবহার করে — এবং বেশি খরচ হয়।',
+    'প্রতিটি নতুন এজেন্ট রানে Sionix কতটা মনে রাখা প্রসঙ্গ ইনজেক্ট করে। বড় উইন্ডো অতীত কথোপকথন সম্পর্কে বেশি সচেতন মনে হয় কিন্তু প্রতিটি রানে বেশি টোকেন ব্যবহার করে — এবং বেশি খরচ হয়।',
   'settings.memoryWindow.extended.badge': 'আরও প্রসঙ্গ',
   'settings.memoryWindow.extended.hint':
     'প্রতিটি রানে আরও দীর্ঘমেয়াদী মেমরি ইনজেক্ট করা হয়। প্রতি টার্নে উচ্চ টোকেন খরচ।',
@@ -4651,9 +4651,9 @@ const messages: TranslationMap = {
   'skills.create.name': 'নাম',
   'skills.create.namePlaceholder': 'যেমন Trade Journal',
   'skills.create.scope': 'স্কোপ',
-  'skills.create.scopeProjectHint': '/.openhuman/skills/',
+  'skills.create.scopeProjectHint': '/.Sionix/skills/',
   'skills.create.scopeUserHint':
-    '~/.openhuman/skills/<slug>/SKILL.md-এ লেখা — সব ওয়ার্কস্পেসে পাওয়া যায়।',
+    '~/.Sionix/skills/<slug>/SKILL.md-এ লেখা — সব ওয়ার্কস্পেসে পাওয়া যায়।',
   'skills.create.slugLabel': 'স্লাগ লেবেল',
   'skills.create.subtitle': 'SKILL.md',
   'skills.create.tags': 'ট্যাগ',
@@ -4700,7 +4700,7 @@ const messages: TranslationMap = {
     'শুধুমাত্র সরাসরি `.md` লিঙ্কগুলি কাজ করে৷ GitHub-এর জন্য, একটি ফাইলের সাথে লিঙ্ক করুন (github.com/owner/repo/blob/.../SKILL.md) - গাছ এবং রেপো রুট ইনস্টল করা নেই।',
   'skills.install.errors.unsupportedUrlTitle': 'URL ফর্ম সমর্থিত নয়',
   'skills.install.errors.writeFailedHint':
-    'ওয়ার্কস্পেস দক্ষতা ডিরেক্টরি লেখার যোগ্য ছিল না। `<workspace>/.openhuman/skills/`-এর জন্য ফাইল সিস্টেমের অনুমতি পরীক্ষা করুন।',
+    'ওয়ার্কস্পেস দক্ষতা ডিরেক্টরি লেখার যোগ্য ছিল না। `<workspace>/.Sionix/skills/`-এর জন্য ফাইল সিস্টেমের অনুমতি পরীক্ষা করুন।',
   'skills.install.errors.writeFailedTitle': 'SKILL.md লেখা যায়নি',
   'skills.install.fetchLog': 'ফেচ লগ',
   'skills.install.fetchingPrefix': 'আনা হচ্ছে',
@@ -4733,17 +4733,17 @@ const messages: TranslationMap = {
   'skills.install.urlPlaceholder': 'https://raw.githubusercontent.com/owner/repo/main/SKILL.md',
   'skills.meetingBots.bannerDesc': 'ব্যানার বিবরণ',
   'skills.meetingBots.bannerTitle': 'ব্যানার শিরোনাম',
-  'skills.meetingBots.busyTitle': 'OpenHuman ব্যস্ত',
+  'skills.meetingBots.busyTitle': 'Sionix ব্যস্ত',
   'skills.meetingBots.comingSoon': 'শীঘ্রই আসছে',
-  'skills.meetingBots.couldNotStartTitle': 'OpenHuman শুরু করা যায়নি',
+  'skills.meetingBots.couldNotStartTitle': 'Sionix শুরু করা যায়নি',
   'skills.meetingBots.displayName': 'প্রদর্শন নাম',
-  'skills.meetingBots.failedToStart': 'OpenHuman শুরু করতে ব্যর্থ।',
+  'skills.meetingBots.failedToStart': 'Sionix শুরু করতে ব্যর্থ।',
   'skills.meetingBots.joiningMessage': 'কয়েক সেকেন্ডের মধ্যে অংশগ্রহণকারী হিসেবে দেখা যাবে।',
-  'skills.meetingBots.joiningTitle': 'OpenHuman মিটিংয়ে যোগ দিচ্ছে',
+  'skills.meetingBots.joiningTitle': 'Sionix মিটিংয়ে যোগ দিচ্ছে',
   'skills.meetingBots.meetingLink': 'মিটিং লিংক',
-  'skills.meetingBots.modalAriaLabel': 'OpenHuman-কে একটি মিটিংয়ে পাঠান',
+  'skills.meetingBots.modalAriaLabel': 'Sionix-কে একটি মিটিংয়ে পাঠান',
   'skills.meetingBots.modalDesc': 'মোডাল বিবরণ',
-  'skills.meetingBots.modalTitle': 'OpenHuman-কে একটি মিটিংয়ে পাঠান',
+  'skills.meetingBots.modalTitle': 'Sionix-কে একটি মিটিংয়ে পাঠান',
   'skills.meetingBots.newBadge': 'নতুন ব্যাজ',
   'skills.meetingBots.platformComingSoon': '{label} সমর্থন শীঘ্রই আসছে।',
   'skills.meetingBots.platformHints.gmeet': 'meet.google.com/abc-defg-hij',
@@ -4774,7 +4774,7 @@ const messages: TranslationMap = {
   'skills.meetingBots.respondToParticipantDesc':
     'মিটিং থেকে আপনার সঠিক প্রদর্শন নাম লিখুন। বট কেবল তখনই সাড়া দেয় যখন আপনি তার নাম বলেন (ওয়েক ফ্রেজ)।',
   'skills.meetingBots.wakePhrase': 'ওয়েক ফ্রেজ',
-  'skills.meetingBots.wakePhraseHint': 'Hey OpenHuman',
+  'skills.meetingBots.wakePhraseHint': 'Hey Sionix',
   'skills.meetingBots.wakePhraseDesc': 'বট সাড়া দেওয়ার আগে অংশগ্রহণকারীকে এটি বলতে হবে।',
   'skills.meetingBots.activeMode': 'আমি ডাকলে উত্তর দেবে',
   'skills.meetingBots.activeModeDesc':
@@ -4927,7 +4927,7 @@ const messages: TranslationMap = {
   'chat.parentThread': 'মূল থ্রেড',
   'chat.removeReaction': '{emoji}',
   'settings.composio.loading': 'লোড হচ্ছে…',
-  'settings.mascot.noCharactersAvailable': 'কোনো OpenHuman ক্যারেক্টার এখনও উপলব্ধ নেই',
+  'settings.mascot.noCharactersAvailable': 'কোনো Sionix ক্যারেক্টার এখনও উপলব্ধ নেই',
   'skills.uninstall.confirmTitle': '{name} আনইনস্টল করবেন?',
   'conversations.taskKanban.blocked': 'ব্লকড',
   'conversations.taskKanban.done': 'সম্পন্ন',
@@ -4950,7 +4950,7 @@ const messages: TranslationMap = {
   'settings.composio.notYetRouted': 'এখনও রুট করা হয়নি',
   'settings.localModel.download.manageExternal': 'আপনার বাহ্যিক রানটাইমে এই মডেলটি পরিচালনা করুন।',
   'settings.localModel.status.manageOllamaExternal':
-    'OpenHuman-এর বাইরে Ollama প্রক্রিয়া এবং মডেল পুল পরিচালনা করুন, তারপর ডায়াগনস্টিক পুনরায় চালান।',
+    'Sionix-এর বাইরে Ollama প্রক্রিয়া এবং মডেল পুল পরিচালনা করুন, তারপর ডায়াগনস্টিক পুনরায় চালান।',
   'settings.localModel.status.ollamaDocs': 'Ollama ডকস',
   'settings.localModel.status.thenRetry':
     'সেটআপ নির্দেশনার জন্য, তারপর আপনার রানটাইম পৌঁছানো গেলে পুনরায় চেষ্টা করুন।',
@@ -5441,7 +5441,7 @@ const messages: TranslationMap = {
   // Keyring consent & security
   'keyring.consent.title': 'নিরাপদ সঞ্চয়স্থান অনুপলব্ধ',
   'keyring.consent.description':
-    'আপনার অপারেটিং সিস্টেমের কিচেন অ্যাক্সেসযোগ্য নয়। OpenHuman-এর পরিবর্তে স্থানীয় এনক্রিপ্টেড সঞ্চয়স্থান ব্যবহার করে গোপনীয়তা সংরক্ষণ করতে আপনার অনুমতি প্রয়োজন।',
+    'আপনার অপারেটিং সিস্টেমের কিচেন অ্যাক্সেসযোগ্য নয়। Sionix-এর পরিবর্তে স্থানীয় এনক্রিপ্টেড সঞ্চয়স্থান ব্যবহার করে গোপনীয়তা সংরক্ষণ করতে আপনার অনুমতি প্রয়োজন।',
   'keyring.consent.reasonPrefix': 'কারণ:',
   'keyring.consent.showDetails': 'এটার মানে কী?',
   'keyring.consent.hideDetails': 'বিবরণ লুকান',
@@ -5481,7 +5481,7 @@ const messages: TranslationMap = {
   'memory.health.remediation.budget_exhausted':
     'মেমরি এমবেডিং পরিচালিত বাজেটে পৌঁছেছে। স্থানীয় Ollama এমবেডিং সেট আপ করুন (সেটিংস → AI → এমবেডিংস) অথবা মেমরি তৈরি চালিয়ে যেতে আপনার নিজস্ব এমবেডিং API কী যোগ করুন।',
   'memory.health.remediation.auth_missing':
-    'কোনও এমবেডিং শংসাপত্র পাওয়া যায়নি। OpenHuman-এ লগ ইন করুন, অথবা সেটিংস → AI → এমবেডিংস-এ স্থানীয় Ollama এমবেডিং সেট আপ করুন।',
+    'কোনও এমবেডিং শংসাপত্র পাওয়া যায়নি। Sionix-এ লগ ইন করুন, অথবা সেটিংস → AI → এমবেডিংস-এ স্থানীয় Ollama এমবেডিং সেট আপ করুন।',
   'memory.health.remediation.auth_invalid':
     'আপনার এমবেডিং শংসাপত্র প্রত্যাখ্যাত হয়েছে। পুনরায় প্রমাণীকরণ করুন, অথবা সেটিংস → AI → এমবেডিংস-এ স্থানীয় Ollama এমবেডিং-এ স্যুইচ করুন।',
   'memory.health.remediation.embeddings_unconfigured':
@@ -5571,11 +5571,11 @@ const messages: TranslationMap = {
   'onboarding.custom.vault.subtitle':
     'নিশ্চিত করুন মেমোরি নোট কোথায় লেখা হয়, উৎস ডেটা কীভাবে পড়া হয় এবং আপনার ভল্ট পাইপলাইন সুস্থ কিনা।',
   'onboarding.custom.vault.defaultDesc':
-    'OpenHuman-পরিচালিত মেমোরির ডিফল্ট ব্যবহার করুন। ভল্ট পাথ এবং সিঙ্ক স্বাস্থ্য পরে পর্যালোচনা করা যাবে।',
+    'Sionix-পরিচালিত মেমোরির ডিফল্ট ব্যবহার করুন। ভল্ট পাথ এবং সিঙ্ক স্বাস্থ্য পরে পর্যালোচনা করা যাবে।',
   'onboarding.custom.vault.configureDesc':
     'ভল্টের মালিকানা পর্যালোচনা করুন, স্বাস্থ্য পরীক্ষা চালান এবং এখনই মেমোরি নিয়ন্ত্রণ সামঞ্জস্য করুন।',
   'onboarding.custom.vault.localDisabledReason':
-    'পরিচালিত সেটআপের জন্য OpenHuman সাইন-ইন প্রয়োজন এবং লোকাল মোডে উপলব্ধ নয়।',
+    'পরিচালিত সেটআপের জন্য Sionix সাইন-ইন প্রয়োজন এবং লোকাল মোডে উপলব্ধ নয়।',
   'onboarding.custom.vault.exitError': 'অনবোর্ডিং শেষ করা যায়নি। আবার চেষ্টা করুন।',
   'vaultHealth.title': 'ভল্ট স্বাস্থ্য চেকলিস্ট',
   'vaultHealth.setupTitle': 'ভল্ট সেটআপ স্বাস্থ্য',
@@ -5595,9 +5595,9 @@ const messages: TranslationMap = {
   'vaultHealth.existsLabel': 'ওয়ার্কস্পেস ভল্ট পাথ বিদ্যমান',
   'vaultHealth.existsRecovery':
     'ভল্ট ফোল্ডার নেই। একটি সিঙ্ক শুরু করুন বা এই ফোল্ডারটি তৈরি করুন, তারপর এই চেকলিস্ট রিফ্রেশ করুন।',
-  'vaultHealth.writableLabel': 'ভল্ট OpenHuman দ্বারা লিখনযোগ্য',
+  'vaultHealth.writableLabel': 'ভল্ট Sionix দ্বারা লিখনযোগ্য',
   'vaultHealth.writableRecovery':
-    'OpenHuman এখনও এই ভল্টে লিখতে পারছে না। লেখার অনুমতি দিন এবং রিফ্রেশ করুন।',
+    'Sionix এখনও এই ভল্টে লিখতে পারছে না। লেখার অনুমতি দিন এবং রিফ্রেশ করুন।',
   'vaultHealth.obsidianLabel': 'ভল্ট Obsidian-এ নিবন্ধিত',
   'vaultHealth.obsidianRecovery':
     'Obsidian-এ এই পাথটির জন্য "ফোল্ডার ভল্ট হিসেবে খুলুন" বেছে নিন, তারপর এই চেকলিস্ট রিফ্রেশ করুন।',
@@ -5612,13 +5612,13 @@ const messages: TranslationMap = {
   'vaultHealth.timeDaysAgo': '{n} দিন আগে',
   'memoryData.howItWorks': 'মেমোরি স্টোরেজ কীভাবে কাজ করে',
   'memoryData.workspaceVault': 'ওয়ার্কস্পেস ভল্ট · লেখা',
-  'memoryData.workspaceVaultDesc': 'OpenHuman তৈরি মেমোরি নোট memory_tree/content-এ লেখে।',
+  'memoryData.workspaceVaultDesc': 'Sionix তৈরি মেমোরি নোট memory_tree/content-এ লেখে।',
   'memoryData.connectedSources': 'সংযুক্ত উৎস · পড়া',
   'memoryData.connectedSourcesDesc':
     'ফোল্ডার, মেইলবক্স, চ্যাট এবং রেপো মেমোরি ইন্ডেক্সিংয়ের জন্য আমদানি করা হয় — তাদের মূল ফাইল কখনো পুনরায় লেখা হয় না।',
   'memoryData.internalFiles': 'অভ্যন্তরীণ মেমোরি-ট্রি ফাইল',
   'memoryData.internalFilesDesc':
-    'ইন্ডেক্স, কিউ স্টেট এবং সারসংক্ষেপ OpenHuman দ্বারা পরিচালিত হয় যাতে রিকল ও সিঙ্ক সুস্থ থাকে।',
+    'ইন্ডেক্স, কিউ স্টেট এবং সারসংক্ষেপ Sionix দ্বারা পরিচালিত হয় যাতে রিকল ও সিঙ্ক সুস্থ থাকে।',
   'memoryData.windowError': 'মেমোরি উইন্ডো',
   'memoryData.windowUpdated': 'মেমোরি উইন্ডো আপডেট হয়েছে',
   'memoryData.windowUpdatedMsg': '{window}-এ সেট করা হয়েছে।',
@@ -5634,10 +5634,10 @@ const messages: TranslationMap = {
   // Security banner (approval-gate host-aware boot state)
   'security.approvalGateDisabled.title': 'অনুমোদন গেট নিষ্ক্রিয়',
   'security.approvalGateDisabled.body':
-    'আপনার পরিবেশে OPENHUMAN_APPROVAL_GATE=0 সেট করা আছে। বাহ্যিক প্রভাব সম্পন্ন টুলগুলি নিশ্চিতকরণ ছাড়াই চলবে।',
+    'আপনার পরিবেশে Sionix_APPROVAL_GATE=0 সেট করা আছে। বাহ্যিক প্রভাব সম্পন্ন টুলগুলি নিশ্চিতকরণ ছাড়াই চলবে।',
   'security.approvalGateOverrideIgnored.title': 'ওভাররাইড অবরুদ্ধ',
   'security.approvalGateOverrideIgnored.body':
-    'একটি OPENHUMAN_APPROVAL_GATE=0 ওভাররাইড সনাক্ত করা হয়েছিল কিন্তু উপেক্ষা করা হয়েছে: ডেস্কটপ অ্যাপ সর্বদা অনুমোদন গেট চালু রাখে।',
+    'একটি Sionix_APPROVAL_GATE=0 ওভাররাইড সনাক্ত করা হয়েছিল কিন্তু উপেক্ষা করা হয়েছে: ডেস্কটপ অ্যাপ সর্বদা অনুমোদন গেট চালু রাখে।',
 
   // Run queue
   'runQueue.mode.interrupt': 'বাধা দিন',

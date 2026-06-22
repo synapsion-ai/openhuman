@@ -34,7 +34,7 @@ export interface NavTab {
  */
 export const NAV_TABS: NavTab[] = [
   { id: 'chat', labelKey: 'nav.chat', path: '/chat', walkthroughAttr: 'tab-chat' },
-  { id: 'human', labelKey: 'nav.human', path: '/human', walkthroughAttr: 'tab-human' },
+  //{ id: 'human', labelKey: 'nav.human', path: '/human', walkthroughAttr: 'tab-human' },
   { id: 'brain', labelKey: 'nav.brain', path: '/brain', walkthroughAttr: 'tab-brain' },
   {
     id: 'agent-world',
