@@ -206,7 +206,7 @@ export const MINIMUM_SUPPORTED_APP_VERSION =
 /** URL for the latest app release download page. Used for OAuth version-gate recovery and crash-recovery prompts. Override via VITE_LATEST_APP_DOWNLOAD_URL for deployment-specific download pages. */
 export const LATEST_APP_DOWNLOAD_URL =
   (import.meta.env.VITE_LATEST_APP_DOWNLOAD_URL as string | undefined)?.trim() ||
-  'https://github.com/tinyhumansai/openhuman/releases/latest';
+  'https://github.com/synapsion-ai/openhuman/releases/latest';
 
 /**
  * Set `VITE_SENTRY_SMOKE_TEST=true` in one build (or in `.env.local`) to

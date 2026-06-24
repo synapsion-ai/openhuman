@@ -2748,8 +2748,7 @@ const messages: TranslationMap = {
     'Oferty kredytów mogą się różnić w zależności od promocji i kwalifikacji konta.',
   'app.SionixLink.defaultBody':
     'Jeszcze nie gotowe w popupie. Otwórz pełną stronę ustawień, gdy będziesz potrzebować.',
-  'app.SionixLink.discord.intro':
-    'Dołącz do społeczności, dziel się opiniami i bądź na bieżąco.',
+  'app.SionixLink.discord.intro': 'Dołącz do społeczności, dziel się opiniami i bądź na bieżąco.',
   'app.SionixLink.discord.openInvite': 'Otwórz zaproszenie',
   'app.SionixLink.discord.perk1': 'Pomoc bezpośrednio od twórców',
   'app.SionixLink.discord.perk2': 'Wczesny dostęp do nowych funkcji',

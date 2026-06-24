@@ -118,7 +118,7 @@ type TestStatus =
 // Desktop release artifact URL surfaced on the web build's mode picker so
 // users without a remote core have a clear path to install the app instead
 // of being trapped on the cloud-only form.
-const DESKTOP_DOWNLOAD_URL = 'https://github.com/tinyhumansai/openhuman/releases/latest';
+const DESKTOP_DOWNLOAD_URL = 'https://github.com/synapsion-ai/openhuman/releases/latest';
 
 function ModePicker({ onConfirm }: PickerProps) {
   const { t } = useT();

@@ -2605,8 +2605,7 @@ const messages: TranslationMap = {
     '抱歉 — 我们这边出错了。我们会尝试自动记录这些错误，但在 Discord 上分享详情能帮助我们更快地修复问题。',
   'app.SionixLink.discordReport.openDiscord': '打开 Discord',
   'app.SionixLink.done': '完成',
-  'app.SionixLink.notifications.desktopOnly':
-    '原生通知仅在桌面应用中可用（运行 `pnpm dev:app`）。',
+  'app.SionixLink.notifications.desktopOnly': '原生通知仅在桌面应用中可用（运行 `pnpm dev:app`）。',
   'app.SionixLink.notifications.permissionOff':
     '通知权限已关闭。请在“系统设置 → 通知”中启用 Sionix，然后重试。',
   'app.SionixLink.notifications.triggerFailed':
@@ -4156,8 +4155,7 @@ const messages: TranslationMap = {
   'settings.developerMenu.voiceDebug.desc': '语音听写运行时状态和调试设置',
   'settings.mcpServer.title': 'MCP 服务器',
   'settings.mcpServer.toolsSectionTitle': '可用工具',
-  'settings.mcpServer.toolsSectionDesc':
-    '运行 Sionix-core mcp 时通过 MCP stdio 服务器暴露的工具',
+  'settings.mcpServer.toolsSectionDesc': '运行 Sionix-core mcp 时通过 MCP stdio 服务器暴露的工具',
   'settings.mcpServer.configSectionTitle': '客户端配置',
   'settings.mcpServer.configSectionDesc': '选择你的 MCP 客户端以生成对应的配置代码片段',
   'settings.mcpServer.copySnippet': '复制到剪贴板',
@@ -4230,8 +4228,7 @@ const messages: TranslationMap = {
   'settings.agentAccess.actionDir.save': '保存',
   'settings.agentAccess.actionDir.cancel': '取消',
   'settings.agentAccess.actionDir.placeholder': '绝对路径，例如 /Users/you/Projects',
-  'settings.agentAccess.actionDir.envLocked':
-    '由 Sionix_ACTION_DIR 设置。请更改环境变量以覆盖。',
+  'settings.agentAccess.actionDir.envLocked': '由 Sionix_ACTION_DIR 设置。请更改环境变量以覆盖。',
   'settings.agentAccess.actionDir.saved': '操作目录已更新。',
   'settings.agentAccess.internalState': '内部状态',
   'settings.agentAccess.agentBlocked': '代理已阻止',
@@ -4558,8 +4555,7 @@ const messages: TranslationMap = {
   'skills.create.namePlaceholder': '例如：交易日志',
   'skills.create.scope': '范围',
   'skills.create.scopeProjectHint': '/.open human/技能/',
-  'skills.create.scopeUserHint':
-    '写入 ~/.Sionix/skills/<slug>/SKILL.md — 在所有工作空间中可用。',
+  'skills.create.scopeUserHint': '写入 ~/.Sionix/skills/<slug>/SKILL.md — 在所有工作空间中可用。',
   'skills.create.slugLabel': '标识符',
   'skills.create.subtitle': '技能.md',
   'skills.create.tags': '标签',

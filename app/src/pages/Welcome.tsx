@@ -126,11 +126,7 @@ const Welcome = () => {
             </button>
           </div>
           <div className="flex justify-center mb-6">
-            <img
-              src={'/brand/SyonixLogo.png'}
-              alt={t('welcome.logoAlt')}
-              className="h-20 w-20"
-            />
+            <img src={'/brand/SyonixLogo.png'} alt={t('welcome.logoAlt')} className="h-20 w-20" />
           </div>
 
           <h1 className="text-2xl font-bold text-stone-900 dark:text-neutral-100 text-center mb-2">

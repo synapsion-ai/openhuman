@@ -1925,8 +1925,7 @@ const en: TranslationMap = {
     'The browser could not be opened automatically. Use the button above.',
 
   // Settings: Tools
-  'settings.tools.chooseCapabilities':
-    'Choose which capabilities Sionix can use on your behalf.',
+  'settings.tools.chooseCapabilities': 'Choose which capabilities Sionix can use on your behalf.',
   'settings.tools.saveChanges': 'Save Changes',
   'settings.tools.preferencesSaved': 'Preferences saved',
   'settings.tools.saveFailed': 'Failed to save preferences. Try again.',
@@ -2761,8 +2760,7 @@ const en: TranslationMap = {
   // Memory data panel (storage explainer)
   'memoryData.howItWorks': 'How memory storage works',
   'memoryData.workspaceVault': 'Workspace vault · write',
-  'memoryData.workspaceVaultDesc':
-    'Sionix writes generated memory notes to memory_tree/content.',
+  'memoryData.workspaceVaultDesc': 'Sionix writes generated memory notes to memory_tree/content.',
   'memoryData.connectedSources': 'Connected sources · read',
   'memoryData.connectedSourcesDesc':
     'Folders, mailboxes, chats, and repos are imported for memory indexing — their original files are never rewritten.',
@@ -3234,8 +3232,7 @@ const en: TranslationMap = {
   'app.localAiDownload.preparing': 'Preparing...',
   'app.SionixLink.accounts.continueWith': 'Continue with {label} sign-in',
   'app.SionixLink.accounts.done': 'Done',
-  'app.SionixLink.accounts.intro':
-    'Connect your apps to give Sionix access to your accounts.',
+  'app.SionixLink.accounts.intro': 'Connect your apps to give Sionix access to your accounts.',
   'app.SionixLink.accounts.webviewNote':
     'Your credentials stay on this device and are never shared.',
   'app.SionixLink.billing.openDashboard': 'Open dashboard',
@@ -3380,8 +3377,7 @@ const en: TranslationMap = {
   // Telegram
   'channels.telegram.displayName': 'Telegram',
   'channels.telegram.description': 'Send and receive messages via Telegram.',
-  'channels.telegram.authMode.managed_dm.description':
-    'Message the Sionix Telegram bot directly.',
+  'channels.telegram.authMode.managed_dm.description': 'Message the Sionix Telegram bot directly.',
   'channels.telegram.authMode.bot_token.description':
     'Provide your own Telegram Bot token from @BotFather.',
   'channels.telegram.fields.bot_token.label': 'Bot Token',
@@ -3432,8 +3428,7 @@ const en: TranslationMap = {
   'iosPair.error.camera': 'Camera scan failed. Check camera permissions and try again.',
   'iosPair.error.connectionFailed':
     'Connection failed. Make sure the desktop app is running and try again.',
-  'iosPair.error.invalidQr':
-    'Invalid QR code. Make sure you are scanning an Sionix pairing code.',
+  'iosPair.error.invalidQr': 'Invalid QR code. Make sure you are scanning an Sionix pairing code.',
   'iosPair.error.unreachableDesktop':
     'Could not reach the desktop. Make sure both devices are online and try again.',
   'iosPair.expired': 'QR code expired. Ask the desktop to regenerate the code.',
@@ -4674,8 +4669,7 @@ const en: TranslationMap = {
   'settings.localModel.download.runVisionTest': 'Run Vision Test',
   'settings.localModel.download.running': 'Running...',
   'settings.localModel.download.runningPrompt': 'Running prompt',
-  'settings.localModel.download.summaryHelper':
-    'Calls `Sionix.inference_summarize` via Rust core',
+  'settings.localModel.download.summaryHelper': 'Calls `Sionix.inference_summarize` via Rust core',
   'settings.localModel.download.summarizePlaceholder':
     'Paste text to summarize with the local model...',
   'settings.localModel.download.testCustomPrompt': 'Test Custom Prompt',

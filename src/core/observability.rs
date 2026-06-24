@@ -66,7 +66,7 @@ const UPDATER_TRANSIENT_MESSAGE_PHRASES: &[&str] = &[
     "failed to check for updates: error sending request",
     "github api error: 403",
     "github api error: 5",
-    "error sending request for url (https://github.com/tinyhumansai/openhuman/releases/",
+    "error sending request for url (https://github.com/synapsion-ai/openhuman/releases/",
     "update endpoint did not respond with a successful status code",
 ];
 

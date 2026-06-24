@@ -1254,8 +1254,7 @@ const messages: TranslationMap = {
   'devices.loadFailed': 'ডিভাইসগুলি লোড করতে ব্যর্থ হয়েছে: {message}',
   'devices.pairModal.title': 'পেয়ার iPhone',
   'devices.pairModal.loading': 'পেয়ারিং কোড তৈরি করা হচ্ছে...',
-  'devices.pairModal.instructions':
-    'আপনার iPhone-এ Sionix অ্যাপ খুলুন এবং এই কোডটি স্ক্যান করুন।',
+  'devices.pairModal.instructions': 'আপনার iPhone-এ Sionix অ্যাপ খুলুন এবং এই কোডটি স্ক্যান করুন।',
   'devices.pairModal.expiresIn': 'কোডের মেয়াদ ~{count} মিনিটে শেষ হবে',
   'devices.pairModal.expiresInPlural': 'কোডের মেয়াদ ~{count} মিনিটে শেষ হবে',
   'devices.pairModal.showDetails': 'বিবরণ দেখান',

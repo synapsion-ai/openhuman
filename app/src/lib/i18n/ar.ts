@@ -1475,8 +1475,7 @@ const messages: TranslationMap = {
   'mcp.connectAuth.schemeBearer': 'Bearer',
   'mcp.connectAuth.schemeRaw': 'بدون',
   'mcp.connectAuth.reconnectFailed': 'تم حفظ بيانات الاعتماد، لكن فشل الاتصال.',
-  'mcp.connectAuth.oauthHint':
-    'يستخدم هذا الخادم OAuth. سجّل الدخول عبر متصفحك للسماح لـ Sionix.',
+  'mcp.connectAuth.oauthHint': 'يستخدم هذا الخادم OAuth. سجّل الدخول عبر متصفحك للسماح لـ Sionix.',
   'mcp.connectAuth.signIn': 'تسجيل الدخول عبر المتصفح',
   'mcp.connectAuth.oauthWaiting': 'في انتظار تسجيل الدخول…',
   'mcp.connectAuth.oauthOrToken':
@@ -1546,8 +1545,7 @@ const messages: TranslationMap = {
   'settings.billing.openingBrowser': 'جارٍ فتح المتصفح...',
   'settings.billing.browserNotOpen': 'إذا لم يفتح متصفحك، استخدم الزر أعلاه.',
   'settings.billing.browserOpenFailed': 'تعذّر فتح المتصفح تلقائيًا. استخدم الزر أعلاه.',
-  'settings.tools.chooseCapabilities':
-    'اختر الإمكانات التي يمكن لـ Sionix استخدامها نيابةً عنك.',
+  'settings.tools.chooseCapabilities': 'اختر الإمكانات التي يمكن لـ Sionix استخدامها نيابةً عنك.',
   'settings.tools.saveChanges': 'حفظ التغييرات',
   'settings.tools.preferencesSaved': 'تم حفظ التفضيلات',
   'settings.tools.saveFailed': 'فشل حفظ التفضيلات. حاول مرة أخرى.',
@@ -3993,8 +3991,7 @@ const messages: TranslationMap = {
   'settings.localModel.download.runVisionTest': 'جارٍ التشغيل...',
   'settings.localModel.download.running': 'جارٍ التشغيل...',
   'settings.localModel.download.runningPrompt': 'جارٍ تشغيل الطلب',
-  'settings.localModel.download.summaryHelper':
-    'يستدعي `Sionix.inference_summarize` عبر Rust core',
+  'settings.localModel.download.summaryHelper': 'يستدعي `Sionix.inference_summarize` عبر Rust core',
   'settings.localModel.download.summarizePlaceholder': 'الصق النص لتلخيصه بالنموذج المحلي...',
   'settings.localModel.download.testCustomPrompt': 'اختبار طلب مخصص',
   'settings.localModel.download.testEmbeddings': 'اختبار التضمينات',

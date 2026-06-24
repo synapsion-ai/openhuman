@@ -5223,8 +5223,7 @@ const messages: TranslationMap = {
   'devOptions.menuMessagingDesc':
     'Configurar modos de autenticação Telegram/Discord e roteamento de canal padrão',
   'devOptions.menuTools': 'Ferramentas',
-  'devOptions.menuToolsDesc':
-    'Habilitar ou desabilitar recursos que Sionix pode usar em seu nome',
+  'devOptions.menuToolsDesc': 'Habilitar ou desabilitar recursos que Sionix pode usar em seu nome',
   'devOptions.menuAgentChat': 'Bate-papo do agente',
   'devOptions.menuAgentChatDesc':
     'Testar conversação do agente com substituições de modelo e temperatura',

@@ -1240,8 +1240,7 @@ const messages: TranslationMap = {
   'devices.title': 'Perangkat',
   'devices.pairIphone': 'Pasangkan iPhone',
   'devices.noPaired': 'Tidak ada perangkat yang dipasangkan',
-  'devices.emptyState':
-    'Pindai kode QR di iPhone Anda untuk menghubungkannya ke sesi Sionix ini.',
+  'devices.emptyState': 'Pindai kode QR di iPhone Anda untuk menghubungkannya ke sesi Sionix ini.',
   'devices.devicePairedTitle': 'Perangkat yang dipasangkan',
   'devices.devicePairedMessage': 'iPhone berhasil tersambung.',
   'devices.deviceRevokedTitle': 'Perangkat dicabut',
@@ -2723,8 +2722,7 @@ const messages: TranslationMap = {
   'app.SionixLink.billing.trialCredit': 'Kredit pendaftaran',
   'app.SionixLink.billing.trialDesc':
     'Penawaran kredit dapat berbeda menurut promosi dan kelayakan akun.',
-  'app.SionixLink.defaultBody':
-    't siap di popup belum. Buka halaman pengaturan lengkap jika Anda',
+  'app.SionixLink.defaultBody': 't siap di popup belum. Buka halaman pengaturan lengkap jika Anda',
   'app.SionixLink.discord.intro': 'Pengantar',
   'app.SionixLink.discord.openInvite': 'Buka undangan',
   'app.SionixLink.discord.perk1': 'Keuntungan 1',

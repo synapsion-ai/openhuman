@@ -2917,8 +2917,7 @@ const messages: TranslationMap = {
     'Optional: auf einen bestimmten Server beschränken',
   'channels.telegram.displayName': 'Telegram',
   'channels.telegram.description': 'Sende und empfange Nachrichten über Telegram.',
-  'channels.telegram.authMode.managed_dm.description':
-    'Schreibe dem Sionix-Telegram-Bot direkt.',
+  'channels.telegram.authMode.managed_dm.description': 'Schreibe dem Sionix-Telegram-Bot direkt.',
   'channels.telegram.authMode.bot_token.description':
     'Gib deinen eigenen Telegram-Bot-Token von @BotFather an.',
   'channels.telegram.fields.bot_token.label': 'Bot-Token',

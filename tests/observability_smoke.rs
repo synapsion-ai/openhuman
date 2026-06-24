@@ -91,7 +91,7 @@ fn drops_updater_transient_check_failure() {
     let event = event_with_tags_and_message(
         &[],
         "failed to check for updates: error sending request for url \
-         (https://github.com/tinyhumansai/openhuman/releases/latest/download/latest.json)",
+         (https://github.com/synapsion-ai/openhuman/releases/latest/download/latest.json)",
     );
     assert_eq!(
         count_captured(vec![event]),

@@ -1281,8 +1281,7 @@ const messages: TranslationMap = {
   'devices.loadFailed': 'Impossibile caricare i dispositivi: {message}',
   'devices.pairModal.title': 'Accoppia iPhone',
   'devices.pairModal.loading': 'Generazione del codice di accoppiamento…',
-  'devices.pairModal.instructions':
-    "Apri l'app Sionix sul tuo iPhone e scansiona questo codice.",
+  'devices.pairModal.instructions': "Apri l'app Sionix sul tuo iPhone e scansiona questo codice.",
   'devices.pairModal.expiresIn': 'Il codice scade tra ~{count} minuto',
   'devices.pairModal.expiresInPlural': 'Il codice scade tra ~{count} minuti',
   'devices.pairModal.showDetails': 'Mostra dettagli',
