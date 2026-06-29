@@ -1,6 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { registry } from '../../../lib/commands/registry';
 import { renderWithProviders } from '../../../test/test-utils';
 import CollapsedNavRail from './CollapsedNavRail';
 
@@ -19,11 +20,11 @@ vi.mock('../../../services/analytics', () => ({ trackEvent: vi.fn() }));
 describe('CollapsedNavRail', () => {
   beforeEach(() => vi.clearAllMocks());
 
-  it('renders Home, Wallet, and every primary nav destination as icon buttons', () => {
+  it('renders Home, Keyboard Shortcuts, and every primary nav destination as icon buttons', () => {
     renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/home'] });
     for (const key of [
       'nav.home',
-      'nav.wallet',
+      'shortcuts.title',
       'nav.chat',
       'nav.human',
       'nav.brain',
@@ -32,26 +33,24 @@ describe('CollapsedNavRail', () => {
     ]) {
       expect(screen.getByRole('button', { name: key })).toBeInTheDocument();
     }
+    // The wallet shortcut was removed from the rail.
+    expect(screen.queryByRole('button', { name: 'nav.wallet' })).not.toBeInTheDocument();
   });
 
-  it('wallet button navigates to /settings/wallet-balances', () => {
+  it('shortcuts button opens the keyboard-shortcuts help directory', () => {
+    const runAction = vi.spyOn(registry, 'runAction').mockReturnValue(true);
     renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/home'] });
-    fireEvent.click(screen.getByRole('button', { name: 'nav.wallet' }));
-    expect(mockNavigate).toHaveBeenCalledWith('/settings/wallet-balances');
+    fireEvent.click(screen.getByRole('button', { name: 'shortcuts.title' }));
+    expect(runAction).toHaveBeenCalledWith('meta.keyboard-shortcuts');
+    runAction.mockRestore();
   });
 
-  it('wallet button has correct data-analytics-id', () => {
+  it('shortcuts button has correct data-analytics-id', () => {
     renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/home'] });
-    expect(screen.getByRole('button', { name: 'nav.wallet' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'shortcuts.title' })).toHaveAttribute(
       'data-analytics-id',
-      'collapsed-rail-wallet'
+      'collapsed-rail-shortcuts'
     );
-  });
-
-  it('wallet button is marked active when on /settings/wallet-balances', () => {
-    renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/settings/wallet-balances'] });
-    const btn = screen.getByRole('button', { name: 'nav.wallet' });
-    expect(btn.className).toMatch(/bg-white|dark:bg-neutral-800/);
   });
 
   it('navigates to a destination path when its icon is clicked', () => {
@@ -79,6 +78,30 @@ describe('CollapsedNavRail', () => {
   it('treats /chat as the active Home state', () => {
     renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/chat/abc'] });
     expect(screen.getByRole('button', { name: 'nav.home' })).toHaveAttribute(
+      'aria-current',
+      'page'
+    );
+  });
+
+  it('renders a Settings icon that navigates to /settings', () => {
+    renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/home'] });
+    const settings = screen.getByRole('button', { name: 'nav.settings' });
+    expect(settings).toBeInTheDocument();
+    fireEvent.click(settings);
+    expect(mockNavigate).toHaveBeenCalledWith('/settings');
+  });
+
+  it('marks Settings active on /settings routes', () => {
+    renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/settings/general'] });
+    expect(screen.getByRole('button', { name: 'nav.settings' })).toHaveAttribute(
+      'aria-current',
+      'page'
+    );
+  });
+
+  it('marks Settings active on the wallet sub-page (wallet rail removed)', () => {
+    renderWithProviders(<CollapsedNavRail />, { initialEntries: ['/settings/wallet-balances'] });
+    expect(screen.getByRole('button', { name: 'nav.settings' })).toHaveAttribute(
       'aria-current',
       'page'
     );

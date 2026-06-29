@@ -35,6 +35,19 @@ describe('SidebarNav active matching', () => {
     expect(tabButton('Chat')).toHaveAttribute('aria-current', 'page');
   });
 
+  it('gives the active tab a visible brand-accent fill (not the white sidebar background)', () => {
+    renderWithProviders(<SidebarNav />, { initialEntries: ['/chat'] });
+
+    const active = tabButton('Chat');
+    // Active state uses a themeable primary-accent tint that contrasts against
+    // any sidebar surface (light, dark, or custom themes).
+    expect(active.className).toContain('bg-primary-500/12');
+    expect(active.className).not.toContain('bg-white');
+
+    // Inactive tabs carry no active fill.
+    expect(tabButton('Human').className).not.toContain('bg-primary-500/12');
+  });
+
   it('clears an active provider selection when clicking the already-active nav item', () => {
     const { store } = renderWithProviders(<SidebarNav />, {
       initialEntries: ['/connections'],

@@ -226,6 +226,15 @@ pub enum ExpectedErrorKind {
     /// `is_network_unreachable_message` anchors miss the inner OS message.
     ChannelSupervisorRestart,
     ConfigLoadTimedOut,
+    /// A config-file READ failed because the OS refused access to a file that
+    /// exists (ACL-denied, held open by another process, OneDrive placeholder).
+    /// Unpreventable user-environment state — zero local lever to make the file
+    /// readable. Demoted only for the access-denied / locked io kinds; a
+    /// `NotFound` after the `exists()` check stays a paging defect. See
+    /// [`is_config_read_io_failure_message`]. Drops TAURI-RUST-DME
+    /// (`inference_downloads_progress` re-reads config every poll → 36k events /
+    /// 1 Windows user).
+    ConfigReadIoFailure,
     /// The subconscious engine's SQLite schema init couldn't open its database
     /// file at all — a host-filesystem condition, not a code bug. Two canonical
     /// renderings, both bound to the user's local FS:
@@ -411,6 +420,20 @@ pub fn expected_error_kind(message: &str) -> Option<ExpectedErrorKind> {
     if crate::openhuman::inference::provider::is_openai_oauth_session_expired_message(message) {
         return Some(ExpectedErrorKind::ProviderUserState);
     }
+    // TAURI-RUST-5MV — ollama.com hosted-inference 500 (`Internal Server Error
+    // (ref: <uuid>)`) for `*:cloud` models. The provider HTTP layer
+    // (`native_chat` / `streaming_chat` / `api_error`) already demotes its own
+    // per-attempt event and re-raises the actionable
+    // "Ollama cloud is temporarily unavailable …" string; this catches the
+    // re-report at the agent / RPC boundary (`provider_chat` →
+    // `report_error_or_expected`, the `domain=agent` half of the flood). Routed
+    // to `TransientUpstreamHttp` — it is an external upstream 5xx the
+    // reliable-provider layer retries + falls back over, with no client lever.
+    // Delegates to the single-source provider matcher so the phrasing can't
+    // drift. Distinct anchor from the matchers above, so it shadows nothing.
+    if crate::openhuman::inference::provider::is_ollama_cloud_internal_500_message(message) {
+        return Some(ExpectedErrorKind::TransientUpstreamHttp);
+    }
     if is_backend_user_error_message(&lower) {
         return Some(ExpectedErrorKind::BackendUserError);
     }
@@ -438,6 +461,21 @@ pub fn expected_error_kind(message: &str) -> Option<ExpectedErrorKind> {
     // embeddings-capable provider" message. Demote to info. Scoped to 404/405
     // only so a real 500 from a valid embeddings endpoint stays in Sentry.
     if is_embedding_endpoint_absent(&lower) {
+        return Some(ExpectedErrorKind::ProviderConfigRejection);
+    }
+    // TAURI-RUST-9SK — the user entered a non-embedding (chat) model id as the
+    // embeddings model (e.g. an OpenRouter `…:free` chat model), so the
+    // embeddings endpoint 400s `Model <id> does not exist` on every memory
+    // re-embed (2205 events / 1 user). OpenRouter's bare `"does not exist"` +
+    // integer `"code":400` body matches none of the chat-side phrases in
+    // `is_provider_config_rejection_message` (which key on the OpenAI-native
+    // `"does not exist or you do not have access"` / `model_not_found`), so
+    // without this it reaches Sentry. Deterministic user-config state; the
+    // settings UI surfaces an actionable "pick an embeddings-capable model"
+    // remediation. Scoped to the 400 model-rejection body so a real 400
+    // (oversized input, server fault) stays visible — same polarity contract as
+    // `is_embedding_endpoint_absent`.
+    if is_embedding_model_rejected(&lower) {
         return Some(ExpectedErrorKind::ProviderConfigRejection);
     }
     // Provider config-rejection (unknown model / abstract tier leaked to a
@@ -480,6 +518,13 @@ pub fn expected_error_kind(message: &str) -> Option<ExpectedErrorKind> {
     }
     if is_config_load_timed_out_message(&lower) {
         return Some(ExpectedErrorKind::ConfigLoadTimedOut);
+    }
+    // OS-level config-read denial on a file that exists (user-environment, zero
+    // local lever). Keyed on the config-read anchor + an access-denied/locked io
+    // signal; NotFound / unseen kinds fall through and keep paging. Requires the
+    // loader to surface the full io chain (#3962).
+    if is_config_read_io_failure_message(&lower) {
+        return Some(ExpectedErrorKind::ConfigReadIoFailure);
     }
     // Empty-provider-response re-report from the web-channel layer. Runs
     // last so an earlier, more specific matcher always wins. See the
@@ -600,6 +645,55 @@ fn is_config_load_timed_out_message(lower: &str) -> bool {
     lower.contains("config loading timed out")
 }
 
+/// Detect a config-file READ that failed because the operating system refused
+/// access to a file that **exists** — i.e. an unpreventable user-environment
+/// condition with zero local lever, not an OpenHuman defect.
+///
+/// `Config::load_or_init` (`impl_load.rs`) takes its read branch only after
+/// `config_path.exists()` returns true, then `read_to_string` is retried 5× and
+/// still fails. On a healthy install that never happens; in the wild a user's
+/// `config.toml` can be ACL-denied, held open by another process (antivirus /
+/// backup agent), or a OneDrive "files on demand" placeholder that won't
+/// hydrate. We cannot unlock or re-ACL a foreign-held file, so the per-poll
+/// re-report (TAURI-RUST-DME: `inference_downloads_progress` re-loads config on
+/// every poll → 36k events / 1 user) carries no Sentry-actionable signal.
+///
+/// Polarity contract — demote **only** when BOTH hold:
+///   1. an OpenHuman config-read context anchor is present — either
+///      `"failed to read config file"` (`load_or_init` retry path,
+///      `impl_load.rs`, the DME surface) or `"reading config.toml from"`
+///      (`load_from_config_path` snapshot-reload path) — AND
+///   2. an OS-level *access-denied / locked* signal is present.
+///
+/// `NotFound` (`os error 2` / "cannot find the file"), "is a directory", and any
+/// io kind not enumerated here are deliberately EXCLUDED: a file that vanished
+/// after the `exists()` check is a TOCTOU race / app defect and MUST keep
+/// paging. This matcher is only meaningful once the loader surfaces the full
+/// chain (`{:#}`, #3962) — the io fragment lives in the source, not the top
+/// `with_context` line.
+fn is_config_read_io_failure_message(lower: &str) -> bool {
+    let has_config_read_anchor =
+        lower.contains("failed to read config file") || lower.contains("reading config.toml from");
+    if !has_config_read_anchor {
+        return false;
+    }
+    // A directory (or otherwise non-regular file) at the config path is a
+    // bad-install / corruption signal that MUST keep paging. On Windows reading
+    // a directory surfaces the same `Access is denied. (os error 5)` shape as a
+    // genuine ACL denial, so the io-signal check below cannot tell them apart;
+    // the read site (`impl_load.rs`) now fails a directory fast with this
+    // distinct wording, and we belt-and-braces exclude it here too. (Codex P2.)
+    if lower.contains("is a directory") || lower.contains("not a file") {
+        return false;
+    }
+    lower.contains("access is denied")
+        || lower.contains("permission denied")
+        || lower.contains("being used by another process")
+        || lower.contains("cannot access the file")
+        || lower.contains("(os error 5)")
+        || lower.contains("(os error 32)")
+}
+
 /// Match whatsapp structured-ingest failures caused by transient SQLite lock
 /// contention. Keep this matcher scoped to the whatsapp ingest envelope so we
 /// don't demote unrelated database failures in other domains.
@@ -666,6 +760,34 @@ fn is_embedding_backend_auth_failure(lower: &str) -> bool {
 /// two never drift.
 pub(crate) fn is_embedding_endpoint_absent(lower: &str) -> bool {
     lower.contains("embedding api error") && (lower.contains("(404") || lower.contains("(405"))
+}
+
+/// Detect a custom/cloud embeddings endpoint that IS an embeddings API but
+/// **rejected the configured model id** — the user pasted a non-embedding
+/// (chat/reasoning) model into the embeddings model field. Canonical wire shape
+/// from `src/openhuman/embeddings/openai.rs` (TAURI-RUST-9SK, ~2205 events):
+///
+/// ```text
+/// Embedding API error (400 Bad Request): {"error":{"message":"Model nvidia/nemotron-3-super-120b-a12b does not exist","code":400}}
+/// ```
+///
+/// Deterministic user-config state, re-emitted on every memory re-embed; the
+/// embeddings settings UI surfaces an actionable "pick an embeddings-capable
+/// model" remediation (appended to the message at the emit site). The
+/// OpenRouter body — bare `"does not exist"` with an integer `"code":400` —
+/// matches none of the chat-side phrases in
+/// `inference::provider::is_provider_config_rejection_message` (those key on the
+/// OpenAI-native `"does not exist or you do not have access"` /
+/// `model_not_found`), so this dedicated matcher is what demotes it.
+///
+/// Polarity (important): scoped to **400** + a model-rejection body. A bare
+/// 400 (oversized input — prevented at source by the chunk cap #3598) or a 500
+/// from a valid embeddings endpoint is a real fault and must keep reaching
+/// Sentry, so this never fires on them.
+fn is_embedding_model_rejected(lower: &str) -> bool {
+    lower.contains("embedding api error")
+        && lower.contains("(400")
+        && (lower.contains("does not exist") || lower.contains("does not support embeddings"))
 }
 
 /// Detect the memory-store chunk DB's circuit-breaker-open message that
@@ -833,7 +955,7 @@ fn is_loopback_unavailable(lower: &str) -> bool {
 /// the local Ollama daemon — pure user-state errors the UI already surfaces
 /// (toast / settings page warning) where Sentry has no remediation path.
 ///
-/// Three canonical wire shapes are covered, all emitted by
+/// Several canonical wire shapes are covered, all emitted by
 /// `openhuman::embeddings::ollama::OllamaEmbedding::embed` and the embed
 /// service fallback path:
 ///
@@ -848,21 +970,31 @@ fn is_loopback_unavailable(lower: &str) -> bool {
 ///   `ollama embed failed with status 404 Not Found: {"error":"model \"<id>\" not found, try pulling it first"}`.
 ///   (Self-hosted Sentry events still flow from older client releases that
 ///   predate this matcher; they drop off naturally as users upgrade.)
+/// - **TAURI-RUST-3X / -8WA** (~982 events on 0.57.52): 501 "embeddings not
+///   supported". Two bodies — the model is chat/vision-only
+///   (`{"error":"this model does not support embeddings"}`) or the Ollama
+///   daemon was started without embed support
+///   (`{"error":"This server does not support embeddings. Start it with `--embeddings`"}`).
+/// - **TAURI-RUST-3E** (~249 events): 401 auth-required Ollama endpoint with
+///   no credentials configured. Wire shape:
+///   `ollama embed failed with status 401 Unauthorized: {"error": "unauthorized"}`.
 /// - **OPENHUMAN-TAURI-GX**: user opted into Ollama embeddings but the
 ///   daemon isn't running on `localhost:11434`, so the embed service falls
 ///   back to cloud embeddings for the session. Wire shape:
 ///   `ollama embeddings opted-in but daemon unreachable at http://localhost:11434; falling back to cloud embeddings for this session`.
 ///
-/// All three are user-config: the user picked the wrong model id, forgot to
-/// pull it, or forgot to start the daemon. The remediation is "fix the
-/// model id in Settings" / "run `ollama pull <id>`" / "start ollama" —
-/// none of which Sentry can do for them.
+/// All are user-config: the user picked the wrong model id, forgot to pull
+/// it, ran a daemon without embed support, omitted credentials, or forgot to
+/// start the daemon. The remediation is "fix the model id in Settings" /
+/// "run `ollama pull <id>`" / "start ollama with `--embeddings`" / "add a
+/// key" / "start ollama" — none of which Sentry can do for them.
 ///
-/// The classifier is anchored on the `"ollama embed"` prefix
-/// (`"ollama embed failed"` for the 400/404 shapes, `"ollama embeddings opted-in"`
-/// for the daemon-unreachable fallback) so unrelated 400/404 errors elsewhere
-/// in the codebase that happen to contain `"invalid model name"` or
-/// `"not found"` substrings are not silenced.
+/// Each arm is anchored on the `"ollama embed"` prefix
+/// (`"ollama embed failed"` for the failed-request shapes,
+/// `"ollama embeddings opted-in"` for the daemon-unreachable fallback) so
+/// unrelated errors elsewhere in the codebase that happen to contain
+/// `"invalid model name"`, `"not found"`, or `"does not support embeddings"`
+/// substrings are not silenced.
 ///
 /// Routes to [`ExpectedErrorKind::ProviderUserState`] — the same bucket that
 /// holds the composio / gmail / OAuth user-state errors. We deliberately do
@@ -890,9 +1022,17 @@ fn is_ollama_user_config_rejection(lower: &str) -> bool {
         return true;
     }
 
-    if lower.contains("ollama embed failed")
-        && lower.contains("this model does not support embeddings")
-    {
+    // 3X / 8WA — 501-status "embeddings not supported". Ollama emits two
+    // bodies for this: the model is chat/vision-only
+    // (`{"error":"this model does not support embeddings"}`) or the daemon
+    // itself was started without embedding support
+    // (`{"error":"This server does not support embeddings. Start it with `--embeddings`"}`,
+    // TAURI-RUST-8WA, ~982 events on 0.57.52). Both are user-side Ollama
+    // config the app can't fix — it can neither swap the user's model nor
+    // restart their daemon with `--embeddings`. Anchor on the shared
+    // `does not support embeddings` phrase (still gated by the
+    // `ollama embed failed` prefix) so a future qualifier wording still demotes.
+    if lower.contains("ollama embed failed") && lower.contains("does not support embeddings") {
         return true;
     }
 
@@ -1777,6 +1917,23 @@ fn report_expected_message(kind: ExpectedErrorKind, message: &str, domain: &str,
                 "[observability] {domain}.{operation} skipped expected config-load timeout: {message}"
             );
         }
+        ExpectedErrorKind::ConfigReadIoFailure => {
+            // OS refused to read an existing config.toml (ACL-denied, locked by
+            // another process, OneDrive placeholder). User-environment state —
+            // we cannot make the file readable, and the same poll re-reports it
+            // every cycle (TAURI-RUST-DME). Demote at `warn!` so it stays in the
+            // local log for support without paging on every poll.
+            // Metadata-only: the raw message embeds the absolute config path
+            // (username / home dir). Keep this arm PII-free like the other
+            // path-sensitive demotions — domain/operation/kind are enough to
+            // see the condition without leaking the path into local logs.
+            tracing::warn!(
+                domain = domain,
+                operation = operation,
+                kind = "config_read_io_failure",
+                "[observability] {domain}.{operation} skipped expected config-read io failure (OS access denied/locked)"
+            );
+        }
         ExpectedErrorKind::SubconsciousSchemaUnavailable => {
             // Host-filesystem condition: SQLite couldn't open the subconscious
             // DB file (CANTOPEN / xShmMap). The WAL-fallback in
@@ -2447,6 +2604,90 @@ pub fn is_insufficient_credits_event(event: &sentry::protocol::Event<'_>) -> boo
     })
 }
 
+/// Message-level matcher for a provider **monthly-quota / usage-limit
+/// exhausted** failure. Status-agnostic by design — unlike
+/// [`is_insufficient_credits_message`] it does NOT anchor on a 402 status,
+/// because the Kiro IDE proxy wraps its 402 inside a 500 envelope
+/// (TAURI-RUST-C9A). Delegates to the single-source quota-phrase set in
+/// [`crate::openhuman::inference::provider::body_indicates_quota_exhausted`], so
+/// the emit-site guard and this `before_send` net can't drift. Shared with the
+/// event-level filter [`is_quota_exhausted_event`].
+pub fn is_quota_exhausted_message(text: &str) -> bool {
+    crate::openhuman::inference::provider::body_indicates_quota_exhausted(text)
+}
+
+/// Defense-in-depth `before_send` filter for provider **monthly-quota
+/// exhausted** events (TAURI-RUST-C9A): the user's third-party plan has spent
+/// its allotment for the period — a billing/plan state OpenHuman has no lever
+/// over.
+///
+/// The primary emit-site demotion lives in the `Provider::chat()` native_chat
+/// cascade and the shared `api_error` helper (`is_provider_quota_exhausted`),
+/// but the compatible provider reports the same failure from several other
+/// paths that don't run those guards. This filter is the single outermost net
+/// that catches all of them, keyed on the formatted message rather than tags so
+/// it matches regardless of which path emitted it (and regardless of whether
+/// the upstream wrapped the 402 in a 500 envelope).
+pub fn is_quota_exhausted_event(event: &sentry::protocol::Event<'_>) -> bool {
+    if event
+        .message
+        .as_deref()
+        .is_some_and(is_quota_exhausted_message)
+    {
+        return true;
+    }
+    event.exception.values.iter().any(|exception| {
+        exception
+            .value
+            .as_deref()
+            .is_some_and(is_quota_exhausted_message)
+    })
+}
+
+/// Whether a raw error / message string is an Ollama **Cloud** hosted-inference
+/// `500` (`Internal Server Error (ref: <uuid>)`). Matches either the raw emit
+/// shape (`ollama API error (500 …): {"error":"Internal Server Error (ref: …)"}`)
+/// or the actionable re-raise the emit sites swap in
+/// (`is_ollama_cloud_internal_500_message`). The raw arm requires BOTH the
+/// `ollama` provider name and the `internal server error (ref:` envelope, so a
+/// generic 500 from another provider, or a local Ollama daemon crash (which
+/// carries no `ref:` UUID), still reaches Sentry.
+pub fn is_ollama_cloud_internal_500_message_any(text: &str) -> bool {
+    if crate::openhuman::inference::provider::is_ollama_cloud_internal_500_message(text) {
+        return true;
+    }
+    let lower = text.to_ascii_lowercase();
+    lower.contains("ollama") && lower.contains("internal server error (ref:")
+}
+
+/// Defense-in-depth `before_send` filter for **Ollama Cloud hosted-inference
+/// 500s** (TAURI-RUST-5MV): ollama.com's `*:cloud` models intermittently
+/// return an opaque `Internal Server Error (ref: <uuid>)` with no client lever
+/// (non-deterministic, byte-identical request succeeds when healthy), retried +
+/// fallen-back by the reliable-provider layer.
+///
+/// The primary demotion lives at the `native_chat` / `streaming_chat` /
+/// `api_error` emit sites, and the agent re-report is demoted via
+/// `expected_error_kind` → `TransientUpstreamHttp`. This is the single outermost
+/// net for any other compatible-provider path (`chat_with_system`,
+/// `chat_with_history`, the non-native cascades) that reports the same body,
+/// keyed on the message rather than tags so it matches regardless of emitter.
+pub fn is_ollama_cloud_internal_500_event(event: &sentry::protocol::Event<'_>) -> bool {
+    if event
+        .message
+        .as_deref()
+        .is_some_and(is_ollama_cloud_internal_500_message_any)
+    {
+        return true;
+    }
+    event.exception.values.iter().any(|exception| {
+        exception
+            .value
+            .as_deref()
+            .is_some_and(is_ollama_cloud_internal_500_message_any)
+    })
+}
+
 /// 404 on PATCH/DELETE to a channel-message path is an expected backend state
 /// (user deleted the message provider-side, backend GC'd the relay row). The
 /// primary suppression lives in `authed_json` via `parse_message_path` +
@@ -2751,6 +2992,9 @@ mod tests {
             "ollama embeddings opted-in but daemon unreachable at http://localhost:11434; falling back to cloud embeddings for this session",
             // TAURI-RUST-3X — 501-status model-does-not-support-embeddings.
             r#"ollama embed failed with status 501 Not Implemented: {"error":"this model does not support embeddings"}"#,
+            // TAURI-RUST-8WA — 501-status daemon started without embed support.
+            // Exact wire body so a narrow-back to "this model …" fails CI.
+            r#"ollama embed failed with status 501 Not Implemented: {"error":"This server does not support embeddings. Start it with `--embeddings`"}"#,
             // TAURI-RUST-3E — 401 unauthorized embed (auth required at ollama endpoint).
             r#"ollama embed failed with status 401 Unauthorized: {"error": "unauthorized"}"#,
         ] {
@@ -2780,6 +3024,44 @@ mod tests {
                 "should classify embedding backend auth failure as SessionExpired: {raw}"
             );
         }
+    }
+
+    #[test]
+    fn classifies_embedding_model_does_not_exist_400_as_config_rejection() {
+        // TAURI-RUST-9SK (~2205 events / 1 user) — a chat model id pasted as the
+        // embeddings model. Verbatim OpenRouter wire body (bare "does not exist"
+        // + integer "code":400), plus the enriched form after the emit site
+        // appends the actionable remediation. Both must demote so the per-embed
+        // flood stays out of Sentry.
+        for raw in [
+            r#"Embedding API error (400 Bad Request): {"error":{"message":"Model nvidia/nemotron-3-super-120b-a12b does not exist","code":400}}"#,
+            "Embedding API error (400 Bad Request): {\"error\":{\"message\":\"Model nvidia/nemotron-3-super-120b-a12b does not exist\",\"code\":400}} — this model isn't an embeddings model; pick an embeddings-capable model in Settings → Memory",
+            r#"Embedding API error (400 Bad Request): {"error":{"message":"this model does not support embeddings"}}"#,
+        ] {
+            assert_eq!(
+                expected_error_kind(raw),
+                Some(ExpectedErrorKind::ProviderConfigRejection),
+                "should classify embedding model-rejection 400 as config rejection: {raw}"
+            );
+        }
+    }
+
+    #[test]
+    fn does_not_classify_unrelated_embedding_400s() {
+        // Polarity: a 400 that is NOT a model-rejection (e.g. oversized input)
+        // and any non-400 must keep reaching Sentry.
+        assert_eq!(
+            expected_error_kind(
+                r#"Embedding API error (400 Bad Request): {"error":{"message":"input exceeds the maximum number of tokens"}}"#
+            ),
+            None
+        );
+        assert_eq!(
+            expected_error_kind(
+                r#"Embedding API error (500 Internal Server Error): {"error":"model does not exist"}"#
+            ),
+            None
+        );
     }
 
     #[test]
@@ -3323,6 +3605,83 @@ mod tests {
         );
         // Bare "timed out" without the config-load phrase must not match.
         assert_eq!(expected_error_kind("cron job timed out after 30s"), None,);
+    }
+
+    #[test]
+    fn classifies_config_read_io_failure_for_os_denial_kinds() {
+        // TAURI-RUST-DME shape once the loader surfaces the full io chain
+        // (#3962): Windows access-denied on an existing config.toml.
+        assert_eq!(
+            expected_error_kind(
+                "Failed to read config file: C:\\Users\\u\\.openhuman\\users\\local-wb\\config.toml: Access is denied. (os error 5)"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+        // Sharing-violation: file held open by another process (antivirus /
+        // backup agent).
+        assert_eq!(
+            expected_error_kind(
+                "Failed to read config file: C:\\Users\\u\\.openhuman\\users\\local-wb\\config.toml: The process cannot access the file because it is being used by another process. (os error 32)"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+        // Unix permission-denied wording.
+        assert_eq!(
+            expected_error_kind(
+                "Failed to read config file: /home/u/.openhuman/users/local/config.toml: Permission denied (os error 13)"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+        // Snapshot-reload context anchor (`load_from_config_path`) must demote
+        // the same OS-denial family so a long-lived reloader can't leak either.
+        assert_eq!(
+            expected_error_kind(
+                "reading config.toml from C:\\Users\\u\\.openhuman\\users\\local-wb\\config.toml: Access is denied. (os error 5)"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+    }
+
+    #[test]
+    fn does_not_demote_config_read_notfound_or_unkeyed_failures() {
+        // NotFound AFTER the `exists()` gate is a TOCTOU race / app defect —
+        // it MUST keep paging, never demote.
+        assert_ne!(
+            expected_error_kind(
+                "Failed to read config file: C:\\Users\\u\\.openhuman\\users\\local-wb\\config.toml: The system cannot find the file specified. (os error 2)"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+        // Bare top-context line with no io signal (pre-#3962 shape, or an io
+        // kind we have not enumerated) must NOT demote — fail open to paging.
+        assert_ne!(
+            expected_error_kind(
+                "Failed to read config file: C:\\Users\\u\\.openhuman\\users\\local-wb\\config.toml"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+        // The access-denied signal alone, without the config-read anchor, must
+        // not be hijacked into the config bucket.
+        assert_ne!(
+            expected_error_kind("opening keychain failed: Access is denied. (os error 5)"),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+        // A directory at the config path is corruption — keep paging even though
+        // it carries an access-denied / os-error-5 shape (Codex P2). Both the
+        // unix wording and the Windows os-error-5 + read-site wording are
+        // excluded by the `is a directory` / `not a file` guard.
+        assert_ne!(
+            expected_error_kind(
+                "Failed to read config file: /home/u/.openhuman/users/local/config.toml: Is a directory (os error 21)"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
+        assert_ne!(
+            expected_error_kind(
+                "Config path is a directory, not a file: C:\\Users\\u\\.openhuman\\users\\local-wb\\config.toml: Access is denied. (os error 5)"
+            ),
+            Some(ExpectedErrorKind::ConfigReadIoFailure),
+        );
     }
 
     #[test]
@@ -5663,6 +6022,32 @@ mod tests {
     }
 
     #[test]
+    fn quota_exhausted_filter_matches_500_wrapped_kiro_event() {
+        // TAURI-RUST-C9A: verbatim message as formatted by the provider emit
+        // site — a 500 envelope around an inner 402 / MONTHLY_REQUEST_COUNT.
+        // The status-agnostic quota filter must catch it on the message path
+        // and the exception path.
+        let body = "kiro API error (500 Internal Server Error): {\"error\":{\"message\":\
+            \"HTTP 402 from Kiro IDE: {\\\"reason\\\":\\\"MONTHLY_REQUEST_COUNT\\\"}\",\
+            \"type\":\"server_error\"}}";
+        assert!(is_quota_exhausted_event(&event_with_message(body)));
+        assert!(is_quota_exhausted_event(&event_with_exception_value(body)));
+        assert!(is_quota_exhausted_message(body));
+    }
+
+    #[test]
+    fn quota_exhausted_filter_ignores_generic_500_and_rate_limit() {
+        // A generic 500 outage and a 429 rate-limit are not plan-quota
+        // exhaustion — they must keep reaching Sentry / their own handling.
+        assert!(!is_quota_exhausted_event(&event_with_message(
+            "kiro API error (500 Internal Server Error): upstream connection reset"
+        )));
+        assert!(!is_quota_exhausted_event(&event_with_message(
+            "provider API error (429 Too Many Requests): rate_limit_exceeded"
+        )));
+    }
+
+    #[test]
     fn insufficient_credits_filter_matches_message_path() {
         // Verbatim TAURI-RUST-C62 message as formatted by the provider emit
         // sites: "<provider> API error (402 Payment Required): <body>".
@@ -5759,6 +6144,51 @@ mod tests {
         assert!(is_insufficient_credits_event(&event_with_message(body)));
         assert!(is_insufficient_credits_event(&event_with_exception_value(
             body
+        )));
+    }
+
+    #[test]
+    fn ollama_cloud_internal_500_reraise_routes_through_expected_path() {
+        // TAURI-RUST-5MV — the actionable message the emit sites raise must
+        // demote to `TransientUpstreamHttp` when re-reported at the agent / RPC
+        // boundary (`provider_chat` → `report_error_or_expected`), so the
+        // `domain=agent` half of the flood is suppressed too.
+        let reraise = crate::openhuman::inference::provider::ollama_cloud_internal_500_user_message(
+            Some("minimax-m3:cloud"),
+            reqwest::StatusCode::INTERNAL_SERVER_ERROR,
+        );
+        assert_eq!(
+            expected_error_kind(&reraise),
+            Some(ExpectedErrorKind::TransientUpstreamHttp)
+        );
+    }
+
+    #[test]
+    fn ollama_cloud_internal_500_before_send_matches_raw_and_reraised_shapes() {
+        // The outermost net catches BOTH the raw emit body (any compatible
+        // path that bypassed the cascade) and the actionable re-raise.
+        let raw = "ollama API error (500 Internal Server Error): \
+            {\"error\":\"Internal Server Error (ref: df512dcb-d915-493b-8f2d-e8d3dfa640c1)\"}";
+        assert!(is_ollama_cloud_internal_500_event(&event_with_message(raw)));
+        assert!(is_ollama_cloud_internal_500_event(
+            &event_with_exception_value(raw)
+        ));
+
+        let reraise = crate::openhuman::inference::provider::ollama_cloud_internal_500_user_message(
+            None,
+            reqwest::StatusCode::INTERNAL_SERVER_ERROR,
+        );
+        assert!(is_ollama_cloud_internal_500_event(&event_with_message(
+            &reraise
+        )));
+
+        // A local Ollama 500 without the `ref:` envelope, and a non-ollama 500,
+        // both stay reportable.
+        assert!(!is_ollama_cloud_internal_500_event(&event_with_message(
+            "ollama API error (500 Internal Server Error): {\"error\":\"out of memory\"}"
+        )));
+        assert!(!is_ollama_cloud_internal_500_event(&event_with_message(
+            "openai API error (500): Internal Server Error (ref: abc)"
         )));
     }
 

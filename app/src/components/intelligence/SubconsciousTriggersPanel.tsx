@@ -6,9 +6,9 @@ import {
   subconsciousTriggersStatus,
   type SubconsciousTriggersStatus,
 } from '../../utils/tauriCommands/subconscious';
+import Button from '../ui/Button';
 
-const cardClass =
-  'rounded-lg border border-stone-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900';
+const cardClass = 'rounded-lg border border-line bg-surface p-4';
 
 /**
  * Debug / manage panel for the event-driven subconscious trigger pipeline.
@@ -70,44 +70,34 @@ export default function SubconsciousTriggersPanel() {
     <div className={cardClass} data-testid="subconscious-triggers-panel">
       <div className="mb-3 flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-stone-900 dark:text-neutral-100">
-            {t('subconsciousTriggers.title')}
-          </h3>
-          <p className="text-xs text-stone-500 dark:text-neutral-400">
-            {t('subconsciousTriggers.subtitle')}
-          </p>
+          <h3 className="text-sm font-semibold text-content">{t('subconsciousTriggers.title')}</h3>
+          <p className="text-xs text-content-muted">{t('subconsciousTriggers.subtitle')}</p>
         </div>
         <div className="flex items-center gap-2">
           {status && (
-            <button
-              type="button"
+            <Button
+              variant={status.triggers_enabled ? 'secondary' : 'primary'}
+              size="xs"
               onClick={() => void toggle()}
               disabled={toggling}
-              data-testid="subconscious-triggers-toggle"
-              className={`rounded-md px-2.5 py-1 text-xs font-medium transition disabled:opacity-50 ${
-                status.triggers_enabled
-                  ? 'border border-stone-200 text-stone-600 hover:bg-stone-50 dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-800'
-                  : 'bg-primary-500 text-white hover:bg-primary-600'
-              }`}>
+              data-testid="subconscious-triggers-toggle">
               {status.triggers_enabled
                 ? t('subconsciousTriggers.disable')
                 : t('subconsciousTriggers.enable')}
-            </button>
+            </Button>
           )}
-          <button
-            type="button"
+          <Button
+            variant="secondary"
+            size="xs"
             onClick={() => void refresh()}
-            data-testid="subconscious-triggers-refresh"
-            className="rounded-md border border-stone-200 px-2.5 py-1 text-xs text-stone-600 transition hover:bg-stone-50 dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-800">
+            data-testid="subconscious-triggers-refresh">
             {t('common.refresh')}
-          </button>
+          </Button>
         </div>
       </div>
 
       {loading && !status ? (
-        <p
-          className="text-xs text-stone-500 dark:text-neutral-400"
-          data-testid="subconscious-triggers-loading">
+        <p className="text-xs text-content-muted" data-testid="subconscious-triggers-loading">
           {t('common.loading')}
         </p>
       ) : error ? (
@@ -160,7 +150,7 @@ export default function SubconsciousTriggersPanel() {
 
           {!status.triggers_enabled && (
             <p
-              className="pt-1 text-xs text-stone-500 dark:text-neutral-400"
+              className="pt-1 text-xs text-content-muted"
               data-testid="subconscious-triggers-disabled-hint">
               {t('subconsciousTriggers.disabledHint')}
             </p>
@@ -184,11 +174,11 @@ function StatusRow({ label, value, tone = 'default', mono = false, testid }: Sta
     tone === 'good'
       ? 'text-sage-600 dark:text-sage-400'
       : tone === 'muted'
-        ? 'text-stone-400 dark:text-neutral-500'
-        : 'text-stone-800 dark:text-neutral-200';
+        ? 'text-content-faint'
+        : 'text-content';
   return (
     <div className="flex items-center justify-between gap-3 text-xs" data-testid={testid}>
-      <span className="text-stone-500 dark:text-neutral-400">{label}</span>
+      <span className="text-content-muted">{label}</span>
       <span className={`${toneClass} ${mono ? 'font-mono' : 'font-medium'} truncate`}>{value}</span>
     </div>
   );

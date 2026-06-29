@@ -9,6 +9,7 @@ import {
   markRead,
   type NotificationItem,
 } from '../../store/notificationSlice';
+import Button from '../ui/Button';
 import NotificationBody from './NotificationBody';
 
 // Namespaced debug per project logging rules (mirrors nativeNotifications).
@@ -85,8 +86,8 @@ const CoreNotificationCard = ({ notification: n }: Props) => {
 
   return (
     <div
-      className={`w-full p-3 border-b border-stone-100 dark:border-neutral-800 transition-colors duration-150 ${
-        n.read ? 'bg-white dark:bg-neutral-900' : 'bg-primary-50/30'
+      className={`w-full p-3 border-b border-line-subtle transition-colors duration-150 ${
+        n.read ? 'bg-surface' : 'bg-primary-50/30'
       }`}
       data-testid="core-notification-card">
       <div className="flex items-start gap-3">
@@ -100,22 +101,20 @@ const CoreNotificationCard = ({ notification: n }: Props) => {
         <div className="flex-1 min-w-0 text-left">
           {/* Header row: category badge + timestamp */}
           <div className="flex items-center gap-2 mb-1">
-            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-stone-100 dark:bg-neutral-800 text-stone-700 dark:text-neutral-200 border-stone-200 dark:border-neutral-800">
+            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-surface-subtle text-content-secondary border-line">
               {t(`notifications.category.${n.category}`)}
             </span>
-            <span className="ml-auto text-[11px] text-stone-400 dark:text-neutral-500 flex-shrink-0">
+            <span className="ml-auto text-[11px] text-content-faint flex-shrink-0">
               {relativeTime(n.timestamp)}
             </span>
           </div>
 
           {/* Title */}
-          <p className="text-sm font-medium text-stone-900 dark:text-neutral-100">{n.title}</p>
+          <p className="text-sm font-medium text-content">{n.title}</p>
 
           {/* Body */}
           {n.body && (
-            <p
-              data-testid="core-notification-body"
-              className="text-xs text-stone-500 dark:text-neutral-400 mt-0.5">
+            <p data-testid="core-notification-body" className="text-xs text-content-muted mt-0.5">
               <NotificationBody body={n.body} />
             </p>
           )}
@@ -128,20 +127,16 @@ const CoreNotificationCard = ({ notification: n }: Props) => {
                 const label = labelKey ? t(labelKey) : action.label;
                 const primary = isPrimaryAction(action.actionId);
                 return (
-                  <button
+                  <Button
                     key={action.actionId}
-                    type="button"
+                    variant={primary ? 'primary' : 'secondary'}
+                    size="xs"
                     disabled={pendingActionId !== null}
                     onClick={() => {
                       void handleAction(action.actionId, action.payload);
-                    }}
-                    className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
-                      primary
-                        ? 'bg-primary-500 text-white hover:bg-primary-600'
-                        : 'bg-stone-100 dark:bg-neutral-800 text-stone-700 dark:text-neutral-200 hover:bg-stone-200 dark:hover:bg-neutral-800/60'
-                    }`}>
+                    }}>
                     {label}
-                  </button>
+                  </Button>
                 );
               })}
             </div>

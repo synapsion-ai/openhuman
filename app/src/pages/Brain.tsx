@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import GoalsPanel from '../components/intelligence/GoalsPanel';
 import IntelligenceSubconsciousTab from '../components/intelligence/IntelligenceSubconsciousTab';
 import { MemoryControls } from '../components/intelligence/MemoryControls';
 import { MemoryGraph } from '../components/intelligence/MemoryGraph';
@@ -35,6 +36,7 @@ import Intelligence from './Intelligence';
 
 type BrainTab =
   | 'graph'
+  | 'goals'
   | 'sources'
   | 'sync'
   | 'intelligence'
@@ -60,6 +62,7 @@ const navIcon = (d: string) => (
 
 const BRAIN_TABS: readonly BrainTab[] = [
   'graph',
+  'goals',
   'sources',
   'sync',
   'intelligence',
@@ -135,8 +138,7 @@ export default function Brain() {
     };
   }, [mode, refreshKey]);
 
-  const cardClass =
-    'rounded-lg border border-stone-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900';
+  const cardClass = 'rounded-lg border border-line bg-surface p-4';
 
   return (
     <div className="h-full">
@@ -157,6 +159,11 @@ export default function Brain() {
                     icon: navIcon(
                       'M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z'
                     ),
+                  },
+                  {
+                    value: 'goals',
+                    label: t('brain.tabs.goals'),
+                    icon: navIcon('M5 3v18M5 3l13 4-13 4M5 13l9 3-9 3'),
                   },
                   {
                     value: 'sources',
@@ -217,11 +224,7 @@ export default function Brain() {
                 ],
               },
             ]}
-            header={
-              <p className="min-w-0 text-[11px] text-stone-500 dark:text-neutral-400">
-                {t('brain.subtitle')}
-              </p>
-            }
+            header={<p className="min-w-0 text-[11px] text-content-muted">{t('brain.subtitle')}</p>}
           />
         </div>
       </SidebarContent>
@@ -235,7 +238,7 @@ export default function Brain() {
           // card surface (the bespoke graph/sources/etc. tabs keep their own
           // scaffold below and stay flush).
           <div className="h-full p-4">
-            <div className="h-full overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-soft dark:border-neutral-800 dark:bg-neutral-900">
+            <div className="h-full overflow-hidden rounded-2xl border border-line bg-surface shadow-soft">
               <SettingsLayoutProvider value={{ inTwoPaneShell: true }}>
                 {/* Distinct tab query key so the embedded Intelligence panel's
                     internal tab switches don't overwrite Brain's own
@@ -278,6 +281,8 @@ export default function Brain() {
                   ) : null}
                 </div>
               )}
+
+              {activeTab === 'goals' && <GoalsPanel />}
 
               {activeTab === 'sources' && (
                 <div className="space-y-5 animate-fade-up">

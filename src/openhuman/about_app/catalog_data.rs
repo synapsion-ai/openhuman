@@ -222,6 +222,16 @@ pub(super) const CAPABILITIES: &[Capability] = &[
         privacy: None,
     },
     Capability {
+        id: "conversation.plan_review",
+        name: "Plan Review",
+        domain: "conversation",
+        category: CapabilityCategory::Conversation,
+        description: "Pause an interactive turn for review whenever the assistant proposes a thread-scoped plan (a multi-step to-do list with its objective). Review the whole plan once above the composer, then Approve to run it, Reject to discard it, or send feedback to have the assistant revise and re-propose — nothing executes until you approve. Background and scheduled runs are never gated.",
+        how_to: "Conversations > review the plan card above the composer when the assistant lays out a multi-step plan",
+        status: CapabilityStatus::Beta,
+        privacy: None,
+    },
+    Capability {
         id: "conversation.background_monitors",
         name: "Background Monitors",
         domain: "conversation",
@@ -359,6 +369,45 @@ pub(super) const CAPABILITIES: &[Capability] = &[
             memory.tool_rule_put / memory.tool_rule_list / memory.tool_rule_delete (RPC).",
         status: CapabilityStatus::Beta,
         privacy: LOCAL_RAW,
+    },
+    Capability {
+        id: "intelligence.long_term_goals",
+        name: "Long-term Goals",
+        domain: "intelligence",
+        category: CapabilityCategory::Intelligence,
+        description: "An editable list of the assistant's durable long-term goals for working with \
+            you, stored locally in MEMORY_GOALS.md (capped ~500 tokens). A background goals agent \
+            keeps the list fresh: it runs when the conversation context is summarized, and on first \
+            run populates initial goals from context. Items can be added/edited/deleted explicitly \
+            via RPC or agent tools.",
+        how_to: "Automatic — refreshed on context summarization. Manage via \
+            memory_goals.list / memory_goals.add / memory_goals.edit / memory_goals.delete / \
+            memory_goals.reflect (RPC), or the goals_* agent tools.",
+        status: CapabilityStatus::Beta,
+        // Enrichment runs a cloud agentic model, so goal/context text can leave
+        // the device during a reflect pass (CRUD/storage stays local).
+        privacy: DERIVED_TO_BACKEND,
+    },
+    Capability {
+        id: "conversation.thread_goal",
+        name: "Thread Goal",
+        domain: "conversation",
+        category: CapabilityCategory::Conversation,
+        description: "A single, thread-scoped goal (Codex-style \"completion contract\") the \
+            assistant keeps pursuing across turns, interrupts, resumes, and budget boundaries — \
+            distinct from the long-term goals list and the per-thread task board. Stored locally \
+            (one goal per thread), with a lifecycle (active/paused/budget_limited/complete) and an \
+            optional token budget. The active goal is injected into context each turn; the context \
+            scout proposes a goal on a fresh thread (only if none is set) and the orchestrator can \
+            set/refine it. When enabled, idle threads can autonomously continue toward the goal.",
+        how_to: "Set/edit via the goal chip above the composer in Conversations, or the \
+            thread_goals.* RPC (get/set/complete/pause/resume/clear); the assistant manages it via \
+            the goal_set / goal_get / goal_complete tools. Autonomous continuation is opt-in via \
+            heartbeat.goal_continuation_enabled.",
+        status: CapabilityStatus::Beta,
+        // Goal CRUD/storage is local; autonomous continuation (opt-in) runs a
+        // cloud agentic model, so objective/context can leave the device then.
+        privacy: DERIVED_TO_BACKEND,
     },
     Capability {
         id: "intelligence.memory_tree_retrieval",

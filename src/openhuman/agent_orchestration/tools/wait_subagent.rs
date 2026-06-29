@@ -135,6 +135,9 @@ impl Tool for WaitSubagentTool {
             timeout_secs
         );
 
+        let resume_ref =
+            running_subagents::resume_ref_for_task(&resolved_task_id, &parent_session).ok();
+
         match running_subagents::wait(
             &resolved_task_id,
             &parent_session,
@@ -143,37 +146,205 @@ impl Tool for WaitSubagentTool {
         .await
         {
             Ok(WaitOutcome::Terminal(SubagentStatus::Completed { output, iterations })) => {
+                log::debug!(
+                    "[wait_subagent] outcome=completed task_id={} iterations={}",
+                    resolved_task_id,
+                    iterations
+                );
+                let status = wait_status_payload(
+                    resume_ref.as_ref(),
+                    &resolved_task_id,
+                    "completed",
+                    Some(iterations),
+                    None,
+                    "synthesize the sub-agent output into the parent response",
+                );
                 Ok(ToolResult::success(format!(
-                    "Sub-agent `{task_id}` completed in {iterations} iteration(s):\n\n{output}",
-                    task_id = resolved_task_id
+                    "Sub-agent `{}` completed in {iterations} iteration(s).\n\n[subagent_wait_result]\n{}\n[/subagent_wait_result]\n\n{output}",
+                    status["agent_id"].as_str().unwrap_or("subagent"),
+                    serde_json::to_string(&status).unwrap_or_else(|_| "{}".to_string())
                 )))
             }
             Ok(WaitOutcome::Terminal(SubagentStatus::AwaitingUser { question })) => {
-                Ok(ToolResult::success(format!(
+                log::debug!(
+                    "[wait_subagent] outcome=awaiting_user task_id={} question_chars={}",
+                    resolved_task_id,
+                    question.chars().count()
+                );
+                let status = wait_status_payload(
+                    resume_ref.as_ref(),
+                    &resolved_task_id,
+                    "awaiting_user",
+                    None,
+                    Some(&question),
+                    "ask the user for the missing information, then call continue_subagent",
+                );
+                let mut message = format!(
                     "Sub-agent `{}` paused for clarification and did not finish: {question}\n\n\
-                     It cannot proceed unattended. Resume it with continue_subagent once you have an answer."
-                    , resolved_task_id
+                     It cannot proceed unattended. Resume it with continue_subagent once you have an answer.\n\n[subagent_wait_result]\n{}\n[/subagent_wait_result]",
+                    status["agent_id"].as_str().unwrap_or("subagent"),
+                    serde_json::to_string(&status).unwrap_or_else(|_| "{}".to_string())
+                );
+                if let Some(reference) = resume_ref {
+                    message.push_str("\n\n[subagent_resume_ref]\n");
+                    message.push_str(
+                        &serde_json::to_string(&serde_json::json!({
+                            "task_id": reference.task_id,
+                            "agent_id": reference.agent_id,
+                            "subagent_session_id": reference.subagent_session_id,
+                            "tool": "continue_subagent"
+                        }))
+                        .unwrap_or_else(|_| "{}".to_string()),
+                    );
+                    message.push_str("\n[/subagent_resume_ref]");
+                } else {
+                    log::debug!(
+                        "[wait_subagent] resume_ref_unavailable task_id={}",
+                        resolved_task_id
+                    );
+                }
+                Ok(ToolResult::success(message))
+            }
+            Ok(WaitOutcome::Terminal(SubagentStatus::Failed { error })) => {
+                log::debug!(
+                    "[wait_subagent] outcome=failed task_id={} error={}",
+                    resolved_task_id,
+                    error
+                );
+                let status = wait_status_payload(
+                    resume_ref.as_ref(),
+                    &resolved_task_id,
+                    "failed",
+                    None,
+                    Some(&error),
+                    "report the failure or retry with a corrected instruction",
+                );
+                Ok(ToolResult::error(format!(
+                    "Sub-agent `{}` failed: {error}\n\n[subagent_wait_result]\n{}\n[/subagent_wait_result]",
+                    status["agent_id"].as_str().unwrap_or("subagent"),
+                    serde_json::to_string(&status).unwrap_or_else(|_| "{}".to_string())
                 )))
             }
-            Ok(WaitOutcome::Terminal(SubagentStatus::Failed { error })) => Ok(ToolResult::error(
-                format!("Sub-agent `{resolved_task_id}` failed: {error}"),
-            )),
             // `Running` is never terminal; treat defensively as a timeout-style result.
-            Ok(WaitOutcome::Terminal(SubagentStatus::Running))
-            | Ok(WaitOutcome::TimedOut(_)) => Ok(ToolResult::success(format!(
-                "Sub-agent `{task_id}` is still running after {timeout_secs}s. \
-                 Continue with other work and call wait_subagent again later, or steer_subagent to redirect it.",
-                task_id = resolved_task_id
-            ))),
-            Err(WaitError::Unknown) => Ok(ToolResult::error(format!(
-                "wait_subagent: no sub-agent with task_id `{resolved_task_id}`. It may have already finished and \
-                 been collected, or the task_id is wrong."
-            ))),
-            Err(WaitError::NotOwned) => Ok(ToolResult::error(format!(
-                "wait_subagent: sub-agent `{resolved_task_id}` was not started by this agent."
-            ))),
+            Ok(WaitOutcome::Terminal(SubagentStatus::Running)) => {
+                log::debug!(
+                    "[wait_subagent] outcome=running task_id={} timeout_secs={}",
+                    resolved_task_id,
+                    timeout_secs
+                );
+                Ok(ToolResult::success(format_running_wait_message(
+                    resume_ref.as_ref(),
+                    &resolved_task_id,
+                    timeout_secs,
+                )))
+            }
+            Ok(WaitOutcome::TimedOut(_)) => {
+                log::debug!(
+                    "[wait_subagent] outcome=timed_out task_id={} timeout_secs={}",
+                    resolved_task_id,
+                    timeout_secs
+                );
+                Ok(ToolResult::success(format_running_wait_message(
+                    resume_ref.as_ref(),
+                    &resolved_task_id,
+                    timeout_secs,
+                )))
+            }
+            Err(WaitError::Unknown) => {
+                log::debug!(
+                    "[wait_subagent] outcome=unknown task_id={}",
+                    resolved_task_id
+                );
+                Ok(ToolResult::error(format!(
+                    "wait_subagent: no sub-agent was found for that reference. It may have already finished and \
+                     been collected, or the task_id is wrong."
+                )))
+            }
+            Err(WaitError::NotOwned) => {
+                log::debug!(
+                    "[wait_subagent] outcome=not_owned task_id={}",
+                    resolved_task_id
+                );
+                Ok(ToolResult::error(format!(
+                    "wait_subagent: that sub-agent was not started by this agent."
+                )))
+            }
         }
     }
+}
+
+/// Render a timeout/running wait response with a structured status payload.
+fn format_running_wait_message(
+    reference: Option<&running_subagents::SubagentResumeRef>,
+    task_id: &str,
+    timeout_secs: u64,
+) -> String {
+    let status = wait_status_payload(
+        reference,
+        task_id,
+        "running",
+        None,
+        None,
+        "continue other work, call wait_subagent again, or call steer_subagent to send more input",
+    );
+    format!(
+        "Sub-agent `{}` is still running after {timeout_secs}s.\n\n[subagent_wait_result]\n{}\n[/subagent_wait_result]\n\nContinue with other work and call wait_subagent again later, or steer_subagent to redirect it.",
+        status["agent_id"].as_str().unwrap_or("subagent"),
+        serde_json::to_string(&status).unwrap_or_else(|_| "{}".to_string())
+    )
+}
+
+/// Build the machine-readable wait status block returned to the orchestrator.
+fn wait_status_payload(
+    reference: Option<&running_subagents::SubagentResumeRef>,
+    task_id: &str,
+    status: &str,
+    iterations: Option<usize>,
+    detail: Option<&str>,
+    next_action: &str,
+) -> serde_json::Value {
+    let agent_id = reference.map(|r| r.agent_id.as_str()).unwrap_or("unknown");
+    let subagent_session_id = reference.and_then(|r| r.subagent_session_id.as_deref());
+    json!({
+        "task_id": task_id,
+        "taskId": task_id,
+        "subagent_session_id": subagent_session_id,
+        "subagentSessionId": subagent_session_id,
+        "agent_id": agent_id,
+        "agentId": agent_id,
+        "status": status,
+        "iterations": iterations,
+        "detail": detail,
+        "next_action": next_action,
+        "nextAction": next_action,
+        "instructions": {
+            "send_message": {
+                "tool": "steer_subagent",
+                "arguments": {
+                    "subagent_session_id": subagent_session_id,
+                    "task_id": task_id,
+                    "message": "<message>",
+                    "mode": "steer"
+                }
+            },
+            "wait": {
+                "tool": "wait_subagent",
+                "arguments": {
+                    "subagent_session_id": subagent_session_id,
+                    "task_id": task_id,
+                    "timeout_secs": DEFAULT_TIMEOUT_SECS
+                }
+            },
+            "timeout_tick": {
+                "tool": "wait_subagent",
+                "arguments": {
+                    "subagent_session_id": subagent_session_id,
+                    "task_id": task_id,
+                    "timeout_secs": 1
+                }
+            }
+        }
+    })
 }
 
 #[cfg(test)]
@@ -205,5 +376,21 @@ mod tests {
             .unwrap();
         assert!(res.is_error);
         assert!(res.output().contains("outside of an agent turn"));
+    }
+
+    #[test]
+    fn running_wait_message_includes_agent_id_and_tick_instruction() {
+        let reference = running_subagents::SubagentResumeRef {
+            task_id: "sub-1".into(),
+            agent_id: "researcher".into(),
+            subagent_session_id: Some("subsess-1".into()),
+        };
+        let message = format_running_wait_message(Some(&reference), "sub-1", 1);
+
+        assert!(message.contains("Sub-agent `researcher` is still running"));
+        assert!(message.contains("[subagent_wait_result]"));
+        assert!(message.contains("\"agentId\":\"researcher\""));
+        assert!(message.contains("\"timeout_tick\""));
+        assert!(message.contains("\"timeout_secs\":1"));
     }
 }

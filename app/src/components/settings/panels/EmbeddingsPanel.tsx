@@ -108,7 +108,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
         description={embedded ? undefined : t('pages.settings.ai.embeddingsDesc')}
         leading={embedded ? undefined : <SettingsBackButton onBack={navigateBack} />}>
         <div className={embedded ? '' : 'p-4'}>
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 text-xs text-neutral-500 dark:text-neutral-400">
+          <div className="rounded-xl border border-line bg-surface p-4 text-xs text-content-muted">
             {status.kind === 'loading'
               ? t('common.loading')
               : status.kind === 'error'
@@ -394,8 +394,8 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
       contentClassName=""
       description={embedded ? undefined : t('pages.settings.ai.embeddingsDesc')}
       leading={embedded ? undefined : <SettingsBackButton onBack={navigateBack} />}>
-      <div className={embedded ? 'space-y-4' : 'p-4 space-y-4'}>
-        <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+      <div className={embedded ? 'space-y-5' : 'p-4 space-y-5'}>
+        <p className="text-xs text-content-muted leading-relaxed">
           {t('settings.embeddings.description')}
         </p>
 
@@ -412,17 +412,13 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
                   aria-checked={selected}
                   onClick={() => handleProviderClick(entry)}
                   className={`w-full flex items-start gap-3 px-4 py-3 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
-                    idx !== 0 ? 'border-t border-neutral-100 dark:border-neutral-800' : ''
+                    idx !== 0 ? 'border-t border-line-subtle' : ''
                   } ${
-                    selected
-                      ? 'bg-primary-50 dark:bg-primary-500/10'
-                      : 'hover:bg-neutral-50 dark:hover:bg-neutral-800/60'
+                    selected ? 'bg-primary-50 dark:bg-primary-500/10' : 'hover:bg-surface-hover'
                   }`}>
                   <span className="flex-1 min-w-0">
                     <span className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-neutral-800 dark:text-neutral-100">
-                        {entry.label}
-                      </span>
+                      <span className="text-sm font-medium text-content">{entry.label}</span>
                       {entry.requires_api_key && (
                         <SettingsBadge variant={entry.has_api_key ? 'success' : 'warning'}>
                           {entry.has_api_key
@@ -436,7 +432,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
                         </SettingsBadge>
                       )}
                     </span>
-                    <span className="block mt-0.5 text-xs text-neutral-500 dark:text-neutral-400">
+                    <span className="block mt-0.5 text-xs text-content-muted">
                       {entry.description}
                     </span>
                   </span>
@@ -545,7 +541,8 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
                 {currentEntry?.requires_api_key && currentEntry.has_api_key && (
                   <Button
                     type="button"
-                    variant="danger"
+                    variant="secondary"
+                    tone="danger"
                     size="xs"
                     onClick={() => void handleClearKey()}>
                     {t('settings.embeddings.clearKey')}
@@ -585,8 +582,8 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
               setSetupProvider(null);
             }
           }}>
-          <div className="mx-4 max-w-md w-full rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 p-6 shadow-xl space-y-4">
-            <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+          <div className="mx-4 max-w-md w-full rounded-2xl bg-surface border border-line dark:border-line-strong p-6 shadow-xl space-y-4">
+            <h3 className="text-sm font-semibold text-content">
               {t('settings.embeddings.setupTitle').replace('{provider}', setupProvider.label)}
             </h3>
 
@@ -594,7 +591,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
               /* Custom endpoint form */
               <div className="space-y-3">
                 <div>
-                  <label className="block text-[11px] font-medium text-neutral-600 dark:text-neutral-300 mb-1">
+                  <label className="block text-[11px] font-medium text-content-secondary mb-1">
                     {t('settings.embeddings.customEndpoint')}
                   </label>
                   <SettingsTextField
@@ -608,7 +605,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
                 </div>
                 <div className="flex gap-2">
                   <div className="flex-1">
-                    <label className="block text-[11px] font-medium text-neutral-600 dark:text-neutral-300 mb-1">
+                    <label className="block text-[11px] font-medium text-content-secondary mb-1">
                       {t('settings.embeddings.customModelPlaceholder')}
                     </label>
                     <SettingsTextField
@@ -620,7 +617,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
                     />
                   </div>
                   <div className="w-24">
-                    <label className="block text-[11px] font-medium text-neutral-600 dark:text-neutral-300 mb-1">
+                    <label className="block text-[11px] font-medium text-content-secondary mb-1">
                       {t('settings.embeddings.dimensions')}
                     </label>
                     <SettingsTextField
@@ -633,7 +630,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[11px] font-medium text-neutral-600 dark:text-neutral-300 mb-1">
+                  <label className="block text-[11px] font-medium text-content-secondary mb-1">
                     {t('settings.embeddings.apiKeyLabel').replace('{provider}', 'API')} (
                     {t('settings.embeddings.optional')})
                   </label>
@@ -649,11 +646,9 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
             ) : (
               /* Standard API key form */
               <div className="space-y-3">
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                  {setupProvider.description}
-                </p>
+                <p className="text-xs text-content-muted">{setupProvider.description}</p>
                 <div>
-                  <label className="block text-[11px] font-medium text-neutral-600 dark:text-neutral-300 mb-1">
+                  <label className="block text-[11px] font-medium text-content-secondary mb-1">
                     {t('settings.embeddings.apiKeyLabel').replace(
                       '{provider}',
                       setupProvider.label
@@ -677,7 +672,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
                       {setupShowKey ? t('settings.embeddings.hide') : t('settings.embeddings.show')}
                     </Button>
                   </div>
-                  <p className="mt-1 text-[10px] text-neutral-400 dark:text-neutral-500">
+                  <p className="mt-1 text-[10px] text-content-faint">
                     {t('settings.embeddings.keyStoredEncrypted')}
                   </p>
                 </div>
@@ -734,7 +729,7 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
               <div className="flex gap-2">
                 <Button
                   type="button"
-                  variant="ghost"
+                  variant="tertiary"
                   size="xs"
                   onClick={() => setSetupProvider(null)}>
                   {t('settings.embeddings.cancel')}
@@ -770,18 +765,27 @@ const EmbeddingsPanel = ({ embedded = false }: EmbeddingsPanelProps = {}) => {
       {/* ── Confirm wipe dialog ── */}
       {pendingWipe && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="mx-4 max-w-sm w-full rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 p-6 shadow-xl space-y-4">
-            <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+          <div className="mx-4 max-w-sm w-full rounded-2xl bg-surface border border-line dark:border-line-strong p-6 shadow-xl space-y-4">
+            <h3 className="text-sm font-semibold text-content">
               {t('settings.embeddings.wipeTitle')}
             </h3>
-            <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            <p className="text-xs text-content-secondary dark:text-content-muted leading-relaxed">
               {t('settings.embeddings.wipeBody')}
             </p>
             <div className="flex justify-end gap-2">
-              <Button type="button" variant="ghost" size="xs" onClick={() => setPendingWipe(null)}>
+              <Button
+                type="button"
+                variant="tertiary"
+                size="xs"
+                onClick={() => setPendingWipe(null)}>
                 {t('settings.embeddings.cancel')}
               </Button>
-              <Button type="button" variant="danger" size="xs" onClick={() => void confirmWipe()}>
+              <Button
+                type="button"
+                variant="primary"
+                tone="danger"
+                size="xs"
+                onClick={() => void confirmWipe()}>
                 {t('settings.embeddings.confirmWipe')}
               </Button>
             </div>

@@ -1060,6 +1060,31 @@ fn env_overlay_compaction_default_on_and_kill_switch() {
 }
 
 #[test]
+fn env_overlay_super_context_default_on_and_toggle() {
+    // Default is on.
+    assert!(Config::default().context.super_context_enabled);
+
+    // `OPENHUMAN_SUPER_CONTEXT=0` opts out.
+    let mut cfg = Config::default();
+    cfg.apply_env_overlay_with(&HashMapEnv::new().with("OPENHUMAN_SUPER_CONTEXT", "0"));
+    assert!(!cfg.context.super_context_enabled);
+
+    // The namespaced alias works and `on` re-enables it.
+    let mut cfg = Config::default();
+    cfg.context.super_context_enabled = false;
+    cfg.apply_env_overlay_with(
+        &HashMapEnv::new().with("OPENHUMAN_CONTEXT_SUPER_CONTEXT_ENABLED", "on"),
+    );
+    assert!(cfg.context.super_context_enabled);
+
+    // Garbage is ignored (leaves the prior value untouched).
+    let mut cfg = Config::default();
+    cfg.context.super_context_enabled = false;
+    cfg.apply_env_overlay_with(&HashMapEnv::new().with("OPENHUMAN_SUPER_CONTEXT", "maybe"));
+    assert!(!cfg.context.super_context_enabled);
+}
+
+#[test]
 fn env_overlay_context_tool_result_budget_legacy_migration_when_env_absent() {
     // Env absent, context at default, agent customised → agent value copies forward.
     let default_budget = crate::openhuman::context::DEFAULT_TOOL_RESULT_BUDGET_BYTES;
@@ -1594,30 +1619,38 @@ default_temperature = 0.5
     );
 }
 
+#[cfg(unix)]
 #[tokio::test]
 async fn load_or_init_read_failure_embeds_path_in_error_context() {
     // OPENHUMAN-TAURI-9R (~8k events, Windows): the read at the
     // `config_path.exists()` branch raced `Config::save`'s atomic rename
     // and surfaced the opaque "Failed to read config file" with no path
     // or underlying cause. The fix retries transient Windows locking
-    // errors AND embeds the config path in the context so any residual
-    // non-transient failure is triageable in Sentry.
+    // errors AND embeds the config path in the context; #3962 additionally
+    // surfaces the underlying io cause (`os error N`) through `{:#}`.
     //
-    // Simulate a non-transient read failure portably by placing a
-    // *directory* at the config path: `exists()` is true (so we enter the
-    // read branch), but `read_to_string` fails with EISDIR (unix) /
-    // ERROR_ACCESS_DENIED (windows) — neither is classified transient by
-    // `is_transient_fs_error`, so the retry bails immediately and returns
-    // the path-embedded context.
+    // Trigger a genuine non-transient read failure with a 0o000 (unreadable)
+    // *regular* file — not a directory, which `impl_load` now rejects with a
+    // distinct message before the read (see the directory guard / Codex P2).
+    // `exists()` is true so we enter the read branch; `read_to_string` fails
+    // with EACCES, which `is_transient_fs_error` does not retry. Skipped under
+    // root, which ignores file permissions.
+    use std::os::unix::fs::PermissionsExt;
+
     let tmp = tempfile::tempdir().unwrap();
     let root = tmp.path();
     let config_path = root.join("config.toml");
-    std::fs::create_dir(&config_path).unwrap();
+    std::fs::write(&config_path, "default_temperature = 0.5\n").unwrap();
+    std::fs::set_permissions(&config_path, std::fs::Permissions::from_mode(0o000)).unwrap();
+
+    if std::fs::read_to_string(&config_path).is_ok() {
+        return; // running as root — permissions are ignored, assertion is moot
+    }
 
     let env = MapEnv::default().with("OPENHUMAN_WORKSPACE", root.to_str().unwrap());
     let err = Config::load_or_init_with_env_lookup(root, &root.join("workspace"), &env)
         .await
-        .expect_err("reading a directory as config.toml must fail");
+        .expect_err("reading an unreadable config.toml must fail");
 
     let msg = format!("{err:#}");
     assert!(
@@ -1627,6 +1660,10 @@ async fn load_or_init_read_failure_embeds_path_in_error_context() {
     assert!(
         msg.contains("config.toml"),
         "error context must embed the config path so Sentry titles are triageable: {msg}"
+    );
+    assert!(
+        msg.contains("os error"),
+        "error must carry the underlying io cause via {{:#}} (#3962): {msg}"
     );
 }
 

@@ -5,6 +5,7 @@ import { useUser } from '../../hooks/useUser';
 import { useT } from '../../lib/i18n/I18nContext';
 import { feedbackApi } from '../../services/api/feedbackApi';
 import type { FeedbackComment } from '../../types/feedback';
+import Button from '../ui/Button';
 
 const log = debugFactory('feedback:comments');
 
@@ -81,15 +82,13 @@ export default function FeedbackComments({ feedbackId, onCommentAdded }: Feedbac
   };
 
   return (
-    <div className="mt-3 space-y-3 border-t border-neutral-200 pt-3 dark:border-neutral-800">
+    <div className="mt-3 space-y-3 border-t border-line pt-3">
       {isLoading ? (
-        <p className="text-xs text-neutral-500 dark:text-neutral-400">{t('common.loading')}</p>
+        <p className="text-xs text-content-muted">{t('common.loading')}</p>
       ) : loadError ? (
         <p className="text-xs text-coral-600 dark:text-coral-400">{loadError}</p>
       ) : comments.length === 0 ? (
-        <p className="text-xs text-neutral-500 dark:text-neutral-400">
-          {t('feedback.comments.empty')}
-        </p>
+        <p className="text-xs text-content-muted">{t('feedback.comments.empty')}</p>
       ) : (
         <ul className="space-y-2">
           {comments.map(comment => {
@@ -97,9 +96,9 @@ export default function FeedbackComments({ feedbackId, onCommentAdded }: Feedbac
             return (
               <li
                 key={comment.id}
-                className="rounded-xl bg-neutral-50 px-3 py-2 dark:bg-white/[0.03]">
-                <div className="flex items-center gap-2 text-xs text-neutral-400 dark:text-neutral-500">
-                  <span className="font-medium text-neutral-600 dark:text-neutral-300">
+                className="rounded-xl bg-surface-muted px-3 py-2 dark:bg-white/[0.03]">
+                <div className="flex items-center gap-2 text-xs text-content-faint">
+                  <span className="font-medium text-content-secondary">
                     {isMine
                       ? t('feedback.comments.you')
                       : comment.userName?.trim() || authorLabel(comment.user)}
@@ -107,7 +106,7 @@ export default function FeedbackComments({ feedbackId, onCommentAdded }: Feedbac
                   <span>·</span>
                   <span>{formatDate(comment.createdAt)}</span>
                 </div>
-                <p className="mt-1 whitespace-pre-wrap break-words text-sm text-neutral-700 dark:text-neutral-300">
+                <p className="mt-1 whitespace-pre-wrap break-words text-sm text-content-secondary">
                   {comment.body}
                 </p>
               </li>
@@ -124,15 +123,16 @@ export default function FeedbackComments({ feedbackId, onCommentAdded }: Feedbac
           placeholder={t('feedback.comments.placeholder')}
           disabled={posting}
           rows={2}
-          className="flex-1 resize-y rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 transition-all focus:border-primary-500/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/30 dark:border-neutral-700 dark:bg-white/[0.03] dark:text-neutral-100 dark:placeholder:text-neutral-500"
+          className="flex-1 resize-y rounded-xl border border-line bg-surface-muted px-3 py-2 text-sm text-content placeholder:text-neutral-400 transition-all focus:border-primary-500/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary-500/30 dark:border-line-strong dark:bg-white/[0.03] dark:placeholder:text-neutral-500"
         />
-        <button
-          type="button"
+        <Button
+          variant="primary"
+          size="md"
           onClick={handlePost}
           disabled={posting || !input.trim()}
-          className="whitespace-nowrap rounded-xl bg-primary-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-600 active:bg-primary-700 disabled:cursor-not-allowed disabled:opacity-50">
+          className="whitespace-nowrap">
           {posting ? '...' : t('feedback.comments.post')}
-        </button>
+        </Button>
       </div>
       {postError && <p className="text-xs text-coral-600 dark:text-coral-400">{postError}</p>}
     </div>

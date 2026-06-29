@@ -13,11 +13,10 @@ import {
   MNEMONIC_GENERATE_WORD_COUNT,
   validateMnemonicPhrase,
 } from '../../../utils/cryptoKeys';
-import PanelPage from '../../layout/PanelPage';
 import Button from '../../ui/Button';
-import SettingsBackButton from '../components/SettingsBackButton';
 import { SettingsCheckbox } from '../controls';
 import { useSettingsNavigation } from '../hooks/useSettingsNavigation';
+import SettingsPanel from '../layout/SettingsPanel';
 
 const BIP39_IMPORT_LENGTHS = [12, 15, 18, 21, 24] as const;
 
@@ -370,14 +369,12 @@ const RecoveryPhrasePanel = () => {
           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
         />
       </svg>
-      <p className="text-sm text-neutral-500 dark:text-neutral-400">
-        {t('mnemonic.loadingWalletStatus')}
-      </p>
+      <p className="text-sm text-content-muted">{t('mnemonic.loadingWalletStatus')}</p>
     </div>
   );
 
   const renderViewMode = () => (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {statusError ? (
         <div
           role="alert"
@@ -417,49 +414,47 @@ const RecoveryPhrasePanel = () => {
 
           {/* Wallet metadata */}
           {walletStatus && (
-            <div className="bg-neutral-50 dark:bg-neutral-800/60 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 space-y-3">
+            <div className="bg-surface-muted rounded-2xl p-4 border border-line space-y-3">
               {walletStatus.source && (
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">
-                    {t('mnemonic.walletSource')}
-                  </span>
-                  <span className="text-xs font-medium text-neutral-700 dark:text-neutral-200 capitalize">
+                  <span className="text-xs text-content-muted">{t('mnemonic.walletSource')}</span>
+                  <span className="text-xs font-medium text-content-secondary capitalize">
                     {walletStatus.source}
                   </span>
                 </div>
               )}
               {walletStatus.mnemonicWordCount && (
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">
+                  <span className="text-xs text-content-muted">
                     {t('mnemonic.walletWordCount')}
                   </span>
-                  <span className="text-xs font-medium text-neutral-700 dark:text-neutral-200">
+                  <span className="text-xs font-medium text-content-secondary">
                     {walletStatus.mnemonicWordCount} words
                   </span>
                 </div>
               )}
               {walletStatus.updatedAtMs && (
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400">
+                  <span className="text-xs text-content-muted">
                     {t('mnemonic.walletLastUpdated')}
                   </span>
-                  <span className="text-xs font-medium text-neutral-700 dark:text-neutral-200">
+                  <span className="text-xs font-medium text-content-secondary">
                     {new Date(walletStatus.updatedAtMs).toLocaleDateString()}
                   </span>
                 </div>
               )}
               {walletStatus.accounts.length > 0 && (
                 <div>
-                  <span className="text-xs text-neutral-500 dark:text-neutral-400 block mb-2">
+                  <span className="text-xs text-content-muted block mb-2">
                     {t('mnemonic.viewAccounts')}
                   </span>
                   <div className="space-y-1.5">
                     {walletStatus.accounts.map(account => (
                       <div key={account.chain} className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-mono font-medium uppercase text-neutral-500 dark:text-neutral-400 w-14 shrink-0">
+                        <span className="text-xs font-mono font-medium uppercase text-content-muted w-14 shrink-0">
                           {account.chain}
                         </span>
-                        <span className="text-xs font-mono text-neutral-700 dark:text-neutral-300 truncate">
+                        <span className="text-xs font-mono text-content-secondary truncate">
                           {account.address}
                         </span>
                       </div>
@@ -490,7 +485,7 @@ const RecoveryPhrasePanel = () => {
                   {t('mnemonic.cannotRecover')}
                 </p>
               </div>
-              <div className="bg-neutral-50 dark:bg-neutral-800/60 rounded-2xl p-4 border border-neutral-200 dark:border-neutral-800 relative">
+              <div className="bg-surface-muted rounded-2xl p-4 border border-line relative">
                 <div
                   className="grid grid-cols-3 gap-2 transition-all duration-300"
                   style={{
@@ -501,8 +496,8 @@ const RecoveryPhrasePanel = () => {
                   {viewMnemonic.split(' ').map((word, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-2 bg-white dark:bg-neutral-900 rounded-lg px-3 py-2 text-sm border border-neutral-200 dark:border-neutral-800">
-                      <span className="text-neutral-500 dark:text-neutral-400 font-mono text-xs w-5 text-right">
+                      className="flex items-center gap-2 bg-surface rounded-lg px-3 py-2 text-sm border border-line">
+                      <span className="text-content-muted font-mono text-xs w-5 text-right">
                         {index + 1}.
                       </span>
                       <span className="font-mono font-medium">{word}</span>
@@ -516,7 +511,7 @@ const RecoveryPhrasePanel = () => {
                     aria-label={t('mnemonic.revealPhrase')}
                     className="absolute inset-0 flex items-center justify-center cursor-pointer bg-transparent">
                     <svg
-                      className="w-7 h-7 text-neutral-800 dark:text-white transition-opacity duration-200 hover:opacity-70"
+                      className="w-7 h-7 text-content dark:text-white transition-opacity duration-200 hover:opacity-70"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -568,15 +563,16 @@ const RecoveryPhrasePanel = () => {
                   </>
                 )}
               </Button>
-              <button
+              <Button
                 type="button"
+                variant="tertiary"
                 onClick={() => {
                   setViewMnemonic(null);
                   setViewRevealed(false);
                 }}
-                className="w-full text-center text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors">
+                className="w-full">
                 {t('mnemonic.hidePhrase')}
-              </button>
+              </Button>
             </div>
           ) : (
             <>
@@ -649,7 +645,7 @@ const RecoveryPhrasePanel = () => {
   );
 
   const renderReplaceConfirm = () => (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {/* Danger warning */}
       <div className="flex items-start gap-2.5 p-4 rounded-xl bg-coral-50 dark:bg-coral-500/10 border border-coral-200 dark:border-coral-500/30">
         <svg
@@ -680,27 +676,21 @@ const RecoveryPhrasePanel = () => {
       </Button>
 
       {/* Import instead */}
-      <button
-        type="button"
-        onClick={handleImportReplace}
-        className="w-full text-center text-sm text-primary-400 hover:text-primary-600 dark:text-primary-300 transition-colors">
+      <Button type="button" variant="tertiary" onClick={handleImportReplace} className="w-full">
         {t('mnemonic.alreadyHavePhrase')}
-      </button>
+      </Button>
 
       {/* Cancel */}
-      <button
-        type="button"
-        onClick={() => setMode('view')}
-        className="w-full text-center text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors">
+      <Button type="button" variant="tertiary" onClick={() => setMode('view')} className="w-full">
         {t('common.cancel')}
-      </button>
+      </Button>
     </div>
   );
 
   const renderGenerateMode = () => (
     <>
       <div className="mb-4 space-y-3">
-        <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+        <p className="text-sm text-content-secondary leading-relaxed">
           {t('mnemonic.writeDownWords')} {MNEMONIC_GENERATE_WORD_COUNT} {t('mnemonic.wordsInOrder')}
         </p>
         <div className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30">
@@ -722,7 +712,7 @@ const RecoveryPhrasePanel = () => {
         </div>
       </div>
 
-      <div className="bg-neutral-50 dark:bg-neutral-800/60 rounded-2xl p-4 mb-4 border border-neutral-200 dark:border-neutral-800 relative">
+      <div className="bg-surface-muted rounded-2xl p-4 mb-4 border border-line relative">
         <div
           className="grid grid-cols-3 gap-2 transition-all duration-300"
           style={{
@@ -733,8 +723,8 @@ const RecoveryPhrasePanel = () => {
           {words.map((word, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 bg-white dark:bg-neutral-900 rounded-lg px-3 py-2 text-sm border border-neutral-200 dark:border-neutral-800">
-              <span className="text-neutral-500 dark:text-neutral-400 font-mono text-xs w-5 text-right">
+              className="flex items-center gap-2 bg-surface rounded-lg px-3 py-2 text-sm border border-line">
+              <span className="text-content-muted font-mono text-xs w-5 text-right">
                 {index + 1}.
               </span>
               <span className="font-mono font-medium">{word}</span>
@@ -748,7 +738,7 @@ const RecoveryPhrasePanel = () => {
             aria-label={t('mnemonic.revealPhrase')}
             className="absolute inset-0 flex items-center justify-center cursor-pointer bg-transparent">
             <svg
-              className="w-7 h-7 text-neutral-800 dark:text-white transition-opacity duration-200 hover:opacity-70"
+              className="w-7 h-7 text-content dark:text-white transition-opacity duration-200 hover:opacity-70"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -802,12 +792,13 @@ const RecoveryPhrasePanel = () => {
         )}
       </Button>
 
-      <button
+      <Button
         type="button"
+        variant="tertiary"
         onClick={() => switchMode('import')}
-        className="w-full text-center text-sm text-primary-400 hover:text-primary-600 dark:text-primary-300 transition-colors mb-3">
+        className="w-full mb-3">
         {t('mnemonic.alreadyHavePhrase')}
-      </button>
+      </Button>
 
       <label className="flex items-start gap-3 cursor-pointer mb-4">
         <SettingsCheckbox
@@ -815,9 +806,7 @@ const RecoveryPhrasePanel = () => {
           checked={confirmed}
           onCheckedChange={setConfirmed}
         />
-        <span className="text-sm text-neutral-700 dark:text-neutral-200">
-          {t('mnemonic.consentSaved')}
-        </span>
+        <span className="text-sm text-content-secondary">{t('mnemonic.consentSaved')}</span>
       </label>
     </>
   );
@@ -825,15 +814,13 @@ const RecoveryPhrasePanel = () => {
   const renderImportMode = () => (
     <>
       <div className="mb-4">
-        <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+        <p className="text-sm text-content-secondary leading-relaxed">
           {t('mnemonic.enterPhraseToRestore')}
         </p>
       </div>
 
       <div className="flex items-center gap-2 mb-3">
-        <span className="text-xs text-neutral-500 dark:text-neutral-400">
-          {t('mnemonic.words')}:
-        </span>
+        <span className="text-xs text-content-muted">{t('mnemonic.words')}:</span>
         {BIP39_IMPORT_LENGTHS.map(len => (
           <button
             key={len}
@@ -842,18 +829,18 @@ const RecoveryPhrasePanel = () => {
             className={`px-2.5 py-1 text-xs font-medium rounded-lg transition-colors ${
               selectedWordCount === len
                 ? 'bg-primary-500/20 border-primary-500/40 text-primary-600 dark:text-primary-300 border'
-                : 'border border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-400 hover:border-neutral-300 dark:border-neutral-700'
+                : 'border border-line text-content-muted hover:border-line-strong dark:border-line-strong'
             }`}>
             {len}
           </button>
         ))}
       </div>
 
-      <div className="bg-neutral-50 dark:bg-neutral-800/60 rounded-2xl p-4 mb-4 border border-neutral-200 dark:border-neutral-800">
+      <div className="bg-surface-muted rounded-2xl p-4 mb-4 border border-line">
         <div className="grid grid-cols-3 gap-2">
           {importWords.map((word, index) => (
             <div key={index} className="flex items-center gap-1.5">
-              <span className="text-neutral-500 dark:text-neutral-400 font-mono text-xs w-5 text-right shrink-0">
+              <span className="text-content-muted font-mono text-xs w-5 text-right shrink-0">
                 {index + 1}.
               </span>
               <input
@@ -867,12 +854,12 @@ const RecoveryPhrasePanel = () => {
                 onKeyDown={e => handleImportKeyDown(index, e)}
                 autoComplete="off"
                 spellCheck={false}
-                className={`w-full font-mono text-sm font-medium px-2 py-1.5 rounded-lg border bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 outline-none transition-colors ${
+                className={`w-full font-mono text-sm font-medium px-2 py-1.5 rounded-lg border bg-surface text-content outline-none transition-colors ${
                   importValid === false && word.trim()
                     ? 'border-coral-400 focus:border-coral-300 dark:border-coral-500/40'
                     : importValid === true
                       ? 'border-sage-400 focus:border-sage-300 dark:border-sage-500/40'
-                      : 'border-neutral-200 dark:border-neutral-800 focus:border-primary-400'
+                      : 'border-line focus:border-primary-400'
                 }`}
               />
             </div>
@@ -894,108 +881,99 @@ const RecoveryPhrasePanel = () => {
         </div>
       )}
 
-      <button
+      <Button
         type="button"
+        variant="tertiary"
         onClick={() => switchMode('generate')}
-        className="w-full text-center text-sm text-primary-400 hover:text-primary-600 dark:text-primary-300 transition-colors mb-3">
+        className="w-full mb-3">
         {t('mnemonic.generateNewPhrase')}
-      </button>
+      </Button>
     </>
   );
 
   return (
-    <PanelPage
-      className="z-10"
-      contentClassName=""
-      description={t('pages.settings.account.recoveryPhraseDesc')}
-      leading={<SettingsBackButton onBack={navigateBack} />}>
-      <div>
-        <div className="p-4">
-          {success ? (
-            <div className="flex flex-col items-center justify-center gap-3 py-12">
-              <div className="w-12 h-12 rounded-full bg-sage-500/20 flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-sage-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <p className="text-sm font-medium text-sage-500">{t('mnemonic.phraseSaved')}</p>
-              <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                {t('mnemonic.walletReady')}
-              </p>
-            </div>
-          ) : (
+    <SettingsPanel description={t('pages.settings.account.recoveryPhraseDesc')}>
+      {success ? (
+        <div className="flex flex-col items-center justify-center gap-3 py-12">
+          <div className="w-12 h-12 rounded-full bg-sage-500/20 flex items-center justify-center">
+            <svg
+              className="w-6 h-6 text-sage-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <p className="text-sm font-medium text-sage-500">{t('mnemonic.phraseSaved')}</p>
+          <p className="text-xs text-content-muted">{t('mnemonic.walletReady')}</p>
+        </div>
+      ) : (
+        <>
+          {mode === 'loading' && renderLoading()}
+          {mode === 'view' && renderViewMode()}
+          {mode === 'replace-confirm' && renderReplaceConfirm()}
+          {(mode === 'generate' || mode === 'import') && (
             <>
-              {mode === 'loading' && renderLoading()}
-              {mode === 'view' && renderViewMode()}
-              {mode === 'replace-confirm' && renderReplaceConfirm()}
-              {(mode === 'generate' || mode === 'import') && (
-                <>
-                  {mode === 'generate' ? renderGenerateMode() : renderImportMode()}
+              {mode === 'generate' ? renderGenerateMode() : renderImportMode()}
 
-                  {error && (
-                    <div
-                      role="alert"
-                      className="flex items-start gap-2.5 p-3 mb-3 rounded-xl bg-coral-50 dark:bg-coral-500/10 border border-coral-200 dark:border-coral-500/30">
-                      <svg
-                        className="w-4 h-4 text-coral-500 flex-shrink-0 mt-0.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}>
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-                        />
-                      </svg>
-                      <p className="text-xs text-coral-700 dark:text-coral-300 leading-relaxed">
-                        {error}
-                      </p>
-                    </div>
-                  )}
-
-                  <Button
-                    type="button"
-                    variant="primary"
-                    size="lg"
-                    onClick={() => void handleSave()}
-                    disabled={!canSave || loading}
-                    className="w-full">
-                    {loading ? (
-                      <>
-                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          />
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                          />
-                        </svg>
-                        <span>{t('mnemonic.securingData')}</span>
-                      </>
-                    ) : (
-                      t('mnemonic.saveRecoveryPhrase')
-                    )}
-                  </Button>
-                </>
+              {error && (
+                <div
+                  role="alert"
+                  className="flex items-start gap-2.5 p-3 mb-3 rounded-xl bg-coral-50 dark:bg-coral-500/10 border border-coral-200 dark:border-coral-500/30">
+                  <svg
+                    className="w-4 h-4 text-coral-500 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                    />
+                  </svg>
+                  <p className="text-xs text-coral-700 dark:text-coral-300 leading-relaxed">
+                    {error}
+                  </p>
+                </div>
               )}
+
+              <Button
+                type="button"
+                variant="primary"
+                size="lg"
+                onClick={() => void handleSave()}
+                disabled={!canSave || loading}
+                className="w-full">
+                {loading ? (
+                  <>
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                      />
+                    </svg>
+                    <span>{t('mnemonic.securingData')}</span>
+                  </>
+                ) : (
+                  t('mnemonic.saveRecoveryPhrase')
+                )}
+              </Button>
             </>
           )}
-        </div>
-      </div>
-    </PanelPage>
+        </>
+      )}
+    </SettingsPanel>
   );
 };
 

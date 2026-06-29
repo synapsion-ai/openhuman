@@ -85,6 +85,7 @@ use openhuman_core::openhuman::memory::{
     Memory, MemoryCategory, MemoryEntry, NamespaceSummary, RecallOpts,
 };
 use openhuman_core::openhuman::security::{AuditLogger, AutonomyLevel, SecurityPolicy};
+use openhuman_core::openhuman::tokenjuice::AgentTokenjuiceCompression;
 use openhuman_core::openhuman::tool_registry::ops::diagnostics_for_config;
 use openhuman_core::openhuman::tool_registry::{
     all_tool_registry_controller_schemas, all_tool_registry_registered_controllers,
@@ -301,6 +302,7 @@ fn coverage_agent_definition(
         sandbox_mode: SandboxMode::None,
         background: false,
         trigger_memory_agent: Default::default(),
+        tokenjuice_compression: AgentTokenjuiceCompression::Auto,
         subagents: vec![],
         delegate_name: delegate_name.map(str::to_string),
         agent_tier: AgentTier::Worker,
@@ -781,6 +783,7 @@ async fn composio_agent_tools_cover_backend_discovery_markdown_and_execution_pat
             "composio_list_toolkits",
             "composio_list_connections",
             "composio_authorize",
+            "composio_connect",
             "composio_list_tools",
             "composio_execute",
         ]

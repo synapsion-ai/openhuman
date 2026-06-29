@@ -37,6 +37,13 @@ pub enum AgentProgress {
         arguments: serde_json::Value,
         /// 1-based iteration index.
         iteration: u32,
+        /// Server-computed human label for the chat processing timeline
+        /// (e.g. "Reading messages"), or `None` to defer to the client
+        /// formatter. Set from [`crate::openhuman::tools::traits::Tool::display_label`].
+        display_label: Option<String>,
+        /// Server-computed contextual detail shown after the label
+        /// (e.g. "steven@gmail.com"), from `Tool::display_detail`.
+        display_detail: Option<String>,
     },
 
     /// A tool execution completed (success or failure).
@@ -149,8 +156,18 @@ pub enum AgentProgress {
         task_id: String,
         call_id: String,
         tool_name: String,
+        /// Full arguments the child invoked the tool with, so the parent
+        /// thread's UI can show *what exactly* the sub-agent did (not just
+        /// the tool name). Mirrors the top-level `ToolCallStarted.arguments`.
+        arguments: serde_json::Value,
         /// 1-based child iteration index this call belongs to.
         iteration: u32,
+        /// Server-computed human label for the timeline (e.g. "Reading
+        /// messages"), or `None` to defer to the client formatter. Mirrors
+        /// the top-level `ToolCallStarted.display_label`.
+        display_label: Option<String>,
+        /// Server-computed contextual detail (e.g. "steven@gmail.com").
+        display_detail: Option<String>,
     },
 
     /// A sub-agent's tool execution finished.
@@ -161,6 +178,10 @@ pub enum AgentProgress {
         tool_name: String,
         success: bool,
         output_chars: usize,
+        /// Full text the tool returned, so the UI can show the sub-agent's
+        /// actual result/output. `output_chars` is kept as a cheap size hint
+        /// for consumers that only want the length.
+        output: String,
         elapsed_ms: u64,
         /// 1-based child iteration index.
         iteration: u32,

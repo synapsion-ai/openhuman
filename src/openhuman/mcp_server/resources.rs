@@ -116,6 +116,12 @@ const RESOURCE_CATALOG: &[PromptResource] = &[
         content: include_str!("../agent_registry/agents/researcher/prompt.md"),
     },
     PromptResource {
+        uri: "openhuman://prompts/agents/context_scout",
+        name: "context_scout",
+        description: "Read-only pre-flight worker that gathers context (memory, transcripts, goals, skills, integrations, web) and returns a bounded context bundle.",
+        content: include_str!("../agent_registry/agents/context_scout/prompt.md"),
+    },
+    PromptResource {
         uri: "openhuman://prompts/agents/critic",
         name: "critic",
         description: "Read-only worker that critiques plans and outputs.",
@@ -132,6 +138,12 @@ const RESOURCE_CATALOG: &[PromptResource] = &[
         name: "archivist",
         description: "Background worker that distils conversations into persistent memory.",
         content: include_str!("../agent_registry/agents/archivist/prompt.md"),
+    },
+    PromptResource {
+        uri: "openhuman://prompts/agents/goals_agent",
+        name: "goals_agent",
+        description: "Background curator that keeps the user's long-term goals list fresh.",
+        content: include_str!("../agent_registry/agents/goals_agent/prompt.md"),
     },
     PromptResource {
         uri: "openhuman://prompts/agents/trigger_triage",
@@ -232,7 +244,7 @@ const RESOURCE_CATALOG: &[PromptResource] = &[
     PromptResource {
         uri: "openhuman://prompts/agents/subconscious",
         name: "subconscious",
-        description: "Background reasoning agent that maintains subconscious scratchpad context.",
+        description: "Background awareness agent: diffs the user's world, prepares context, and decides what to do.",
         content: include_str!("../subconscious/agent/prompt.md"),
     },
     PromptResource {

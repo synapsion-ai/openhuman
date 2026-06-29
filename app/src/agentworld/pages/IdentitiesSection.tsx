@@ -15,7 +15,9 @@
  */
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 
+import ChipTabs from '../../components/layout/ChipTabs';
 import PanelScaffold from '../../components/layout/PanelScaffold';
+import Button from '../../components/ui/Button';
 import {
   type AvailabilityResponse,
   type DirectoryIdentityListingsResponse,
@@ -29,7 +31,8 @@ import {
   type RegistryWalletBalance,
 } from '../../lib/agentworld/invokeApiClient';
 import { apiClient } from '../AgentWorldShell';
-import AmountCommitDialog from '../components/AmountCommitDialog';
+import { decimalsForAsset, formatAssetAmount } from '../assets';
+import CommitFlow from '../components/CommitFlow';
 import X402ConfirmDialog from '../components/X402ConfirmDialog';
 import { explorerTxUrl as buyExplorerTxUrl, useX402Buy } from '../hooks/useX402Buy';
 
@@ -234,7 +237,7 @@ function PaymentRequiredBanner() {
   return (
     <div className="flex flex-col items-center justify-center h-32 gap-2 text-amber-400">
       <p className="text-sm font-medium">Access requires payment</p>
-      <p className="text-xs text-stone-500 dark:text-neutral-400">
+      <p className="text-xs text-content-muted">
         Your wallet will be used to fulfill the x402 payment challenge.
       </p>
     </div>
@@ -248,7 +251,7 @@ function ErrorBanner({ message }: { message: string }) {
 
   if (isWalletLocked) {
     return (
-      <div className="flex flex-col items-center justify-center h-32 gap-2 text-stone-500 dark:text-neutral-400">
+      <div className="flex flex-col items-center justify-center h-32 gap-2 text-content-muted">
         <p className="text-sm font-medium">Unlock your wallet to use Agent World</p>
         <p className="text-xs">
           Agent World uses your wallet identity. Import your recovery phrase in Settings to
@@ -261,14 +264,22 @@ function ErrorBanner({ message }: { message: string }) {
   return (
     <div className="flex flex-col items-center justify-center h-32 gap-2 text-red-400">
       <p className="text-sm font-medium">Failed to load</p>
-      <p className="text-xs text-stone-400 dark:text-neutral-500">{message}</p>
+      <p className="text-xs text-content-faint">{message}</p>
     </div>
   );
 }
 
-// Formats price amount + asset for display
+// Formats a marketplace price for display. Listing/floor/sale `price.amount`
+// strings are in the asset's smallest BASE units (same convention as the x402
+// buy challenge `amount` and bounty `reward.amount`) — a 30 USDC price arrives as
+// "30000000". We humanize here via the shared {@link formatAssetAmount} so the
+// DISPLAYED price ("30 USDC") matches the human-decimal value the user types in
+// AmountCommitDialog when bidding/offering (which then scales ×10^decimals to base
+// units). Rendering the raw base-unit string verbatim previously invited a
+// catastrophic over-spend (user reads "30000000 USDC", types it, signs 30000000 ×
+// 10^6 base units).
 function formatPrice(amount: string, asset: string): string {
-  return `${amount} ${asset}`;
+  return formatAssetAmount(amount, asset);
 }
 
 // ── Register tab ──────────────────────────────────────────────────────────────
@@ -406,13 +417,11 @@ function RegisterTab({ onRegistered }: { onRegistered?: () => void }) {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-4">
-        <h3 className="text-sm font-semibold text-stone-900 dark:text-neutral-100 mb-2">
-          Check handle availability
-        </h3>
+      <div className="rounded-lg border border-line bg-surface-muted p-4">
+        <h3 className="text-sm font-semibold text-content mb-2">Check handle availability</h3>
         <form className="flex gap-2" onSubmit={handleSubmit}>
           <input
-            className="flex-1 rounded-md border border-stone-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-sm text-stone-900 dark:text-neutral-100 placeholder-stone-400 dark:placeholder-neutral-500 outline-none focus:border-primary-500"
+            className="flex-1 rounded-md border border-line-strong bg-surface px-3 py-2 text-sm text-content placeholder-content-faint outline-none focus:border-primary-500"
             placeholder="Search for a name..."
             type="text"
             value={input}
@@ -420,18 +429,13 @@ function RegisterTab({ onRegistered }: { onRegistered?: () => void }) {
               setInput(sanitize(e.target.value));
             }}
           />
-          <button
-            type="submit"
-            disabled={!input.trim()}
-            className="rounded-md bg-primary-600 px-4 py-2 text-sm font-medium text-white disabled:opacity-50">
+          <Button type="submit" variant="primary" size="md" disabled={!input.trim()}>
             Check
-          </button>
+          </Button>
         </form>
 
         {availState.status === 'loading' && (
-          <p className="mt-2 text-xs text-stone-500 dark:text-neutral-400 animate-pulse">
-            Checking…
-          </p>
+          <p className="mt-2 text-xs text-content-muted animate-pulse">Checking…</p>
         )}
         {availState.status === 'payment_required' && (
           <p className="mt-2 text-xs text-amber-400">Payment required to check availability.</p>
@@ -446,17 +450,17 @@ function RegisterTab({ onRegistered }: { onRegistered?: () => void }) {
                 <span className="text-xs font-medium text-green-500">
                   @{availableHandle} is available
                 </span>
-                <button
-                  type="button"
+                <Button
+                  variant="primary"
+                  size="sm"
                   disabled={busy}
                   onClick={() => {
                     reg.begin(availableHandle);
-                  }}
-                  className="rounded-md bg-primary-600 px-3 py-1.5 text-xs font-medium text-white disabled:opacity-50">
+                  }}>
                   {reg.state.phase === 'challenge_loading'
                     ? 'Loading…'
                     : `Register @${availableHandle}`}
-                </button>
+                </Button>
               </div>
             ) : (
               <div>
@@ -464,7 +468,7 @@ function RegisterTab({ onRegistered }: { onRegistered?: () => void }) {
                   @{availState.data.name.replace(/^@+/, '')} is taken
                 </span>
                 {availState.data.identity && (
-                  <span className="ml-2 text-xs text-stone-500 dark:text-neutral-400 font-mono">
+                  <span className="ml-2 text-xs text-content-muted font-mono">
                     {availState.data.identity.cryptoId.slice(0, 12)}...
                   </span>
                 )}
@@ -501,7 +505,7 @@ function RegisterTab({ onRegistered }: { onRegistered?: () => void }) {
                 ? 'Payment sent but registration did not complete.'
                 : 'Registration failed.'}
             </p>
-            <p className="mt-1 text-xs text-stone-500 dark:text-neutral-400">{reg.state.message}</p>
+            <p className="mt-1 text-xs text-content-muted">{reg.state.message}</p>
             {reg.state.onChainTx && (
               <a
                 href={explorerTxUrl(reg.state.onChainTx)}
@@ -515,10 +519,8 @@ function RegisterTab({ onRegistered }: { onRegistered?: () => void }) {
         )}
       </div>
 
-      <div className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-4">
-        <h4 className="text-xs font-semibold text-stone-900 dark:text-neutral-100 mb-2">
-          Pricing tiers
-        </h4>
+      <div className="rounded-lg border border-line bg-surface-muted p-4">
+        <h4 className="text-xs font-semibold text-content mb-2">Pricing tiers</h4>
         <div className="space-y-1">
           {[
             { label: '3 chars', example: '@abc', fee: '$250/yr' },
@@ -527,7 +529,7 @@ function RegisterTab({ onRegistered }: { onRegistered?: () => void }) {
           ].map(tier => (
             <div
               key={tier.label}
-              className="flex items-center justify-between text-xs text-stone-500 dark:text-neutral-400">
+              className="flex items-center justify-between text-xs text-content-muted">
               <span>
                 {tier.label} <span className="font-mono opacity-60">({tier.example})</span>
               </span>
@@ -578,63 +580,43 @@ function RegistryTab() {
 
   return (
     <div className="space-y-3">
-      <div className="overflow-hidden rounded-lg border border-stone-200 dark:border-neutral-800">
-        <div className="flex items-center justify-between border-b border-stone-200 dark:border-neutral-800 px-3 py-2">
-          <span className="text-xs font-medium text-stone-900 dark:text-neutral-100">
-            Directory identities
-          </span>
-          <span className="text-xs text-stone-400 dark:text-neutral-500">Live from staging</span>
+      <div className="overflow-hidden rounded-lg border border-line">
+        <div className="flex items-center justify-between border-b border-line px-3 py-2">
+          <span className="text-xs font-medium text-content">Directory identities</span>
+          <span className="text-xs text-content-faint">Live from staging</span>
         </div>
 
         {directoryState.status === 'loading' && (
-          <p className="px-3 py-4 text-xs text-stone-500 dark:text-neutral-400 animate-pulse">
-            Loading identities…
-          </p>
+          <p className="px-3 py-4 text-xs text-content-muted animate-pulse">Loading identities…</p>
         )}
         {directoryState.status === 'payment_required' && <PaymentRequiredBanner />}
         {directoryState.status === 'error' && <ErrorBanner message={directoryState.message} />}
         {directoryState.status === 'ok' && listings.length === 0 && (
-          <p className="px-3 py-4 text-xs text-stone-500 dark:text-neutral-400">
+          <p className="px-3 py-4 text-xs text-content-muted">
             No directory identities are currently listed.
           </p>
         )}
         {listings.length > 0 && (
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-stone-200 dark:border-neutral-800">
-                <th className="px-3 py-2 font-medium text-stone-400 dark:text-neutral-500">
-                  Handle
-                </th>
-                <th className="px-3 py-2 font-medium text-stone-400 dark:text-neutral-500">
-                  Seller
-                </th>
-                <th className="px-3 py-2 font-medium text-stone-400 dark:text-neutral-500">
-                  Updated
-                </th>
-                <th className="px-3 py-2 font-medium text-stone-400 dark:text-neutral-500">
-                  Status
-                </th>
-                <th className="px-3 py-2 text-right font-medium text-stone-400 dark:text-neutral-500">
-                  Price
-                </th>
+              <tr className="border-b border-line">
+                <th className="px-3 py-2 font-medium text-content-faint">Handle</th>
+                <th className="px-3 py-2 font-medium text-content-faint">Seller</th>
+                <th className="px-3 py-2 font-medium text-content-faint">Updated</th>
+                <th className="px-3 py-2 font-medium text-content-faint">Status</th>
+                <th className="px-3 py-2 text-right font-medium text-content-faint">Price</th>
               </tr>
             </thead>
             <tbody>
               {listings.map((entry, index) => (
                 <tr
                   key={entry.listingId}
-                  className={`border-b border-stone-200 dark:border-neutral-800 last:border-b-0 ${
-                    index % 2 === 1 ? 'bg-stone-50 dark:bg-neutral-900/50' : ''
+                  className={`border-b border-line last:border-b-0 ${
+                    index % 2 === 1 ? 'bg-surface-muted' : ''
                   }`}>
-                  <td className="px-3 py-2 font-medium text-stone-900 dark:text-neutral-100">
-                    {entry.name}
-                  </td>
-                  <td className="px-3 py-2 font-mono text-stone-400 dark:text-neutral-500">
-                    {entry.seller ?? '—'}
-                  </td>
-                  <td className="px-3 py-2 text-stone-400 dark:text-neutral-500">
-                    {formatDate(entry.updatedAt)}
-                  </td>
+                  <td className="px-3 py-2 font-medium text-content">{entry.name}</td>
+                  <td className="px-3 py-2 font-mono text-content-faint">{entry.seller ?? '—'}</td>
+                  <td className="px-3 py-2 text-content-faint">{formatDate(entry.updatedAt)}</td>
                   <td className="px-3 py-2">
                     <span
                       className={`rounded-full px-2 py-0.5 text-xs font-medium ${
@@ -645,7 +627,7 @@ function RegistryTab() {
                       {entry.status ?? 'unknown'}
                     </span>
                   </td>
-                  <td className="px-3 py-2 text-right font-medium text-stone-900 dark:text-neutral-100">
+                  <td className="px-3 py-2 text-right font-medium text-content">
                     {entry.price ? formatPrice(entry.price.amount, entry.price.asset) : '—'}
                   </td>
                 </tr>
@@ -670,24 +652,22 @@ function FloorCard({ length }: { length: number }) {
   };
 
   return (
-    <div className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-3">
-      <div className="text-xs text-stone-400 dark:text-neutral-500">
+    <div className="rounded-lg border border-line bg-surface-muted p-3">
+      <div className="text-xs text-content-faint">
         {labels[length] ?? `${String(length)} chars`}
       </div>
-      <div className="mt-1 text-sm font-semibold text-stone-900 dark:text-neutral-100">
+      <div className="mt-1 text-sm font-semibold text-content">
         {state.status === 'loading' && (
-          <span className="animate-pulse text-stone-400 dark:text-neutral-500">Loading…</span>
+          <span className="animate-pulse text-content-faint">Loading…</span>
         )}
         {state.status === 'ok' && state.data.price
           ? formatPrice(state.data.price.amount, state.data.price.asset)
           : state.status === 'ok'
             ? 'No floor'
             : null}
-        {state.status === 'error' && (
-          <span className="text-stone-400 dark:text-neutral-500">Unavailable</span>
-        )}
+        {state.status === 'error' && <span className="text-content-faint">Unavailable</span>}
       </div>
-      <div className="mt-1 text-xs text-stone-400 dark:text-neutral-500">
+      <div className="mt-1 text-xs text-content-faint">
         {descriptions[length] ?? 'Handle identities'}
       </div>
     </div>
@@ -716,12 +696,15 @@ function TradingTab() {
     setBuying(null);
   }
 
-  // x402 commitment flow (bid / offer) — no immediate spend.
+  // x402 commitment flow (bid / offer). Now two-phase (amount → review → submit)
+  // for confirm-before-spend parity with Buy — the CommitFlow component owns the
+  // amount/review state; here we only track which listing is in flight + the
+  // success/error banner state.
   const [commit, setCommit] = useState<{ kind: 'bid' | 'offer'; listing: IdentityListing } | null>(
     null
   );
   const [commitState, setCommitState] = useState<{
-    phase: 'idle' | 'busy' | 'success' | 'error';
+    phase: 'idle' | 'success' | 'error';
     message?: string;
   }>({ phase: 'idle' });
 
@@ -730,30 +713,35 @@ function TradingTab() {
     setCommitState({ phase: 'idle' });
   }
 
-  function submitCommit(amount: string) {
-    if (!commit) return;
+  // Perform the actual commitment RPC. `amount` is in BASE units (CommitFlow has
+  // already converted the human decimal input). Returns a promise so CommitFlow
+  // can show its busy/review state and route the outcome back to the banners.
+  function performCommit(amount: string): Promise<void> {
+    if (!commit) return Promise.resolve();
     const { kind, listing } = commit;
     const price = { amount, asset: listing.price.asset, network: listing.price.network ?? '' };
-    setCommitState({ phase: 'busy' });
     const call =
       kind === 'bid'
         ? apiClient.marketplace.bid(listing.listingId, price)
         : apiClient.marketplace.offer(listing.name, price);
-    void call
-      .then(() => {
-        setCommit(null);
-        setCommitState({ phase: 'success' });
-      })
-      .catch((err: unknown) => {
-        setCommitState({ phase: 'error', message: String(err) });
-      });
+    return call.then(() => undefined);
+  }
+
+  function handleCommitSuccess() {
+    setCommit(null);
+    setCommitState({ phase: 'success' });
+  }
+
+  function handleCommitError(message: string) {
+    setCommit(null);
+    setCommitState({ phase: 'error', message });
   }
 
   return (
     <div className="space-y-4">
       {/* Floor prices */}
       <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-neutral-500">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-content-faint">
           Floor Prices
         </h3>
         <div className="grid grid-cols-3 gap-2">
@@ -765,71 +753,66 @@ function TradingTab() {
 
       {/* Listed for sale */}
       <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-neutral-500">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-content-faint">
           Listed for Sale
         </h3>
         {marketState.status === 'loading' && (
-          <p className="text-xs text-stone-500 dark:text-neutral-400 animate-pulse">
-            Loading listings…
-          </p>
+          <p className="text-xs text-content-muted animate-pulse">Loading listings…</p>
         )}
         {marketState.status === 'payment_required' && <PaymentRequiredBanner />}
         {marketState.status === 'error' && <ErrorBanner message={marketState.message} />}
         {marketState.status === 'ok' && listings.length === 0 && (
-          <p className="text-xs text-stone-500 dark:text-neutral-400">
-            No identities listed for sale
-          </p>
+          <p className="text-xs text-content-muted">No identities listed for sale</p>
         )}
         {listings.length > 0 && (
           <div className="grid grid-cols-2 gap-2">
             {listings.map(listing => (
               <div
                 key={listing.listingId}
-                className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-3">
+                className="rounded-lg border border-line bg-surface-muted p-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-stone-900 dark:text-neutral-100">
-                    {listing.name}
-                  </span>
+                  <span className="text-sm font-medium text-content">{listing.name}</span>
                   {listing.listingType === 'auction' && (
                     <span className="rounded-full bg-orange-600/20 px-2 py-0.5 text-xs font-medium text-orange-500">
                       Auction
                     </span>
                   )}
                 </div>
-                <div className="mt-1 text-xs font-semibold text-stone-900 dark:text-neutral-100">
+                <div className="mt-1 text-xs font-semibold text-content">
                   {formatPrice(listing.price.amount, listing.price.asset)}
                 </div>
                 {listing.seller && (
-                  <div className="mt-0.5 text-xs text-stone-400 dark:text-neutral-500">
-                    by {listing.seller}
-                  </div>
+                  <div className="mt-0.5 text-xs text-content-faint">by {listing.seller}</div>
                 )}
                 <div className="mt-2 flex gap-1">
                   {listing.listingType !== 'auction' && (
-                    <button
-                      type="button"
+                    <Button
+                      variant="primary"
+                      size="xs"
+                      className="flex-1"
                       disabled={buying !== null}
-                      onClick={() => startBuy(listing)}
-                      className="flex-1 rounded-md bg-primary-600 px-2 py-1 text-xs font-medium text-white disabled:opacity-50">
+                      onClick={() => startBuy(listing)}>
                       Buy
-                    </button>
+                    </Button>
                   )}
                   {listing.listingType === 'auction' && (
-                    <button
-                      type="button"
+                    <Button
+                      variant="primary"
+                      size="xs"
+                      className="flex-1"
                       disabled={commit !== null}
-                      onClick={() => setCommit({ kind: 'bid', listing })}
-                      className="flex-1 rounded-md bg-primary-600 px-2 py-1 text-xs font-medium text-white disabled:opacity-50">
+                      onClick={() => setCommit({ kind: 'bid', listing })}>
                       Bid
-                    </button>
+                    </Button>
                   )}
-                  <button
-                    type="button"
+                  <Button
+                    variant="secondary"
+                    size="xs"
+                    className="flex-1"
                     disabled={commit !== null}
-                    onClick={() => setCommit({ kind: 'offer', listing })}
-                    className="flex-1 rounded-md border border-stone-300 px-2 py-1 text-xs font-medium text-stone-700 disabled:opacity-50 dark:border-neutral-700 dark:text-neutral-200">
+                    onClick={() => setCommit({ kind: 'offer', listing })}>
                     Offer
-                  </button>
+                  </Button>
                 </div>
               </div>
             ))}
@@ -849,26 +832,22 @@ function TradingTab() {
             className="mt-3 rounded-md border border-red-500/30 bg-red-500/10 p-3"
             data-testid="commit-error">
             <p className="text-xs font-medium text-red-500">Commitment failed.</p>
-            <p className="mt-1 text-xs text-stone-500 dark:text-neutral-400">
-              {commitState.message}
-            </p>
+            <p className="mt-1 text-xs text-content-muted">{commitState.message}</p>
           </div>
         )}
 
-        {/* Bid / offer amount dialog. */}
+        {/* Bid / offer commitment flow (amount → review → submit). */}
         {commit && (
-          <AmountCommitDialog
-            title={
-              commit.kind === 'bid'
-                ? `Bid on ${commit.listing.name}`
-                : `Offer for ${commit.listing.name}`
-            }
-            subtitle="A signed commitment — funds move only if it is accepted."
+          <CommitFlow
+            kind={commit.kind}
+            name={commit.listing.name}
             asset={commit.listing.price.asset}
-            submitLabel={commit.kind === 'bid' ? 'Place bid' : 'Submit offer'}
-            busy={commitState.phase === 'busy'}
-            onCancel={closeCommit}
-            onSubmit={submitCommit}
+            decimals={decimalsForAsset(commit.listing.price.asset)}
+            network={commit.listing.price.network}
+            submit={performCommit}
+            onSuccess={handleCommitSuccess}
+            onError={handleCommitError}
+            onClose={closeCommit}
           />
         )}
 
@@ -896,7 +875,7 @@ function TradingTab() {
             <p className="text-xs font-medium text-red-500">
               {bs.onChainTx ? 'Payment sent but purchase did not complete.' : 'Purchase failed.'}
             </p>
-            <p className="mt-1 text-xs text-stone-500 dark:text-neutral-400">{bs.message}</p>
+            <p className="mt-1 text-xs text-content-muted">{bs.message}</p>
           </div>
         )}
 
@@ -922,56 +901,44 @@ function TradingTab() {
 
       {/* Recent sales */}
       <div>
-        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-neutral-500">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-content-faint">
           Recent Sales
         </h3>
-        <div className="overflow-hidden rounded-lg border border-stone-200 dark:border-neutral-800">
+        <div className="overflow-hidden rounded-lg border border-line">
           {salesState.status === 'loading' && (
-            <p className="p-3 text-xs text-stone-500 dark:text-neutral-400 animate-pulse">
-              Loading sales…
-            </p>
+            <p className="p-3 text-xs text-content-muted animate-pulse">Loading sales…</p>
           )}
           {salesState.status === 'error' && (
             <p className="p-3 text-xs text-red-400">Failed to load sales</p>
           )}
           {salesState.status === 'ok' && sales.length === 0 && (
-            <p className="p-3 text-xs text-stone-500 dark:text-neutral-400">No recent sales</p>
+            <p className="p-3 text-xs text-content-muted">No recent sales</p>
           )}
           {sales.length > 0 && (
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-stone-200 dark:border-neutral-800">
-                  <th className="px-3 py-2 font-medium text-stone-400 dark:text-neutral-500">
-                    Handle
-                  </th>
-                  <th className="px-3 py-2 font-medium text-stone-400 dark:text-neutral-500">
-                    Price
-                  </th>
-                  <th className="px-3 py-2 font-medium text-stone-400 dark:text-neutral-500">
-                    Buyer
-                  </th>
-                  <th className="px-3 py-2 text-right font-medium text-stone-400 dark:text-neutral-500">
-                    Date
-                  </th>
+                <tr className="border-b border-line">
+                  <th className="px-3 py-2 font-medium text-content-faint">Handle</th>
+                  <th className="px-3 py-2 font-medium text-content-faint">Price</th>
+                  <th className="px-3 py-2 font-medium text-content-faint">Buyer</th>
+                  <th className="px-3 py-2 text-right font-medium text-content-faint">Date</th>
                 </tr>
               </thead>
               <tbody>
                 {sales.map((sale, index) => (
                   <tr
                     key={sale.saleId}
-                    className={`border-b border-stone-200 dark:border-neutral-800 last:border-b-0 ${
-                      index % 2 === 1 ? 'bg-stone-50 dark:bg-neutral-900/50' : ''
+                    className={`border-b border-line last:border-b-0 ${
+                      index % 2 === 1 ? 'bg-surface-muted' : ''
                     }`}>
-                    <td className="px-3 py-2 font-medium text-stone-900 dark:text-neutral-100">
-                      {sale.name}
-                    </td>
-                    <td className="px-3 py-2 text-stone-900 dark:text-neutral-100">
+                    <td className="px-3 py-2 font-medium text-content">{sale.name}</td>
+                    <td className="px-3 py-2 text-content">
                       {formatPrice(sale.price.amount, sale.price.asset)}
                     </td>
-                    <td className="px-3 py-2 font-mono text-stone-400 dark:text-neutral-500">
+                    <td className="px-3 py-2 font-mono text-content-faint">
                       {sale.buyer.slice(0, 12)}...
                     </td>
-                    <td className="px-3 py-2 text-right text-stone-400 dark:text-neutral-500">
+                    <td className="px-3 py-2 text-right text-content-faint">
                       {sale.createdAt.slice(0, 10)}
                     </td>
                   </tr>
@@ -1011,25 +978,17 @@ export default function IdentitiesSection() {
 
   return (
     <PanelScaffold description="Claim handles, manage your registry, and trade identities">
-      <div className="flex gap-1">
-        {(Object.keys(TAB_KEYS) as Tab[]).map(tabKey => (
-          <button
-            key={tabKey}
-            type="button"
-            onClick={() => {
-              dispatch({ type: 'set', tab: tabKey });
-            }}
-            data-active={tab === tabKey}
-            className={[
-              'rounded-full px-3 py-1 text-xs font-medium transition-colors',
-              tab === tabKey
-                ? 'bg-stone-800 text-white dark:bg-neutral-100 dark:text-neutral-900'
-                : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800',
-            ].join(' ')}>
-            {TAB_KEYS[tabKey]}
-          </button>
-        ))}
-      </div>
+      <ChipTabs<Tab>
+        as="tab"
+        ariaLabel="Identity sections"
+        className="flex gap-1"
+        items={(Object.keys(TAB_KEYS) as Tab[]).map(tabKey => ({
+          id: tabKey,
+          label: TAB_KEYS[tabKey],
+        }))}
+        value={tab}
+        onChange={tabKey => dispatch({ type: 'set', tab: tabKey })}
+      />
 
       <div key={key}>
         {tab === 'register' && <RegisterTab onRegistered={bumpRegistryKey} />}

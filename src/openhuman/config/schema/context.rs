@@ -118,6 +118,24 @@ pub struct ContextConfig {
     /// See `compaction-plan.md`.
     #[serde(default = "default_true")]
     pub compaction_enabled: bool,
+
+    /// "Super context" mode. When `true`, the agent harness runs a
+    /// mandatory read-only context-collection pass (the `context_scout`
+    /// sub-agent, the same one behind the `agent_prepare_context` tool)
+    /// on the **first turn** of a new thread, *before* the orchestrator
+    /// LLM runs, and folds the resulting `[context_bundle]` into the user
+    /// message. This pass is driven by the harness regardless of the
+    /// model's decision, so the orchestrator does not expose the
+    /// `agent_prepare_context` tool for the same first-turn work.
+    ///
+    /// Read once at session/thread construction, so toggling it only
+    /// affects threads started afterwards (the value is baked into the
+    /// frozen turn-1 context). Default: `true`. Env override:
+    /// `OPENHUMAN_SUPER_CONTEXT` (set to `0` to opt out). Surfaced in the
+    /// UI as the "super context" toggle next to the chat composer's
+    /// Quick/Reasoning mode switch, shown only on a fresh thread.
+    #[serde(default = "default_true")]
+    pub super_context_enabled: bool,
 }
 
 fn default_enabled() -> bool {
@@ -162,6 +180,7 @@ impl Default for ContextConfig {
             summarizer_model: None,
             prefer_markdown_tool_output: default_true(),
             compaction_enabled: default_true(),
+            super_context_enabled: default_true(),
         }
     }
 }

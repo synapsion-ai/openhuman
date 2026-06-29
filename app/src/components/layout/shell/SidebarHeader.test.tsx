@@ -1,6 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { registry } from '../../../lib/commands/registry';
 import { renderWithProviders } from '../../../test/test-utils';
 import SidebarHeader from './SidebarHeader';
 
@@ -20,39 +21,56 @@ vi.mock('../../../lib/i18n/I18nContext', () => ({ useT: () => ({ t: (k: string) 
 describe('SidebarHeader', () => {
   beforeEach(() => vi.clearAllMocks());
 
-  it('renders Home, Wallet, Settings, and Collapse buttons', () => {
+  it('renders Home, Keyboard Shortcuts, Settings, and Collapse buttons', () => {
     renderWithProviders(<SidebarHeader />, { initialEntries: ['/home'] });
     expect(screen.getByRole('button', { name: 'nav.home' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'nav.wallet' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'shortcuts.title' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'nav.settings' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'chat.hideSidebar' })).toBeInTheDocument();
+    // The wallet shortcut was removed (replaced by Home, clear of the macOS
+    // window controls).
+    expect(screen.queryByRole('button', { name: 'nav.wallet' })).not.toBeInTheDocument();
   });
 
-  it('wallet button navigates to /settings/wallet-balances', () => {
+  it('Home button has correct data-analytics-id', () => {
     renderWithProviders(<SidebarHeader />, { initialEntries: ['/home'] });
-    fireEvent.click(screen.getByRole('button', { name: 'nav.wallet' }));
-    expect(mockNavigate).toHaveBeenCalledWith('/settings/wallet-balances');
-  });
-
-  it('wallet button has correct data-analytics-id', () => {
-    renderWithProviders(<SidebarHeader />, { initialEntries: ['/home'] });
-    expect(screen.getByRole('button', { name: 'nav.wallet' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'nav.home' })).toHaveAttribute(
       'data-analytics-id',
-      'sidebar-header-wallet'
+      'sidebar-header-home'
     );
   });
 
-  it('wallet button has matching aria-label and title', () => {
+  it('shortcuts button opens the keyboard-shortcuts help directory', () => {
+    const runAction = vi.spyOn(registry, 'runAction').mockReturnValue(true);
     renderWithProviders(<SidebarHeader />, { initialEntries: ['/home'] });
-    const btn = screen.getByRole('button', { name: 'nav.wallet' });
-    expect(btn).toHaveAttribute('aria-label', 'nav.wallet');
-    expect(btn).toHaveAttribute('title', 'nav.wallet');
+    fireEvent.click(screen.getByRole('button', { name: 'shortcuts.title' }));
+    expect(runAction).toHaveBeenCalledWith('meta.keyboard-shortcuts');
+    runAction.mockRestore();
+  });
+
+  it('shortcuts button has correct data-analytics-id', () => {
+    renderWithProviders(<SidebarHeader />, { initialEntries: ['/home'] });
+    expect(screen.getByRole('button', { name: 'shortcuts.title' })).toHaveAttribute(
+      'data-analytics-id',
+      'sidebar-header-shortcuts'
+    );
+  });
+
+  it('shortcuts button has matching aria-label and title', () => {
+    renderWithProviders(<SidebarHeader />, { initialEntries: ['/home'] });
+    const btn = screen.getByRole('button', { name: 'shortcuts.title' });
+    expect(btn).toHaveAttribute('aria-label', 'shortcuts.title');
+    // The styled <Tooltip> wrapper re-applies a native `title` fallback so the
+    // label still surfaces if the portal pill is occluded by a CEF webview.
+    expect(btn).toHaveAttribute('title', 'shortcuts.title');
   });
 
   it('settings button navigates to /settings', () => {
     renderWithProviders(<SidebarHeader />, { initialEntries: ['/home'] });
     fireEvent.click(screen.getByRole('button', { name: 'nav.settings' }));
-    expect(mockNavigate).toHaveBeenCalledWith('/settings');
+    expect(mockNavigate).toHaveBeenCalledWith('/settings', {
+      state: { backgroundLocation: expect.objectContaining({ pathname: '/home' }) },
+    });
   });
 
   it('Home button invokes the shared Home action', () => {

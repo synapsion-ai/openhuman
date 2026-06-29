@@ -142,6 +142,25 @@ pub enum ProviderDelta {
     ToolCallArgsDelta { call_id: String, delta: String },
 }
 
+/// Upper bound on output tokens requested for an agent chat turn.
+///
+/// The agent loop used to leave `ChatRequest::max_tokens` `None` ("open-ended
+/// generation"), but an unset cap makes reservation-pricing providers (e.g.
+/// OpenRouter) reserve credit against the model's *entire* output window
+/// (64k+) during their pre-flight balance check — so a modest-balance BYO user
+/// can hit a `402` purely from the oversized reservation, a **preventable**
+/// condition. Capping every agent turn at a realistic ceiling prices the
+/// pre-flight against a budget the user can actually afford; a residual `402`
+/// is then the genuine flat-balance case the insufficient-credits demote arm
+/// is meant for (TAURI-RUST-C62; mirrors [`EXTRACTION_MAX_OUTPUT_TOKENS`] in
+/// `memory_tree::score::extract::llm`).
+///
+/// `16384` sits comfortably above any realistic single agent turn — `max_tokens`
+/// is an upper bound, not a forced length, so the model still stops at its
+/// natural end well below the cap on normal turns — while cutting the
+/// reservation 4× versus a 64k window.
+pub const AGENT_TURN_MAX_OUTPUT_TOKENS: u32 = 16384;
+
 /// Request payload for provider chat calls.
 ///
 /// The system prompt is built once at session start and frozen for the
@@ -161,16 +180,16 @@ pub struct ChatRequest<'a> {
     /// Optional upper bound on output tokens to request from the provider
     /// (`max_tokens` on the OpenAI-compatible wire).
     ///
-    /// Left `None` for open-ended generation (orchestrator, agent turns)
-    /// where the model should use its full budget. Set to a small concrete
-    /// value by callers whose output is bounded by construction — notably
-    /// memory extraction, whose response is a tiny structured-JSON object.
+    /// Left `None` only for the orchestrator's open-ended generation. Agent
+    /// turns cap at [`AGENT_TURN_MAX_OUTPUT_TOKENS`] and callers whose output
+    /// is bounded by construction set a small concrete value — notably memory
+    /// extraction, whose response is a tiny structured-JSON object.
     /// Beyond capping wasted generation, this stops credit-metered providers
     /// (e.g. OpenRouter) from reserving the model's *entire* output window
     /// during their pre-flight balance check: an unset `max_tokens` makes
     /// OpenRouter price the request against the full 64k+ window and 402 a
     /// low-balance BYO user who could easily afford the few thousand tokens
-    /// an extraction actually needs (TAURI-RUST-C62).
+    /// the turn actually needs (TAURI-RUST-C62).
     pub max_tokens: Option<u32>,
 }
 
@@ -193,6 +212,8 @@ pub enum ConversationMessage {
         tool_calls: Vec<ToolCall>,
         #[serde(default, skip_serializing_if = "Option::is_none")]
         reasoning_content: Option<String>,
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        extra_metadata: Option<serde_json::Value>,
     },
     /// Results of tool executions, fed back to the LLM.
     ToolResults(Vec<ToolResultMessage>),
@@ -317,6 +338,40 @@ pub struct ProviderCapabilities {
     pub vision: bool,
 }
 
+/// Prompt / KV-cache behaviour a provider supports.
+///
+/// Sibling to [`ProviderCapabilities`], surfaced via
+/// [`Provider::prompt_cache_capabilities`] so the agent and cost layers can
+/// pick a stable cache-key strategy and calibrate cached-token telemetry per
+/// provider. Every field defaults to `false` (conservative): an unknown or
+/// custom OpenAI-compatible provider is assumed to support no caching, so we
+/// never infer cache behaviour — or send cache-only request fields — that the
+/// upstream may not honour (#3939).
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct PromptCacheCapabilities {
+    /// Provider transparently caches identical request prefixes server-side
+    /// with no client action — e.g. OpenAI / DeepSeek / Anthropic implicit
+    /// caching. A byte-stable prompt prefix then earns cache hits for free, so
+    /// preserving the prefix is worthwhile for this provider.
+    pub automatic_prefix_cache: bool,
+    /// Provider accepts explicit cache-control / cache-boundary markers in the
+    /// request body (e.g. Anthropic `cache_control`). OpenAI-compatible chat
+    /// APIs do not, so this stays `false` for them — we must not send such
+    /// fields to a provider that would reject or ignore them.
+    pub explicit_cache_control: bool,
+    /// Provider returns cached-input-token counts in its usage block
+    /// (`prompt_tokens_details.cached_tokens` or
+    /// `openhuman.usage.cached_input_tokens`), so [`UsageInfo::cached_input_tokens`]
+    /// is populated and cached-prefix cost accounting is exact rather than
+    /// estimated.
+    pub usage_reports_cached_input: bool,
+    /// Provider supports grouping calls by a stable logical key (thread /
+    /// session) for cache locality — today only the OpenHuman backend, via its
+    /// `thread_id` extension. Third-party providers rely on prefix identity
+    /// instead and must not receive OpenHuman-only grouping fields.
+    pub cache_key_grouping: bool,
+}
+
 /// Provider-specific tool payload formats.
 ///
 /// Different LLM providers require different formats for tool definitions.
@@ -364,6 +419,19 @@ pub trait Provider: Send + Sync {
     /// Providers should override this to declare their actual capabilities.
     fn capabilities(&self) -> ProviderCapabilities {
         ProviderCapabilities::default()
+    }
+
+    /// Declare the provider's prompt / KV-cache behaviour.
+    ///
+    /// Default is the conservative all-`false` [`PromptCacheCapabilities`]:
+    /// callers must not assume any caching for a provider that hasn't opted in.
+    /// Providers that cache prefixes server-side, report cached input tokens,
+    /// or support thread/session grouping override this to advertise it so the
+    /// agent + cost layers get accurate cache telemetry and a stable cache-key
+    /// strategy without leaking OpenHuman internals to providers that don't
+    /// need them (#3939).
+    fn prompt_cache_capabilities(&self) -> PromptCacheCapabilities {
+        PromptCacheCapabilities::default()
     }
 
     /// Convert tool specifications to provider-native format.
@@ -432,9 +500,11 @@ pub trait Provider: Send + Sync {
     /// OpenAI-compatible provider, which threads it onto the wire for
     /// credit-metered backends — TAURI-RUST-C62) override `chat()` directly.
     /// The drop is logged below rather than silently swallowed; it is not a
-    /// hard error because no production caller both sets `max_tokens` and
-    /// routes through a default-`chat()` provider (agent turns pass `None`;
-    /// memory extraction uses the compatible provider).
+    /// hard error because the production callers that set `max_tokens` (agent
+    /// turns at [`AGENT_TURN_MAX_OUTPUT_TOKENS`], memory extraction) route to
+    /// the compatible provider, which overrides `chat()` and honors the cap.
+    /// A provider on this default path simply forgoes the cap — harmless for
+    /// the non-reservation backends that don't override `chat()`.
     async fn chat(
         &self,
         request: ChatRequest<'_>,

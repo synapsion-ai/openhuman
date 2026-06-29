@@ -12,6 +12,8 @@
 import debug from 'debug';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+import ChipTabs from '../../components/layout/ChipTabs';
+import Button from '../../components/ui/Button';
 import {
   type BroadcastChannel,
   type BroadcastQueryParams,
@@ -119,7 +121,7 @@ function useMyAgentId(): string | null {
 
 function LoadingPane() {
   return (
-    <div className="flex items-center justify-center py-12 text-stone-500 dark:text-neutral-400">
+    <div className="flex items-center justify-center py-12 text-content-muted">
       <span className="animate-pulse text-sm">Loading…</span>
     </div>
   );
@@ -132,7 +134,7 @@ function ErrorPane({ message }: { message: string }) {
 
   if (isWalletLocked) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 gap-2 text-stone-500 dark:text-neutral-400">
+      <div className="flex flex-col items-center justify-center py-12 gap-2 text-content-muted">
         <p className="font-medium">Unlock your wallet to use Agent World</p>
         <p className="text-sm">Import your recovery phrase in Settings to continue.</p>
       </div>
@@ -142,7 +144,7 @@ function ErrorPane({ message }: { message: string }) {
   return (
     <div className="flex flex-col items-center justify-center py-12 gap-2 text-red-400">
       <p className="font-medium text-sm">Failed to load</p>
-      <p className="text-xs text-stone-400 dark:text-neutral-500">{message}</p>
+      <p className="text-xs text-content-faint">{message}</p>
     </div>
   );
 }
@@ -151,7 +153,7 @@ function PaymentRequiredPane() {
   return (
     <div className="flex flex-col items-center justify-center py-12 gap-2 text-amber-400">
       <p className="font-medium">Access requires payment</p>
-      <p className="text-sm text-stone-500 dark:text-neutral-400">
+      <p className="text-sm text-content-muted">
         Your wallet will be used to fulfill the x402 payment challenge.
       </p>
     </div>
@@ -226,13 +228,11 @@ function SignalKeyStatusCard() {
   const discoverable = status?.encryptionKeyPublished === true;
 
   return (
-    <div className="mx-4 mb-3 rounded-lg border border-stone-200 bg-stone-50 p-3 dark:border-neutral-800 dark:bg-neutral-900/50">
+    <div className="mx-4 mb-3 rounded-lg border border-line bg-surface-muted p-3">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-stone-800 dark:text-neutral-200">
-            Encrypted messaging
-          </p>
-          <p className="mt-0.5 text-xs text-stone-500 dark:text-neutral-400">
+          <p className="text-sm font-medium text-content">Encrypted messaging</p>
+          <p className="mt-0.5 text-xs text-content-muted">
             {!keysReady
               ? 'Set up encryption keys to enable direct messages'
               : discoverable
@@ -241,22 +241,24 @@ function SignalKeyStatusCard() {
           </p>
         </div>
         {!keysReady && (
-          <button
-            type="button"
-            className="ml-3 flex-shrink-0 rounded-md bg-primary-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-primary-700 disabled:opacity-50"
+          <Button
+            variant="primary"
+            size="sm"
+            className="ml-3 flex-shrink-0"
             disabled={provisioning}
             onClick={() => void handleProvision()}>
             {provisioning ? 'Setting up...' : 'Set up keys'}
-          </button>
+          </Button>
         )}
         {keysReady && !discoverable && (
-          <button
-            type="button"
-            className="ml-3 flex-shrink-0 rounded-md bg-primary-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-primary-700 disabled:opacity-50"
+          <Button
+            variant="primary"
+            size="sm"
+            className="ml-3 flex-shrink-0"
             disabled={publishing}
             onClick={() => void handlePublish()}>
             {publishing ? 'Publishing...' : 'Make discoverable'}
-          </button>
+          </Button>
         )}
       </div>
       {actionError && (
@@ -283,7 +285,7 @@ function ChannelsPanel() {
 
   if (channels.length === 0) {
     return (
-      <div className="flex items-center justify-center py-12 text-stone-400 dark:text-neutral-500 text-sm">
+      <div className="flex items-center justify-center py-12 text-content-faint text-sm">
         No channels found
       </div>
     );
@@ -298,26 +300,22 @@ function ChannelsPanel() {
           return (
             <div
               key={ch.channelId}
-              className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-3 text-sm">
+              className="rounded-lg border border-line bg-surface-muted p-3 text-sm">
               <div className="flex items-center justify-between gap-2">
-                <span className="font-medium text-stone-900 dark:text-neutral-100 truncate">
-                  {ch.name}
-                </span>
-                <span className="shrink-0 text-xs text-stone-400 dark:text-neutral-500">
+                <span className="font-medium text-content truncate">{ch.name}</span>
+                <span className="shrink-0 text-xs text-content-faint">
                   {ch.memberCount} members
                 </span>
               </div>
               {ch.description ? (
-                <p className="mt-1 text-xs text-stone-500 dark:text-neutral-400 truncate">
-                  {ch.description}
-                </p>
+                <p className="mt-1 text-xs text-content-muted truncate">{ch.description}</p>
               ) : null}
               {ch.tags && ch.tags.length > 0 ? (
                 <div className="mt-2 flex flex-wrap gap-1">
                   {ch.tags.map(tag => (
                     <span
                       key={tag}
-                      className="rounded-full bg-stone-100 dark:bg-neutral-800 px-2 py-0.5 text-[10px] text-stone-500 dark:text-neutral-400">
+                      className="rounded-full bg-surface-subtle px-2 py-0.5 text-[10px] text-content-muted">
                       {tag}
                     </span>
                   ))}
@@ -404,14 +402,11 @@ function GroupsPanel() {
     return (
       <div className="space-y-2">
         <div className="flex justify-end">
-          <button
-            type="button"
-            className="rounded bg-stone-200 dark:bg-neutral-700 px-2 py-1 text-xs text-stone-700 dark:text-neutral-200 hover:bg-stone-300 dark:hover:bg-neutral-600"
-            onClick={() => setShowRedeem(true)}>
+          <Button variant="secondary" size="xs" onClick={() => setShowRedeem(true)}>
             Redeem Invite
-          </button>
+          </Button>
         </div>
-        <div className="flex items-center justify-center py-12 text-stone-400 dark:text-neutral-500 text-sm">
+        <div className="flex items-center justify-center py-12 text-content-faint text-sm">
           No groups found
         </div>
       </div>
@@ -423,7 +418,7 @@ function GroupsPanel() {
       <div className="flex justify-end">
         <button
           type="button"
-          className="rounded bg-stone-200 dark:bg-neutral-700 px-2 py-1 text-xs text-stone-700 dark:text-neutral-200 hover:bg-stone-300 dark:hover:bg-neutral-600"
+          className="rounded bg-surface-strong px-2 py-1 text-xs text-content-secondary hover:bg-stone-300 dark:hover:bg-neutral-600"
           onClick={() => setShowRedeem(true)}>
           Redeem Invite
         </button>
@@ -436,21 +431,17 @@ function GroupsPanel() {
           return (
             <div
               key={group.groupId}
-              className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-3 text-sm">
+              className="rounded-lg border border-line bg-surface-muted p-3 text-sm">
               <div className="flex items-center justify-between gap-2">
-                <span className="font-medium text-stone-900 dark:text-neutral-100 truncate">
-                  {group.name}
-                </span>
+                <span className="font-medium text-content truncate">{group.name}</span>
                 <span className="shrink-0 rounded-full bg-green-500/10 px-1.5 py-0.5 text-[8px] text-green-500">
                   Encrypted
                 </span>
               </div>
               {group.description ? (
-                <p className="mt-1 text-xs text-stone-500 dark:text-neutral-400 truncate">
-                  {group.description}
-                </p>
+                <p className="mt-1 text-xs text-content-muted truncate">{group.description}</p>
               ) : null}
-              <div className="mt-2 flex items-center gap-3 text-[10px] text-stone-400 dark:text-neutral-500">
+              <div className="mt-2 flex items-center gap-3 text-[10px] text-content-faint">
                 <span>{group.memberCount} members</span>
                 <span>{group.membershipPolicy}</span>
               </div>
@@ -555,36 +546,31 @@ function GroupInvitesPanel({
   );
 
   return (
-    <div className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-3">
+    <div className="rounded-lg border border-line bg-surface-muted p-3">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-stone-900 dark:text-neutral-100">
-          Invites for {groupName}
-        </span>
-        <button
-          type="button"
-          className="text-xs text-stone-400 hover:text-stone-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-          onClick={onClose}>
+        <span className="text-sm font-medium text-content">Invites for {groupName}</span>
+        <Button variant="tertiary" size="xs" onClick={onClose}>
           Close
-        </button>
+        </Button>
       </div>
       {error ? <p className="mb-2 text-xs text-red-500">{error}</p> : null}
       {loading ? (
-        <p className="text-xs text-stone-400 dark:text-neutral-500 animate-pulse">Loading...</p>
+        <p className="text-xs text-content-faint animate-pulse">Loading...</p>
       ) : (
         <>
           {invites.length === 0 ? (
-            <p className="text-xs text-stone-400 dark:text-neutral-500">No active invites</p>
+            <p className="text-xs text-content-faint">No active invites</p>
           ) : (
             <div className="space-y-1 mb-2">
               {invites.map(inv => (
                 <div
                   key={inv.token}
-                  className="flex items-center justify-between rounded bg-stone-100 dark:bg-neutral-800 px-2 py-1 text-xs">
+                  className="flex items-center justify-between rounded bg-surface-subtle px-2 py-1 text-xs">
                   <div className="min-w-0 flex-1">
-                    <span className="font-mono text-stone-600 dark:text-neutral-300 truncate block">
+                    <span className="font-mono text-content-secondary truncate block">
                       {inv.token}
                     </span>
-                    <span className="text-stone-400 dark:text-neutral-500">
+                    <span className="text-content-faint">
                       {inv.uses} uses
                       {inv.maxUses != null ? ` / ${inv.maxUses} max` : ''}
                       {inv.revoked ? ' (revoked)' : ''}
@@ -603,13 +589,13 @@ function GroupInvitesPanel({
               ))}
             </div>
           )}
-          <button
-            type="button"
-            className="rounded bg-primary-600 px-2 py-1 text-xs text-white hover:bg-primary-700 disabled:opacity-50"
+          <Button
+            variant="primary"
+            size="xs"
             disabled={creating}
             onClick={() => void handleCreate()}>
             {creating ? 'Creating...' : 'Create Invite'}
-          </button>
+          </Button>
         </>
       )}
     </div>
@@ -657,17 +643,12 @@ function RedeemInvitePanel({ onClose }: { onClose: () => void }) {
   }, [groupId, token]);
 
   return (
-    <div className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-3">
+    <div className="rounded-lg border border-line bg-surface-muted p-3">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-stone-900 dark:text-neutral-100">
-          Redeem Invite
-        </span>
-        <button
-          type="button"
-          className="text-xs text-stone-400 hover:text-stone-600 dark:text-neutral-500 dark:hover:text-neutral-300"
-          onClick={onClose}>
+        <span className="text-sm font-medium text-content">Redeem Invite</span>
+        <Button variant="tertiary" size="xs" onClick={onClose}>
           Close
-        </button>
+        </Button>
       </div>
       {error ? <p className="mb-2 text-xs text-red-500">{error}</p> : null}
       {result ? (
@@ -682,37 +663,37 @@ function RedeemInvitePanel({ onClose }: { onClose: () => void }) {
               placeholder="Group ID"
               value={groupId}
               onChange={e => setGroupId(e.target.value)}
-              className="w-full rounded border border-stone-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-2 py-1 text-xs text-stone-900 dark:text-neutral-100 placeholder:text-stone-400"
+              className="w-full rounded border border-line-strong bg-surface px-2 py-1 text-xs text-content placeholder:text-stone-400"
             />
             <input
               type="text"
               placeholder="Invite token"
               value={token}
               onChange={e => setToken(e.target.value)}
-              className="w-full rounded border border-stone-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-2 py-1 text-xs text-stone-900 dark:text-neutral-100 placeholder:text-stone-400"
+              className="w-full rounded border border-line-strong bg-surface px-2 py-1 text-xs text-content placeholder:text-stone-400"
             />
           </div>
           <div className="flex gap-1 mb-2">
-            <button
-              type="button"
-              className="rounded bg-stone-200 dark:bg-neutral-700 px-2 py-1 text-xs text-stone-700 dark:text-neutral-200 hover:bg-stone-300 dark:hover:bg-neutral-600 disabled:opacity-50"
+            <Button
+              variant="secondary"
+              size="xs"
               disabled={previewLoading || !groupId.trim() || !token.trim()}
               onClick={() => void handlePreview()}>
               {previewLoading ? '...' : 'Preview'}
-            </button>
-            <button
-              type="button"
-              className="rounded bg-primary-600 px-2 py-1 text-xs text-white hover:bg-primary-700 disabled:opacity-50"
+            </Button>
+            <Button
+              variant="primary"
+              size="xs"
               disabled={redeeming || !groupId.trim() || !token.trim()}
               onClick={() => void handleRedeem()}>
               {redeeming ? '...' : 'Redeem'}
-            </button>
+            </Button>
           </div>
           {preview ? (
-            <div className="rounded bg-stone-100 dark:bg-neutral-800 p-2 text-xs text-stone-600 dark:text-neutral-300">
+            <div className="rounded bg-surface-subtle p-2 text-xs text-content-secondary">
               <p className="font-medium">{preview.name}</p>
               {preview.description ? (
-                <p className="mt-0.5 text-stone-400 dark:text-neutral-500">{preview.description}</p>
+                <p className="mt-0.5 text-content-faint">{preview.description}</p>
               ) : null}
               <p className="mt-0.5">
                 {preview.memberCount} members / {preview.membershipPolicy} / invited by{' '}
@@ -744,7 +725,7 @@ function BroadcastsPanel() {
 
   if (broadcasts.length === 0) {
     return (
-      <div className="flex items-center justify-center py-12 text-stone-400 dark:text-neutral-500 text-sm">
+      <div className="flex items-center justify-center py-12 text-content-faint text-sm">
         No broadcasts found
       </div>
     );
@@ -759,23 +740,17 @@ function BroadcastsPanel() {
           return (
             <div
               key={bc.broadcastId}
-              className="rounded-lg border border-stone-200 dark:border-neutral-800 bg-stone-50 dark:bg-neutral-900/50 p-3 text-sm">
+              className="rounded-lg border border-line bg-surface-muted p-3 text-sm">
               <div className="flex items-center justify-between gap-2">
-                <span className="font-medium text-stone-900 dark:text-neutral-100 truncate">
-                  {bc.name}
-                </span>
-                <span className="shrink-0 text-xs text-stone-400 dark:text-neutral-500">
+                <span className="font-medium text-content truncate">{bc.name}</span>
+                <span className="shrink-0 text-xs text-content-faint">
                   {bc.subscriberCount} subs
                 </span>
               </div>
               {bc.description ? (
-                <p className="mt-1 text-xs text-stone-500 dark:text-neutral-400 truncate">
-                  {bc.description}
-                </p>
+                <p className="mt-1 text-xs text-content-muted truncate">{bc.description}</p>
               ) : null}
-              <p className="mt-1 text-[10px] text-stone-400 dark:text-neutral-500 truncate">
-                by {bc.owner}
-              </p>
+              <p className="mt-1 text-[10px] text-content-faint truncate">by {bc.owner}</p>
               <div className="mt-2 flex gap-1">
                 <RowAction
                   label="Subscribe"
@@ -844,7 +819,7 @@ function RowAction({
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className="rounded border border-stone-200 px-1.5 py-0.5 text-[10px] font-medium text-stone-600 hover:bg-stone-100 disabled:opacity-40 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800">
+      className="rounded border border-line px-1.5 py-0.5 text-[10px] font-medium text-content-secondary hover:bg-surface-hover disabled:opacity-40">
       {label}
     </button>
   );
@@ -912,7 +887,6 @@ function InboxPanel() {
         void apiClient.streams.stop(streamRef.current).catch(() => {});
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Bump version when a stream message arrives to trigger re-fetch.
@@ -932,9 +906,9 @@ function InboxPanel() {
   const anyBusy = busyKey !== null;
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg border border-stone-200 dark:border-neutral-800">
-      <div className="flex items-center justify-between border-b border-stone-200 dark:border-neutral-800 px-4 py-2">
-        <span className="text-sm font-medium text-stone-900 dark:text-neutral-100">
+    <div className="flex flex-col overflow-hidden rounded-lg border border-line">
+      <div className="flex items-center justify-between border-b border-line px-4 py-2">
+        <span className="text-sm font-medium text-content">
           Inbox
           {unread > 0 ? (
             <span className="ml-2 inline-flex items-center justify-center rounded-full bg-blue-500 px-1.5 py-0.5 text-[10px] font-semibold text-white">
@@ -964,11 +938,11 @@ function InboxPanel() {
         </div>
       ) : null}
       {items.length === 0 ? (
-        <div className="flex items-center justify-center py-12 text-stone-400 dark:text-neutral-500 text-sm">
+        <div className="flex items-center justify-center py-12 text-content-faint text-sm">
           Your inbox is empty
         </div>
       ) : (
-        <div className="divide-y divide-stone-200 dark:divide-neutral-800/50">
+        <div className="divide-y divide-line dark:divide-neutral-800/50">
           {items.map(item => {
             const busy = busyKey === item.itemId;
             const archived = item.status === 'archived';
@@ -978,17 +952,11 @@ function InboxPanel() {
                   className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${TYPE_DOT_COLORS[item.type] ?? 'bg-stone-400 dark:bg-neutral-500'}`}
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-medium text-stone-900 dark:text-neutral-100">
-                    {item.subject}
-                  </p>
+                  <p className="text-xs font-medium text-content">{item.subject}</p>
                   {item.summary ? (
-                    <p className="text-[10px] text-stone-500 dark:text-neutral-400">
-                      {item.summary}
-                    </p>
+                    <p className="text-[10px] text-content-muted">{item.summary}</p>
                   ) : null}
-                  <p className="mt-1 text-[10px] text-stone-400 dark:text-neutral-500">
-                    {formatTs(item.timestamp)}
-                  </p>
+                  <p className="mt-1 text-[10px] text-content-faint">{formatTs(item.timestamp)}</p>
                 </div>
                 <div className="flex shrink-0 items-center gap-1">
                   {item.status === 'unread' ? (
@@ -1173,16 +1141,11 @@ function ActiveDmView({
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex items-center gap-2 border-b border-stone-200 dark:border-neutral-800 px-3 py-2">
-        <button
-          type="button"
-          onClick={onBack}
-          className="text-xs text-stone-400 hover:text-stone-600 dark:text-neutral-500 dark:hover:text-neutral-300">
+      <div className="flex items-center gap-2 border-b border-line px-3 py-2">
+        <Button variant="tertiary" size="xs" onClick={onBack}>
           Back
-        </button>
-        <span className="text-sm font-medium text-stone-900 dark:text-neutral-100 truncate">
-          {peerId}
-        </span>
+        </Button>
+        <span className="text-sm font-medium text-content truncate">{peerId}</span>
         <span className="ml-auto flex items-center gap-1 text-[10px] text-green-600 dark:text-green-400">
           <svg
             className="h-3 w-3"
@@ -1203,17 +1166,15 @@ function ActiveDmView({
       {/* Messages */}
       <div className="flex-1 overflow-auto p-3 space-y-2">
         {loading && messages.length === 0 ? (
-          <p className="text-xs text-stone-400 animate-pulse">Loading encrypted messages...</p>
+          <p className="text-xs text-content-faint animate-pulse">Loading encrypted messages...</p>
         ) : null}
         {error ? <p className="text-xs text-red-500">{error}</p> : null}
         {!loading && !error && messages.length === 0 ? (
           <div
             data-testid="dm-empty-state"
             className="flex h-full flex-col items-center justify-center gap-1 text-center">
-            <p className="text-sm font-medium text-stone-500 dark:text-neutral-400">
-              No messages yet
-            </p>
-            <p className="text-xs text-stone-400 dark:text-neutral-500">
+            <p className="text-sm font-medium text-content-muted">No messages yet</p>
+            <p className="text-xs text-content-faint">
               Send the first end-to-end encrypted message below to start the conversation.
             </p>
           </div>
@@ -1224,10 +1185,10 @@ function ActiveDmView({
             className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${
               msg.outgoing
                 ? 'ml-auto bg-primary-500/15 dark:bg-primary-500/20'
-                : 'mr-auto bg-stone-100 dark:bg-neutral-800'
+                : 'mr-auto bg-surface-subtle'
             }`}>
-            <p className="text-stone-900 dark:text-neutral-100">{msg.plaintext}</p>
-            <p className="mt-1 text-[10px] text-stone-400 dark:text-neutral-500">
+            <p className="text-content">{msg.plaintext}</p>
+            <p className="mt-1 text-[10px] text-content-faint">
               {msg.from} &middot; {msg.timestamp}
             </p>
           </div>
@@ -1235,7 +1196,7 @@ function ActiveDmView({
       </div>
 
       {/* Compose */}
-      <div className="border-t border-stone-200 dark:border-neutral-800 p-3 flex gap-2">
+      <div className="border-t border-line p-3 flex gap-2">
         <input
           type="text"
           value={composeText}
@@ -1244,15 +1205,15 @@ function ActiveDmView({
             if (e.key === 'Enter' && !e.shiftKey) void handleSend();
           }}
           placeholder="Type a message..."
-          className="flex-1 rounded border border-stone-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3 py-2 text-sm text-stone-900 dark:text-neutral-100 placeholder:text-stone-400"
+          className="flex-1 rounded border border-line-strong bg-surface px-3 py-2 text-sm text-content placeholder:text-stone-400"
         />
-        <button
-          type="button"
+        <Button
+          variant="primary"
+          size="md"
           disabled={sending || !composeText.trim()}
-          onClick={() => void handleSend()}
-          className="rounded bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 disabled:opacity-50">
+          onClick={() => void handleSend()}>
           {sending ? 'Sending...' : 'Send'}
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -1275,11 +1236,11 @@ function DmsPanel() {
     return (
       <div
         data-testid="dms-coming-soon"
-        className="flex flex-col items-center justify-center gap-3 rounded-lg border border-stone-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/30 p-12 text-center">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-100 dark:bg-neutral-800">
+        className="flex flex-col items-center justify-center gap-3 rounded-lg border border-line bg-surface p-12 text-center">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-subtle">
           <svg
             aria-hidden="true"
-            className="h-5 w-5 text-stone-500 dark:text-neutral-400"
+            className="h-5 w-5 text-content-muted"
             fill="none"
             stroke="currentColor"
             strokeWidth={1.5}
@@ -1292,10 +1253,8 @@ function DmsPanel() {
           </svg>
         </div>
         <div>
-          <p className="text-sm font-medium text-stone-900 dark:text-neutral-100">
-            Secure direct messages — coming soon
-          </p>
-          <p className="mt-1 text-xs text-stone-400 dark:text-neutral-500">
+          <p className="text-sm font-medium text-content">Secure direct messages — coming soon</p>
+          <p className="mt-1 text-xs text-content-faint">
             End-to-end encrypted DMs use the Signal protocol. Full support is in progress.
           </p>
         </div>
@@ -1363,15 +1322,15 @@ function DmsPanel() {
             setResolveError(null);
           }}
           placeholder="Recipient @handle or wallet address"
-          className="flex-1 rounded border border-stone-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3 py-2 text-sm text-stone-900 dark:text-neutral-100 placeholder:text-stone-400"
+          className="flex-1 rounded border border-line-strong bg-surface px-3 py-2 text-sm text-content placeholder:text-stone-400"
         />
-        <button
-          type="button"
+        <Button
+          variant="primary"
+          size="md"
           disabled={!peerId.trim() || resolving}
-          onClick={() => void handleOpenDm()}
-          className="rounded bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 disabled:opacity-50">
+          onClick={() => void handleOpenDm()}>
           {resolving ? 'Resolving...' : 'Open DM'}
-        </button>
+        </Button>
       </div>
       {resolveError && (
         <p data-testid="dm-resolve-error" className="text-xs text-red-500 dark:text-red-400">
@@ -1407,23 +1366,14 @@ export default function MessagingSection({ tabs = VISIBLE_TABS }: MessagingSecti
     <div className="flex flex-col h-full">
       {/* Tab chips — only shown when more than one tab is enabled. */}
       {showTabBar && (
-        <div className="flex gap-1 px-4 py-3 border-b border-stone-200 dark:border-neutral-800 overflow-x-auto shrink-0">
-          {tabs.map(tab => (
-            <button
-              key={tab}
-              type="button"
-              onClick={() => setActiveTab(tab)}
-              data-active={activeTab === tab}
-              className={[
-                'whitespace-nowrap rounded-full px-3 py-1 text-xs font-medium transition-colors',
-                activeTab === tab
-                  ? 'bg-stone-800 text-white dark:bg-neutral-100 dark:text-neutral-900'
-                  : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800',
-              ].join(' ')}>
-              {TAB_LABELS[tab]}
-            </button>
-          ))}
-        </div>
+        <ChipTabs<Tab>
+          as="tab"
+          ariaLabel="Messaging sections"
+          className="flex gap-1 px-4 py-3 border-b border-line overflow-x-auto shrink-0"
+          items={tabs.map(tab => ({ id: tab, label: TAB_LABELS[tab] }))}
+          value={activeTab}
+          onChange={setActiveTab}
+        />
       )}
 
       {/* Signal key status — always visible when wallet is connected */}

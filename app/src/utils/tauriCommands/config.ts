@@ -57,7 +57,16 @@ export interface CloudProviderCreds {
 export interface ModelRegistryEntry {
   id: string;
   provider: string;
+  /** USD per 1M input tokens. `0`/absent ⇒ unknown. Pre-filled for known
+   *  vendor models from the Rust pricing catalog (`cost/catalog.rs`). */
+  cost_per_1m_input?: number;
+  /** USD per 1M cached-prefix input tokens. `0`/absent ⇒ unknown. */
+  cost_per_1m_cached_input?: number;
   cost_per_1m_output: number;
+  /** Max context window in tokens. `0`/absent ⇒ unknown. Pre-filled for known
+   *  vendor models from the Rust pricing catalog. Used to budget prompts and
+   *  trigger compaction — providers differ widely (128K–1M+). */
+  context_window?: number;
   vision: boolean;
 }
 
@@ -561,6 +570,40 @@ export async function openhumanUpdateAutonomySettings(
   return await callCoreRpc<CommandResponse<ConfigSnapshot>>({
     method: CORE_RPC_METHODS.configUpdateAutonomySettings,
     params: update,
+  });
+}
+
+// ── "Super context" toggle ───────────────────────────────────────────────────
+
+/**
+ * Reads the "super context" flag (`context.super_context_enabled`). When on,
+ * the harness runs a read-only context-collection pass on the first turn of a
+ * new thread — before the orchestrator LLM runs — and folds the result into the
+ * user message. Surfaced as the toggle below the chat composer.
+ */
+export async function openhumanGetSuperContextEnabled(): Promise<CommandResponse<boolean>> {
+  if (!isTauri()) {
+    throw new Error('Not running in Tauri');
+  }
+  return await callCoreRpc<CommandResponse<boolean>>({
+    method: CORE_RPC_METHODS.configGetSuperContextEnabled,
+  });
+}
+
+/**
+ * Enables or disables "super context". Takes effect for threads started after
+ * the change (the value is baked into the frozen turn-1 prefix), so toggling it
+ * mid-conversation only affects the next new thread.
+ */
+export async function openhumanSetSuperContextEnabled(
+  value: boolean
+): Promise<CommandResponse<boolean>> {
+  if (!isTauri()) {
+    throw new Error('Not running in Tauri');
+  }
+  return await callCoreRpc<CommandResponse<boolean>>({
+    method: CORE_RPC_METHODS.configSetSuperContextEnabled,
+    params: { value },
   });
 }
 
